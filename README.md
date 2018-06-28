@@ -13,3 +13,10 @@ Ignore bs4-test.py for the time being. I am hoping to implement this into a Djan
  Current capabilities :
 
     1. Parse dungeon data : Titles, Stamina cost, floors, etc
+
+Requirements :
+
+    1. A link to the dungeon page
+    2. BeautifulSoup4
+    3. Python 3
+    4. html5lib or lxml

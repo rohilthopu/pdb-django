@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup as bs
 import html5lib
 
 links = ["http://www.puzzledragonx.com/en/mission.asp?m=3047", "http://www.puzzledragonx.com/en/mission.asp?m=2207",
-         "http://www.puzzledragonx.com/en/mission.asp?m=681"]
+         "http://www.puzzledragonx.com/en/mission.asp?m=681", "http://www.puzzledragonx.com/en/mission.asp?m=3121"]
 base_link = "http://www.puzzledragonx.com/en/mission.asp?m="
 
 
@@ -56,18 +56,23 @@ def parse(link):
 
     for item in encounters:
         table1 = item.find_all("td")
+
         for dat in table1:
+
             attrs = dat.attrs
+
             if 'class' in attrs:
                 if 'floorcontainer' in attrs['class']:
-                    print('Floor', floor)
+                    print('Encounter Set', floor)
                     floor += 1
-            # print(dat.prettify())
 
+                cardname = dat.find(class_='cardname')
+                if cardname is not None:
+                    print("\t",cardname.text)
 
 #
-# for link in links:
-#     parse(link)
-#     print()
+for link in links:
+    parse(link)
+    print()
 
-parse(links[0])
+# parse(links[2])
