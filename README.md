@@ -13,6 +13,8 @@ Ignore bs4-test.py for the time being. I am hoping to implement this into a Djan
  Current capabilities :
 
     1. Parse dungeon data : Titles, Stamina cost, floors, etc
+    2. Pull monsters that are encountered in each set for the dungeon. THIS HAS LIMITATIONS
+        BECAUSE OF PADX NOT LISTING EVERY FLOOR EXPLICITLY.
 
 Requirements :
 

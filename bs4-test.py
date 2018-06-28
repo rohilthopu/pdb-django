@@ -1,7 +1,6 @@
 import urllib
 
 from bs4 import BeautifulSoup as bs
-import html5lib
 
 links = ["http://www.puzzledragonx.com/en/mission.asp?m=3047", "http://www.puzzledragonx.com/en/mission.asp?m=2207",
          "http://www.puzzledragonx.com/en/mission.asp?m=681", "http://www.puzzledragonx.com/en/mission.asp?m=3121"]
@@ -52,27 +51,43 @@ def parse(link):
     # Battle encounters
     encounters = soup.body.find(id="tabledrop").find_all("tr")
 
-    floor = 1
+    floor = 0
 
+    # This method counts floors because I need to know how many encounter sets there are to know
+    # how many times to repeat the first set.
     for item in encounters:
         table1 = item.find_all("td")
-
         for dat in table1:
-
             attrs = dat.attrs
-
             if 'class' in attrs:
                 if 'floorcontainer' in attrs['class']:
-                    print('Encounter Set', floor)
                     floor += 1
 
+    num_repetitions = int(battles) - floor + 1
+    num_rep_temp = num_repetitions
+
+    floor = 1
+    for item in encounters:
+        table1 = item.find_all("td")
+        for dat in table1:
+            attrs = dat.attrs
+            if 'class' in attrs:
+                if 'floorcontainer' in attrs['class']:
+                    if num_rep_temp > 1:
+                        print("Encounter Set", floor, ", Repeated", num_repetitions, " times.")
+                        floor += num_repetitions
+                        num_rep_temp = 0
+                    else:
+                        print("Encounter Set", floor)
+                        floor += 1
                 cardname = dat.find(class_='cardname')
                 if cardname is not None:
-                    print("\t",cardname.text)
 
-#
+                    print("\t", cardname.text)
+
+
 for link in links:
     parse(link)
     print()
 
-# parse(links[2])
+# parse(links[1])
