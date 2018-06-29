@@ -2,6 +2,8 @@ import urllib
 
 from bs4 import BeautifulSoup as bs
 
+import lxml
+
 links = ["http://www.puzzledragonx.com/en/mission.asp?m=3047", "http://www.puzzledragonx.com/en/mission.asp?m=2207",
          "http://www.puzzledragonx.com/en/mission.asp?m=681", "http://www.puzzledragonx.com/en/mission.asp?m=3121"]
 base_link = "http://www.puzzledragonx.com/en/mission.asp?m="
@@ -9,7 +11,7 @@ base_link = "http://www.puzzledragonx.com/en/mission.asp?m="
 
 def parse(link):
     site = urllib.request.urlopen(link)
-    soup = bs(site, 'html5lib')
+    soup = bs(site, 'lxml')
 
     # print(soup.body.prettify())
 
@@ -80,14 +82,36 @@ def parse(link):
                     else:
                         print("Encounter Set", floor)
                         floor += 1
+
                 cardname = dat.find(class_='cardname')
                 if cardname is not None:
-
                     print("\t", cardname.text)
+                    health = item.find(class_='nc bossHp')
+                    if health is not None:
+                        print('\t\tHP :', health.text)
+                    else:
+                        health = item.find(class_='nc')
+                        if health is not None:
+                            print('\t\tHP :', health.text)
+                    attack = item.find(class_='blue nc bossAtk')
+                    if attack is not None:
+                        print("\t\tAtk :", attack.text)
+                    else:
+                        attack = item.find(class_='blue nc')
+                        if attack is not None:
+                            print('\t\tAtk :', attack.text)
+                    defense = item.find(class_='green nc')
+                    if defense is not None:
+                        print('\t\tDEF :', defense.text)
+
+                    memo = item.find_all(class_='skillbox small')
+                    for skill in memo:
+                        if skill.text is not "":
+                            print('\t\tSkill :',skill.text)
 
 
-for link in links:
-    parse(link)
-    print()
+# for link in links:
+#     parse(link)
+#     print()
 
-# parse(links[1])
+parse(links[3])
