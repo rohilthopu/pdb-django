@@ -6,7 +6,7 @@ import lxml
 
 links = ["http://www.puzzledragonx.com/en/mission.asp?m=3047", "http://www.puzzledragonx.com/en/mission.asp?m=2207",
          "http://www.puzzledragonx.com/en/mission.asp?m=681", "http://www.puzzledragonx.com/en/mission.asp?m=3121"]
-base_link = "http://www.puzzledragonx.com/en/mission.asp?m="
+base_link = "http://www.puzzledragonx.com/en/"
 
 
 def parse(link):
@@ -109,8 +109,15 @@ def parse_encounters(soup):
                     for thing in memo:
                         href = thing['href']
                         if 'enemyskill' in href:
-                            print('\t\t', href)
-
+                            # print('\t\t', href)
+                            parse_skill(href)
+def parse_skill(href):
+    skill_link = base_link + href
+    site = urllib.request.urlopen(skill_link)
+    ss = bs(site, 'lxml')
+    skill = ss.find_all(class_='value-end')
+    print('\t\tSkill Name :', skill[0].text, ",",skill[2].text)
+    print('\t\t\tSkill Effect :', skill[1].text)
 
 # for link in links:
 #     parse(link)
