@@ -12,18 +12,12 @@ base_link = "http://www.puzzledragonx.com/en/mission.asp?m="
 def parse(link):
     site = urllib.request.urlopen(link)
     soup = bs(site, 'lxml')
+    parse_titles(soup)
+    parse_dungeon(soup)
+    parse_encounters(soup)
 
-    # print(soup.body.prettify())
 
-    # The title of the dungeon
-    title = soup.body.find(class_='name').get_text().strip()
-
-    # Japanese Title
-    titlej = soup.body.find(class_='jap').get_text()
-
-    # Alternate Name
-    alt_title = soup.body.find(class_='title value-end nowrap').get_text().strip()
-
+def parse_dungeon(soup):
     # The type of Dungeon (normal, special,etc)
     dungeon_type = soup.body.find(class_='title value-end').get_text().strip()
     type_split = ''.join([line.strip() for line in dungeon_type])
@@ -43,18 +37,26 @@ def parse(link):
     elif type_split == "NormalDungeon":
         type_split = "Normal Dungeon"
 
-    print("JPN Title :", titlej)
-    # print("NA Title :", alt_title)
-    print("Alt Titles :", alt_title, ",", title)
     print("Dungeon Type :", type_split)
     print("Stamina :", stam)
     print("Battles :", battles)
 
+
+def parse_titles(soup):
+    # The title of the dungeon
+    title = soup.body.find(class_='name').get_text().strip()
+    # Japanese Title
+    titlej = soup.body.find(class_='jap').get_text()
+    # Alternate Name
+    alt_title = soup.body.find(class_='title value-end nowrap').get_text().strip()
+    print("JPN Title :", titlej)
+    print("Alt Titles :", alt_title, ",", title)
+
+
+def parse_encounters(soup):
     # Battle encounters
     encounters = soup.body.find(id="tabledrop").find_all("tr")
-
     floor = 0
-
     # This method counts floors because I need to know how many encounter sets there are to know
     # how many times to repeat the first set.
     for item in encounters:
@@ -65,9 +67,8 @@ def parse(link):
                 if 'floorcontainer' in attrs['class']:
                     floor += 1
 
-    num_repetitions = int(battles) - floor + 1
+    num_repetitions = int(soup.body.find(class_='green').text) - floor + 1
     num_rep_temp = num_repetitions
-
     floor = 1
     for item in encounters:
         table1 = item.find_all("td")
@@ -104,10 +105,11 @@ def parse(link):
                     if defense is not None:
                         print('\t\tDEF :', defense.text)
 
-                    memo = item.find_all(class_='skillbox small')
-                    for skill in memo:
-                        if skill.text is not "":
-                            print('\t\tSkill :',skill.text)
+                    memo = item.find(class_='mmemodetail').find_all('a')
+                    for thing in memo:
+                        href = thing['href']
+                        if 'enemyskill' in href:
+                            print('\t\t', href)
 
 
 # for link in links:
