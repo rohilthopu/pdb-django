@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pad Cal Home</title>
+</head>
+<body>
+
+<h>This is a test run of my thing!</h>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit"/>
+</form>
+
+
+{% for dungeon in dungeons %}
+    <div>{{ dungeon.dungeonLink }}</div>
+
+{% endfor %}
+
+</body>
+</html>
