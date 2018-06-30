@@ -26,21 +26,22 @@ def homeView(request):
 
             link = data.get('dungeonLink')
 
-            for item in source:
-                if item.dungeonLink.lower() == link.lower():
-                    exists = True
-            if (not exists):
-                parsedDungeon['dungeonLink'] = link
-                parse(link)
+            if 'mission' in link:
+                for item in source:
+                    if item.dungeonLink.lower() == link.lower():
+                        exists = True
+                if (not exists):
+                    parsedDungeon['dungeonLink'] = link
+                    parse(link)
 
-                dungeon = Dungeon(jpnTitle=parsedDungeon['jpnTitle'], altTitle=parsedDungeon['altTitle'],
-                                  altTitle2=parsedDungeon['altTitle2'], stamina=parsedDungeon['stamina'],
-                                  battles=parsedDungeon['battles'],
-                                  dungeonLink=parsedDungeon['dungeonLink'], dungeonType=parsedDungeon['dungeonType'])
-                dungeon.save()
-                return redirect('/home/')
-            else:
-                return redirect('/home/')
+                    dungeon = Dungeon(jpnTitle=parsedDungeon['jpnTitle'], altTitle=parsedDungeon['altTitle'],
+                                      altTitle2=parsedDungeon['altTitle2'], stamina=parsedDungeon['stamina'],
+                                      battles=parsedDungeon['battles'],
+                                      dungeonLink=parsedDungeon['dungeonLink'], dungeonType=parsedDungeon['dungeonType'])
+                    dungeon.save()
+                    return redirect('/home/')
+                else:
+                    return redirect('/home/')
     return render(request, template, context)
 
 

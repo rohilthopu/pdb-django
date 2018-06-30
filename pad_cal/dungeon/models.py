@@ -9,3 +9,4 @@ class Dungeon(models.Model):
     battles = models.CharField(default="", max_length=10)
     dungeonType = models.CharField(default="", max_length=30)
     dungeonLink = models.TextField(default="")
+    daily = models.BooleanField(default=False)
