@@ -10,3 +10,9 @@ class Dungeon(models.Model):
     dungeonType = models.CharField(default="", max_length=30)
     dungeonLink = models.TextField(default="")
     daily = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.jpnTitle
+
+class DungeonToday(models.Model):
+    jpnTitle = models.CharField(default="", max_length=50, null=True, blank=True)

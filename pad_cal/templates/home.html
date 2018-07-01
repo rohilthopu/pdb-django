@@ -17,25 +17,27 @@
 <nav class="navbar is-fixed-top is-black" role="navigation">
     <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="/home/">Pad Calender</a>
-
+            <a class="navbar-item" href="/">Pad Calender</a>
+            <a class="navbar-item" href="/add/">Add Dungeon</a>
         </div>
     </div>
 </nav>
 
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit"/>
-</form>
+{% block content %}
 
 
-<div>Dungeons in the database:</div>
-{% for dungeon in dungeons %}
-    <div>{{ dungeon.jpnTitle }}, {{ dungeon.altTitle }}, {{ dungeon.altTitle2 }}</div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit"/>
+    </form>
 
-{% endfor %}
+    <div>
+        {% for dungeon in dungeons %}
+            <div> {{ dungeon.jpnTitle }} </div>
+        {% endfor %}
+    </div>
 
+{% endblock %}
 </body>
 </html>

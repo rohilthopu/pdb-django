@@ -20,6 +20,6 @@ from dungeon import views as dv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('home/', dv.homeView),
-    path('', dv.homeView)
+    path('', dv.homeView),
+    path('add/', dv.addDungeonView)
 ]

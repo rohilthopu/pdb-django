@@ -1,4 +1,6 @@
 from django import forms
+from .models import Dungeon, DungeonToday
+from .fields import MyModelChoiceField
 
 DAY_CHOICES = (
     ('', 'Select the Day'),
@@ -23,3 +25,6 @@ class DungeonLink(forms.Form):
     daily = forms.ChoiceField(choices=DAILY_CHOICES, required=True)
     day = forms.ChoiceField(choices=DAY_CHOICES, required=False)
 
+
+class DailyDungeonSelector(forms.Form):
+    dungeon = MyModelChoiceField(queryset=Dungeon.objects.all(), to_field_name="jpnTitle", empty_label='Choose a dungeon',)

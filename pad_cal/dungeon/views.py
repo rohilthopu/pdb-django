@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Dungeon
-from .forms import DungeonLink
+from .models import Dungeon, DungeonToday
+from .forms import DungeonLink, DailyDungeonSelector
 from bs4 import BeautifulSoup as bs
 import urllib
 
@@ -12,6 +12,39 @@ parsedDungeon = {}
 def homeView(request):
     template = 'home.html'
 
+    dungeonList = DungeonToday.objects.all()
+    form = DailyDungeonSelector()
+
+    context = {'dungeons': dungeonList, 'form': form}
+
+    if request.method == 'POST':
+        form = DailyDungeonSelector(request.POST)
+        if (form.is_valid()):
+            # verify that it doesnt already exist
+            data = form.cleaned_data['dungeon']
+
+            print(data)
+
+            exists = False
+
+            title = data
+
+            for item in dungeonList:
+                if item.jpnTitle == title:
+                    exists = True
+            if (not exists):
+                dungeon = DungeonToday(jpnTitle=title)
+                dungeon.save()
+                return redirect('/')
+            else:
+                return redirect('/')
+
+    return render(request, template, context)
+
+
+
+def addDungeonView(request):
+    template = 'addDungeon.html'
     source = Dungeon.objects.all()
     form = DungeonLink()
 
@@ -37,11 +70,12 @@ def homeView(request):
                     dungeon = Dungeon(jpnTitle=parsedDungeon['jpnTitle'], altTitle=parsedDungeon['altTitle'],
                                       altTitle2=parsedDungeon['altTitle2'], stamina=parsedDungeon['stamina'],
                                       battles=parsedDungeon['battles'],
-                                      dungeonLink=parsedDungeon['dungeonLink'], dungeonType=parsedDungeon['dungeonType'])
+                                      dungeonLink=parsedDungeon['dungeonLink'],
+                                      dungeonType=parsedDungeon['dungeonType'])
                     dungeon.save()
-                    return redirect('/home/')
+                    return redirect('/')
                 else:
-                    return redirect('/home/')
+                    return redirect('/')
     return render(request, template, context)
 
 
