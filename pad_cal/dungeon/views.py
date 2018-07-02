@@ -61,7 +61,8 @@ def addDungeonView(request):
 
             if 'mission' in link:
                 for item in source:
-                    if item.dungeonLink.lower() == link.lower():
+                    if item.dungeonLink.rsplit('/', 1)[1].lower() in link.lower():
+                        print(item.dungeonLink.rsplit('/',1)[1].lower(), link.lower())
                         exists = True
                 if (not exists):
                     parsedDungeon['dungeonLink'] = link
