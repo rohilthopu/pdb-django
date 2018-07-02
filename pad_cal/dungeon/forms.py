@@ -22,8 +22,8 @@ DAILY_CHOICES = (
 
 class DungeonLink(forms.Form):
     dungeonLink = forms.CharField(max_length=50)
-    daily = forms.ChoiceField(choices=DAILY_CHOICES, required=True)
-    day = forms.ChoiceField(choices=DAY_CHOICES, required=False)
+    # daily = forms.ChoiceField(choices=DAILY_CHOICES, required=True)
+    # day = forms.ChoiceField(choices=DAY_CHOICES, required=False)
 
 
 class DailyDungeonSelector(forms.Form):
