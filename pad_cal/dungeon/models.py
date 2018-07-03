@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date
 
 # Create your models here.
 class Dungeon(models.Model):
@@ -15,4 +16,5 @@ class Dungeon(models.Model):
         return self.jpnTitle
 
 class DungeonToday(models.Model):
-    jpnTitle = models.CharField(default="", max_length=50, null=True, blank=True)
+    dungeons = models.ManyToManyField(Dungeon)
+    listingDate = models.DateField(default=date.today())

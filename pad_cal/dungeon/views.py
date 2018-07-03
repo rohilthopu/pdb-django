@@ -3,6 +3,7 @@ from .models import Dungeon, DungeonToday
 from .forms import DungeonLink, DailyDungeonSelector
 from bs4 import BeautifulSoup as bs
 import urllib
+from datetime import date
 
 # Create your views here.
 
@@ -12,33 +13,48 @@ parsedDungeon = {}
 def homeView(request):
     template = 'home.html'
 
-    dungeonList = DungeonToday.objects.all()
-    form = DailyDungeonSelector()
-
-    context = {'dungeons': dungeonList, 'form': form}
-
     if request.method == 'POST':
         form = DailyDungeonSelector(request.POST)
         if (form.is_valid()):
             # verify that it doesnt already exist
             data = form.cleaned_data['dungeon']
+            # exists = False
+            # for item in dungeonList:
+            #     if item.jpnTitle == data.jpnTitle:
+            #         exists = True
+            # if (not exists):
+            #     dungeon = DungeonToday(jpnTitle=data.jpnTitle)
+            #     dungeon.save()
+            #     return redirect('/')
+            # else:
+            #     return redirect('/')
 
-            print(data)
-
-            exists = False
-
-            title = data
-
-            for item in dungeonList:
-                if item.jpnTitle == title:
-                    exists = True
-            if (not exists):
-                dungeon = DungeonToday(jpnTitle=title)
-                dungeon.save()
-                return redirect('/')
+            todaysList = DungeonToday.objects.filter(listingDate=date.today()).first()
+            addDungeon = Dungeon.objects.get(jpnTitle=data.jpnTitle)
+            print(todaysList)
+            if todaysList is not None:
+                todaysList=DungeonToday.objects.get(listingDate=date.today())
+                if addDungeon not in todaysList.dungeons.all():
+                    todaysList.dungeons.add(addDungeon)
+                    todaysList.save()
+                    return redirect('/')
             else:
+                todaysList = DungeonToday()
+                todaysList.save()
+                todaysList.dungeons.add(addDungeon)
+                todaysList.save()
                 return redirect('/')
 
+
+
+    dungeonList = DungeonToday.objects.filter(listingDate=date.today()).first()
+    if dungeonList is None:
+        todaysList = DungeonToday()
+        todaysList.save()
+        dungeonList = DungeonToday.objects.get(listingDate=date.today())
+    form = DailyDungeonSelector()
+
+    context = {'dungeons': dungeonList.dungeons.all(), 'form': form, 'date': dungeonList.listingDate}
     return render(request, template, context)
 
 
@@ -74,9 +90,9 @@ def addDungeonView(request):
                                       dungeonLink=parsedDungeon['dungeonLink'],
                                       dungeonType=parsedDungeon['dungeonType'])
                     dungeon.save()
-                    return redirect('/')
+                    return redirect('/add/')
                 else:
-                    return redirect('/')
+                    return redirect('/add/')
     return render(request, template, context)
 
 

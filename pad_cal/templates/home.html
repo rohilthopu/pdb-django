@@ -23,21 +23,25 @@
     </div>
 </nav>
 
-{% block content %}
+<div align="center">
+    {% block content %}
 
 
-    <form method="POST">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit"/>
-    </form>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit"/>
+        </form>
 
-    <div>
-        {% for dungeon in dungeons %}
-            <div> {{ dungeon.jpnTitle }} </div>
-        {% endfor %}
-    </div>
+        <div>
+            {% for dungeon in dungeons %}
+                <div> {{ dungeon.jpnTitle }} </div>
+            {% endfor %}
+            <div> {{ date }}</div>
+        </div>
 
-{% endblock %}
+    {% endblock %}
+</div>
+
 </body>
 </html>
