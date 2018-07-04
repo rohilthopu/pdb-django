@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Dungeon, DungeonToday
+from .models import Dungeon, DungeonToday, Monster
 from .forms import DungeonLink, DailyDungeonSelector
 from bs4 import BeautifulSoup as bs
 import urllib
@@ -18,34 +18,14 @@ def homeView(request):
         if (form.is_valid()):
             # verify that it doesnt already exist
             data = form.cleaned_data['dungeon']
-            # exists = False
-            # for item in dungeonList:
-            #     if item.jpnTitle == data.jpnTitle:
-            #         exists = True
-            # if (not exists):
-            #     dungeon = DungeonToday(jpnTitle=data.jpnTitle)
-            #     dungeon.save()
-            #     return redirect('/')
-            # else:
-            #     return redirect('/')
-
             todaysList = DungeonToday.objects.filter(listingDate=date.today()).first()
             addDungeon = Dungeon.objects.get(jpnTitle=data.jpnTitle)
-            print(todaysList)
             if todaysList is not None:
-                todaysList=DungeonToday.objects.get(listingDate=date.today())
+                todaysList = DungeonToday.objects.get(listingDate=date.today())
                 if addDungeon not in todaysList.dungeons.all():
                     todaysList.dungeons.add(addDungeon)
                     todaysList.save()
                     return redirect('/')
-            else:
-                todaysList = DungeonToday()
-                todaysList.save()
-                todaysList.dungeons.add(addDungeon)
-                todaysList.save()
-                return redirect('/')
-
-
 
     dungeonList = DungeonToday.objects.filter(listingDate=date.today()).first()
     if dungeonList is None:
@@ -54,9 +34,9 @@ def homeView(request):
         dungeonList = DungeonToday.objects.get(listingDate=date.today())
     form = DailyDungeonSelector()
 
+
     context = {'dungeons': dungeonList.dungeons.all(), 'form': form, 'date': dungeonList.listingDate}
     return render(request, template, context)
-
 
 
 def addDungeonView(request):
@@ -78,17 +58,21 @@ def addDungeonView(request):
             if 'mission' in link:
                 for item in source:
                     if item.dungeonLink.rsplit('/', 1)[1].lower() in link.lower():
-                        print(item.dungeonLink.rsplit('/',1)[1].lower(), link.lower())
                         exists = True
                 if (not exists):
                     parsedDungeon['dungeonLink'] = link
-                    parse(link)
+                    dungeon = Dungeon()
+                    dungeon.save()
 
-                    dungeon = Dungeon(jpnTitle=parsedDungeon['jpnTitle'], altTitle=parsedDungeon['altTitle'],
-                                      altTitle2=parsedDungeon['altTitle2'], stamina=parsedDungeon['stamina'],
-                                      battles=parsedDungeon['battles'],
-                                      dungeonLink=parsedDungeon['dungeonLink'],
-                                      dungeonType=parsedDungeon['dungeonType'])
+                    parse(link, dungeon)
+
+                    dungeon.jpnTitle=parsedDungeon['jpnTitle']
+                    dungeon.altTitle=parsedDungeon['altTitle']
+                    dungeon.altTitle2=parsedDungeon['altTitle2']
+                    dungeon.stamina=parsedDungeon['stamina']
+                    dungeon.battles=parsedDungeon['battles']
+                    dungeon.dungeonLink=parsedDungeon['dungeonLink']
+                    dungeon.dungeonType=parsedDungeon['dungeonType']
                     dungeon.save()
                     return redirect('/add/')
                 else:
@@ -96,12 +80,12 @@ def addDungeonView(request):
     return render(request, template, context)
 
 
-def parse(link):
+def parse(link, dungeon):
     site = urllib.request.urlopen(link)
     soup = bs(site, 'lxml')
     parse_titles(soup)
     parse_dungeon(soup)
-    # parse_encounters(soup)
+    parse_encounters(soup, dungeon)
 
 
 def parse_titles(soup):
@@ -115,9 +99,6 @@ def parse_titles(soup):
     parsedDungeon['jpnTitle'] = titlej
     parsedDungeon['altTitle'] = alt_title
     parsedDungeon['altTitle2'] = title
-
-    # print("JPN Title :", titlej)
-    # print("Alt Titles :", alt_title, ",", title)
 
 
 def parse_dungeon(soup):
@@ -144,12 +125,9 @@ def parse_dungeon(soup):
     parsedDungeon['stamina'] = stam
     parsedDungeon['battles'] = battles
 
-    # print("Dungeon Type :", type_split)
-    # print("Stamina :", stam)
-    # print("Battles :", battles)
 
+def parse_encounters(soup, dungeon):
 
-def parse_encounters(soup):
     # Battle encounters
     encounters = soup.body.find(id="tabledrop").find_all("tr")
     floor = 0
@@ -173,40 +151,55 @@ def parse_encounters(soup):
             if 'class' in attrs:
                 if 'floorcontainer' in attrs['class']:
                     if num_rep_temp > 1:
-                        print("Encounter Set", floor, ", Repeated", num_repetitions, " times.")
+                        # print("Encounter Set", floor, ", Repeated", num_repetitions, " times.")
                         floor += num_repetitions
                         num_rep_temp = 0
                     else:
-                        print("Encounter Set", floor)
+                        # print("Encounter Set", floor)
                         floor += 1
+
+
 
                 cardname = dat.find(class_='cardname')
                 if cardname is not None:
-                    print("\t", cardname.text)
+                    # print("\t", cardname.text)
+
+                    monster = Monster()
+                    # get the monster name first
+                    monster.name = cardname.text
+
                     health = item.find(class_='nc bossHp')
                     if health is not None:
-                        print('\t\tHP :', health.text)
+                        monster.hp = health.text
+                        # print('\t\tHP :', health.text)
                     else:
                         health = item.find(class_='nc')
                         if health is not None:
-                            print('\t\tHP :', health.text)
+                            monster.hp = health.text
+                            # print('\t\tHP :', health.text)
                     attack = item.find(class_='blue nc bossAtk')
                     if attack is not None:
-                        print("\t\tAtk :", attack.text)
+                        monster.atk = attack.text
+                        # print("\t\tAtk :", attack.text)
                     else:
                         attack = item.find(class_='blue nc')
                         if attack is not None:
-                            print('\t\tAtk :', attack.text)
+                            # print('\t\tAtk :', attack.text)
+                            monster.atk = attack.text
                     defense = item.find(class_='green nc')
                     if defense is not None:
-                        print('\t\tDEF :', defense.text)
+                        # print('\t\tDEF :', defense.text)
+                        monster.defense = defense.text
 
-                    memo = item.find(class_='mmemodetail').find_all('a')
-                    for thing in memo:
-                        href = thing['href']
-                        if 'enemyskill' in href:
-                            # print('\t\t', href)
-                            parse_skill(href)
+                    # memo = item.find(class_='mmemodetail').find_all('a')
+                    # for thing in memo:
+                    #     href = thing['href']
+                    #     if 'enemyskill' in href:
+                    #         # print('\t\t', href)
+                    #         parse_skill(href)
+
+                    monster.save()
+                    dungeon.monsters.add(monster)
 
 
 def parse_skill(href):

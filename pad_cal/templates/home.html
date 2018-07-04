@@ -33,11 +33,18 @@
             <input type="submit" value="Submit"/>
         </form>
 
+        <div style="margin-bottom: 25px;"> Dungeons for {{ date }}</div>
+
+
         <div>
             {% for dungeon in dungeons %}
                 <div> {{ dungeon.jpnTitle }} </div>
+                {% for monster in dungeon.monsters.all %}
+                    <div> {{ monster }} </div>
+                {% endfor %}
+                <div style="margin-bottom: 25px;"></div>
             {% endfor %}
-            <div> {{ date }}</div>
+
         </div>
 
     {% endblock %}
