@@ -41,10 +41,10 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Monster Name</th>
-                    <th>HP</th>
-                    <th>ATK</th>
-                    <th>DEF</th>
+                    <th class="has-text-left">Monster Name</th>
+                    <th class="has-text-right">HP</th>
+                    <th class="has-text-right">ATK</th>
+                    <th class="has-text-right">DEF</th>
                 </tr>
                 </thead>
 
@@ -54,10 +54,10 @@
                 {% for monster in dungeon.monsters.all %}
                     {#                    <div> {{ monster }} : HP: {{ monster.hp }}, ATK: {{ monster.atk }}, DEF: {{ monster.defense }} </div>#}
                     <tr>
-                        <td> {{ monster.name }}</td>
-                        <td> {{ monster.hp }}</td>
-                        <td> {{ monster.atk }}</td>
-                        <td> {{ monster.defense }}</td>
+                        <td class="has-text-left"> {{ monster.name }}</td>
+                        <td class="has-text-right"> {{ monster.hp }}</td>
+                        <td class="has-text-right"> {{ monster.atk }}</td>
+                        <td class="has-text-right"> {{ monster.defense }}</td>
                     </tr>
                 {% endfor %}
                 <div style="margin-bottom: 25px;"></div>
