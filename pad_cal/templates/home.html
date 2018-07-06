@@ -18,26 +18,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 
-    {% load static %}
-    <link rel='stylesheet' href="{% static 'css/bulma-accordion.min.css' %}">
-    <script type="text/javascript" src="{% static 'js/bulma-accordion.min.js' %}"></script>
-
-
 </head>
-
-<script type="text/javascript">
-    $(function () {
-        bulmaAccordion.attach('.accordions');
-    });
-</script>
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<body class="has-navbar-fixed-top">
+<body>
 
-<nav class="navbar is-fixed-top is-black" role="navigation">
+<nav class="navbar is-dark" role="navigation">
     <div class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" href="/">Pad Calender</a>
@@ -46,53 +34,61 @@
     </div>
 </nav>
 
-<div align="center">
-    {% block content %}
+{% block content %}
 
+    {#    <div align="center" style="margin-bottom: 25px; margin-top: 25px"> Dungeons for {{ date }}</div>#}
+    <section class="hero is-dark" style="margin-bottom: 25px">
+        <div class="hero-body has-text-centered">
+            <div class="container">
+                <h1 class="title"> Dungeons for {{ date }}</h1>
+            </div>
+        </div>
+    </section>
 
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit"/>
-        </form>
+    <div class="columns is-centered">
 
-        <div style="margin-bottom: 25px;"> Dungeons for {{ date }}</div>
-
-
-
-        {% for dungeon in dungeons %}
-            <div> {{ dungeon.altTitle }}</div>
-            <table class="table">
+        <div class="column is-half">
+            <table class="table is-fullwidth">
                 <thead>
                 <tr>
-                    <th class="has-text-left">Monster Name</th>
-                    <th class="has-text-right">HP</th>
-                    <th class="has-text-right">ATK</th>
-                    <th class="has-text-right">DEF</th>
+                    <th class="has-text-left">Dungeon</th>
+                    <th class="has-text-right">Stamina Cost</th>
+                    <th class="has-text-right">Battles</th>
+                    <th class="has-text-right">Dungeon Type</th>
                 </tr>
                 </thead>
 
                 <tbody>
 
-                {% for monster in dungeon.monsters.all %}
+                {% for dungeon in dungeons %}
                     <tr>
-                        <td class="has-text-left"> {{ monster.name }}</td>
-                        <td class="has-text-right"> {{ monster.hp }}</td>
-                        <td class="has-text-right"> {{ monster.atk }}</td>
-                        <td class="has-text-right"> {{ monster.defense }}</td>
+                        <td class="has-text-left"><a href="/{{ dungeon.id }}"> {{ dungeon.altTitle }} </a></td>
+                        <td class="has-text-right"> {{ dungeon.stamina }}</td>
+                        <td class="has-text-right"> {{ dungeon.battles }}</td>
+                        <td class="has-text-right"> {{ dungeon.dungeonType }}</td>
                     </tr>
                 {% endfor %}
                 <div style="margin-bottom: 25px;"></div>
                 </tbody>
 
             </table>
-        {% endfor %}
+        </div>
+
+
+    </div>
+
+    <div align="center">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
 
 
 
 
-    {% endblock %}
-</div>
 
+{% endblock %}
 </body>
 </html>

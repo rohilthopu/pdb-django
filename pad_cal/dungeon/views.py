@@ -57,7 +57,7 @@ def addDungeonView(request):
 
             if 'mission' in link:
                 for item in source:
-                    if item.dungeonLink.rsplit('/', 1)[1].lower() in link.lower():
+                    if item.dungeonLink.rsplit('=', 1)[1].lower() in link.lower():
                         exists = True
                 if (not exists):
                     dungeon = Dungeon()
@@ -72,3 +72,9 @@ def addDungeonView(request):
                     return redirect('/add/')
     return render(request, template, context)
 
+
+def dungeonView(request, id):
+    dungeon = Dungeon.objects.get(pk=id)
+    template = 'dungeondetail.html'
+
+    return render(request, template, {'dungeon': dungeon})

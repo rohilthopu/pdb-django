@@ -21,5 +21,6 @@ from dungeon import views as dv
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', dv.homeView),
-    path('add/', dv.addDungeonView)
+    path('add/', dv.addDungeonView),
+    url(r'^(?P<id>\d+)/$', dv.dungeonView)
 ]

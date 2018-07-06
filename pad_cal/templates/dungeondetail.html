@@ -1,0 +1,95 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column">
+
+
+                    <div class="container">
+                        <h1 class="title">
+                            {{ dungeon.jpnTitle }}
+                        </h1>
+                        <h2 class="subtitle">
+                            {{ dungeon.altTitle }}, {{ dungeon.altTitle2 }}
+                        </h2>
+                        <h2 class="subtitle is-7">
+                            {{ dungeon.dungeonType }}
+                        </h2>
+                    </div>
+
+
+                </div>
+
+                <div class="column is-one-quarter">
+                    <div class="container">
+
+                        <div class="title"> Stamina : {{ dungeon.stamina }}</div>
+                        <div class="subtitle"> Battles : {{ dungeon.battles }}</div>
+                    </div>
+
+                </div>
+
+                <div class="column">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container is-fluid" style="margin-top:25px">
+
+
+        <div class="columns">
+
+            <div class="column">
+
+
+                <label class="label" align="center"> Dungeon Encounters </label>
+
+                <div class="columns is-centered">
+
+                    <div class="column is-half">
+                        <table class="table is-fullwidth">
+                            <thead>
+                            <tr>
+                                <th class="has-text-left">Monster</th>
+                                <th class="has-text-right">HP</th>
+                                <th class="has-text-right">ATK</th>
+                                <th class="has-text-right">DEF</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+
+                            {% for monster in dungeon.monsters.all %}
+                                <tr>
+                                    <td class="has-text-left"> {{ monster.name }} </td>
+                                    <td class="has-text-right"> {{ monster.hp }}</td>
+                                    <td class="has-text-right"> {{ monster.atk }}</td>
+                                    <td class="has-text-right"> {{ monster.defense }}</td>
+                                </tr>
+                            {% endfor %}
+                            <div style="margin-bottom: 25px;"></div>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
