@@ -4,18 +4,29 @@
 
 
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit"/>
-</form>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+    </form>
 
 
-<div>Dungeons in the database:</div>
-{% for dungeon in dungeons %}
-    <div>{{ dungeon.jpnTitle }}, {{ dungeon.altTitle }}, {{ dungeon.altTitle2 }}</div>
+    <div style="margin-bottom: 20px; margin-top: 20px;">Dungeons in the database:</div>
+    {% for dungeon in dungeons %}
+        <div style="margin-bottom: 20px;">{{ dungeon.jpnTitle }}, {{ dungeon.altTitle }}, {{ dungeon.altTitle2 }}</div>
 
-{% endfor %}
+{#        {% for monster in dungeon.monsters.all %}#}
+{##}
+{#            <div> {{ monster.name }} </div>#}
+{#            {% for skill in monster.skills.all %}#}
+{##}
+{#                <div> {{ skill.name }}, {{ skill.altName }}</div>#}
+{#                <div> {{ skill.effect }}</div>#}
+{##}
+{#            {% endfor %}#}
+{##}
+{#        {% endfor %}#}
 
+    {% endfor %}
 
 {% endblock %}

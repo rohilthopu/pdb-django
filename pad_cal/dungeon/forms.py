@@ -9,3 +9,7 @@ class DungeonLink(forms.Form):
 class DailyDungeonSelector(forms.Form):
     dungeon = MyModelChoiceField(queryset=Dungeon.objects.all(), to_field_name="jpnTitle",
                                  empty_label='Choose a dungeon', )
+    widgets = {
+        'dungeon': forms.Select(
+            attrs={'class': 'input-field'}),
+    }

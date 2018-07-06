@@ -3,10 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Pad Cal Home</title>
+    {##}
+    {#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>#}
+    {##}
+    {##}
+    {#    <!-- Compiled and minified CSS -->#}
+    {#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">#}
+    {##}
+    {#    <!-- Compiled and minified JavaScript -->#}
+    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>#}
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
+
+    {% load static %}
+    <link rel='stylesheet' href="{% static 'css/bulma-accordion.min.css' %}">
+    <script type="text/javascript" src="{% static 'js/bulma-accordion.min.js' %}"></script>
+
+
 </head>
+
+<script type="text/javascript">
+    $(function () {
+        bulmaAccordion.attach('.accordions');
+    });
+</script>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,8 +59,9 @@
         <div style="margin-bottom: 25px;"> Dungeons for {{ date }}</div>
 
 
+
         {% for dungeon in dungeons %}
-            <h2> {{ dungeon.altTitle }}</h2>
+            <div> {{ dungeon.altTitle }}</div>
             <table class="table">
                 <thead>
                 <tr>
@@ -50,9 +74,7 @@
 
                 <tbody>
 
-                {#                <div> {{ dungeon.jpnTitle }} </div>#}
                 {% for monster in dungeon.monsters.all %}
-                    {#                    <div> {{ monster }} : HP: {{ monster.hp }}, ATK: {{ monster.atk }}, DEF: {{ monster.defense }} </div>#}
                     <tr>
                         <td class="has-text-left"> {{ monster.name }}</td>
                         <td class="has-text-right"> {{ monster.hp }}</td>
@@ -65,6 +87,8 @@
 
             </table>
         {% endfor %}
+
+
 
 
     {% endblock %}

@@ -1,6 +1,8 @@
 import urllib
+
 from bs4 import BeautifulSoup as bs
-from .models import Skill, Monster, Dungeon
+
+from .models import Skill, Monster
 
 
 def parse(link, dungeon):
@@ -117,11 +119,13 @@ def parse_encounters(soup, dungeon):
                         monster.save()
                         dungeon.monsters.add(monster)
                     else:
-                        monster = Monster.objects.filter(name=cardname.text)
+                        monster = Monster.objects.get(name=cardname.text)
                         dungeon.monsters.add(monster)
 
 
 def parse_skill(href, monster):
+    print("Parsing new skill....")
+
     base_link = "http://www.puzzledragonx.com/en/"
     skill_link = base_link + href
     site = urllib.request.urlopen(skill_link)
@@ -129,11 +133,12 @@ def parse_skill(href, monster):
     skill = ss.find_all(class_='value-end')
 
     skill_actual = Skill()
+    skill_actual.save()
     skill_actual.name = skill[0].text
-    skill_actual.altName = skill_actual[2].text
+    skill_actual.altName = skill[2].text
     skill_actual.effect = skill[1].text
     skill_actual.save()
     monster.skills.add(skill_actual)
 
-    # print('\t\tSkill Name :', skill[0].text, ",", skill[2].text)
-    # print('\t\t\tSkill Effect :', skill[1].text)
+    print('\t\tSkill Name :', skill[0].text, ",", skill[2].text)
+    print('\t\t\tSkill Effect :', skill[1].text)
