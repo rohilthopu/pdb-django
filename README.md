@@ -6,6 +6,13 @@ with the parsed data from that dungeon. This is done on an individual basis, how
 difficulty must be added (until I create a mechanism for multi-add)
 
 
+If you would like to join my Slack group, I have created an open invite for people to use
+
+    https://goo.gl/emtNQB
+    
+If you would like to contribute to the project, go ahead and fork and submit pull requests for substantial changes and I'll
+check them out and consider incorporating them.
+
  Current capabilities :
 
     1. Parse dungeon data : Titles, Stamina cost, floors, etc
