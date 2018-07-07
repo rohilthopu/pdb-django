@@ -3,7 +3,7 @@ An open source, web-based utility to encourage crowdsourcing of data from within
 
 The interface allows a user to paste a web address to a PADx dungeon page, and gives the user back a model
 with the parsed data from that dungeon. This is done on an individual basis, however, meaning that each individual
-difficulty must be added (until I create a mechanism for multi-add)
+difficulty for a dungeon must be added (until I create a mechanism for multi-add).
 
 
 If you would like to join my Slack group, I have created an open invite for people to use
@@ -42,8 +42,14 @@ Thanks to the following services:
     2. Bulma CSS
     
     
-
-
-Here is some example output of parsed data..
     
+Updated Screenshots (July 7, 2018)
+
+![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.03%20PM.png)    
+![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.21%20PM.png)    
+![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.36%20PM.png)    
+    
+
+
+Outdated Screenshots:    
 ![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-06-29%20at%201.20.29%20AM.png)
