@@ -1,10 +1,8 @@
-from django.shortcuts import render, redirect
-from .models import Dungeon, DungeonToday, Monster, Skill
-from .forms import DungeonLink, DailyDungeonSelector
-from bs4 import BeautifulSoup as bs
-import urllib
 from datetime import date
+from django.shortcuts import render, redirect
 
+from .forms import DungeonLink, DailyDungeonSelector
+from .models import Dungeon, DungeonToday, Monster
 from .parse import parse
 
 
@@ -32,7 +30,7 @@ def homeView(request):
     if dungeonList is None:
         todaysList = DungeonToday()
         todaysList.save()
-        dungeonList = DungeonToday.objects.get(listingDate=date.today())
+        dungeonList = todaysList
     form = DailyDungeonSelector()
 
     context = {'dungeons': dungeonList.dungeons.all(), 'form': form, 'date': dungeonList.listingDate}
@@ -73,8 +71,15 @@ def addDungeonView(request):
     return render(request, template, context)
 
 
-def dungeonView(request, id):
-    dungeon = Dungeon.objects.get(pk=id)
+def dungeonView(request, d_id):
+    dungeon = Dungeon.objects.get(pk=d_id)
     template = 'dungeondetail.html'
 
     return render(request, template, {'dungeon': dungeon})
+
+
+def monsterView(request, m_name):
+    monster = Monster.objects.get(name=m_name)
+    template = 'monsterdetail.html'
+
+    return render(request, template, {'monster': monster})

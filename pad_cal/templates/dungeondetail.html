@@ -49,7 +49,7 @@
             <div class="column">
 
 
-                <label class="label" align="center"> Dungeon Encounters </label>
+                <label class="label title" align="center"> Dungeon Encounters </label>
 
                 <div class="columns is-centered">
 
@@ -68,7 +68,7 @@
 
                             {% for monster in dungeon.monsters.all %}
                                 <tr>
-                                    <td class="has-text-left"> {{ monster.name }} </td>
+                                    <td class="has-text-left"> <a href="/{{ monster.name }}"> {{ monster.name }} </a></td>
                                     <td class="has-text-right"> {{ monster.hp }}</td>
                                     <td class="has-text-right"> {{ monster.atk }}</td>
                                     <td class="has-text-right"> {{ monster.defense }}</td>

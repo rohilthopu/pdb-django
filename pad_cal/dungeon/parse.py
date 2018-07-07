@@ -45,6 +45,8 @@ def parse_dungeon(soup, dungeon):
         type_split = "Special Dungeon"
     elif type_split == "NormalDungeon":
         type_split = "Normal Dungeon"
+    elif type_split == "RankingDungeon":
+        type_split = "Ranking Dungeon"
 
     dungeon.dungeonType = type_split
     dungeon.stamina = stam
@@ -89,6 +91,9 @@ def parse_encounters(soup, dungeon):
 
                         monster = Monster()
                         monster.save()
+                        monster.jpnTitle = dungeon.jpnTitle
+                        monster.altTitle = dungeon.altTitle
+                        monster.altTitle2 = dungeon.altTitle2
                         # get the monster name first
                         monster.name = cardname.text
 

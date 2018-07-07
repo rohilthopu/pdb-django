@@ -14,6 +14,8 @@ class Monster(models.Model):
     defense = models.CharField(default="", max_length=20)
     atk = models.CharField(default="", max_length=20)
     jpnTitle = models.CharField(default="", max_length=50)
+    altTitle = models.CharField(default="", max_length=50)
+    altTitle2 = models.CharField(default="", max_length=50)
     skills = models.ManyToManyField(Skill)
 
     def __str__(self):
@@ -34,7 +36,7 @@ class Dungeon(models.Model):
     repeat = models.CharField(default="", max_length=10)
 
     def __str__(self):
-        return self.jpnTitle
+        return self.altTitle
 
 
 class DungeonToday(models.Model):

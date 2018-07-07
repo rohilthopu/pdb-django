@@ -1,0 +1,78 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column">
+                    <div class="container">
+                        <h1 class="title">
+                            {{ monster.name }}
+                        </h1>
+                        <h1 class="subtitle">
+                            Found in {{ monster.jpnTitle }}, {{ monster.altTitle }}, {{ monster.altTitle2 }}
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="column is-one-fifth">
+                    <div class="container is-fluid has-text-left">
+                        <h1> HP  : {{ monster.hp }}</h1>
+                        <h1> ATK : {{ monster.atk }}</h1>
+                        <h1> DEF : {{ monster.defense }}</h1>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container is-fluid" style="margin-top:25px">
+
+
+        <div class="columns is-centered">
+
+
+            <div class="column is-three-quarters">
+
+
+                <label class="label title" align="center"> {{ monster.name }}'s Skills </label>
+
+
+                <table class="table is-fullwidth">
+                    <thead>
+                    <tr>
+                        <th>Skill Name</th>
+                        <th>Effect</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    {% for skill in monster.skills.all %}
+                        <tr>
+                            <td>{{ skill.name }}</td>
+                            <td> {{ skill.effect }}</td>
+                        </tr>
+                    {% endfor %}
+                    <div style="margin-bottom: 25px;"></div>
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+{% endblock %}

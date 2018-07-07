@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', dv.homeView),
     path('add/', dv.addDungeonView),
-    url(r'^(?P<id>\d+)/$', dv.dungeonView)
+    path('<int:d_id>/', dv.dungeonView),
+    path('<str:m_name>/', dv.monsterView)
 ]
