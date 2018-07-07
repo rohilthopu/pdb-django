@@ -1,4 +1,4 @@
-# pad-calender
+# pad-calendar
 An open source, web-based utility to encourage crowdsourcing of data from within Puzzles and Dragons.
 
 The interface allows a user to paste a web address to a PADx dungeon page, and gives the user back a model
