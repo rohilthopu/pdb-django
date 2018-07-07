@@ -45,11 +45,12 @@ Thanks to the following services:
     
 Updated Screenshots (July 7, 2018)
 
-![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.03%20PM.png)    
-![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.21%20PM.png)    
-![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.36%20PM.png)    
+![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.03%20PM.png)    
+![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.21%20PM.png)    
+![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.36%20PM.png)    
     
 
 
 Outdated Screenshots:    
-![alt text](https://github.com/rohilthopu/pad-cal/blob/master/Screenshots/Screen%20Shot%202018-06-29%20at%201.20.29%20AM.png)
+![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-06-28%20at%205.05.32%20PM.png)
+![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-06-29%20at%201.20.29%20AM.png)
