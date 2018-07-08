@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from .forms import DungeonLink, DailyDungeonSelector
 from .models import Dungeon, DungeonToday, Monster, Skill
 from .parse import parse
+from celery import task
 
 
 # Create your views here.
@@ -60,11 +61,8 @@ def addDungeonView(request):
                 if (not exists):
                     dungeon = Dungeon()
                     dungeon.save()
-
                     dungeon.dungeonLink = link
-
                     parse(link, dungeon)
-                    dungeon.save()
                     return redirect('/add/')
                 else:
                     return redirect('/add/')

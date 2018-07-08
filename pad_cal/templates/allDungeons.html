@@ -20,7 +20,10 @@
             <table class="table is-fullwidth" id="myTable">
                 <thead>
                 <tr>
-                    <th class="has-text-centered">Dungeons</th>
+                    <th>Dungeons</th>
+                    <th>Stamina Cost</th>
+                    <th>Battles</th>
+                    <th>Dungeon Type</th>
                 </tr>
                 </thead>
 
@@ -28,10 +31,12 @@
 
                 {% for dungeon in dungeons %}
                     <tr>
-                        <td class="has-text-centered"><a href="/{{ dungeon.id }}"> {{ dungeon.altTitle }} </a></td>
+                        <td><a href="/{{ dungeon.id }}"> {{ dungeon.altTitle }} </a></td>
+                        <td> {{ dungeon.stamina }}</td>
+                        <td> {{ dungeon.battles }}</td>
+                        <td> {{ dungeon.dungeonType }}</td>
                     </tr>
                 {% endfor %}
-                <div style="margin-bottom: 25px;"></div>
                 </tbody>
 
             </table>

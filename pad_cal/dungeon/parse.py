@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as bs
 
 from .models import Skill, Monster
 
+from celery import task
 
 def parse(link, dungeon):
     site = urllib.request.urlopen(link)
@@ -11,6 +12,7 @@ def parse(link, dungeon):
     parse_titles(soup, dungeon)
     parse_dungeon(soup, dungeon)
     parse_encounters(soup, dungeon)
+    dungeon.save()
 
 
 def parse_titles(soup, dungeon):
@@ -94,6 +96,7 @@ def parse_encounters(soup, dungeon):
                         monster.jpnTitle = dungeon.jpnTitle
                         monster.altTitle = dungeon.altTitle
                         monster.altTitle2 = dungeon.altTitle2
+                        monster.dungeonID = dungeon.id
                         # get the monster name first
                         monster.name = cardname.text
 
@@ -129,8 +132,6 @@ def parse_encounters(soup, dungeon):
 
 
 def parse_skill(href, monster):
-    print("Parsing new skill....")
-
     base_link = "http://www.puzzledragonx.com/en/"
     skill_link = base_link + href
     site = urllib.request.urlopen(skill_link)
@@ -145,5 +146,3 @@ def parse_skill(href, monster):
     skill_actual.save()
     monster.skills.add(skill_actual)
 
-    print('\t\tSkill Name :', skill[0].text, ",", skill[2].text)
-    print('\t\t\tSkill Effect :', skill[1].text)

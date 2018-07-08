@@ -16,6 +16,7 @@ class Monster(models.Model):
     jpnTitle = models.CharField(default="", max_length=50)
     altTitle = models.CharField(default="", max_length=50)
     altTitle2 = models.CharField(default="", max_length=50)
+    dungeonID = models.IntegerField(default=0)
     skills = models.ManyToManyField(Skill)
 
     def __str__(self):

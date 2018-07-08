@@ -7,18 +7,17 @@
             <div class="columns">
                 <div class="column">
                     <div class="container">
-                        <h1 class="title">
-                            {{ monster.name }}
+                        <h1 class="title"><a href="/{{ monster.name }}">{{ monster.name }}</a>
                         </h1>
                         <h1 class="subtitle">
-                            Found in {{ monster.jpnTitle }}, {{ monster.altTitle }}, {{ monster.altTitle2 }}
+                            Found in <a href="/{{ monster.dungeonID}}"> {{ monster.jpnTitle }}, {{ monster.altTitle }}, {{ monster.altTitle2 }} </a>
                         </h1>
                     </div>
                 </div>
 
                 <div class="column is-one-fifth">
                     <div class="container is-fluid has-text-left">
-                        <h1> HP  : {{ monster.hp }}</h1>
+                        <h1> HP : {{ monster.hp }}</h1>
                         <h1> ATK : {{ monster.atk }}</h1>
                         <h1> DEF : {{ monster.defense }}</h1>
                     </div>
@@ -42,26 +41,39 @@
                 <label class="label title" align="center"> {{ monster.name }}'s Skills </label>
 
 
-                <table class="table is-fullwidth">
-                    <thead>
-                    <tr>
-                        <th>Skill Name</th>
-                        <th>Effect</th>
-                    </tr>
-                    </thead>
 
-                    <tbody>
+                {% if monster.skills.all is None %}
 
-                    {% for skill in monster.skills.all %}
+                    <div class="has-text-centered"> No skills available</div>
+
+
+                {% endif %}
+
+                {% if monster.skills.all is not None %}
+
+
+                    <table class="table is-fullwidth">
+                        <thead>
                         <tr>
-                            <td>{{ skill.name }}</td>
-                            <td> {{ skill.effect }}</td>
+                            <th>Skill Name</th>
+                            <th>Effect</th>
                         </tr>
-                    {% endfor %}
-                    <div style="margin-bottom: 25px;"></div>
-                    </tbody>
+                        </thead>
 
-                </table>
+                        <tbody>
+
+                        {% for skill in monster.skills.all %}
+                            <tr>
+                                <td>{{ skill.name }}</td>
+                                <td> {{ skill.effect }}</td>
+                            </tr>
+                        {% endfor %}
+                        <div style="margin-bottom: 25px;"></div>
+                        </tbody>
+
+                    </table>
+
+                {% endif %}
 
 
             </div>
@@ -72,7 +84,6 @@
     </div>
 
     </div>
-
 
 
 {% endblock %}
