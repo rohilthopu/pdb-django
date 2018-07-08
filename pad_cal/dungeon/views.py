@@ -2,7 +2,7 @@ from datetime import date
 from django.shortcuts import render, redirect
 
 from .forms import DungeonLink, DailyDungeonSelector
-from .models import Dungeon, DungeonToday, Monster
+from .models import Dungeon, DungeonToday, Monster, Skill
 from .parse import parse
 
 
@@ -68,6 +68,27 @@ def addDungeonView(request):
                     return redirect('/add/')
                 else:
                     return redirect('/add/')
+    return render(request, template, context)
+
+
+def allDungeons(request):
+    dungeons = Dungeon.objects.order_by('altTitle').all()
+    template = 'allDungeons.html'
+    context = {'dungeons': dungeons}
+    return render(request, template, context)
+
+
+def allEncounters(request):
+    monsters = Monster.objects.order_by('name').all()
+    template = 'allEncounters.html'
+    context = {'monsters': monsters}
+    return render(request, template, context)
+
+
+def allSkills(request):
+    skills = Skill.objects.order_by('name').all()
+    template = 'allSkills.html'
+    context = {'skills': skills}
     return render(request, template, context)
 
 

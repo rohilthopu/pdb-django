@@ -22,6 +22,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', dv.homeView),
     path('add/', dv.addDungeonView),
+    path('all/dungeons', dv.allDungeons),
+    path('all/encounters', dv.allEncounters),
+    path('all/skills', dv.allSkills),
     path('<int:d_id>/', dv.dungeonView),
-    path('<str:m_name>/', dv.monsterView)
+    path('<str:m_name>/', dv.monsterView),
+
 ]

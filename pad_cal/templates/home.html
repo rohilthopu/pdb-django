@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Pad Cal Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    {#    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>#}
+    <script src="https://use.fontawesome.com/659d3027f8.js"></script>
 
-{#    <link rel="stylesheet"#}
-{#          href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/black/pace-theme-loading-bar.min.css">#}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/dataTables.bulma.css' %}">
+    <script type="text/javascript" src={% static 'js/dataTables.bulma.js' %}></script>
+
+
+    {#    <link rel="stylesheet"#}
+    {#          href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/black/pace-theme-loading-bar.min.css">#}
 
     {#    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>#}
 
@@ -24,6 +36,7 @@
         <div class="navbar-start">
             <a class="navbar-item" href="/">Pad Calender</a>
             <a class="navbar-item" href="/add/">Add Dungeon</a>
+            <a class="navbar-item" href="/all/dungeons">All Dungeon Data</a>
         </div>
     </div>
 </nav>
@@ -42,7 +55,7 @@
     <div class="columns is-centered">
 
         <div class="column is-two-thirds">
-            <table class="table is-fullwidth">
+            <table class="table is-fullwidth is-hoverable" id="myTable">
                 <thead>
                 <tr>
                     <th class="has-text-left">Dungeon</th>
@@ -56,7 +69,8 @@
 
                 {% for dungeon in dungeons %}
                     <tr>
-                        <td class="has-text-left"><a href="/{{ dungeon.id }}"> {{ dungeon.altTitle }} - {{ dungeon.altTitle2 }} </a></td>
+                        <td class="has-text-left"><a href="/{{ dungeon.id }}"> {{ dungeon.altTitle }}
+                            - {{ dungeon.altTitle2 }} </a></td>
                         <td class="has-text-right"> {{ dungeon.stamina }}</td>
                         <td class="has-text-right"> {{ dungeon.battles }}</td>
                         <td class="has-text-right"> {{ dungeon.dungeonType }}</td>
