@@ -25,7 +25,7 @@ urlpatterns = [
     path('all/dungeons', dv.allDungeons),
     path('all/encounters', dv.allEncounters),
     path('all/skills', dv.allSkills),
-    path('<int:d_id>/', dv.dungeonView),
-    path('<str:m_name>/', dv.monsterView),
+    path('dungeon/<int:d_id>/', dv.dungeonView),
+    path('encounter/<str:m_name>/', dv.monsterView),
 
 ]

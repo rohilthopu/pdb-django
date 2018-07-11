@@ -68,7 +68,7 @@
 
                             {% for monster in dungeon.monsters.all %}
                                 <tr>
-                                    <td class="has-text-left"> <a href="/{{ monster.name }}"> {{ monster.name }} </a></td>
+                                    <td class="has-text-left"> <a href="/encounter/{{ monster.name }}"> {{ monster.name }} </a></td>
                                     <td class="has-text-right"> {{ monster.hp }}</td>
                                     <td class="has-text-right"> {{ monster.atk }}</td>
                                     <td class="has-text-right"> {{ monster.defense }}</td>

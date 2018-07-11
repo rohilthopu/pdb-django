@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect
 from .forms import DungeonLink, DailyDungeonSelector
 from .models import Dungeon, DungeonToday, Monster, Skill
 from .parse import parse
-from celery import task
 
 
 # Create your views here.
@@ -55,9 +54,8 @@ def addDungeonView(request):
             link = data.get('dungeonLink')
 
             if 'mission' in link:
-                for item in source:
-                    if item.dungeonLink.rsplit('=', 1)[1].lower() in link.lower():
-                        exists = True
+                if Dungeon.objects.filter(dungeonLink=link).first() is not None:
+                    exists = False
                 if (not exists):
                     dungeon = Dungeon()
                     dungeon.save()

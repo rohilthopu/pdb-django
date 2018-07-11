@@ -2,6 +2,10 @@ from django.db import models
 from datetime import date
 
 
+# class SkillEffect(models.Model):
+#     effect = models.TextField(default="", max_length=200)
+
+
 class Skill(models.Model):
     name = models.CharField(default="", max_length=50)
     altName = models.CharField(default="", max_length=50)
