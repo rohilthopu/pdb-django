@@ -14,5 +14,5 @@ class ActiveSkill(models.Model):
 
 # Create your models here.
 class Card(models.Model):
-    activeSkill = models.OneToOneField(ActiveSkill)
+    activeSkill = models.OneToOneField(ActiveSkill, on_delete=models.CASCADE)
 
