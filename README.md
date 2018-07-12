@@ -1,17 +1,18 @@
 # pad-calendar
 
-UPDATE : It seems my efforts were largely in vain. This project managed to get 
-      partially deprecated just as quickly as it was built! LOL However, I'll keep working towards my original goal
-      as a test of my own ability, and start taking advantage of the now open MiruBot API to wrap it in both a web
-      and, eventual, iOS app probably.
+                                ----- UPDATE -----
+        
+        It seems my efforts were largely in vain. This project managed to get 
+        partially deprecated just as quickly as it was built! LOL However, 
+        I'll keep working towards my original goal
+        as a test of my own ability, and start taking advantage of the now 
+        open MiruBot API to wrap it in both a web and, eventual, iOS app probably.
 
 
 
-An open source, web-based utility to encourage crowdsourcing of data from within Puzzles and Dragons.
+New Goal :
 
-The interface allows a user to paste a web address to a PADx dungeon page, and gives the user back a model
-with the parsed data from that dungeon. This is done on an individual basis, however, meaning that each individual
-difficulty for a dungeon must be added (until I create a mechanism for multi-add).
+    Make a wrapper for the Mirubot API for web.
 
 
 If you would like to join my Slack group, I have created an open invite for people to use
@@ -23,30 +24,23 @@ check them out and consider incorporating them.
 
 
 
+![alt_text](https://raw.githubusercontent.com/rohilthopu/pad-calendar/master/Screenshots/Screen%20Shot%202018-07-12%20at%204.02.39%20PM.png)
+
+
+
 *** NOW DEPRECATED ***
 
+An open source, web-based utility to encourage crowdsourcing of data from within Puzzles and Dragons.
+
+The interface allows a user to paste a web address to a PADx dungeon page, and gives the user back a model
+with the parsed data from that dungeon. This is done on an individual basis, however, meaning that each individual
+difficulty for a dungeon must be added (until I create a mechanism for multi-add).
 
  Current capabilities :
 
     1. Parse dungeon data : Titles, Stamina cost, floors, etc
     2. Parse encounter info (HP, ATK, DEF)
     3. Parse Skills of encounters (but not their thresholds)
-    
-    
-Todo / In progress:
-
-    1. Add more to the frontend
-    2. Add asyncronous processing of the parse function
-    3. Add some sort of multi-add + multi-select feature for dungeons
-
-Requirements :
-
-    1. A link to the dungeon page
-    2. BeautifulSoup4
-    3. Python 3
-    4. html5lib or lxml
-    5. Celery
-    6. Django 2.0.7
     
     
 Thanks to the following services:
@@ -56,14 +50,10 @@ Thanks to the following services:
     
     
     
-Updated Screenshots (July 7, 2018)
+Old Screenshots
 
 ![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.03%20PM.png)    
 ![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.21%20PM.png)    
-![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.36%20PM.png)    
-    
-
-
-Outdated Screenshots:    
+![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.36%20PM.png)       
 ![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-06-28%20at%205.05.32%20PM.png)
 ![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-06-29%20at%201.20.29%20AM.png)
