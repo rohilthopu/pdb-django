@@ -1,16 +1,22 @@
 from django.db import models
 
 
-class LeaderSkill(models.Model):
+class Skill(models.Model):
     name = models.CharField(max_length=200, default="", blank=True)
-    description = models.TextField(default="", blank=True, )
+    description = models.TextField(default="", blank=True,)
     skillID = models.IntegerField(blank=True, default=0)
     skillType = models.IntegerField(blank=True, default=0)
 
+    class Meta:
+        abstract = True
+
+class LeaderSkill(Skill):
+    # literally just a placeholder to get the model to work
+    doesNothing = models.BooleanField(default=False)
 
 # An active skill is just a specialized leader skill that can only be activated ever so often.
 # As a result, inheritance is perfect here.
-class ActiveSkill(LeaderSkill):
+class ActiveSkill(Skill):
     levels = models.IntegerField(default=0)
     maxTurns = models.IntegerField(blank=True, default=0)
     minTurns = models.IntegerField(blank=True, default=0)
@@ -36,9 +42,7 @@ class MonsterData(models.Model):
 
 # Create your models here.
 class CardNA(models.Model):
-    activeSkill = models.OneToOneField(ActiveSkill, on_delete=models.CASCADE, related_name="active_skill", blank=True,
-                                       null=True)
-    leaderSkill = models.OneToOneField(LeaderSkill, on_delete=models.CASCADE, related_name="leader_skill", blank=True,
-                                       null=True)
+    activeSkill = models.ManyToManyField(ActiveSkill)
+    leaderSkill = models.ManyToManyField(LeaderSkill)
     monster = models.OneToOneField(MonsterData, on_delete=models.CASCADE, related_name="monster", blank=True,
                                    null=True)

@@ -4,28 +4,110 @@
 
     <section class="hero is-dark">
         <div class="hero-body">
-            <div class="columns">
-                <div class="column">
-                    <div class="container">
-                        <h1 class="title">{{ card.monster.name }}</h1>
-{#                        <h1 class="subtitle">#}
-{#                            Found in <a href="/{{ monster.dungeonID}}"> {{ monster.jpnTitle }}, {{ monster.altTitle }}, {{ monster.altTitle2 }} </a>#}
-{#                        </h1>#}
-                    </div>
-                </div>
-
-{#                <div class="column is-one-fifth">#}
-{#                    <div class="container is-fluid has-text-left">#}
-{#                        <h1> HP : {{ monster.hp }}</h1>#}
-{#                        <h1> ATK : {{ monster.atk }}</h1>#}
-{#                        <h1> DEF : {{ monster.defense }}</h1>#}
-{#                    </div>#}
-{##}
-{#                </div>#}
-
+            <div class="container">
+                <h1 class="title">{{ monster.name }}</h1>
+                <h2 class="subtitle">Cost: {{ monster.cost }}, Rarity: {{ monster.rarity }}</h2>
             </div>
+
         </div>
     </section>
+
+    <div class="columns is-5" style="margin: 2.5%">
+        <div class="column">
+
+            <label class="label" style="text-align: center"> Monster Data </label>
+
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>MIN</th>
+                    <th>MAX</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <th> LVL</th>
+                    <td> 1</td>
+                    <td>{{ monster.maxLevel }}</td>
+                </tr>
+                <tr>
+                    <th> HP</th>
+                    <td>{{ monster.minHP }}</td>
+                    <td>{{ monster.maxHP }}</td>
+                </tr>
+                <tr>
+                    <th> ATK</th>
+                    <td>{{ monster.minATK }}</td>
+                    <td>{{ monster.maxATK }}</td>
+                </tr>
+                <tr>
+                    <th> RCV</th>
+                    <td>{{ monster.minRCV }}</td>
+                    <td>{{ monster.maxRCV }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="column">
+
+            <label class="label" style="text-align: center"> Leader Skill </label>
+
+            <table class="table is-fullwidth">
+                <tbody>
+                <tr>
+                    <th> Name</th>
+                    <td>{{ leaderskill.name }}</td>
+                </tr>
+                <tr>
+                    <th>Effect</th>
+                    <td>{{ leaderskill.description }}</td>
+                </tr>
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+        <div class="column">
+
+            <label class="label" style="text-align: center"> Active Skill </label>
+
+            <table class="table is-fullwidth">
+                <tbody>
+                <tr>
+                    <th> Name</th>
+                    <td>{{ activeskill.name }}</td>
+                </tr>
+                <tr>
+                    <th>Effect</th>
+                    <td>{{ activeskill.description }}</td>
+                </tr>
+                <tr>
+                    <th>Min Turns</th>
+                    <td>{{ activeskill.minTurns }}</td>
+                </tr>
+                <tr>
+                    <th>Max Turns</th>
+                    <td>{{ activeskill.maxTurns }}</td>
+                </tr>
+                <tr>
+                    <th>Levels</th>
+                    <td>{{ activeskill.levels }}</td>
+                </tr>
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+    </div>
 
 
 

@@ -6,8 +6,8 @@
 
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">
         <ul>
-            <li><a href="/all/dungeons">Dungeons</a></li>
-            <li class="is-active"><a href="/all/encounters">Encounters</a></li>
+            <li class="is-active"><a href="/monsterdb/na">NA</a></li>
+            <li><a href="/monsterdb/jp/">JP</a></li>
         </ul>
     </nav>
 
@@ -27,7 +27,7 @@
 
                 {% for card in cards %}
                     <tr>
-                        <td class="has-text-centered"> <a href="/monster/{{ card.id }}">{{ card.monster.name }}</a></td>
+                        <td class="has-text-centered"> <a href="/monster/{{ card.monster.cardID }}">{{ card.monster.name }}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -43,7 +43,9 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#myTable').DataTable();
+            $('#myTable').DataTable({
+                'pageLength': 25
+            });
         });
     </script>
 

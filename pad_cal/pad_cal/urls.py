@@ -28,6 +28,6 @@ urlpatterns = [
     path('all/skills', dv.allSkills),
     path('dungeon/<int:d_id>/', dv.dungeonView),
     path('encounter/<str:m_name>/', dv.monsterView),
-    path('monsterdb/', mv.cardListNA),
-    path ('monster/<int:card_id>/', mv.cardViewNA),
+    path('monsterdb/na/', mv.cardListNA),
+    path('monster/<int:card_id>/', mv.cardViewNA),
 ]

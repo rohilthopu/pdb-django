@@ -1,0 +1,4958 @@
+Tyrra
+		 Fire Power
+		 Heat Breath
+No data
+Plessie
+		 Water Power
+		 Cold Breath
+No data
+Brachy
+		 Wood Power
+		 Wind Breath
+No data
+Pterra
+		 Light Power
+		 Flash Breath
+No data
+Spinon
+		 Dark Power
+		 Dark Breath
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Flame Golem
+		 Protector's Lore
+		 Defensive Stance
+Naga
+		 Inferno
+		 Menace
+No data
+Dryad
+		 Healing Prayer
+		 Cure
+Succubus
+		 Quickness
+		 Poison Mist
+Minerva
+		 Flame Barrier
+		 Quick Bomb
+Neptune
+		 Ice Barrier
+		 Hydra's Poison
+Ceres
+		 Tree Barrier
+		 Shower of Healing
+Venus
+		 Light Barrier
+		 Change the World
+Hades
+		 Dark Barrier
+		 Ultra Gravity
+Kagutsuchi
+		 Purgatory
+		 Burst Bomb
+No data
+Viper Orochi
+		 Perseverance
+		 Force
+Susano
+		 Iron Wall Lore
+		 Iron Wall Stance
+No data
+No data
+No data
+No data
+Zeus
+		 Power of Zeus
+		 Wrath of God
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+*****
+		 *****
+		 *****
+Shiva
+		 Spirit of Fire
+		 The Third Eye
+No data
+Lakshmi
+		 Spirit of Water
+		 Magic-Draining Light
+No data
+Parvati
+		 Spirit of Wood
+		 Guard Stance - Wood
+No data
+Indra
+		 Oath of Divinegon
+		 Heroic Dragon Guard
+No data
+Vritra
+		 Wrath of Divinegon
+		 Grudge Strike
+No data
+No data
+Drall
+		 Fire and Wood Guard
+		 Guard Stance - Fire
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Pierdra
+		 Dark and Water Guard
+		 Guard Stance - Dark
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Shaitan
+		 Grace of Fire
+		 Blazing Field
+Undine
+		 Grace of Water
+		 Water Rapids Field
+Sylph
+		 Grace of Wind
+		 Earth Field
+Genie
+		 Grace of Light
+		 Flashing Field
+Thanatos
+		 Grace of Darkness
+		 Shadow Field
+Odin
+		 Robe of Protection
+		 Gungnir
+Odin, the War Deity
+		 Rune of Fate
+		 Diabolic Lance, Gungnir
+No data
+No data
+No data
+No data
+No data
+Thor
+		 Spirit of Light
+		 Light Enhancement
+No data
+Loki
+		 Spirit of Darkness
+		 Dark Enhancement
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Gunma
+		 Gunma's Ambition
+		 Hot Spring of Kusatsu
+Ancient Fire Dragon, Ardbeg
+		 Fertile Energy
+		 Blaze Ball
+Chocobo
+		 Choco Barrier
+		 Choco Attack
+Dragoon
+		 Dragon Soul
+		 Jump
+Berserker
+		 Critical: Berserk
+		 Smite of Rage
+Archer
+		 Concentrate
+		 Boost
+Soldier
+		 First Aid
+		 Libra
+Black Mage
+		 Attribute Enhancement
+		 Blizzaga
+Time Mage
+		 Hastega
+		 Slow
+Thief
+		 Steal Coins
+		 Evasion
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Isis
+		 Grace of the Nile
+		 Quick Heal
+Bastet
+		 Feline Combination
+		 Spread Cats
+Ra
+		 Ray of the Sun
+		 Solar Lazer
+Anubis
+		 Roar of the Hell Jackal
+		 Curse of the Darkness
+Princess Punt
+		 Princess's Selfish Order
+		 Sweet Shoot
+No data
+No data
+No data
+No data
+No data
+No data
+Snow Globe Dragon Rouge
+		 Prayer in Holy Night-Fr
+		 Flame Gift
+Snow Globe Dragon Bleu
+		 Prayer in Holy Night-Wt
+		 Ice Gift
+Snow Globe Dragon Vert
+		 Prayer in Holy Night-Wd
+		 Plant Gift
+No data
+No data
+Fencer
+		 Rushing Combo
+		 Forsake
+No data
+Fire Samurai Dragon, Shingen
+		 Shingen's Fire Emblem
+		 Flame Wind
+Water Samurai Dragon, Kenshin
+		 Kenshin's Water Emblem
+		 Ice Wind
+Wood Samurai Dragon, Masamune
+		 Masamune's Wood Emblem
+		 Gaia Wind
+Light Samurai Dragon, Hideyoshi
+		 Hideyoshi's Light Emblem
+		 Lightning Wind
+Dark Samurai Dragon, Nobunaga
+		 Nobunaga's Dark Emblem
+		 Evil Wind
+No data
+Mochizuki Chiyome
+		 Shrine Maiden's Rule
+		 Ninja Art - Light to Fire
+No data
+Hatsume no Tsubone
+		 Ninja's Breathing Rule
+		 Ninja Art - Dark to Water
+No data
+Sarutobi Sasuke
+		 Ninja's Fighting Rule
+		 Ninja Art - Water to Wood
+No data
+Fuma Kotaro
+		 Ninja's Training Rule
+		 Ninja Art - Wood to Light
+No data
+Hattori Hanzo
+		 Ninja's Moving Rule
+		 Ninja Art - Fire to Dark
+No data
+Ishikawa Goemon
+		 Pose of Sky and Land
+		 Ninja Art Fireworks
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Light Sprite Pixie
+		 Light Oath
+		 Thunder Strike
+Midnight Beast Werewolf
+		 Dark Oath
+		 Dark Strike
+No data
+No data
+Hera-Ur
+		 Embrace of Demonic Fire Queen
+		 Kiss of Demonic Fire Queen
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Belial
+		 Devil's Power
+		 Curse of the Flame
+No data
+Amon
+		 Devil's Soul
+		 Curse of the Ice
+No data
+Astaroth
+		 Devil's Grace
+		 Curse of the Tree
+No data
+Baal
+		 Godspeed Offense
+		 Curse of the Lightning
+No data
+Archangel Metatron
+		 Crusader's Charge
+		 Quick Cure
+Dark Angel Metatron
+		 Executioner Blitz
+		 Dispelling Breath
+Beelzebub
+		 Dark Prince's Command
+		 Deadly Drive
+No data
+Satan
+		 Satan's Insight
+		 World's End
+Athena
+		 Blessing of Nike
+		 Glitter of Aegis
+Zeus-Dios
+		 Power of Dios
+		 Jupiter Genesis
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Joker
+		 Maniac Mastermind
+		 Killing Joke
+Catwoman
+		 Master Thief
+		 Nine Lives
+Robin
+		 Boy Wonder
+		 Birdarangs
+Batman+S. Gloves
+		 Gotham's Protector
+		 Electric Impact
+Batman+Batarang
+		 Dark Knight
+		 Intimidation
+Batman+Batwing
+		 Supersonic
+		 Batwing
+Heavy Metal Dragon
+		 Dragon's Wrath
+		 Gravity Breath
+No data
+No data
+No data
+No data
+No data
+Asuka&Eva Unit-02
+		 Designated Specifications
+		 What are you, stupid?
+Shinji&Eva Unit-01
+		 NERV Specifications
+		 I mustn't run away
+Mari&Eva Provisional Unit-05
+		 Local Specifications
+		 All right, understood!
+No data
+Rei&Eva Unit-00
+		 Retrofit Specifications
+		 I will protect you
+Kaworu&Mark06, Under Construction
+		 Sacrament of SEELE
+		 The promised time has come
+Shinji&Kaworu&Unit-13
+		 Double Entry System
+		 Time has come...
+No data
+The Tenth Angel
+		 Multi-layer A.T. Field
+		 Critical Rejection
+Blazing King Apollo
+		 Searing Explosion
+		 Flame of Olympus
+Awoken Light Dragon King Saiga
+		 Ouha Binding
+		 Shinrabansho
+CoC Dragon
+		 Fire Scale
+		 Crimson Bomb
+CoC P.E.K.K.A
+		 Dark Armor
+		 Nightmare Sword
+Scarlet Stone Dragon, Vermilionyt
+		 Sunlight Barrier
+		 The Switch
+No data
+No data
+No data
+Incarnation of Suzaku, Leilan
+		 Dance of the Crimson Heaven
+		 Southern Seven-Star Formation
+Incarnation of Seiryuu, Karin
+		 Dance of the Rising Dragon
+		 Eastern Seven-Star Formation
+Incarnation of Genbu, Meimei
+		 Dance of the Spirit Turtle
+		 Northern Seven-Star Formation
+Incarnation of Kirin, Sakuya
+		 Dance of the Four Origins
+		 Boisterous Dance
+Incarnation of Byakko, Haku
+		 Dance of the Tiger's Roar
+		 Western Seven-Star Formation
+No data
+No data
+No data
+GC CRAB
+		 Fired UP
+		 GROOVE COASTER
+UFO
+		 NAGOYA Shot
+		 Secret Bonus
+No data
+Mystic Megalith Dragon, Baalbek
+		 Mystery of the Flaming Boulder
+		 Wisdom of the Ancients
+No data
+No data
+No data
+No data
+No data
+Ame no Uzume
+		 Dance of Heavenly Worship
+		 Healing Cheer
+Umisachi & Yamasachi
+		 Great Treasure of Mountain and Sea
+		 Ritual of the Mountain and Sea
+Kushinadahime
+		 Nadeshiko's Affection
+		 Protection of Divine Wisdom
+Izanagi
+		 World of God's Intervention
+		 Breath of Creation
+Okuninushi
+		 Divine Connection
+		 Virtuous Foundation
+Takeminakata
+		 Vine of the Katana God
+		 Divine Wind of Creation Flame
+Empress God, Izanami
+		 The Holy Undertaking of Genesis
+		 Merciful Protection
+Yomi God, Izanami
+		 Yomi's Commandment
+		 The Feathered Garment of Yomi
+No data
+No data
+Hrungnir
+		 Pride of the Giants' Chief
+		 Cold Wave
+No data
+No data
+No data
+No data
+No data
+Top Droidragon
+		 Super Metallic Body
+		 Search
+No data
+Amberjack
+		 Toyama Bay's Fortune
+		 Fresh!
+No data
+No data
+No data
+Amitan
+		 Amitan's Protection
+		 Smiling Palm
+DD-Drake
+		 *****
+		 Blaze Breath
+No data
+No data
+No data
+No data
+No data
+No data
+Jaggi Cat
+		 Dark Resistance Enhance <Mid>
+		 Firing up nya!
+No data
+Wroggi Cat
+		 Fire Resistance Enhance <Mid>
+		 nya!
+No data
+Baggi Cat
+		 Water Resistance Enhance <Mid>
+		 I'll hold out nya!
+No data
+Gargwa Cat
+		 Auto Recover <Mid>
+		 Cheering nya!
+Bullfango Cat
+		 Wood Resistance Enhance <Mid>
+		 Preparation Rush nya!
+No data
+Rhenoplos Cat
+		 Light Resistance Enhance <Mid>
+		 Storing Power nya!
+No data
+Rathalos Cat
+		 Monster Hunter 4G Collab Series
+		 Flash Attack nya!
+Rathian Cat
+		 Monster Hunter 4G Collab Series
+		 Armor Chink nya!
+No data
+No data
+No data
+King Metal Cat
+		 Monster Hunter 4G Collab Series
+		 I'm serious now nya!
+King Gold Cat
+		 Monster Hunter 4G Collab Series
+		 I'll support you nya!
+Awoken Odin Cat
+		 Monster Hunter 4G Collab Series
+		 gungnir nya!
+No data
+No data
+No data
+Emperor Masterion
+		 Imperial Realm
+		 Dark Blaster
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Red Dragon Caller, Sonia
+		 Magic Dragon Tribe's Pride
+		 Draco Summoning Circle-Fr & Dk
+Jade Dragon Caller, Sonia
+		 Ancient Dragon Tribe's Bloodline
+		 Draco Summoning Circle-Wd & Dk
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+AB Matilda
+		 Mother Nature
+		 Egg!
+No data
+AB Wingman
+		 Mysterious Hero
+		 Charge!!
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Dark Wood Skydragon, Horai
+		 Earth Soul
+		 Hard Mistral Breath
+Red Pirate Dragon, Bartholomew
+		 Red Sea King's Jolly Roger
+		 Crimson Sea Dragon Broadside
+Blue Pirate Dragon, Awilda
+		 Blue Sea King's Jolly Roger
+		 Azure Sea Dragon Broadside
+Green Pirate Dragon, Captain Kidd
+		 Green Sea King's Jolly Roger
+		 Verdant Sea Dragon Broadside
+Gold Pirate Dragon, Anne & Mary
+		 Gold Sea King's Jolly Roger
+		 Gilded Sea Dragon Broadside
+Black Pirate Dragon, Blackbeard
+		 Black Sea King's Jolly Roger
+		 Ebony Sea Dragon Broadside
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Snow Globe Dragon Blanc
+		 Prayer in Holy Night-Lt
+		 Holy Gift
+Snow Globe Dragon Noir
+		 Prayer in Holy Night-Dk
+		 Dark Gift
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+***** (HxH)
+		 *****
+		 *****
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Dragon Zombie
+		 Abyssal Guard
+		 Deadrise
+Yamato Takeru
+		 The God-Emperor's Bloodline
+		 The Sword Kusanagi
+Andromeda
+		 The Queen's Lucky Star
+		 The Sacred Blue Chains
+Perseus
+		 Protector of the Sacred Relic
+		 Green Star Blade
+Sun Wukong
+		 Elixir of Vigor
+		 The Compliant Rod
+Pandora
+		 Disaster Strikes
+		 Secret Box
+Strawberry Dragon
+		 Red Fruit Power
+		 Strawberry Shower
+No data
+Berry Dragon
+		 Blue Fruit Power
+		 Blueberry Shower
+No data
+Melon Dragon
+		 Green Fruit Power
+		 Melon Shower
+No data
+Lemon Dragon
+		 Yellow Fruit Power
+		 Lemon Shower
+No data
+Grape Dragon
+		 Purple Fruit Power
+		 Grape Shower
+No data
+Blue Dragon Caller, Sonia
+		 Crystal Dragon Tribe's Bloodline
+		 Draco Summoning Circle-Wt & Dk
+No data
+No data
+No data
+No data
+No data
+Heracles
+		 Gigantic Force
+		 Overcoming Hardship
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Sandalphon
+		 Eyes of Heaven
+		 Performance of Judgment
+Berserker Z
+		 Berserk Soul
+		 Ultra Heat Up
+Ur-Chimera
+		 Fusion Soul
+		 Ell-Heal
+GrimRock
+		 Wild Soul
+		 Rock Shield
+Radious
+		 Fifth Kind
+		 Heal Barrier
+No data
+Dragon Samurai
+		 Samurai Soul
+		 Berserk
+No data
+Avalon Drake
+		 Heaven's Soul
+		 Aubade Gaia
+No data
+Dark Blue Skydragon, Nirai Kanai
+		 Sea God's Soul
+		 Exa-Freeze Breath
+Dark Holy Skydragon, Shangri-La
+		 Shining Soul
+		 Gigavolt Breath
+Dark Night Skydragon, Elysium
+		 Dark Soul
+		 Deep Shadow Breath
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Apple Drawn
+		 Let's Party!!
+		 Lucky(?) Ribbon
+Hello Kitty
+		 The Power of Spirit
+		 Apple Power!
+Kerokerokeroppi
+		 The Power of Courage
+		 Kerokero Attack!
+My Melody
+		 The Power of Kindness
+		 Melody Wink
+Bad Badtz-Maru
+		 Black Heart
+		 Spanking!
+Kuromi
+		 Pink Heart
+		 Devastating Wink!
+Cinnamoroll
+		 White Heart
+		 Snack Time!
+Pompompurin
+		 Purin Egg
+		 Pompurin Dance
+Goddess Hello Kitty
+		 Circle of Friends
+		 Princess Smile
+Red Flower Dragon, Barbados
+		 Crimson Flame Petals
+		 Flame Seed Breath
+Blue Flower Dragon, Starling
+		 Blue Hail Petals
+		 Aqua Seed Breath
+Green Flower Dragon, Casablanca
+		 Jade Wind Petals
+		 Wind Seed Breath
+Orange Flower Dragon, Helianthus
+		 Orange Gleam Petals
+		 Shine Seed Breath
+Purple Flower Dragon, Orchid
+		 Purple Cloud Petals
+		 Dark Seed Breath
+*****
+		 *****
+		 *****
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Odin Cat, the War Deity
+		 Monster Hunter 4G Collab Series
+		 Magic Spear, gungnir nya!
+No data
+No data
+Misato&AAA Wunder
+		 Ship of Hope
+		 Emergency Launch!
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Himi Udon
+		 Secret Traditional Recipe
+		 Japan's Top Four Udon
+Gaia
+		 Call of Gaia
+		 Lifestream
+Twin Dragon, Wangren
+		 Burning Dragon Power
+		 Burning Shift
+No data
+Twin Dragon, Beyzul
+		 Freezing Dragon Power
+		 Freezing Shift
+No data
+No data
+No data
+No data
+Cao Cao
+		 Legendary Tactics
+		 Carving One's Own Path
+Sun Quan
+		 Tiger Cub's Boldness
+		 Honest Insight
+Liu Bei
+		 Enthusiastic Volunteer
+		 Leading a Comeback
+Da Qiao & Xiao Qiao
+		 Ascending Dance
+		 Selfless Devotion
+Lu Bu
+		 Eroding Miasma
+		 Unparalleled Destructive Strike
+Bearded Deity, Guan Yu
+		 Virile Courage
+		 Unwavering Faith
+Loyal Deity, Guan Yu
+		 Flying Dragon's Decorum
+		 Solid Fortitude
+No data
+No data
+Hera-Sowilo
+		 Dawn-Colored Divine Feathers
+		 Shining Death Queen's Whisper
+Zeus Vulcan
+		 Rage of Vulcan
+		 Mars Daylight
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Judge Golem
+		 Checking your qualifications
+		 I'll use all my strength
+Slumbering Dragon
+		 Unpreparedness is one's greatest enemy
+		 Let's do this seriously
+No data
+Yo Minazuki
+		 I'll show you my power
+		 Protection of the Blue Monarch
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Tinnin
+		 I'll do my best
+		 Hyper Heal
+No data
+No data
+No data
+No data
+Wadatsumi
+		 Ethereal Treasure of the Godsea
+		 Roar of the Time-Sea
+No data
+No data
+No data
+No data
+No data
+I Love PAD Bear
+		 Wonder Bear
+		 BEAMS Beam
+No data
+No data
+King DeviTAMA
+		 Tons of Coins!
+		 Malice
+Krishna
+		 Twin Blaze Chakra
+		 Fire Awakening
+Sarasvati
+		 Blessed Water Peacock
+		 Water Awakening
+Vishnu
+		 Rod of Creation
+		 Wood Awakening
+Ganesha
+		 Mercantile Knowledge
+		 Incisive Brilliance
+Durga
+		 Blade of the Four Origins
+		 Divine Instrument Strike
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+WoodBahn
+		 Dragon Spirit
+		 Grand Howl
+Storm Dragon, Mistrain
+		 Dragon Soul
+		 Lightning Howl
+Anima
+		 Dragon Blaze
+		 Mirage Flare
+Cursed Dragon
+		 Necro Soul
+		 Blood Howl
+Apocalypse
+		 Final Calamity
+		 Final Judgement
+Scorched Land Dragon Knight, Himiko
+		 Bond of the Wasteland Dragon
+		 Alchemical Forging
+Hidden Sea Dragon Knight, Cleopatra
+		 Bond of the Hidden Ocean Dragon
+		 Poison Fang of Temptation
+Heavenly Wind Dragon Knight, Ishtar
+		 Bond of the Heavenly Wind Dragon
+		 Blessed Blade of the Hero
+Holy Hour Dragon Knight, Jeanne d'Arc
+		 Bond of the Holy Hour Dragon
+		 Saintly Maiden's Command
+Shadow Moon Dragon Knight, Mulan
+		 Bond of the Moon Shadow Dragon
+		 Illusory Spectral Sword
+Crazed King of Purgatory, Beelzebub
+		 Demon's Head
+		 Hell's Charge
+Sleeping Dragon, Zhuge Liang
+		 Civilized Tactics
+		 100 Victories in 100 Battles
+Life Dragon, Zhuge Liang
+		 Eight Heavenly Positions
+		 Clear Water Star Astrology
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+Red Riding Hood
+		 The Sprite's Basket
+		 Protection Magic - Fire
+No data
+Snow White
+		 Mysterious Apple
+		 Protection Magic - Water
+No data
+Thumbelina
+		 Fairy Flower
+		 Protection Magic - Wood
+No data
+Cinderella
+		 A Sturdy Pumpkin
+		 Protection Magic - Light
+No data
+Sleeping Beauty
+		 Wondrous Yarn
+		 Protection Magic - Dark
+No data
+No data
+No data
+Zhang Fei
+		 Swallow General's Vow
+		 Intimidating Shout
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+No data
+No data
+***** (Saint Seiya)
+		 *****
+		 Another Dimension
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Mystic Pentad Dragon, Folklore
+		 Mystic Tradition
+		 Prehistoric Wisdom
+No data
+Noah
+		 Sacred Tree Protectorship
+		 Vast Dawn
+Sopdet
+		 Astroseismic Causality
+		 Gleam of Sirius
+No data
+No data
+No data
+No data
+No data
+Swift Dragon Emperor, Threedia
+		 Storm Dragon Emperor's Might
+		 Browning Shift
+Bold Pirate Dragon King, Zaerog
+		 Pirate Dragon King's Wrath
+		 Pirate Dragon's Might
+No data
+No data
+No data
+***** (Bikkuriman)
+		 *****
+		 *****
+No data
+No data
+No data
+***** (Bikkuriman)
+		 *****
+		 *****
+***** (Bikkuriman)
+		 *****
+		 *****
+No data
+***** (Bikkuriman)
+		 *****
+		 *****
+***** (Bikkuriman)
+		 *****
+		 *****
+***** (Bikkuriman)
+		 *****
+		 *****
+***** (Bikkuriman)
+		 *****
+		 *****
+***** (Bikkuriman)
+		 *****
+		 *****
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+*****
+		 *****
+		 *****
+Mephistopheles
+		 Devil's Bargain
+		 Soul Drain
+No data
+No data
+No data
+No data
+Noble Dragon, Yoroku
+		 Noble Dragon Crest
+		 Merciful Radiance
+No data
+No data
+No data
+No data
+No data
+No data
+Zeus Mercury
+		 Wisdom of Zeus
+		 Mercury Genesis
+Awoken Minerva
+		 Purgatory Dragon's Divine Magic
+		 Hellish Inferno
+Awoken Neptune
+		 Polar Sea's Divine Magic
+		 Heavenstrom
+Awoken Ceres
+		 Spirit Tree's Divine Magic
+		 Soul Cure
+Awoken Dancing Queen Hera-Ur
+		 HOT Hera Tunes
+		 Ur Fever!!
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+Guan Yinping
+		 Unwavering Courage
+		 The Way of Yielding Firmness
+No data
+No data
+No data
+Light Insect Dragon, Pulseneedle
+		 Light Dust
+		 Light Spell
+No data
+Vibrant Butterfly Dragon, Swallowtail
+		 Tranquil Night of Dreams
+		 Five Flower Scales
+Apex Blue Flower Dragon, Starling
+		 Blue Hail Glass
+		 Aqua Leaf Prism
+Regios Cat
+		 Monster Hunter 4G Collab Series
+		 Monster Hunter 4G Collab Series
+Kut-Ku Cat
+		 Monster Hunter 4G Collab Series
+		 Monster Hunter 4G Collab Series
+Gore Cat
+		 Monster Hunter 4G Collab Series
+		 Monster Hunter 4G Collab Series
+Cat Khezu
+		 Monster Hunter 4G Collab Series
+		 Monster Hunter 4G Collab Series
+Rex Cat
+		 Monster Hunter 4G Collab Series
+		 Monster Hunter 4G Collab Series
+No data
+Fire Wizard, Laila
+		 Magic Boost
+		 Fire Spell
+No data
+Wandering Wizard, Wee Jas
+		 Space-Time Light Clock
+		 Break Time
+Jester Wizard, Chester
+		 Dimensional Jigsaw Puzzle
+		 Gravity Room
+Cauchemar
+		 Cauchemar Dream
+		 Emerald Guard
+No data
+Star Dragon Emperor, Defoud
+		 Galactic Dragon Emperor Power
+		 Starlight Breath
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Dark Knight, Gravis
+		 Dark Obsession
+		 Zone of Darkness
+Red Knight, Nim
+		 Chivalry of the Red Globe
+		 Red Crest
+Blue Knight, Muse
+		 Chivalry of the Blue Globe
+		 Blue Crest
+Green Knight, Delgado
+		 Chivalry of the Green Globe
+		 Green Crest
+Holy Knight, Arcline
+		 Chivalry of the Yellow Globe
+		 Holy Crest
+Evil Knight, Creuse
+		 Chivalry of the Indigo Globe
+		 Evil Crest
+Set
+		 Burning Instinct
+		 Corona Blast
+Nut
+		 Starry Sky Embrace
+		 Celestial Sign
+Osiris
+		 Monarchy of Dark Riches
+		 Forest Sign
+Hathor
+		 Exaltation of Sacred Life
+		 Heavenly Splash
+Nephthys
+		 Game of the Dead
+		 Dark Terror Mist
+No data
+No data
+No data
+Superman
+		 Super Strength
+		 Heat Vision
+Supergirl
+		 Maid of Might
+		 Arctic Breath
+Aquaman
+		 Ruler of Atlantis
+		 Harpoon of Atlantis
+Green Arrow
+		 Emerald Archer
+		 Broken Arrow
+The Flash
+		 Speed Force Aura
+		 Infinite Mass Punch
+Batgirl & Batwoman
+		 Acrobatic Combat
+		 Batarang Blitz
+Wonder Woman
+		 Warrior Princess
+		 Lasso of Truth
+No data
+No data
+No data
+No data
+No data
+Darkseid
+		 Ruler of Apokolips
+		 Omega Sanction
+*****
+		 *****
+		 *****
+No data
+No data
+No data
+Zhao Yun
+		 Brave General's Noble Heart
+		 Fortitudinous Rally
+No data
+Unyielding Samurai Dragon King, Zaerog
+		 Samurai Dragon King's Wrath
+		 Samurai Dragon's Bravery
+5-Ore Magic Stone Dragon, Mithril Edge
+		 Frozen Flame Draconic Protection
+		 Magic Stone Teleportation
+No data
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+***** (Saint Seiya)
+		 *****
+		 *****
+No data
+No data
+No data
+Awoken Hino Kagutsuchi
+		 Divine Fire of the Asylum
+		 Yomi Wave
+No data
+No data
+No data
+No data
+No data
+Permafrost Queen, Hera-Is
+		 Permafrost Queen's Gaze
+		 Freezing Gravity
+No data
+No data
+No data
+No data
+No data
+Awoken Hades
+		 Divine Purgatory Magic
+		 Gravity World
+Red Grimoire, Theurgia
+		 Fire Curse
+		 Summon Fire
+No data
+Blue Grimoire, Ars Paulina
+		 Water Curse
+		 Summon Water
+No data
+Green Grimoire, Almadel
+		 Wood Curse
+		 Summon Wood
+No data
+No data
+No data
+No data
+No data
+Dragon Caller, Sonia Gran
+		 Draco Summoning Pitch
+		 Puzzle & Dragons
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+I Love DeviBear
+		 Wonder DeviBear
+		 BEAMS DeviBeam
+Red Angel, Rozuel
+		 Charging Order
+		 Healing Hymn
+Blue Angel, Famiel
+		 Rallying Order
+		 Holy Water Hymn
+Green Angel, Ruel
+		 Magical Attack Order
+		 Super Power Hymn
+Holy Angel, Ariel
+		 Banishing Order
+		 Guiding Light Hymn
+Dark Angel, Lumiel
+		 Summoning Order
+		 Demon-Vanquishing Hymn
+Medjedra
+		 Medjebeam
+		 Ghost Star's Gleam
+No data
+Stubborn Dragon King, Gainaut
+		 Stubborn Dragon's Wrath
+		 Prism Fire
+No data
+Sea Dragon King, Volsung
+		 Sea Dragon's Imperial Wrath
+		 Meditative Five Color Dragon
+No data
+Wind Dragon Queen, Linthia
+		 Wind Dragon's Wrath
+		 Natural Blossom
+No data
+Knight Dragon King, Nordis
+		 Knight Dragon's Wrath
+		 Royal Gravity
+No data
+Phantom Dragon King, Zaerog∞
+		 Phantom Dragon's Imperial Wrath
+		 Rising Dark
+No data
+Angel of Secret Destiny, Elia
+		 Guidance to Sacred Ground
+		 Holy Star
+Psychopomp of Oblivion, Grisar
+		 Invitation to Hell
+		 Deathgazer
+No data
+No data
+No data
+Ken-Oh, Raoh
+		 You Saw the Death Omen Star!!
+		 Bring it On!!
+Raoh
+		 Nothing But Death Awaits You
+		 Heavenly Destruction
+No data
+Kenshiro
+		 Hokuto Shinken is Invincible!!
+		 You Are Already Dead
+No data
+Toki
+		 Hokuto Ujou Hagan Ken
+		 Tokei Koho
+No data
+Shin
+		 Which One Will Kill You?
+		 I'll Send You to Hell!
+No data
+Rei
+		 Now it's Your Turn!!
+		 What Color is Your Blood?!
+No data
+Juda
+		 It's Been a While
+		 Secret Technique Kessho Shi
+No data
+Shew
+		 Until This Life is Over!!
+		 Hear the Cry of My Soul!!
+No data
+Thouzer
+		 Perish Along With Your Love!!
+		 Secret Technique Tensho Juji Ho
+No data
+Mamiya
+		 What Do You Want With Me?
+		 Steel Spikes
+No data
+No data
+Diagoldos
+		 Protective Sword Scale
+		 Tail Lightning
+No data
+Twin Blade Brave, Shotel
+		 Gale Fencing
+		 Style Change - Wood
+Double-Edged Blade Brave, Claymore
+		 Burning Fencing
+		 Style Change - Fire
+Nameless Blade Brave, Masamune
+		 Quiet Current Fencing
+		 Style Change - Water
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Music Dragon, Legelonte
+		 Crescendo
+		 Fermata
+No data
+Battle Flower Spirit, Mandrake
+		 Price of Inspiration
+		 Hell Fang
+No data
+No data
+No data
+Zeus & Hera
+		 Power of Love
+		 God Gravity
+No data
+*****
+		 Ladies & Gentlemen
+		 *****
+No data
+No data
+No data
+Awoken Venus
+		 Bonding Divine Magic
+		 Beautiful World
+No data
+No data
+***** (Dragon Ball)
+		 *****
+		 *****
+***** (Dragon Ball)
+		 *****
+		 *****
+No data
+Kaguya-Hime
+		 Green Bamboo Wind
+		 Moon Blossom
+Red Dragonbound, Gadius
+		 Eternal Dragon Pact - Sedin
+		 Sunrise Zone
+Black Dragonbound, Typhon
+		 Eternal Dragon Pact - Dorva
+		 Sunset Zone
+No data
+Black Beast Demon, Zuoh
+		 Abyssal Hunger
+		 Chaotic Call
+Awoken Shiva
+		 Destruction God's Heavenly Might
+		 Devastating Third Eye
+Awoken Lakshmi
+		 Luck God's Divine Power
+		 Life Water Lotus Blossom
+Awoken Parvati
+		 Golden God's Divine Power
+		 Calming Mountain Wind
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+War Princess Asmodeus Another
+		 Moonblight Ice Blade
+		 Pureblood Pillar
+No data
+Fire Hammer Kiriko Another
+		 Flame Control
+		 Daydream Flame Attack
+No data
+Shinra Sorcerer God Moebius
+		 Omnipotence
+		 Super Shinra - A. Lord Shin
+Shinra Sacred Demon God Ark
+		 Magic Sword Gram Almadel
+		 Super Shinra - Sacred Dragon Devastation
+Shinra Light Dragon God Ryuga
+		 True Light Dragon Seven-Branched Sword
+		 Super Shinra - Light Dragon God Devastation
+Shinra Golden God Maxius
+		 Compliant Golden-Hooped Rod
+		 Super Shinra - Oni Howl Devastation
+Shinra Ultimate God Kai
+		 Bond Crystal
+		 Super Shinra - Ultimate God Devastation
+Shinra Soul Beast Sai
+		 Seven Soul Sword Susano
+		 Super Shinra - Gathering Cloud Devastation
+Shinra Sun God Apollo
+		 Divine Light Spear Gae Bulg
+		 Super Shinra - Blazing God Devastation
+Shinra Sacred Dragon God Saiga
+		 True Sacred Dragon Seven-Branched Sword
+		 Super Shinra - Sacred Dragon God Devastation
+Shinjo Kagato
+		 Raging Warrior
+		 Twin Pole Oni Flame Slash
+No data
+Crystal Ruler Hikari - Tenchi
+		 A Girl Worried About the Chaotic World
+		 Gleaming Amaterasu Ring
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Avowed Thief, Ishikawa Goemon
+		 What a View! What a View!
+		 True Ninja Art Fireworks
+Sphinx
+		 Pharaoh's Gaze
+		 Mystic Lazer
+Awoken Horus
+		 Blazing Moon Strike
+		 Reversal Flame
+Awoken Isis
+		 Abyss of the Nile
+		 Quick Guard
+Awoken Bastet
+		 Cat-Scratch Fever
+		 Wild Cats
+Awoken Ra
+		 The Sun's Blood Tide
+		 Sunburst Knuckle
+Awoken Anubis
+		 Jackal's Warning
+		 Necro Bite
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Cloud
+		 Braver
+		 It's not my problem.
+No data
+Sephiroth
+		 Draw Slash
+		 I am the chosen one.
+No data
+Squall
+		 Rough Divide
+		 Just stay close to me.
+No data
+Rinoa
+		 Angelo
+		 Hey, again.
+No data
+Zidane
+		 Thievery
+		 We'll destroy you and prove you wrong!
+No data
+Vivi
+		 Return Magic
+		 Don't come any closer!
+No data
+Tidus
+		 Spiral Cut
+		 This is my story!
+No data
+Yuna
+		 Summon Valefor
+		 I have become a summoner!
+No data
+Ace
+		 Cut Cards
+		 We have arrived!
+No data
+Aemo
+		 A Lost Lamb
+		 I want to change that future, too.
+No data
+Wol
+		 Arc Slash
+		 Know divine wrath!
+No data
+Chaos
+		 I will be reborn again here.
+		 Soul of Oblivion
+Emperor of Palamecia
+		 Man can never defeat the lord of Hell!
+		 Starfall
+Cloud of Darkness
+		 We will return this world to the Void! 
+		 Particle Beam
+Zeromus
+		 Grr...gh...agh...
+		 Big Bang
+Neo Exdeath
+		 Then I, too, can disappear...forever!!!
+		 Grand Cross
+Gilgamesh
+		 Oh really? Just try it!
+		 My Collection
+Kefka
+		 Hee-hee-hee...
+		 Hyperdrive
+No data
+Aamir
+		 Alluring Sonata
+		 Sweet Perfume
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Mighty Dragon Emperor, Lifive
+		 Scorched Sky Dragon Emperor Power
+		 Blaze Charge
+Phoenix Rider
+		 Blue Flame Sky Circle
+		 Immortal Guard
+Kraken Rider
+		 Gleaming Sea Earth Circle
+		 Deep Spiral
+Griffin Rider
+		 Purple Wind Earth Circle
+		 Royal Gale
+Unicorn Rider
+		 Red Saint Sky Circle
+		 Sacred Horn
+No data
+Zhou Yu
+		 The Genius General's Advisor
+		 A Break in the Clouds
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Kyubi
+		 Nine-Tailed Fox Stance
+		 Divine Flame of the Beauty
+No data
+Ancient Wooden Beast
+		 Soothing Tree
+		 Ancient Chain Vine
+No data
+Pianis
+		 Water Incantation
+		 Vortex Counter
+No data
+Scythe-Wielder, Yukari
+		 Dark Rise: Assault
+		 Demon Slash
+No data
+Arthur
+		 Human Rise: Assault II
+		 Holy Grail
+No data
+No data
+No data
+No data
+***** (Saint Seiya)
+		 I'm not fighting to die
+		 *****
+No data
+No data
+No data
+No data
+***** (Ghost in the Shell)
+		 Hellooo
+		 *****
+No data
+No data
+No data
+Harley Quinn
+		 Harley Quinn's Payback
+		 Tears of a Clown
+Scarecrow
+		 There's Nothing More to Fear
+		 Fear Gas
+No data
+Scarlet Dragon Caller, Tsubaki
+		 Scarlet Talisman
+		 Dimension Formation - Scarlet Sun
+Indigo Dragon Caller, Sumire
+		 Eightfold Sacred Seal
+		 Dimension Formation - Blue Life
+Jasper Dragon Caller, Kaede
+		 Tree Sky Sacred Seal
+		 Dimension Formation - Green Life
+No data
+No data
+***** (Duel Masters)
+		 Dragon Heart of Hope
+		 *****
+***** (Duel Masters)
+		 Dragon Heart of Despair
+		 *****
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+***** (Duel Masters)
+		 Orchestra of Death
+		 *****
+***** (Duel Masters)
+		 Dragon Friend
+		 *****
+***** (Duel Masters)
+		 King of Dragons
+		 *****
+No data
+No data
+***** (Duel Masters)
+		 From Sorrow to Wrath
+		 *****
+No data
+***** (Duel Masters)
+		 Howl of the Blue Divine Dragon
+		 *****
+No data
+***** (Duel Masters)
+		 Magic Power Amplification
+		 *****
+No data
+***** (Duel Masters)
+		 Trump Card of Light
+		 *****
+No data
+***** (Duel Masters)
+		 Feast of Destruction
+		 *****
+No data
+No data
+No data
+Sha Wujing
+		 Tenryousen Protection
+		 Staff of the Four Waters
+Zhu Bajie
+		 Daishokusen Force
+		 Stir-Fry Rake
+Blazing CyberDragon, Thuban
+		 Ruby Coating
+		 Flame Charge
+Abyssal CyberDragon, Sadalmelik
+		 Sapphire Coating
+		 Aqua Charge
+Gale CyberDragon, Alnair
+		 Emerald Coating
+		 Wind Charge
+Thundering CyberDragon, Shedar
+		 Gold Coating
+		 Lightning Charge
+Destroying CyberDragon, Diadem
+		 Metal Coating
+		 Phantom Charge
+Flame-Winged CyberBeast, Markab
+		 Ruby Converter
+		 Blast Signal
+Frost-Fanged CyberBeast, Alfecca
+		 Sapphire Converter
+		 Blizzard Signal
+Swoop-Winged CyberBeast, Phact
+		 Emerald Converter
+		 Tornado Signal
+Flashing-Clawed CyberBeast, Leonis
+		 Topaz Converter
+		 Plasma Signal
+Evil Eye CyberBeast, Kakkab
+		 Amethyst Converter
+		 Gravity Signal
+Hell Demon, Scarlet
+		 Bewitching Fire Snake
+		 Rose Flare
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+***** (Bikkuriman)
+		 *****
+		 *****
+No data
+No data
+***** (HxH)
+		 Even more pitiful
+		 *****
+No data
+Deus ex Machina
+		 Puppet Master's Dark Cogwheel
+		 Darkness Mode
+No data
+Sleeping Princess, Alma
+		 Sleeping Princess's Prayer
+		 The 6 Wings Legend
+No data
+No data
+Harmony Goddess, Balancile Another
+		 Jewel of Harmony
+		 Heaven and Earth Creation
+No data
+Lightweight Armor Queen, Polaris
+		 Grand Wave
+		 Armourer Queen
+No data
+No data
+No data
+No data
+No data
+Shiva Dragon
+		 Purifying Flames of Perdition
+		 Rudraksha
+Neptune Dragon
+		 Death Sea Holy Water
+		 Hydra Horn
+Odin Dragon
+		 Heavenly Gale
+		 Draupnir
+Ra Dragon
+		 The Sun's Halo
+		 Sunlight Crown
+Yomi Dragon
+		 Everlasting Moon Darkness
+		 Moon God's Arm
+Frozen Hell Demon, Indigo
+		 Hailstone of Refusal
+		 Freeze Lock
+Sanada Yukimura
+		 Six Coin Crest
+		 Crimson Cross Spear
+Mori Motonari
+		 One Line, Three Star Crest
+		 Parable of the Three Arrows
+Ishida Mitsunari
+		 Daiichi Daiman Daikichi Crest
+		 Heroic Blade
+Maeda Keiji
+		 Plum Blossom Crest
+		 Landscape-Patterned Cup
+Akechi Mitsuhide
+		 Bellflower Crest
+		 Confusing Strategy
+Frost Dragon Emperor, Ilsix
+		 Permafrost Dragon Emperor's Power
+		 Freezing Zone
+No data
+No data
+No data
+No data
+Shaved Ice Specialist, Frost Demon
+		 Shall I Freeze You?
+		 Sea Draco Summoning Circle-Wt & Wd
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Red Puppeteer, Pure
+		 Flame Demon Puppetry
+		 Elemental Jammer - Wood
+Blue Puppeteer, Charité
+		 Water Demon Puppetry
+		 Elemental Jammer - Fire
+Green Puppeteer, Courage
+		 Wind Demon Puppetry
+		 Elemental Jammer - Water
+Fire PreDRA
+		 Point Redemption - Extra Small
+		 Sunset Mystery
+No data
+No data
+No data
+No data
+Jord
+		 Realm of Ithavoll
+		 Earth Light Impact
+No data
+Awoken Viper Orochi
+		 Eight World Divine Soul
+		 Eight-Headed Suppression
+Awoken Susano no Mikoto
+		 Annihilating Divine Will
+		 Blazing Storm Barricade
+Awoken Amaterasu Ohkami
+		 Divine Healing of the Sun
+		 Divine Illumination
+Awoken Tsukuyomi
+		 Demonic Strike
+		 World of the Gleaming Moon
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Narga Cat
+		 Jungle Assassin
+		 Tail Strike Meow!
+Ogre Cat
+		 Peerless Hunter
+		 Electric Shock Meow!
+Poogie
+		 Memory Stripe
+		 Oink Oink!
+No data
+Eren Yeager
+		 Mankind's counterattack begins now!
+		 I'll kill them all!
+No data
+No data
+Mikasa Ackerman
+		 The world is cruel, that's why
+		 I'll survive no matter what!
+No data
+Levi
+		 I trust your decision
+		 Choose whatever you'll regret the least
+No data
+No data
+Armin Arlert
+		 This world has always been hell
+		 We must take measures now.
+No data
+Erwin Smith
+		 Your will is the key
+		 Dedicate your heart!
+No data
+Jean Kirstein
+		 Dammit!
+		 Now...what are we supposed to do?
+No data
+Zoë Hange
+		 I'll take care of it
+		 Mind if I try an experiment?
+No data
+Krista Lenz
+		 Better drink water first...
+		 Are you ok!?
+No data
+Sasha Blouse
+		 No doubt we'll succeed!
+		 Here...take half...
+No data
+Armored Titan
+		 Hardened Body
+		 Ruthless Tackle
+Colossus Titan
+		 Scorching Vapor
+		 Overwhelming Fear
+Female Titan
+		 Peculiar Stance
+		 Powerful High Kick
+Aegir
+		 Welcoming Sea God's Jaw
+		 Vik Enhance
+No data
+No data
+No data
+Awoken Freyr
+		 Victory Sword Herald
+		 Rune Enhance - Fire & Water
+Awoken Idunn & Idunna
+		 Golden Apple Remains
+		 Rune Enhance - Water & Dark
+Awoken Freyja
+		 Malice of the Brisingamen
+		 Rune Enhance - Wood & Dark
+Awoken Thor
+		 Asmegin Unleashed
+		 Rune Enhance - Light & Water
+Awoken Loki
+		 Trickster's Scheme
+		 Rune Enhance - Dark & Light
+Surtr
+		 Fire Sword of Eradication
+		 Flame Ocean of Destruction
+Heimdallr
+		 Lantern of Bifröst
+		 Gjallarhorn
+Hel
+		 Corpse Princess's Bitter Poison
+		 Hell's Garden
+Master of the Masquerade, Pumpkin Joker
+		 Happy Halloween!
+		 Jack-o'-Lantern
+Bewitching Demon Bird, Cockatrice
+		 Heh heh ho!
+		 Holiday Summoning Circle-Wt & Dk
+Master Candy Collector, Wicked Lady
+		 I Love Sweets!
+		 Midnight Spell
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Antares
+		 Mechanical Flame Star of Scorpius
+		 Astrocharge - Flare
+Alrescha
+		 Mechanical Water Star of Pisces
+		 Astrocharge - Aqua
+Spica
+		 Mechanical Earth Star of Virgo
+		 Astrocharge - Land
+Pollux
+		 Mechanical Light Star of Gemini
+		 Astrocharge - Light
+Castor
+		 Mechanical Dark Star of Gemini
+		 Astrocharge - Dark
+No data
+Ninja Hattori
+		 Here I go!
+		 Ninpo - Dead Leaf Blizzard
+Shishimaru
+		 Chikuwa! Woof!
+		 Raging Fireball
+No data
+No data
+No data
+No data
+No data
+No data
+Orange Dragonbound, Saria
+		 Eternal Dragon Pact - Fragrem
+		 Shine Flare Ring
+Blue Dragonbound, Ryune
+		 Eternal Dragon Pact - Toa
+		 Abyss Dark Ring
+No data
+No data
+Yuria
+		 Listen to my wish
+		 Merciful Mother Star
+No data
+Juza
+		 I live as free as the clouds
+		 Gekiheki Haisui Sho
+No data
+Fudo
+		 HAHA! I got you!
+		 Demon Strike
+No data
+Rihaku
+		 Stubbornness to Sadness
+		 Five Chariots Wave Barrier
+No data
+Inuyasha
+		 Iron Reaver Soul Stealer
+		 I'll protect you with my life
+No data
+No data
+Higurashi Kagome
+		 Purification
+		 Sit boy!
+No data
+Lum
+		 Darling
+		 Electric Shock Daccha
+No data
+Aotsuki Ushio and Tora
+		 We're really strong!
+		 Beast Spear
+No data
+Inasa Kirio & Kuin
+		 Let's get this party started
+		 Elezar's Scythe
+No data
+Hanabishi Recca
+		 Third Flamedragon - Homura
+		 Get out of here!! 8 Dragons!!
+No data
+Kirisawa Fuko
+		 Wind Claw
+		 Let me win!!
+No data
+Aladdin
+		 Ugo!
+		 You're a brave one
+No data
+Alibaba
+		 Amon's Royal Sword
+		 We're friends, aren't we?
+No data
+Morgiana
+		 Fanalis
+		 I want to fight too
+No data
+Judar
+		 Thalg Al-Salos
+		 I'll put holes all over you!
+Tendo Jigoku
+		 Let hope become despair!
+		 Exactly as planned
+Naraku
+		 Hehehe, that's pathetic
+		 Saimyosho Summoning
+Hakumen no Mono
+		 Everything must be destroyed!!
+		 Waaaaaaaah!
+Tora
+		 I am Tora!
+		 I'm gonna eat you!
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Astaroth
+		 Cauchemar Crusher
+		 Lazy Smile
+No data
+Awoken Archdemon Lucifer
+		 Morning Star Apocalypse
+		 Oblivion Nova
+Green Dragonbound, Sylvie
+		 Eternal Dragon Pact - Kuarje
+		 Storm Light Ring
+No data
+No data
+Holy Night Red Dragon Caller, Sonia
+		 Let's party together ♪
+		 Holy Draco Summoning Circle-Fr & Wd
+No data
+Lively Banquet Dragon Hero, Liu Bei
+		 See, it's warm, isn't it?
+		 Sacred Fire Oath
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Santa Claus
+		 Red Nose Formation
+		 Jingle Bells
+Machine Hera
+		 MH189 - Multi Turbo
+		 Charge Gravity-G
+Machine Zeus
+		 MZ187 - Multi Turbo
+		 Charge Gravity-H
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Year's First Dream God of Luck, Horus
+		 Eeee, Eeeeeee!
+		 Rising Sun Sparkle
+First Sunshine's Shadow, Hattori Hanzo
+		 New Year's Day is the key of the year
+		 Ninja Art Thousand Lanterns
+Shinto Deity's Blossom, Kaguya-Hime
+		 May everybody's wishes come true!
+		 Rice Cake Warding Prayer
+No data
+No data
+No data
+Shinto Shrine's Dragon Knight, Himiko
+		 Dragon's fortune is always true!
+		 Bumper Crop Prayer
+No data
+No data
+No data
+No data
+Yamatsumi
+		 God Mountain's Necklace
+		 Amanotamuzake
+Takemikazuchi
+		 Thunder Fist God's Fighting Spirit
+		 Truce Negotiations
+Denebola
+		 Leo's Fiery Mechanical Star
+		 Star Dust - Flare
+Acubens
+		 Cancer's Watery Mechanical Star
+		 Star Dust - Aqua
+Algedi
+		 Capricorn's Windy Mechanical Star
+		 Star Dust - Land
+Alcyone
+		 Taurus's Solar Mechanical Star
+		 Meteor Charge - Light
+Hamal
+		 Aries's Lunar Mechanical Star
+		 Meteor Charge - Dark
+No data
+No data
+No data
+No data
+Guardian of the Sacred City, Athena Another
+		 Inversion - Hymn of Nike
+		 Inversion - Glitter of Aegis
+Green Gleaming Star Kirin, Sakuya Another
+		 Inversion - Dance of the Four Origins
+		 Inversion - Boisterous Dance
+Marvelous Red Dragon Caller, Sonia Another
+		 Inversion - Magic Dragon Tribe's Essence
+		 Inversion-Draco Summoning Circle-Fr & Dk
+No data
+Baby PreDRA
+		 Point Redemption - Extra Small
+		 Harmonic Feather
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Ragnarok Dragon
+		 Catastrophic Drive
+		 All Orbs Charge
+No data
+No data
+No data
+Voltron
+		 Form Voltron!
+		 Guardian of the Universe
+No data
+No data
+Shiro
+		 We have to find Voltron.
+		 Guardian Spirit of Cosmos
+No data
+Princess Allura
+		 I am Princess Allura of Planet Altea.
+		 Princess who guides the Paladins
+No data
+No data
+Keith
+		 Shut up and trust me.
+		 Guardian Spirit of Core
+No data
+Lance
+		 Isn't this awesome?
+		 Guardian Spirit of Water
+No data
+Pidge
+		 Stop touching my equipment!
+		 Guardian Spirit of Forest
+No data
+Hunk
+		 Oh, I'm hungry again.
+		 Guardian Spirit of Land
+No data
+Coran
+		 Quiznak!
+		 Princess' Loyal Attendant
+No data
+Emperor Zarkon
+		 You cannot stop me.
+		 Diabolical Conqueror
+Haggar
+		 Now, I will destroy you.
+		 Arcane Evil Witch
+Drazil Robeast
+		 Simultaneous Attack
+		 Robotic Weapon
+Sendak
+		 I conquer in the name of Galra.
+		 Ruthless Commander
+Myzax
+		 Destructive Behavior
+		 Gigantic Gladiator
+Heavenly Fire God, Agni
+		 Wild Stride
+		 Oriental Stomp
+Jörmungandr
+		 End of the World's Calling
+		 Poisonous Fang of Transformation
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Pandora
+		 Roses of Calamity
+		 Forbidden Box
+No data
+No data
+No data
+No data
+No data
+No data
+Ichigo Kurosaki
+		 Then all I need to do is win!
+		 This fight... is all mine!
+No data
+No data
+Rukia Kuchiki
+		 There's no forgiving what I've done.
+		 Then get stronger.
+No data
+Orihime Inoue
+		 All right!! Time for lunch!
+		 I reject.
+No data
+Uryu Ishida
+		 You'll find it in my attacks.
+		 By the honor of the Quincy...
+No data
+Yasutora Sado
+		 Are you hurt...?
+		 Please. Give me the power.
+No data
+Yoruichi
+		 Did you think you could capture me?
+		 ...You are a fool.
+No data
+Kisuke Urahara
+		 Good... That's the spirit.
+		 Looks like you're in a bind.
+No data
+Toshiro Hitsugaya
+		 Reign over the Frozen Sky, Hyorinmaru!
+		 Stand back. I'll handle this!
+No data
+Rangiku Matsumoto
+		 So what?
+		 Don't talk down to me!!
+No data
+Kenpachi Zaraki
+		 He's finally here.
+		 I knew you could do it.
+No data
+Ikkaku Madarame
+		 I guess you're not stupid.
+		 What say we be friends!
+No data
+Renji Abarai
+		 Roar Zabimaru!
+		 You stubborn fool...
+No data
+Mayuri Kurotsuchi
+		 Claw out! Ashisogijizo.
+		 How nice...
+No data
+Byakuya Kuchiki
+		 Scatter Senbonzakura
+		 I'll crush that power!!
+No data
+Zangetsu
+		 Try to defeat me if you can!
+		 Are you ready?
+No data
+No data
+No data
+Awoken King Gold Necky, Force
+		 Famitsu App Guidance
+		 Famitsu App Awakens
+Smithing God, Hephaestus Dragon
+		 Genesis Divine Flames
+		 Creation Routine
+White Rainbow Ark, Noah Dragon
+		 White Rainbow of World Protection
+		 Hope of Noah
+Original Goddess, Gaia Dragon
+		 Cradle of the Earth
+		 Energy Geyser
+Almighty God, Zeus Dragon
+		 Thunder of Creation
+		 Wrath of Zeus
+Darkness Goddess, Hera Dragon
+		 Envious Sigh
+		 Eyes of Hera
+Hephaestus
+		 Smithing God Skills
+		 Flame Hammer
+No data
+No data
+Princess Soprano
+		 Mysterious Orbs
+		 Magical Song
+LINKA
+		 Link Fever
+		 I'll navigate!
+Dragon Caller, Sonia Gran Reverse
+		 Alt. Draco Summoning Pitch
+		 Puzzle & Dragons W
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Ares
+		 War Blessing
+		 Raging Blaze
+Awoken Hermes
+		 Commerce Blessing
+		 Dream Water
+Awoken Artemis
+		 Hunting Blessing
+		 Lunatic Storm
+Awoken Apollo
+		 Flash Divine Inspiration
+		 Sunlight Harmony
+Awoken Persephone
+		 Darkness Divine Inspiration
+		 Netherworld Star
+No data
+Whirlwind Dragon Emperor, Sevenzard
+		 Dragon Emperor Power of Mutation
+		 Chameleon Blast
+Four Noble Ones, Xiang Mei
+		 Elegant Pride
+		 Crimson Season
+Four Noble Ones, You Yu
+		 Moderated Pride
+		 Blue Season
+Four Noble Ones, Xiu Min
+		 Innocent Pride
+		 Yellow Season
+Four Noble Ones, Xin Hua
+		 Pure Dignity
+		 Purple Season
+Moogle
+		 Maximoogle
+		 Time for some moogle magic. Kupo!
+No data
+No data
+No data
+Cecil
+		 Shadow Bringer
+		 This is a fight for me and me alone
+No data
+No data
+Bartz
+		 Spellblade -Dual Wield-
+		 It's just a trick I learned from my dad
+No data
+Terra
+		 Magitek Missile
+		 Espers... Heed my call.
+No data
+Shantotto
+		 You're making me lose my temper, dear!
+		 O-hohohohoho!
+No data
+Vaan
+		 Red Spiral
+		 Got a surprise for you!
+No data
+Lightning
+		 Army of One
+		 No room for doubt.
+No data
+No data
+Y'shtola
+		 Stoneskin
+		 Let's go. Focus!
+No data
+Rain
+		 Blazing Storm
+		 This is my duty as a knight!
+No data
+Ultimecia
+		 Why stand in the way of a witch?
+		 Hell's Judgment
+Trance Kuja
+		 I'll bring this to an end! 
+		 Flare Star
+Braska's Final Aeon
+		 I won't be able to hold myself back.
+		 Ultimate Jecht Shot
+Shadow Lord
+		 Until the fires of wrath consume me!
+		 Implosion
+Gabranth
+		 Without power what future can you claim?
+		 Execution
+Orphan, First Form
+		 Our name is Orphan.
+		 Black Ruin
+No data
+Shuten-doji
+		 Lunatic Flames' Peerless Strength
+		 Pandemonium's Best Sake
+No data
+Colorful Queen, Hera-Beorc
+		 Colorful Queen's Wink
+		 Blowing Gravity
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Newspaper Club's Reporter, Sarutobi Sasuke
+		 This is a scoop...
+		 Whirlwind Scoop's Technique
+Pet Caretaking's Club, Red Riding Hood
+		 Let's raise them well!
+		 Youth Light
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Knightmare Batman
+		 Bat Vigilante
+		 Kryptonite Spear
+No data
+Artificial Lifeform, Doomsday
+		 Clone Invulnerability
+		 Energy Beams
+Hanuman
+		 Cleansing Martial Arts
+		 Oriental Wind
+Sesshomaru
+		 Meidou Zangetsuha
+		 I will show you no mercy!
+No data
+Kikyo
+		 You're way too young to attempt on my life...
+		 I'll send you to Hell!
+No data
+Hyou
+		 Kin!!
+		 With the Yang & Ying of Heaven and Earth I command you!
+Kurei
+		 Incarnation of the Flame-Kurei
+		 Let's walk together for all eternity...Kurei...
+No data
+Kyoza Meguri
+		 Hyoumon Ken
+		 I'm gonna put you out of your misery
+No data
+Koganei Kaoru
+		 Golden Blade-1st Form Fang
+		 I can do it too!!
+No data
+Ishijima Domon
+		 Kuchibashi-O
+		 Who wanna die come here!!
+No data
+Sinbad
+		 First Class Singularity
+		 High King of the Seven Seas
+Ren Hakuryuu
+		 Metal Vessel of Zagan
+		 I'll fulfill my goal.
+No data
+Ren Kougyoku
+		 Metal Vessel of Vinea 
+		 Be my friend.
+No data
+Mitsuhashi & Ito
+		 We are strong!!
+		 I'll become a delinquent from today on!!
+No data
+Edogawa Conan
+		 Idiot!
+		 Conan Edogawa... Detective...
+No data
+Rachel Moore
+		 Come back soon... Shinichi!!!
+		 Angel
+No data
+Sagara Takeshi
+		 You'll regret opposing me!!
+		 I'll take you one on one!
+Gin
+		 I can't answer to your request...
+		 APTX4869
+No data
+No data
+No data
+No data
+No data
+No data
+Heaven Winged Machine, Seraphis
+		 Symphonic Energy
+		 Feathers of Heaven
+No data
+No data
+No data
+Jörmungandr-Ullr
+		 End's Return
+		 Poison Fang of Cursed Fire
+No data
+Awoken Cao Cao
+		 Legendary Military Ruler
+		 Everlasting Stratagem
+Awoken Sun Quan
+		 Young Tiger's Noble Path
+		 Garyou Tensei Expertise
+Awoken Liu Bei
+		 Ascension's Noble Path
+		 Recovering Chance
+Awoken Da Qiao & Xiao Qiao
+		 Two Qiao's Celestial Dance
+		 Flawless Devotion
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Passionate Dragon Caller, Ace
+		 Cross On!!
+		 Show them your burning soul!!
+Horus Armor X Dragon Caller, Ace
+		 Flame Falcon Blinding Light X
+		 Celestial Eye of Wadjet X
+Zeus Olympios Armor X Dragon Caller, Ace
+		 Soul of Zeus X
+		 Wrath of God X
+Bastet Armor X Dragon Caller, Ace
+		 Moonlit Cat X
+		 Wild Cats X
+No data
+No data
+No data
+No data
+No data
+No data
+Treasure Blade Dragon, Drahklist
+		 Unlimited Sword
+		 Secret Heaven - Meteor Blade
+Distant Sea Dragon, Whaledor
+		 Megalo-Vortex
+		 Big Whale's Sea Spray
+Green Hell Dragon, Raguel
+		 Generate Hell
+		 Hell's Raging Wind
+No data
+No data
+Gleaming Queen, Hera-Sowilo
+		 Merciful Eye of the Gleaming Queen
+		 Gleaming Gravity
+No data
+No data
+Saintly Bell Bride, Eschamali
+		 Would you stay with me?
+		 Promise Bouquet - Light
+No data
+Innocent Newlywed, Moon Dragon Caller Satsuki
+		 Does it look nice on me?
+		 Dream Dragon Dance - White Cloud
+No data
+No data
+Deeply in Love Newlywed, Akechi Mitsuhide
+		 My heart belongs to you
+		 Wakizashi's Vow
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Dragonbound, Myr
+		 Eternal Dragon Agreement - Torvio
+		 Moon Phase
+No data
+No data
+No data
+No data
+No data
+Phoenix Wright
+		 Objection!
+		 Eat this!
+Maya Fey
+		 Wait!
+		 Maya Kick!
+Apollo Justice
+		 Hold it right there!
+		 I'm seeing through your game!
+Rayfa Padma Khura'in
+		 Stop!
+		 Soul's Oracle
+Awoken Indra
+		 Thunderdragon's Divine Power
+		 Heaven-Shaking Lightning Wall
+Awoken Vritra
+		 Darkdragon's Divine Power
+		 Abyssal Strike
+Awoken Ame no Uzume
+		 Heaven's Gate Dance Performance
+		 Recovery Encouragement
+Awoken Umisachi & Yamasachi
+		 Secret Treasure of the Mountains and Seas
+		 Soul of the Sea God
+Awoken Kushinadahime
+		 Nadeshiko's Sincerity
+		 Blessed Protection
+Awoken Izanagi
+		 Godly Efficiency of Genesis
+		 Dawn of the Celestial Ocean
+Awoken Okuninushi
+		 Powerful Technique Connection
+		 Masterful Foundation
+Star Justice
+		 Star Sonic Energy
+		 Justice Mode
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Shobu Kirifuda
+		 Let's duel!!
+		 My duel is not finished!
+Adventure Lover, Van Crow
+		 Matilda Whip
+		 Astral Blast
+No data
+Giselle Alstar
+		 Dokuro Attack
+		 Secret Special Training!
+No data
+Achtros
+		 Low Tide Dragon Power
+		 Abyssal Stroke
+Deighk
+		 High Tide Dragon Power
+		 Shining Stroke
+Stone Scales Dragon Emperor, Deightros
+		 Tidal Dragon Emperor Power
+		 Shining Abyssal Gate
+Liberty Geist
+		 Liberty Heat Energy
+		 Earnest Mode
+No data
+Himura Kenshin
+		 Let's go.
+		 Hiten Mitsurugi-ryu: Ryushosen
+No data
+Kamiya Kaoru
+		 This is it!!
+		 Swords that give life
+No data
+Myojin Yahiko
+		 I want to get good as fast as I can!!
+		 Miyomimane Ryutsuisen
+No data
+Sagara Sanosuke
+		 I will not lose--!
+		 Futae no Kiwami
+No data
+Takani Megumi
+		 Love must be free.
+		 Family's Medicine
+No data
+Shinomori Aoshi
+		 Answer my sword at full strength.
+		 Kaiten-Kenbu Rokuren
+No data
+Makimachi Misao
+		 Ho. Not bad, not bad 'tall.
+		 Kansatsu Tobikunai
+No data
+Saito Hajime
+		 I will deny everything that you are.
+		 Gatotsu
+No data
+Seta Sojiro
+		 I shan't hold back.
+		 Shukuchi
+No data
+Honjo Kamatari
+		 C'mon! C'mon!
+		 Midare Benten
+No data
+Shishio Makoto
+		 Will you add your fuel to my fire?
+		 Secret Blow
+No data
+Sadojima Hoji
+		 There is only one thing I think about.
+		 As an Abomination
+No data
+Uonuma Usui
+		 That is my invincible Shingan...!
+		 Heritage Sword Hyakka Ryoran
+No data
+Yukyuzan Anji
+		 This is mastery.
+		 Mission of Salvation
+No data
+Sawagejo Cho
+		 A fair fight, huh?
+		 Killing Sword of Shakku's
+No data
+No data
+No data
+No data
+No data
+No data
+Light Mode, Pepper
+		 Hey, what are you doing?
+		 Hello, I'm Pepper
+Dark Mode, Pepper
+		 Let's play together!
+		 Pe, pe, pe, pper!
+No data
+No data
+No data
+No data
+No data
+Machine Athena
+		 MA648-Multi Turbo
+		 Charge of Aegis
+No data
+No data
+Huey
+		 The Wind has to move too!!
+		 The time to annihilate you has come
+No data
+Shuren
+		 I already told you it was useless!!
+		 You and your ambition burn to ashes!
+No data
+Rin
+		 I... I'll fight too!!
+		 Keeeeeeen!
+No data
+No data
+No data
+No data
+Valkyrie Rose Armor X Dragon Caller, Ana
+		 Innocent Bravery X
+		 Attack Stance - Light X
+Holy Ceres Armor X Dragon Caller, Ana
+		 Godly Wall of Holy Forest X
+		 Shower of Healing X
+Typhon Armor X Dragon Caller, Ana
+		 Eternal Dragon Pact - Dorva X
+		 Sunset Zone X
+No data
+No data
+No data
+Machine Necky
+		 Famitsu App Iron Wall
+		 Famitsu App Enthusiasm
+Tamazo X Awoken Odin
+		 Robe of Protection X
+		 Gungnir X
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Abiding Sniper Dragonbound, Myr
+		 You can't escape from me!
+		 Sundial
+Beach Star Goddess, Eschamali
+		 The sea breeze feels so good!
+		 Summer Paradise - Aqua
+Genbu Princess of Paradise, Meimei
+		 Hey, let's chill out♪
+		 Summer Sea Seven-Star Formation
+No data
+No data
+No data
+No data
+No data
+Resting Wings Dragon Caller, Navi
+		 This is going to be so much fun!
+		 Healing Spot
+No data
+No data
+No data
+Kinnikuman
+		 Kinniku Buster
+		 I won't even need the push of my farts!
+No data
+Kinnikuman Soldier
+		 Napalm Stretch
+		 Even if it kills me!
+No data
+Akuma Shogun
+		 Hell's Merry-Go-Round
+		 You either live or you die!
+No data
+Terryman
+		 Spinning Toe Hold
+		 Behold: True brotherhood!
+No data
+Robin Mask
+		 Choujin Rocket
+		 This ain't no fun and games
+No data
+Brocken Jr.
+		 Camel Clutch
+		 Time to meet your maker!
+No data
+Warsman
+		 Bear Claws
+		 See you in hell
+No data
+Asuraman
+		 Tornado Hell
+		 No escape!
+No data
+Kinnikuman Mariposa
+		 Moctezuma Defense
+		 That's what you get!
+Kinnikuman Big Body
+		 Maple Leaf Clutch
+		 Go on! Pulverize 'em!
+Kinnikuman Zebra
+		 Saint Muscle Punch
+		 Ah... How refreshing
+Kinnikuman Super Phoenix
+		 Muscle Revenger
+		 Hold still for me
+Kuramitsuha
+		 Azure Spring Dragon's Fangs
+		 Rhythm of the Falling Rain
+Cosmo Crusader
+		 Cosmo Photon Energy
+		 Purify Mode
+No data
+Khepri
+		 Everflowing Sunlight
+		 Magic Chain
+Fire Mode, Pepper
+		 Samba's so much fun!
+		 Vamos, Amigo!
+Water Mode, Pepper
+		 It's all in the rhythm♪
+		 Everybody Dance!
+Tamazo X Awoken Phantom God, Odin
+		 Song of Valhalla X
+		 Destroying Lance, Gungnir X
+Tamazo X Awoken Deity Odin
+		 Sign of Mimir X
+		 Diabolic Lance, Gungnir X
+Tamazo X Batman
+		 I'm a Dark Hero-TAMA!
+		 Evil Will Not Be Tolerated-TAMA!
+No data
+Flaming Revolution, Dogiragon
+		 Perfect Revolution Offense
+		 Dogiragon Entry
+Blue Leader, Dogiragon Buster
+		 Final Revolution
+		 Revolution Change
+Katta Kirifuda
+		 This next draw will be intense!
+		 Time for my trump card! 
+No data
+No data
+No data
+No data
+No data
+Yamitsukami-no-miko, Kaminue
+		 Godly Assault
+		 Life Flash X - Orb Change
+Yumitsukami-no-miko, Kagenue
+		 Abyssal Tide
+		 Life Sapphire X - Orb Change
+Yomitsukami-no-miko, Kuninue
+		 Diablos Glare
+		 Life Tree X - Orb Change
+Crimson Inferno Blade, Entetsu Sokaku
+		 Burning Horn
+		 Life Flame X - Orb Change
+Omnipresent Earth Blade, Shintetsu Ryokaku
+		 Hunting Cyclone
+		 Life Forest X - Orb Change
+Purgatory Chaos Blade, Meitetsu Nikaku
+		 Hell Strike
+		 Life Prison X - Orb Change
+No data
+No data
+No data
+Shimmering Thunder Goddess, Hera Dragon
+		 Longing Breath
+		 Sign of Hera
+Guardian of the Imperial Capital, Athena
+		 Victoria's Victory Song
+		 Gorgon's Evil Gaze
+Burning Time Dragonbound, Myr
+		 Eternal Dragon Unity - Torvio Koh
+		 Double Barrel
+No data
+Trailokyavijaya
+		 Axiom of Exorcism
+		 Divine Purification
+Kundali
+		 Axiom of Nectar
+		 Divine Healing
+Acala
+		 Axiom of Salvation
+		 Divine Luckbringer
+Vajrayaksa
+		 Axiom of Purity
+		 Divine Reckoning
+Vajrabhairava
+		 Axiom of Sustainment
+		 Divine Blessing
+No data
+No data
+No data
+No data
+No data
+Flintlock
+		 Magnum Charge
+		 Ether Boost
+Mion
+		 Blue Key Dragon Accompaniment
+		 Dragon Song - The Sea Deity
+Crimson Orchid Black Witch, Xiang Mei
+		 Tonight's gonna be fun!
+		 Pumpkin Season
+No data
+No data
+No data
+Tea House Girl, Chiyome
+		 Hey, sorry to keep you waiting!
+		 Costume Changing Technique-Dark
+No data
+No data
+No data
+Masquerade Rock Singer, Misery
+		 I've...gotta sing...
+		 Poison Shout
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Steel Dragon Emperor, Ninegaruda
+		 Fatal Flame Dragon Emperor Power
+		 Hellblaze Shield
+No data
+No data
+No data
+No data
+Serket
+		 Scorpion Strike - Falcon Guard
+		 Scorpion Resistance
+No data
+Tamazo X Tsukuyomi
+		 Hand of God X
+		 Change the World X
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Phantom Demon of the Grimoire, Ilmina
+		 Forbidden Sorcery
+		 Grimoire Shade
+Judgment Scale Steel Star Goddess, Elgenubi
+		 Crimson Steel Star of Libra
+		 Aero Wake - Flare
+Conquest Bow Steel Star Goddess, Meridionalis
+		 Blue Steel Star of Sagittarius
+		 Meteor Shot - Aqua
+No data
+No data
+Dark Mechdragon Technician, Barbara
+		 Nightmare Energy
+		 Baldin's Eyes
+Assault Vessel Steel Star Goddess, Kuvia
+		 Crimson Steel Star of Aquarius
+		 Starry Road - Flare
+Cold Mask Demon Princess, Mel
+		 Appetite for Knowledge
+		 Healing Cut
+No data
+Green Earth Dragon Miko, Momiji
+		 Mountain Dragon's Protective Torch
+		 Dimensional Formation - Mountain God
+Dragon Caller's Disciple, Sheena
+		 Magic Dragon Tribe's Determination
+		 Draco Summon - Light & Dark
+No data
+No data
+No data
+Onion Knight
+		 Sword & Magic
+		 Don't underestimate me.
+No data
+Tifa
+		 Beat Rush
+		 I won't give up!
+No data
+No data
+Auron
+		 Dragon Fang
+		 Now is the time to choose!
+No data
+Penelo
+		 Intercession
+		 Don't leave me here.
+No data
+Noctis
+		 Conjure Weapons
+		 Trust in me...
+No data
+Glauca
+		 Glaive of Regicide
+		 Abandon your prayers.
+King Flamtan
+		 Skill Level Up Aid - Fire
+		 King's Smile
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Titania
+		 Sacred Young Flora
+		 Sprite Circle
+Ras
+		 Green Steel Star of Ophiuchus
+		 Startreat Land
+Time-Shift Black Dragon Caller, Sonia
+		 Dark Dragon Tribe's Quintessence
+		 Draco Summon - Dark, Fire & Life
+Elder of Fire Dragon Caller, Eldora
+		 Legacy: Ancient Dragon's Hellfire
+		 Wisdom of the Flames
+No data
+No data
+Elder of Wood Dragon Caller, Torieh
+		 Legacy: Elder's Glory
+		 Wisdom of the Trees
+No data
+Flame Pillar God of the Scorching Sun, Amen
+		 Scorching Sun's Atmosphere
+		 Corona Spark
+Aqua Pillar Goddess of Air Mastery, Mut
+		 Air Mastery's Locking Claws
+		 Eagle Feather
+Earth Pillar God of the Traversing Moon, Khonsu
+		 Traversing Moon's Green Glow
+		 Moonleaf
+Xiahou Dun
+		 Burning Rage
+		 Lively Glance
+Gan Ning
+		 Seaside Onslaught
+		 Unyielding Arrows
+Ma Chao
+		 Radiant Valor
+		 Tempest Flash
+Diaochan
+		 Chain of Collusion
+		 Moonlight Serenade
+Sima Yi
+		 Contemplative Wolfsight
+		 Shadow Tactics
+The Final Getsugatensho, Ichigo Kurosaki
+		 Mugetsu
+		 I'll end this... in an instant.
+No data
+No data
+Shigekuni Genryusai Yamamoto
+		 I am deeply disappointed.
+		 You have not learned your lesson.
+No data
+Sosuke Aizen
+		 Shatter, Kyokasuigetsu.
+		 It only makes you look weak.
+No data
+Ulquiorra Shifar
+		 Imprison... Murcielago.
+		 See the difference in our strengths.
+No data
+Grimmjow Jeagerjaques　　
+		 Kill them! Don't let a single one escape!
+		 I can't stand that!!
+No data
+Gin Ichimaru
+		 Shoot to kill, Shinso...
+		 You're out of moves...
+No data
+No data
+No data
+No data
+No data
+Holy Ritual Ninja Princess, Hatsume
+		 Sleep well, little ones♪
+		 Ninja Art - Presents on Fire
+Holy Night Siblings, Castor & Pollux
+		 Enjoy your holidays...
+		 Gemini Star Road
+Holy Night Visitor, Gremory
+		 Just dropping in for a bit
+		 Sweet Words
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Myr Regalia, Rei
+		 Myr's Providence
+		 I have nothing else.
+Kali Regalia, Kaworu
+		 Kali's Providence
+		 The ties that bind you will show you the way.
+Leilan Regalia, Misato
+		 Leilan's Providence
+		 Get set for lots of special goodies!
+Yamato Takeru Regalia, Asuka
+		 Yamato Takeru's Providence
+		 Stupidity of epic proportions!
+Scheat Regalia, Shinji
+		 Scheat's Providence
+		 What am I supposed to do now?
+Ceres Regalia, Mari
+		 Ceres's Providence
+		 Let's see what this bad boy can do!
+Rei Ayanami (temp. name) & Mark.09
+		 AAA Wunder's Original Master
+		 What would Rei Ayanami do?
+No data
+Kaioh
+		 Anryu Hiha
+		 All that shall remain... is Evil!!
+No data
+Bat
+		 How have you survived until now?
+		 Just leave it to me!
+No data
+No data
+No data
+No data
+Shrine Tour Mechstar Princess, Spica
+		 Where shall we go next?
+		 God Tree's Sacred Arrow
+No data
+*****
+		 The side of me I never knew
+		 Where am I?
+Meteor King, Ginga
+		 Supreme Meteor Blade
+		 Child of the Meteor
+No data
+Green Earth Wind Dragon Caller, Kaede Another
+		 Inversion - Sacred Protection Emblem
+		 Inversion - Green Life
+*****
+		 SMZ1495 - Eye of Zeus
+		 Big Saint Gravity
+No data
+No data
+No data
+No data
+*****
+		 Stay close to me...
+		 This match is mine, Kudo!
+No data
+*****
+		 Fight me right here, right now!
+		 Akane's MY fiancée!!
+No data
+No data
+*****
+		 I'm not marrying that pervert!
+		 Ranma, you jerk!
+No data
+*****
+		 I'm gonna play on that field!!
+		 I'm taking on the baseball world!
+No data
+*****
+		 I'm not letting you hit this ball anymore!
+		 This ain't a gamble, it's strategy!
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Demonic Gentleman, Azazel
+		 Corrupted Wings
+		 Eyes of Darkness
+Enlightened Demonic Gentleman, Azazel
+		 White Demon Wings
+		 Fallen Eyes
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Yamato Takeru
+		 Emperor God's Indomitable Fortitude
+		 The Divine Swordset, Kusanagi
+Awoken Andromeda
+		 Princess's Musings
+		 The Turquoise Star Chains
+Awoken Perseus
+		 Holy Mech Liberation
+		 Bionic Green Star Blade
+Awoken Sun Wukong
+		 Last Good Deed
+		 The Dragonband Compliant Rod
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Belial
+		 Arctic Fireclaw
+		 Infernal Heat
+Awoken Amon
+		 Path of Solitude
+		 Amon Cross
+Awoken Baal
+		 Predatory Gaze
+		 Proud Impulse
+No data
+No data
+No data
+No data
+No data
+Flame Wing Wisedragon, Nerva
+		 Wildfire Sorcery
+		 Nerva Enhancement
+Ocean Horn Wisedragon, Mercuria
+		 Glacial Sorcery
+		 Mercuria Enhancement
+Summit Horn Wisedragon, Bacches
+		 Sacred Mountain Sorcery
+		 Bacches Enhancement
+Sun Crown Wisedragon, Apolluo
+		 Sunlight Sorcery
+		 Apolluo Enhancement
+Crescent Moon Wisedragon, Diena
+		 Moonlight Sorcery
+		 Diena Enhancement
+Heroic Firelight Sword, Claíomh Solais
+		 Firelight Swordplay
+		 Celtic Light
+Heroic Sword of the Alluring Lake, Arondight
+		 Alluring Swordplay
+		 Arthurian Light
+Heroic Thunderstone Edge, Caladbolg
+		 Thunderstone Swordplay
+		 Ulidian Light
+Heroic Yinyang Swordpair, Gan Jiang & Mo Ye
+		 Yinyang Swordplay
+		 Spring and Autumn Shadows
+Heroic Woodghost Spear, Misteltein
+		 Woodghost Spearstyle
+		 Nordic Wind
+The One Chosen by the Era, Himura Kenshin
+		 No Death! Not now, not yet!
+		 Amakakeru Ryu no Hirameki
+No data
+Ni'itsu Kakunoshin
+		 The way of swords is the way to kill
+		 Hiten Mitsurugi-ryu: Kuzu Ryusen
+No data
+Kashiwazaki Nenji
+		 What business do you have with me?
+		 Deadly Steel Spiral
+No data
+Komagata Yumi
+		 Don't forget...to care for yourself.
+		 Shape of Love, Yumi
+No data
+Udo Jin-e
+		 Uhu-hah-hah-hah!
+		 Shin no Ippo
+No data
+No data
+No data
+Kurogane Maru
+		 Shinobi Blood Energy
+		 Phantom Mode
+No data
+No data
+No data
+No data
+No data
+Fifth Dragon Caller, Skyblazer Diara
+		 Fifth Dragon Awakening
+		 Blaze Vision
+Eighth Dragon Caller, Tidecaster Grato
+		 Eighth Dragon Awakening - Sea
+		 Abyssal Vision
+Seventh Dragon Caller, Shapeshifter Wallace
+		 Seventh Dragon Awakening
+		 Chameleonic Vision
+Eighth Dragon Caller, Tidebringer Amnel
+		 Eighth Dragon Awakening - Sky
+		 Shining Vision
+Ninth Dragon Caller, Firestorm Ena
+		 Ninth Dragon Awakening
+		 Hellblaze Vision
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Krishna
+		 Lightning Fire Chakra
+		 Agni Road
+Awoken Sarasvati
+		 Peacock of the Pure Dragon Lake
+		 Ap Road
+Awoken Vishnu
+		 Divine Creator's True Strength
+		 Dharma Road
+Awoken Ganesha
+		 Mercantile Aesthetics​
+		 Unburdening Brilliance
+Awoken Durga
+		 Soul Blade of the Four Origins
+		 Divine Instrument Dance of Madness
+Dark Winged Machine, Demonius
+		 Disaster Energy
+		 Hellish Noise
+Enoch
+		 Prophecy of Judgment
+		 Pious Prayer
+*****
+		 Famitsu Raid
+		 Famitsu's Heavenly Eye
+No data
+Erza
+		 Demon Blade Crimson Sakura
+		 I'll give it everything I've got!
+Natsu
+		 Let's team up!
+		 Destiny can burn, for all I care!
+No data
+Lucy
+		 Fighting together is my style
+		 I am the path to the world of Spirits!
+Meliodas
+		 Mass Counter
+		 That is your sin!
+No data
+Elizabeth
+		 Waitress at the Boar Hat
+		 I'll believe in him
+Sakura
+		 Memory's Wings
+		 This is linked to the future
+No data
+Syaoran
+		 Hien
+		 I won't let you die!
+Pai
+		 Let's go, Feio!
+		 Live by my side!!
+No data
+Yakumo Fujii
+		 Come out, Dochao!
+		 In the name of Yakumo, I command you!
+Tsukumo Mutsu
+		 Mutsu Enmei-ryu Ancient Style
+		 The gate's open!
+No data
+Maiko Ryuzoji
+		 Gym Master's Granddaughter
+		 You really are a basket case
+Hokuto Fuwa
+		 Fuwa Enmei-ryu Hidden Art: Kamui
+		 Man cannot live forever...
+Benares
+		 Wu of Kaiyanwang
+		 Come back when you're stronger!
+Fei Wang Reed
+		 Death Seal
+		 You're nothing more than a puppet!
+Hendrickson
+		 You are a remarkable man...
+		 Dark Snow
+Acnologia
+		 Total annihilation is what I seek!
+		 I recognize you as my enemy
+All-Stars Magazine
+		 Magazine All-Stars
+		 Magazine All-Stars, 1st Edition
+Cthulhu
+		 The Ancient Ocean Unknown
+		 Hysteric Nightmare
+Nyarlathotep
+		 The Writhing Unknown
+		 Crawling Chaos
+Azathoth
+		 The Blighted Unknown
+		 Seething Chaos
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Rathalos
+		 The King of the Skies
+		 Triple Flame Breath
+Rathian
+		 The Queen of the Land
+		 Somersault Tail Strike
+Kirin
+		 The Phantom Beast
+		 Thunderbolt Dash
+Tigrex
+		 The Raging Brute
+		 Dash Attack
+Nargacuga
+		 The Ebon Shadow
+		 Tail Slam
+Amatsu
+		 The Storm Incarnate
+		 Grand Cyclone
+Glavenus
+		 The Scorching Blade
+		 Tail Grind
+Gammoth
+		 The Unwavering Colossus
+		 Stampede
+Astalos
+		 The Thunderclaw Wyvern
+		 Lightning Breath
+Mizutsune
+		 The Entrancing Water Dancer
+		 Bubble Breath
+Valphalk
+		 The Silver Comet
+		 Falling Star
+Massacre Demon Diablos
+		 The Brutal Tyrant
+		 Rampaging Geyser
+No data
+Inahime
+		 Fowlknot Protective Crest
+		 Bold Prayer
+Nene
+		 Paulownia Protective Crest
+		 Benevolent Prayer
+Oichi
+		 Quince Protective Crest
+		 Virtuous Prayer
+Tachibana Ginchiyo
+		 Tachibana Protective Crest
+		 Fearless Prayer
+Nohime
+		 Swallowtail Protective Crest
+		 Bewitching Prayer
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Awoken Uriel
+		 Flame Angel's Divine Will
+		 Holy Fire's Judgment
+Awoken Gabriel
+		 Water Angel's Divine Will
+		 Holy Water's Judgment
+Awoken Michael
+		 Wood Angel's Divine Will
+		 Holy Wood's Judgment
+Awoken Raphael
+		 Radiant Angel's Divine Will
+		 Divine Lifeforce Barrier
+Awoken Seraph Lucifer
+		 Reminiscences of the Morning Star
+		 Eternal Vesper
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Violent Dragon Lord, Valten
+		 Dragon Emperor Power: Seething Inferno
+		 Prominence Shift
+Mechanical Goemon
+		 Showdown 565 - Multi Turbo
+		 Letting Off Steam
+Awoken Mechanical Goemon
+		 Showdown 565 - Super Multi Turbo
+		 Fireworks Extravaganza
+Boneclad Dragonbound, Hermé-Do
+		 Eternal Dragon Revived - Doz
+		 Red Dragon Liquid
+Boneclad Dragonbound, Hermé-Ra
+		 Eternal Dragon Revived - Ragiren
+		 Green Dragon Liquid
+Boneclad Dragonbound, Hermé-Ku
+		 Eternal Dragon Revived - Goos
+		 Blue Dragon Liquid
+Hestia
+		 Holy Furnace's Bright Flames
+		 Fire Haze
+Tethys
+		 Sound of the Ocean Waves
+		 Water Haze
+Cronus
+		 Earth King's Sickle Attack
+		 Earth Haze
+Astraea
+		 Shining Star's Teachings
+		 Shine Haze
+Uranus
+		 Heavenly King's Cosmic Realm
+		 Shadow Haze
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+*****
+		 Do I look like such a good person?
+		 What I gambled on is only just starting!
+No data
+*****
+		 We'll survive and go home...no matter what!
+		 We'll settle this right here and now!
+No data
+*****
+		 Dragoon, charge!
+		 Storm Attack
+No data
+No data
+No data
+No data
+No data
+Sacred Chalice Bride, Scheat
+		 Cheers to us!
+		 Star Wedding Road
+Starry Night Bride, Persephone
+		 Please stop looking at me like that...
+		 Engagement Feathers - Luna
+*****
+		 OP Destruction
+		 OP Enhancement
+Balthier
+		 Fires of War
+		 Pirates without a sky.
+No data
+Yda
+		 Shoulder Tackle
+		 Let's do it!
+No data
+Prompto
+		 Piercer
+		 Time to boogie!
+No data
+Reynn & Lann
+		 Mirajewel
+		 Reynn. You ready? Yeah!
+No data
+Yiazmat
+		 Growing Threat
+		 Faith
+Pixel Cloud
+		 Finishing Touch
+		 I'm going to live my life without pretending.
+Pixel Sephiroth
+		 Black Materia
+		 You are...a puppet.
+Pixel Squall
+		 Blasting Zone
+		 Then go talk to a wall.
+Pixel Rinoa
+		 Wishing Star
+		 Squall, don't! I'm a sorceress.
+Pixel Zidane
+		 Scoop Art
+		 She won't need me.
+Pixel Tidus
+		 Slice & Dice
+		 Hit me with all you got, Dad!
+Pixel Yuna
+		 Magus Sisters
+		 We will fight, and continue on.
+Pixel Dark Knight, Cecil
+		 Dark Flame
+		 I won't be standing idly on the sidelines!
+Pixel Paladin, Cecil
+		 Holy Flame
+		 Whatever happens...I'll protect you!
+Pixel Bartz
+		 Good Luck Charm
+		 The wind is calling.
+Pixel Terra
+		 Meltdown
+		 I'll make this world a place where life can flourish!
+Pixel Shantotto
+		 Are you in need of help?
+		 Prepare to be educated!
+Pixel Vaan
+		 White Whorl
+		 Come on, show me what you're made of!
+Pixel Lightning
+		 Thunderfall
+		 You survive.
+Pixel Y'shtola
+		 Fluid Aura
+		 'Tis time I arose!
+Pixel Onion Knight
+		 Turbo-Hit
+		 Bring it on!
+Pixel Tifa
+		 Meteodrive
+		 I won't give up even if I'm scared.
+Pixel Noctis
+		 Airstep
+		 Let's finish this.
+No data
+Crazy Archangel, Camael
+		 Wings of Belligerence
+		 Ruin Command
+Ibaraki-doji
+		 Flash of a Brilliant Smile
+		 Doji's Power Water
+Athena Helios
+		 Nourishment of Nike
+		 Fervor of Aegis
+No data
+No data
+No data
+No data
+No data
+Awoken Sanada Yukimura
+		 Six Coin Protective Crest
+		 Cross Spear of Valor
+Awoken Mori Motonari
+		 One Line, Three Star Protective Crest
+		 Foresight of the Three Arrows
+Awoken Ishida Mitsunari
+		 Daiichi Daiman Daikichi Protective Crest
+		 Mind Suppression Sword
+Awoken Maeda Keiji
+		 Plum Blossom Protective Crest
+		 Spirit of Natural Beauty
+Awoken Akechi Mitsuhide
+		 Bellflower Protective Crest
+		 Wise Strategy of 100 Techniques
+No data
+No data
+No data
+Endless Summer's Hunting Deity, Artemis
+		 I'm coming for you next!
+		 Lunatic Shot
+*****
+		 Perfect Muscle Spark
+		 Burning Inner Strength
+*****
+		 Cruel Style
+		 My Partners are the wrestlers
+No data
+*****
+		 Area Transfer Jutsu
+		 They're descending on the camp gate!
+No data
+*****
+		 Quarrel Special
+		 Number One!
+No data
+*****
+		 Hurricane Mixer
+		 Full Throttle 10 million Power!!
+No data
+*****
+		 Prediction of Fate
+		 Chojin World's Forsight
+*****
+		 I'm roaming ransom money
+		 Woodmates
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Hashihime
+		 Overwhelming Envy
+		 Demon Princess's Bewitching Light
+Beast Queen, Hakuren
+		 Steel Tearing White Tiger Claws
+		 True Horde of Wild Beasts
+Phoenix Flower Princess, Kanan
+		 Celestial Staff
+		 Holy Light Waves of Reality
+Imperial Prince of Darkness, Sigma
+		 Dragon Slaying Radiant Sword
+		 Purgatory Dragon's Deadly Slice
+No data
+No data
+No data
+No data
+No data
+No data
+Scorched Claw Toy Dragon Caller, Cotton
+		 Eternal Dragon Roar-Flare Drall
+		 Draco Summoning Sewing Needle-Fire & Life
+Drilling Shark Toy Dragon Caller, Cotton
+		 Eternal Dragon Roar-Megalodran
+		 Draco Summoning Sewing Needle-Water & Life
+Horned Fort Toy Dragon Caller, Cotton
+		 Eternal Dragon Roar-Fortoytops
+		 Draco Summoning Sewing Needle-Wood & Life
+Sacred Beast Toy Dragon Caller, Cotton
+		 Eternal Dragon Roar-Angelion
+		 Draco Summoning Sewing Needle-Light & Life
+Jester Toy Dragon Caller, Cotton
+		 Eternal Dragon Roar-Drawn Joker
+		 Draco Summoning Sewing Needle-Dark & Life
+Hera-Nyx
+		 Divine Queen's Fighting Spirit
+		 Stellar Gravity
+No data
+No data
+No data
+No data
+No data
+King Diamond Dragon
+		 100 Million Brilliance
+		 Unbreakable!
+Colorful Benevolence Dragon Caller, Ideal
+		 Colorful Dragon's Sacred Prayer Seal
+		 All Orbs Time
+No data
+Drifting Dragon Caller, Enra
+		 Flame Jaw's Draco Summoning Seal
+		 Crimson Rain
+Thorn Dragon Caller, Weld
+		 Thorn Fang's Draco Summoning Seal
+		 Hydro-Snake
+Garden Dragon Caller, Shazel
+		 Leaf Horn's Draco Summoning Seal
+		 Beautiful Plant
+Barrier Dragon Caller, Rathios
+		 Cataphract's Draco Summoning Seal
+		 Solblade Guard
+Investigation Dragon Caller, Nees
+		 Time Judgment's Draco Summoning Seal
+		 Vent Noir
+Violent Dragonbound, No.6
+		 Eternal Dragon Control - Vand
+		 Innocent Inferno
+Hollow Dragonbound, Kiri
+		 Eternal Dragon Control - Majeh
+		 Fever Fang
+Savage Dragonbound, Tardis
+		 Eternal Dragon Control - Onhu
+		 Exciting Moment
+Daunting Dragonbound, Li
+		 Eternal Dragon Control - Gharandus
+		 Dragon Shadow Shift
+Illusion Dragonbound, Kulia
+		 Eternal Dragon Control - Morum
+		 Delusion Eye
+No data
+Illuminating Dragon Caller, Myne
+		 Benevolent Draco Protection Seal
+		 Little Dragon Attack
+Rushana
+		 Avatar of Vidyaraja
+		 Divine Wish Fulfillment
+No data
+No data
+No data
+Super Snow Globe Dragon
+		 Level Limit Breakthrough
+		 Mystery Gift
+No data
+No data
+No data
+No data
+Batman & Cyborg
+		 Advanced Technology
+		 Metal & Bone
+Superman & The Flash
+		 Irresistible Force
+		 Strength & Speed
+Wonder Woman & Aquaman
+		 Ageless Royalty
+		 Grace & Power
+Steppenwolf
+		 New God of Apokolips
+		 Electro-Axe
+*****
+		 Master of Death
+		 Demon Hand
+*****
+		 Spirit of the Duelist
+		 Fabled Rebirth
+No data
+Norn of Excursions, Verdandi
+		 Well, let's hurry♪
+		 Holiday Tuning Circle - Wood, Dark & Life
+Masquerade Patron, Nene
+		 So much tasty candy!
+		 Nene's Seal of Approval
+No data
+*****
+		 ハッピーたまぁ！
+		 コカ･コーラたまぁ！
+No data
+Yukishiro Tomoe
+		 I'll stay here a while longer.
+		 The Scent of Hakubaiko
+
+No data
+Yukishiro Enishi
+		 It is time to complete the Jinchu!
+		 Kofuku Zettosei
+
+No data
+No data
+No data
+No data
+No data
+Zeus Verse
+		 Day of Zeus
+		 Punishment of God
+No data
+Calm Dragonbound, Rikuu
+		 Eternal Dragon Descent - Ryoen
+		 Orb Cataclysm
+Edward Elric
+		 Stand up and walk. Keep going forward.
+		 An equivalent exchange.
+No data
+Alphonse Elric
+		 We're on our way!
+		 Thank you, Big Brother.
+No data
+Roy Mustang
+		 I would like you to watch my back.
+		 You look like you could use a hand.
+No data
+King Bradley
+		 It is a troublesome ability. I must eliminate it!
+		 Spare me your conceit.
+No data
+Winry Rockbell
+		 I haven't forgiven your cruelty.
+		 With everyone's help, I'll pull through.
+Riza Hawkeye
+		 This is my duty.
+		 I pull the trigger by my own free will.
+Maes Hughes
+		 I can't afford to die yet!
+		 You have my support!
+Alex Louis Armstrong
+		 Carve this into your eyeballs!
+		 It's been a while since I've had a blood-boiling melee!
+Scar
+		 I must cast away everything God has bestowed upon me!
+		 Allow me to destroy it.
+Ling Yao
+		 Never underestimate humans.
+		 Without his people, there can be no king.
+Father
+		 I will become a perfect being.
+		 The truth is cruel.
+No data
+Lust
+		 It'll take a lot more to make me get on my knees.
+		 It'll take more than that to kill me!
+Gluttony
+		 I smell him! I smell him!
+		 I think I'll eat them!
+Envy
+		 Who should I take care of first?
+		 I'll fight you using my true strength.
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Holy Night Ash Phantom Demon, Ilmina
+		 Merry... Christmas...
+		 Grimoire Snow
+Kouryu Emperor of the Holy Feast, Fagan
+		 Hey, could you lend me a hand?
+		 Holy Night Palm of the Four Origins
+Holy Night Courier, Claíomh Solais
+		 I'll have some fun too♪
+		 Sacred Fire of Claíomh Solais
+No data
+No data
+No data
+Awoken Lu Bu
+		 Warlord's Oppressive Erosion
+		 Unrivaled Cataclysm
+Kyo Kusanagi
+		 114 Shiki: Aragami
+		 Hehe, fired up?
+No data
+Pixel Kyo Kusanagi
+		 100 Shiki: Oniyaki
+		 Chew on this!
+Terry Bogard
+		 Burning Knuckle
+		 OK! That was a heated fight!
+No data
+Pixel Terry Bogard
+		 Power Wave
+		 You brought out the wolf in me.
+Ryo Sakazaki
+		 Ko-Ou Ken
+		 There's no limit to the Way of Kyokugen.
+No data
+Pixel Ryo Sakazaki
+		 Kyokugenryu Renbu Ken
+		 Dis Kyokugen Karate, will you?! Now savor the pain it brings.
+Leona Heidern
+		 Moon Slasher
+		 Like I said, you can't win.
+No data
+Pixel Leona Heidern
+		 Grand Saber
+		 You should've expected that. I know I did.
+Mai Shiranui
+		 Ryuuenbu
+		 How was it? The power of Shiranui ninjutsu!
+No data
+Pixel Mai Shiranui
+		 Kachousen
+		 Yes! Japan's best!
+Iori Yagami
+		 127 Shiki: Aoibana
+		 Weep! Scream! And DIE! 
+No data
+Pixel Iori Yagami
+		 108 Shiki: Yamibarai
+		 Idiot! Ahahaha!
+Benimaru Nikaido
+		 Rai-Kou Ken
+		 I took care of that with style!
+Andy Bogard
+		 Chou Reppa Dan
+		 There's no training to guarantee a win.
+Yuri Sakazaki
+		 Shin! Chou Upper
+		 Not enough training pal!
+Athena Asamiya
+		 Crystal Shoot
+		 It's time for my encore!
+Chin Gentsai
+		 Gouran Ennhou
+		 Well, guess I'll have a drink.
+King
+		 Illusion Dance
+		 Is that all? How disappointing.
+Kim Kaphwan
+		 Houou Kyaku
+		 As long as justice is in my heart, I can't lose!
+Takuma Sakazaki
+		 Shin Kishin Geki
+		 Wow, you're an disgrace! You better hang it up, kid.
+Billy Kane
+		 Chou Kaen Senpuu Kon
+		 Gyahahaha! Serves you right.
+Omega Rugal
+		 Gigantic Pressure
+		 Die!
+Gilles Legato
+		 Dark Acolyte's Covenant
+		 Dark Moon
+No data
+No data
+Shrine's Primordial Divinity, Kamimusubi
+		 May your year be filled with joy!
+		 Festive Starlight
+Blessed Dancing Goddess, Ame no Uzume
+		 Life is better when you're laughing!
+		 Dance of Blessed Fortuity
+No data
+Barioth
+		 White Knight of the Tundra
+		 Gliding Ice Breath
+Brachydios
+		 Blasting Brawler
+		 Explosive Slime Mold
+Thunderlord Zinogre
+		 True Awakening
+		 Thunderbolt Shock
+Paolumu
+		 Paolumu Power
+		 Compressed Air Bubble
+Legiana
+		 Legiana Power
+		 Mid-Air Frost Blast
+Nergigante
+		 Nergigante Power
+		 Charge Tackle
+No data
+No data
+No data
+No data
+Brigid
+		 Fire Tool Master
+		 Forge Flame
+Aife
+		 Blue Sword Dance
+		 Magic Rain
+Dagda
+		 Cauldron's Magic Power
+		 Recovery Storm
+Lugh
+		 Supreme Mystic Spear Technique
+		 Sunlight Wheel
+Arianrhod
+		 Magic Staff's Sealing Power
+		 Moonlight Curtain
+Spirit Dragonbound, Lajoa
+		 Eternal Dragon Control - Radkail
+		 Field of Darkness
+No data
+Enigmatic Dragonbound, Distel
+		 Eternal Dragon Descent - Raegen
+		 Dragon Spirit Elixir
+Legendary Dragon Caller, Pralinae
+		 Gleamwing Draco Summoning Seal
+		 Healing Light
+Anamnesis Norn, Planar
+		 Reversing Divine Clock
+		 Space-Time Acceleration Circle-Fr, DK & Life
+No data
+Harmonic Dragon Caller's Disciple, Erika
+		 Silent Moon Talisman
+		 Dimension Formation - Four Clouds
+No data
+Joyful Countess, Runelis
+		 Evil Wind Conjuration
+		 Hurricane Jail
+No data
+Sweet Cipher Dragon Caller, Ney
+		 Will you accept this?...
+		 Draco Summoning Perception - Dark, Light & Life
+Chocolatier Demon Goddess, Astaroth
+		 Get tastyyy!
+		 Sweet Spice
+Sweet Dianthus, Kushinadahime
+		 Please come here
+		 Loving Perception
+No data
+No data
+No data
+South Loving Goddess, Leilan
+		 I'm somewhat embarrassed...
+		 Suzaku Seven-Star Perception
+East Loving Goddess, Karin
+		 Please have some!
+		 Seiryuu Seven-Star Perception
+North Loving Goddess, Meimei
+		 Oh, please waaait!
+		 Genbu Seven-Star Perception
+Aurora Loving Goddess, Sakuya
+		 I'll be happy if you accept this
+		 Kirin Four Origin Perception
+West Loving Goddess, Haku
+		 This s-scarf is...for you
+		 Byakko Seven-Star Perception
+No data
+Awoken Antares
+		 Mechanical Chaos Star of Scorpius
+		 Cosmic Charge - Flare
+Awoken Alrescha
+		 Mechanical Flow Star of Pisces
+		 Cosmic Charge - Aqua
+Awoken Spica
+		 Mechanical Silent Star of Virgo
+		 Cosmic Charge - Land
+Awoken Pollux
+		 Mechanical Creation Star of Gemini
+		 Cosmic Charge - Light
+Awoken Castor
+		 Mechanical Demolition Star of Gemini
+		 Cosmic Charge - Dark
+No data
+Awoken Trailokyavijaya
+		 Secret Seal of Exorcism
+		 Mantra Purification
+No data
+Awoken Acala
+		 Secret Seal of Salvation
+		 Mantra Luckbringer
+No data
+Awoken Vajrayaksa
+		 Secret Seal of Purity
+		 Mantra Reckoning
+No data
+Awoken Vajrabhairava
+		 Secret Seal of Sustainment
+		 Mantra Blessing
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+Mega Awoken Blue Dragon Caller, Sonia Clea
+		 Crystal Dragon Tribe's Protection
+		 Guardian Star Summoning Circle - Water & Dark
+Mega Awoken Green Dragon Caller, Sonia Fio
+		 Ancient Dragon Tribe's Protection
+		 Guardian Star Summoning Circle - Wood & Dark
+Satan Void
+		 Dark Lord's True Eye
+		 Vanishing World
+*****
+		 I haven't felt like this before!
+		 You think you can beat me?!
+*****
+		 It's tough, isn't it? For both of us...
+		 Idiot...
+No data
+No data
+No data
+No data
+No data
+No data
+No data
+トラゴン
+		 I also leave claw marks!!
+		 Victory Road
+Coloring Book, Horus
+		 Glowing Moon Strike
+		 Reversal Shine
+No data
+Yusuke Urameshi
+		 I will tear down everything about you, and win!!
+		 Spirit Gun
+No data
+Kurama
+		 Such beauty, sprung from such an ugly soil.
+		 Demon Realm Plants Manipulator
+Yoko Kurama
+		 But as you see, the stories were incorrect.
+		 Summon Demon Realm Plants
+Hiei
+		 You ran out of luck when you came up against me.
+		 Sword of the Darkness Flame
+No data
+Raizen
+		 Let me show you how to use your power!
+		 I can't take it anymore! I must feed!
+No data
+Sensui
+		 Now, it's time to settle the question.
+		 Splinter Resshuken
+No data
+Kazuma Kuwabara
+		 You risked your life. Now I'm gonna do the same.
+		 Spirit Sword
+Genkai
+		 I will show no mercy to those whom I dislike!
+		 I will blast you with all of my spiritual power!
+Koenma
+		 The real trial begins now.
+		 You see things quite well.
+Botan
+		 I'm afraid you don't have time for reflection.
+		 Bingo, bingo! You win the prize!
+Kaname Hagiri
+		 You can no longer escape from me.
+		 Death Print Bull's Eye
+Chu
+		 I think you should act more excited, kid.
+		 Energy Ball
+Jin
+		 The wind up here sure is lively!
+		 Tornado Fist
+Karasu
+		 I promise it won't hurt too much. 
+		 Trace Eyes
+Younger Toguro
+		 I might enjoy myself.
+		 Muscle Manipulation
+No data
+No data
+No data
+Campus Idol, Uruka
+		 Can you feel the emotion in my song?
+		 All Orbs Song
+No data
+Student Council Secretary, Loki
+		 It's OK, I'm doing it properly!
+		 Secret Record
+Late Sleeper Dragon Knight, Ishtar
+		 We can definitely be on time!
+		 Aid of the Heavenly Wind Dragon
+No data
+Spirit Numen of Fire, Borma
+		 Borma's Arm
+		 Wondrous Fire
+Spirit Numen of Water, Zapan
+		 Zapan's Beard
+		 Ancient Water
+Spirit Numen of Wood, Byuto
+		 Byuto's Hoof
+		 Great Tree
+Spirit Numen of Light, Keela
+		 Keela's Eye
+		 Light Future
+Spirit Numen of Darkness, Mowa
+		 Mowa's Wings
+		 Dark Past
+Manticore
+		 Hell Beast's Domain
+		 Poisonous Sting Attack
+Courageous Demigod, Gilgamesh
+		 Kingly Dream's Guidance
+		 Vermillion Flame
+God of Wisdom, Ea
+		 The Energy of the Divine Spring
+		 Whirling Spiral
+Warbeast God, Enkidu
+		 Beast's Divinity
+		 Wild Senses
+Goddess of Justice, Shamash
+		 Heavenly Light Beams
+		 Sun of Judgment
+Chthonic Goddess, Allatu
+		 Flame Haze of the Underworld
+		 Dark Liberation
+No data
+No data
+No data
+No data
+No data
+Great Witch of the Solitary Peak, Zela
+		 Ancient Wood Spirit's Magic Seal
+		 Howling Storm
+No data
+Bigfoot
+		 Monstrous Beast's Unwavering Stance
+		 Heavy Blow of Tremendous Strength
+Moby Dick
+		 Monstrous Cetacean's Unwritten Law
+		 Echoes of the Shining Fangs
+Panera
+		 Panera's Grand Show
+		 Starbreeze Hoop
+Phantom of the Bakumatsu, Shishio Makoto
+		 My conquest of this nation... is a kind of providence!
+		 Final Secret Sword, Kaguzuchi
+No data
+幕之内一歩
+		 Liver Punch (Liver Blow)
+		 How does it feel to be strong?!
+No data
+宮田一郎
+		 JOLT Counter
+		 I haven't forgotten the promise we made!
+鷹村守
+		 I'll return when I'm king!!
+		 This is going to hurt, you fool!!!
+チンミ
+		 I'll discover what life really is in a dire situation!
+		 I'll risk everything in this fight!!
+No data
+シーファン
+		 Twirling Thread Staff
+		 I'll give everything in the last match!
+ガッシュ＆高嶺清麿
+		 We will definitely be victorious!!!
+		 I'll leave it to all of you
+No data
+ブラゴ＆シェリー
+		 Wraith​
+		 I'll make a king of Brago!!!
+ゼオン＆デュフォー
+		 Diozakel
+		 The is the answer! My power...
+No data
+No data
+No data
+No data
+Awoken Ma Chao
+		 Gleaming Valor
+		 Tempest Dragonsword
+Awoken Diaochan
+		 Chain of Ingenuity
+		 Moonlight Secret Dance
+Karn
+		 Liberated
+		 Karn's Temporal Sundering
+No data
+Nicol Bolas
+		 Torment of Hailfire
+		 Hour of Devastation
+No data
+Jhoira
+		 Master Artificer
+		 Tinker
+No data
+Vraska
+		 Scheming Gorgon
+		 Treasured Find
+No data
+Shivan Dragon
+		 Master of the Mountains of Shiv
+		 Shivan Fire
+Serra Angel
+		 On Serra's Wings
+		 Healing Grace
+Gideon Jura
+		 Martial Paragon
+		 Act of Heroism
+Jace Beleren
+		 Mystical Tutor
+		 Mind Sculpt
+Liliana Vess
+		 Death Wielder
+		 Mutilate
+Chandra Nalaar
+		 Exquisite Firecraft
+		 Lightning Bolt
+Nissa Revane
+		 Nissa's Encouragement
+		 Overrun
+Lord of the Pit
+		 Your Debt Begins
+		 Duress
+No data
+Llanowar Elves
+		 Nature's Way
+		 Sylvan Library
+Jhoira's Familiar
+		 Vigilant Stance
+		 Repair Function
+Navigator's Compass
+		 Assist Exclusive Monster
+		 Board the Weatherlight

@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill, MonsterData
 import requests
 import json
+import time
 
 
 class Command(BaseCommand):
@@ -9,18 +10,38 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        start_time = time.time()
+
+        print("Clearing DB")
+        print()
+
         # Wipe the current DB to get up to date data
-        currentDB = CardNA.objects.all()
+        cardData = CardNA.objects.all()
+        activeSkillData = ActiveSkill.objects.all()
+        leaderSkillData = LeaderSkill.objects.all()
+        monsterData = MonsterData.objects.all()
 
-        if len(currentDB) > 0:
-            for card in currentDB:
+        if len(cardData) > 0:
+            print("Clearing Cards...")
+            for card in cardData:
                 card.delete()
+            print("Clearing Active Skills...")
+            for skill in activeSkillData:
+                skill.delete()
+            print("Clearing Leader Skills...")
+            for skill in leaderSkillData:
+                skill.delete()
+            print("Clearing Monsters...")
+            for monster in monsterData:
+                monster.delete()
 
+            print()
             self.stdout.write(self.style.SUCCESS('Current DB succesfully erased.'))
 
         else:
             self.stdout.write(self.style.SUCCESS('Current DB is empty.'))
 
+        print()
         self.stdout.write(self.style.SUCCESS('Starting DB update.'))
 
         # Pull the new data, because with PAD, things often get buffs/changes often
@@ -28,14 +49,14 @@ class Command(BaseCommand):
 
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
-
+        print()
         self.stdout.write(self.style.SUCCESS('Adding new Cards.'))
 
         for card in cards:
 
             if '?' not in card['card']['name']:
                 monsterCard = CardNA()
-
+                monsterCard.save()
                 rawCard = card['card']
 
                 if not isinstance(rawCard, type(None)):
@@ -59,9 +80,8 @@ class Command(BaseCommand):
 
                     monster.save()
                     monsterCard.monster = monster
-                    monsterCard.save()
 
-                print("Processing card", rawCard['name'])
+                # print("Processing card", rawCard['name'])
 
                 rawActiveSkill = card['active_skill']
 
@@ -74,7 +94,6 @@ class Command(BaseCommand):
 
                     if skillExists is None:
                         activeSkill = ActiveSkill()
-
                         activeSkill.name = rawActiveSkill['name']
                         activeSkill.description = rawActiveSkill['clean_description']
                         activeSkill.skillID = rawActiveSkill['skill_id']
@@ -84,8 +103,10 @@ class Command(BaseCommand):
                         activeSkill.minTurns = rawActiveSkill['turn_min']
 
                         activeSkill.save()
-                        monsterCard.activeSkill = activeSkill
-                        monsterCard.save()
+                        monsterCard.activeSkill.add(activeSkill)
+
+                    else:
+                        monsterCard.activeSkill.add(ActiveSkill.objects.get(skillID=rawActiveSkill['skill_id']))
 
                 # Next we need to collect the Cards leader skill
 
@@ -103,7 +124,11 @@ class Command(BaseCommand):
                         leaderSkill.skillType = rawLeaderSkill['skill_type']
 
                         leaderSkill.save()
-                        monsterCard.leaderSkill = leaderSkill
-                        monsterCard.save()
+                        monsterCard.leaderSkill.add(leaderSkill)
+                    else:
+                        monsterCard.leaderSkill.add(LeaderSkill.objects.get(skillID=rawLeaderSkill['skill_id']))
 
+                monsterCard.save()
+        end_time = time.time()
         self.stdout.write(self.style.SUCCESS('Monster List Updated.'))
+        print("Elapsed time :", end_time - start_time)

@@ -11,4 +11,9 @@ class Command(BaseCommand):
         cards = CardNA.objects.all()
 
         for card in cards:
-            print("Data Validity Check (Card Monster Data Name Type) :", type(card.monster.name))
+            if card.activeSkill is None:
+                print("No data")
+            else:
+                print(card.monster.name)
+                print('\t\t', card.leaderSkill.name)
+                print('\t\t', card.activeSkill.name)

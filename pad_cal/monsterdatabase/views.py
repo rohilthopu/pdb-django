@@ -6,8 +6,13 @@ from .models import CardNA, MonsterData
 
 def cardViewNA(request, card_id):
     template = 'monster.html'
-    card = CardNA.objects.get(pk=card_id)
-    context = {'card': card}
+    mnstr = MonsterData.objects.get(cardID=card_id)
+    card = CardNA.objects.get(monster=mnstr)
+    context = {'activeskill': card.activeSkill.all()[0], 'leaderskill': card.leaderSkill.all()[0], 'monster': card.monster}
+
+    if card.activeSkill is None:
+        print("Not working..")
+
     return render(request, template, context)
 
 
