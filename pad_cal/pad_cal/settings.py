@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.staticfiles.finders',
     'dungeon',
+    'monsterdatabase',
 ]
 
 MIDDLEWARE = [
