@@ -21,7 +21,7 @@ class Command(BaseCommand):
                 rawActiveSkill = card['active_skill']
 
 
-                if not isinstance(rawActiveSkill['name'], type(None)):
+                if not isinstance(rawActiveSkill, type(None)):
                     activeSkill = ActiveSkill()
 
                     activeSkill.name = rawActiveSkill['name']
