@@ -36,8 +36,8 @@ class MonsterData(models.Model):
 
 # Create your models here.
 class CardNA(models.Model):
-    activeSkill = models.OneToOneField(ActiveSkill, on_delete=models.CASCADE)
-    leaderSkill = models.OneToOneField(LeaderSkill, on_delete=models.CASCADE)
-    monster = models.OneToOneField(MonsterData, on_delete=models.CASCADE)
+    activeSkill = models.OneToOneField(ActiveSkill, on_delete=models.CASCADE, related_name="active_skill")
+    leaderSkill = models.OneToOneField(LeaderSkill, on_delete=models.CASCADE, related_name="leader_skill")
+    monster = models.OneToOneField(MonsterData, on_delete=models.CASCADE, related_name="monster")
 
 

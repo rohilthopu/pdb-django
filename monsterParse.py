@@ -9,7 +9,7 @@ def parseCard():
     cards = json.loads(loadSite.text)
 
     for card in cards:
-        print(card['active_skill']['name'])
+        print(type(card['card']['card_id']))
 
 
 parseCard()
