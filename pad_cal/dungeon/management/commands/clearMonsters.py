@@ -9,3 +9,5 @@ class Command(BaseCommand):
         for item in daily:
             item.delete()
         self.stdout.write(self.style.SUCCESS('Daily dungeons successfully cleared!'))
+
+
