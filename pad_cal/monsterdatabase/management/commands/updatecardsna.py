@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from pad_cal.monsterdatabase.models import CardNA
+from monsterdatabase.models import CardNA, ActiveSkill
 import requests
 import json
 
@@ -14,25 +14,28 @@ class Command(BaseCommand):
         cards = json.loads(loadSite.text)
 
         for card in cards:
-            card = CardNA()
-            card.save()
 
-            activeSkill = card['active_skill']
+            if '?' or '*' not in card['card']['name']:
+                monsterCard = CardNA()
 
-            card.activeSkill.name = activeSkill['name']
-            card.activeSkill.description = activeSkill['clean_description']
-            card.activeSkill.skillID = activeSkill['skill_id']
-            card.activeSkill.skillType = activeSkill['skill_type']
-            card.activeSkill.levels = activeSkill['levels']
-            card.activeSkill.maxTurns = activeSkill['turn_max']
-            card.activeSkill.minTurns = activeSkill['turn_min']
-
-            card.save()
+                rawActiveSkill = card['active_skill']
 
 
-        cards = CardNA.objects.all()
-        for card in cards:
-            print(card.activeSkill.name)
+                if not isinstance(rawActiveSkill['name'], type(None)):
+                    activeSkill = ActiveSkill()
+
+                    activeSkill.name = rawActiveSkill['name']
+                    activeSkill.description = rawActiveSkill['clean_description']
+                    activeSkill.skillID = rawActiveSkill['skill_id']
+                    activeSkill.skillType = rawActiveSkill['skill_type']
+                    activeSkill.levels = rawActiveSkill['levels']
+                    activeSkill.maxTurns = rawActiveSkill['turn_max']
+                    activeSkill.minTurns = rawActiveSkill['turn_min']
+
+                    activeSkill.save()
+                    monsterCard.activeSkill = activeSkill
+                    monsterCard.save()
+
 
 
 
