@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill
+from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill, MonsterData
 import requests
 import json
 
@@ -14,14 +14,12 @@ class Command(BaseCommand):
 
         if len(currentDB) > 0:
             for card in currentDB:
-                print("Deleting", card.activeSkill.name)
                 card.delete()
 
             self.stdout.write(self.style.SUCCESS('Current DB succesfully erased.'))
 
         else:
             self.stdout.write(self.style.SUCCESS('Current DB is empty.'))
-
 
         self.stdout.write(self.style.SUCCESS('Starting DB update.'))
 
@@ -31,14 +29,37 @@ class Command(BaseCommand):
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
 
+        self.stdout.write(self.style.SUCCESS('Adding new Cards.'))
+
         for card in cards:
 
             if '?' not in card['card']['name']:
                 monsterCard = CardNA()
 
-                self.stdout.write(self.style.SUCCESS('Adding new Cards.'))
-
                 rawCard = card['card']
+
+                if not isinstance(rawCard, type(None)):
+                    monster = MonsterData()
+
+                    monster.activeSkillID = rawCard['active_skill_id']
+                    monster.attributeID = rawCard['attr_id']
+                    monster.baseID = rawCard['base_id']
+                    monster.cardID = rawCard['card_id']
+                    monster.cost = rawCard['cost']
+                    monster.leaderSkillID = rawCard['leader_skill_id']
+                    monster.maxATK = rawCard['max_atk']
+                    monster.maxHP = rawCard['max_hp']
+                    monster.maxLevel = rawCard['max_level']
+                    monster.maxRCV = rawCard['max_rcv']
+                    monster.minATK = rawCard['min_atk']
+                    monster.minHP = rawCard['min_hp']
+                    monster.minRCV = rawCard['min_rcv']
+                    monster.name = rawCard['name']
+                    monster.rarity = rawCard['rarity']
+
+                    monster.save()
+                    monsterCard.monster = monster
+                    monsterCard.save()
 
                 print("Processing card", rawCard['name'])
 
@@ -84,8 +105,5 @@ class Command(BaseCommand):
                         leaderSkill.save()
                         monsterCard.leaderSkill = leaderSkill
                         monsterCard.save()
-
-
-
 
         self.stdout.write(self.style.SUCCESS('Monster List Updated.'))

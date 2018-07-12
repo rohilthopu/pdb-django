@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from dungeon import views as dv
+from monsterdatabase import views as mv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,5 +28,6 @@ urlpatterns = [
     path('all/skills', dv.allSkills),
     path('dungeon/<int:d_id>/', dv.dungeonView),
     path('encounter/<str:m_name>/', dv.monsterView),
-
+    path('monsterdb/', mv.cardListNA),
+    path ('monster/<int:card_id>/', mv.cardViewNA),
 ]

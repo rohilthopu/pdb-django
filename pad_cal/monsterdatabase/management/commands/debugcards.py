@@ -11,4 +11,4 @@ class Command(BaseCommand):
         cards = CardNA.objects.all()
 
         for card in cards:
-            print("Card :", card.monster.name)
+            print("Data Validity Check (Card Monster Data Name Type) :", type(card.monster.name))

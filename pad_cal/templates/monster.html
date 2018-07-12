@@ -1,0 +1,32 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column">
+                    <div class="container">
+                        <h1 class="title">{{ card.monster.name }}</h1>
+{#                        <h1 class="subtitle">#}
+{#                            Found in <a href="/{{ monster.dungeonID}}"> {{ monster.jpnTitle }}, {{ monster.altTitle }}, {{ monster.altTitle2 }} </a>#}
+{#                        </h1>#}
+                    </div>
+                </div>
+
+{#                <div class="column is-one-fifth">#}
+{#                    <div class="container is-fluid has-text-left">#}
+{#                        <h1> HP : {{ monster.hp }}</h1>#}
+{#                        <h1> ATK : {{ monster.atk }}</h1>#}
+{#                        <h1> DEF : {{ monster.defense }}</h1>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

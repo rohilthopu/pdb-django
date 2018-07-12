@@ -97,6 +97,6 @@ def dungeonView(request, d_id):
 
 def monsterView(request, m_name):
     monster = Monster.objects.get(name=m_name)
-    template = 'monsterdetail.html'
+    template = 'encounter.html'
 
     return render(request, template, {'monster': monster})
