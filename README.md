@@ -1,4 +1,12 @@
 # pad-calendar
+
+UPDATE : It seems my efforts were largely in vain. This project managed to get 
+      partially deprecated just as quickly as it was built! LOL However, I'll keep working towards my original goal
+      as a test of my own ability, and start taking advantage of the now open MiruBot API to wrap it in both a web
+      and, eventual, iOS app probably.
+
+
+
 An open source, web-based utility to encourage crowdsourcing of data from within Puzzles and Dragons.
 
 The interface allows a user to paste a web address to a PADx dungeon page, and gives the user back a model
@@ -12,6 +20,11 @@ If you would like to join my Slack group, I have created an open invite for peop
     
 If you would like to contribute to the project, go ahead and fork and submit pull requests for substantial changes and I'll
 check them out and consider incorporating them.
+
+
+
+*** NOW DEPRECATED ***
+
 
  Current capabilities :
 
