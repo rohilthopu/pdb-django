@@ -6,10 +6,23 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">{{ monster.name }}</h1>
-                <h2 class="subtitle">Cost: {{ monster.cost }}, Rarity: {{ monster.rarity }}</h2>
+                {% if ancestor is not None %}
+
+                    <h2 class="subtitle">Evolution of <a
+                            href="/monster/{{ ancestor.monster.cardID }}"
+                            class="is-italic"> {{ ancestor.monster.name }}</a></h2>
+
+                {% else %}
+
+                    <h2 class="subtitle">No previous evolutions</h2>
+
+                {% endif %}
+                <h2 class="subtitle"></h2>
+                {#                <h2 class="subtitle">Cost: {{ monster.cost }}, Rarity: {{ monster.rarity }}</h2>#}
             </div>
 
         </div>
+
     </section>
 
     <div class="columns is-5" style="margin: 2.5%">
@@ -21,31 +34,36 @@
                 <thead>
                 <tr>
                     <th></th>
-                    <th>MIN</th>
-                    <th>MAX</th>
+                    <th class="has-text-right">MIN</th>
+                    <th class="has-text-right">MAX</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr>
                     <th> LVL</th>
-                    <td> 1</td>
-                    <td>{{ monster.maxLevel }}</td>
+                    <td class="has-text-right"> 1</td>
+                    <td class="has-text-right">{{ monster.maxLevel }}</td>
                 </tr>
                 <tr>
                     <th> HP</th>
-                    <td>{{ monster.minHP }}</td>
-                    <td>{{ monster.maxHP }}</td>
+                    <td class="has-text-right">{{ monster.minHP }}</td>
+                    <td class="has-text-right">{{ monster.maxHP }}</td>
                 </tr>
                 <tr>
                     <th> ATK</th>
-                    <td>{{ monster.minATK }}</td>
-                    <td>{{ monster.maxATK }}</td>
+                    <td class="has-text-right">{{ monster.minATK }}</td>
+                    <td class="has-text-right">{{ monster.maxATK }}</td>
                 </tr>
                 <tr>
                     <th> RCV</th>
-                    <td>{{ monster.minRCV }}</td>
-                    <td>{{ monster.maxRCV }}</td>
+                    <td class="has-text-right">{{ monster.minRCV }}</td>
+                    <td class="has-text-right">{{ monster.maxRCV }}</td>
+                </tr>
+                <tr>
+                    <th> XP</th>
+                    <td class="has-text-right">1</td>
+                    <td class="has-text-right">{{ monster.maxXP }}</td>
                 </tr>
                 </tbody>
             </table>

@@ -24,10 +24,15 @@ class ActiveSkill(Skill):
 
 class MonsterData(models.Model):
     activeSkillID = models.IntegerField(blank=True)
+    ancestorID = models.IntegerField()
     attributeID = models.IntegerField()
     baseID = models.IntegerField()
     cardID = models.IntegerField()
     cost = models.IntegerField()
+    inheritable = models.BooleanField()
+    isCollab = models.BooleanField()
+    isReleased = models.BooleanField()
+    isUlt = models.BooleanField()
     leaderSkillID = models.IntegerField(blank=True)
     maxATK = models.IntegerField()
     maxHP = models.IntegerField()
@@ -36,8 +41,10 @@ class MonsterData(models.Model):
     minATK = models.IntegerField()
     minHP = models.IntegerField()
     minRCV = models.IntegerField()
+    maxXP = models.IntegerField()
     name = models.CharField(default="", max_length=200)
     rarity = models.IntegerField()
+    subAttributeID = models.IntegerField()
 
 
 # Create your models here.

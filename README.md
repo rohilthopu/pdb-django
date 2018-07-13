@@ -15,9 +15,9 @@ New Goal :
     Make a wrapper for the Mirubot API for web.
 
 
-If you would like to join my Slack group, I have created an open invite for people to use
+If you would like to join my Discord development group, use the link below.
 
-    https://goo.gl/emtNQB
+    https://discord.gg/4MhSWuY
     
 If you would like to contribute to the project, go ahead and fork and submit pull requests for substantial changes and I'll
 check them out and consider incorporating them.

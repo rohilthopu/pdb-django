@@ -63,10 +63,15 @@ class Command(BaseCommand):
                     monster = MonsterData()
 
                     monster.activeSkillID = rawCard['active_skill_id']
+                    monster.ancestorID = rawCard['ancestor_id']
                     monster.attributeID = rawCard['attr_id']
                     monster.baseID = rawCard['base_id']
                     monster.cardID = rawCard['card_id']
                     monster.cost = rawCard['cost']
+                    monster.inheritable = rawCard['inheritable']
+                    monster.isCollab = rawCard['is_collab']
+                    monster.isReleased = rawCard['is_released']
+                    monster.isUlt = rawCard['is_ult']
                     monster.leaderSkillID = rawCard['leader_skill_id']
                     monster.maxATK = rawCard['max_atk']
                     monster.maxHP = rawCard['max_hp']
@@ -75,8 +80,10 @@ class Command(BaseCommand):
                     monster.minATK = rawCard['min_atk']
                     monster.minHP = rawCard['min_hp']
                     monster.minRCV = rawCard['min_rcv']
+                    monster.maxXP = rawCard['xp_max']
                     monster.name = rawCard['name']
                     monster.rarity = rawCard['rarity']
+                    monster.subAttributeID = rawCard['sub_attr_id']
 
                     monster.save()
                     monsterCard.monster = monster
