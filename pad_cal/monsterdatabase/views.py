@@ -16,7 +16,7 @@ def cardViewNA(request, card_id):
     return render(request, template, context)
 
 
-def cardListNA(reqest):
+def cardListNA(request):
     rawCards = CardNA.objects.all()
     cards = []
 
@@ -25,7 +25,6 @@ def cardListNA(reqest):
             cards.append(card)
 
 
-
     context = {'cards': cards}
     template = 'monsterlist.html'
-    return render(reqest, template, context)
+    return render(request, template, context)
