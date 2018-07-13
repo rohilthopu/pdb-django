@@ -23,60 +23,102 @@
 
         </div>
 
+        <div class="hero-foot">
+            <nav class="tabs is-boxed is-fullwidth">
+                <div class="container">
+                    <ul>
+                        <li class="is-active" id="monstertab">
+                            <a onclick="showMonsterData();">Monster Data</a>
+                        </li>
+                        <li id="leadertab">
+                            <a onclick="showSkill();">Skills</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
     </section>
 
-    <div class="columns is-5" style="margin: 2.5%">
-        <div class="column is-one-quarter">
 
-            <label class="label" style="text-align: center"> Monster Data </label>
-
+    <div class="columns is-centered is-5" style="margin: 2.5%">
+        <div class="column is-half" id="monsterdata">
+            <label class="label has-text-centered">Stats</label>
             <table class="table is-fullwidth">
                 <thead>
                 <tr>
                     <th></th>
                     <th class="has-text-right">MIN</th>
                     <th class="has-text-right">MAX</th>
+                    <th class="has-text-right">+297</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr>
-                    <th> LVL</th>
+                    <th>LVL</th>
                     <td class="has-text-right"> 1</td>
                     <td class="has-text-right">{{ monster.maxLevel }}</td>
                 </tr>
                 <tr>
-                    <th> HP</th>
+                    <th>HP</th>
                     <td class="has-text-right">{{ monster.minHP }}</td>
                     <td class="has-text-right">{{ monster.maxHP }}</td>
+                    <td class="has-text-right">{{ monster.hp99 }}</td>
                 </tr>
                 <tr>
-                    <th> ATK</th>
+                    <th>ATK</th>
                     <td class="has-text-right">{{ monster.minATK }}</td>
                     <td class="has-text-right">{{ monster.maxATK }}</td>
+                    <td class="has-text-right">{{ monster.atk99 }}</td>
                 </tr>
                 <tr>
-                    <th> RCV</th>
+                    <th>RCV</th>
                     <td class="has-text-right">{{ monster.minRCV }}</td>
                     <td class="has-text-right">{{ monster.maxRCV }}</td>
+                    <td class="has-text-right">{{ monster.rcv99 }}</td>
                 </tr>
                 <tr>
-                    <th> XP</th>
+                    <th>XP</th>
                     <td class="has-text-right">1</td>
                     <td class="has-text-right">{{ monster.maxXP }}</td>
                 </tr>
                 </tbody>
             </table>
+
+
+            <label class="label has-text-centered">Other Information</label>
+            <table class="table is-fullwidth">
+                <tbody>
+                <tr>
+                    <th>Inheritable</th>
+                    <td class="has-text-right">{{ monster.inheritable }}</td>
+                </tr>
+                <tr>
+                    <th>Is Collab</th>
+                    <td class="has-text-right">{{ monster.isCollab }}</td>
+                </tr>
+                <tr>
+                    <th>Is Ult</th>
+                    <td class="has-text-right">{{ monster.isUlt }}</td>
+                </tr>
+                <tr>
+                    <th>Is Released</th>
+                    <td class="has-text-right">{{ monster.isReleased }}</td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
 
-        <div class="column">
+        <div class="column" id="leaderskill" style="display: none;">
 
-            <label class="label" style="text-align: center"> Leader Skill </label>
+            <label class="label has-text-centered">Leader Skill</label>
 
             <table class="table is-fullwidth">
                 <tbody>
                 <tr>
-                    <th> Name</th>
+                    <th>Name</th>
                     <td>{{ leaderskill.name }}</td>
                 </tr>
                 <tr>
@@ -91,14 +133,15 @@
 
 
         </div>
-        <div class="column">
 
-            <label class="label" style="text-align: center"> Active Skill </label>
+        <div class="column" id="activeskill" style="display: none;">
 
+
+            <label class="label has-text-centered">Active Skill</label>
             <table class="table is-fullwidth">
                 <tbody>
                 <tr>
-                    <th> Name</th>
+                    <th>Name</th>
                     <td>{{ activeskill.name }}</td>
                 </tr>
                 <tr>
@@ -125,7 +168,9 @@
 
 
         </div>
+
     </div>
+
 
 
 

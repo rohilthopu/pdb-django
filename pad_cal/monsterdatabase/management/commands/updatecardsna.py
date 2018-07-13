@@ -85,6 +85,10 @@ class Command(BaseCommand):
                     monster.rarity = rawCard['rarity']
                     monster.subAttributeID = rawCard['sub_attr_id']
 
+                    monster.hp99 = monster.maxHP + 990
+                    monster.atk99 = monster.maxATK + 495
+                    monster.rcv99 = monster.maxRCV + 495
+
                     monster.save()
                     monsterCard.monster = monster
 
