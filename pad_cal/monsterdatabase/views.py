@@ -15,9 +15,22 @@ def cardViewNA(request, card_id):
         if mnstr.ancestorID != 1929 and mnstr.ancestorID != 0:
             ancestor = CardNA.objects.get(monster=MonsterData.objects.get(cardID=mnstr.ancestorID))
 
-    context = {'activeskill': card.activeSkill.all()[0], 'leaderskill': card.leaderSkill.all()[0],
-               'monster': card.monster, 'ancestor': ancestor}
+    leaderskill = None
+    if card.leaderSkill is not None:
+        leaderskill = card.leaderSkill.all().first()
 
+    activeskill = None
+
+    if card.activeSkill is not None:
+        activeskill = card.activeSkill.all().first()
+
+    evo = None
+    if mnstr.nextEvo != 0:
+        evoData = MonsterData.objects.get(cardID=mnstr.nextEvo)
+        evo = CardNA.objects.get(monster=evoData)
+
+    context = {'activeskill': activeskill, 'leaderskill': leaderskill,
+               'monster': card.monster, 'ancestor': ancestor, 'evolution': evo}
 
     return render(request, template, context)
 

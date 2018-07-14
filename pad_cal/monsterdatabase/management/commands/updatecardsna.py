@@ -140,6 +140,22 @@ class Command(BaseCommand):
                         monsterCard.leaderSkill.add(LeaderSkill.objects.get(skillID=rawLeaderSkill['skill_id']))
 
                 monsterCard.save()
-        end_time = time.time()
+
         self.stdout.write(self.style.SUCCESS('Monster List Updated.'))
+        print()
+        self.stdout.write(self.style.SUCCESS('Updating forward evolutions.'))
+
+        monsters = MonsterData.objects.all()
+        for monster in monsters:
+            if monster.ancestorID != monster.cardID:
+                if monster.ancestorID != 1929 and monster.ancestorID != 0:
+                    evo = monsters.get(cardID=monster.ancestorID)
+                    evo.nextEvo = monster.cardID
+                    evo.save()
+
+
+        end_time = time.time()
+
+        self.stdout.write(self.style.SUCCESS('Update complete.'))
+
         print("Elapsed time :", end_time - start_time)

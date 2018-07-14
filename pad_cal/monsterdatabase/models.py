@@ -48,6 +48,10 @@ class MonsterData(models.Model):
     hp99 = models.IntegerField(default=0)
     atk99 = models.IntegerField(default=0)
     rcv99 = models.IntegerField(default=0)
+    nextEvo = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.name
 
 
 # Create your models here.
@@ -56,3 +60,6 @@ class CardNA(models.Model):
     leaderSkill = models.ManyToManyField(LeaderSkill)
     monster = models.OneToOneField(MonsterData, on_delete=models.CASCADE, related_name="monster", blank=True,
                                    null=True)
+
+    def __str__(self):
+        return self.monster.name
