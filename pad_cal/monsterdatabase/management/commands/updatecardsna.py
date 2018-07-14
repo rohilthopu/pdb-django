@@ -32,7 +32,7 @@ class Command(BaseCommand):
             print("Clearing Leader Skills...")
             for skill in leaderSkillData:
                 skill.delete()
-                print("Clearing Evolutions...")
+            print("Clearing Evolutions...")
             for evo in evolutions:
                 evo.delete()
             print("Clearing Monsters...")
@@ -88,6 +88,17 @@ class Command(BaseCommand):
                     monster.name = rawCard['name']
                     monster.rarity = rawCard['rarity']
                     monster.subAttributeID = rawCard['sub_attr_id']
+                    monster.evomat1 = rawCard['evo_mat_id_1']
+                    monster.evomat2 = rawCard['evo_mat_id_2']
+                    monster.evomat3 = rawCard['evo_mat_id_3']
+                    monster.evomat4 = rawCard['evo_mat_id_4']
+                    monster.evomat5 = rawCard['evo_mat_id_5']
+
+                    monster.unevomat1 = rawCard['un_evo_mat_1']
+                    monster.unevomat2 = rawCard['un_evo_mat_2']
+                    monster.unevomat3 = rawCard['un_evo_mat_3']
+                    monster.unevomat4 = rawCard['un_evo_mat_4']
+                    monster.unevomat5 = rawCard['un_evo_mat_5']
 
                     monster.hp99 = monster.maxHP + 990
                     monster.atk99 = monster.maxATK + 495
@@ -95,8 +106,6 @@ class Command(BaseCommand):
 
                     monster.save()
                     monsterCard.monster = monster
-
-                # print("Processing card", rawCard['name'])
 
                 rawActiveSkill = card['active_skill']
 

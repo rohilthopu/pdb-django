@@ -3,16 +3,18 @@ from django.db import models
 
 class Skill(models.Model):
     name = models.CharField(max_length=200, default="", blank=True)
-    description = models.TextField(default="", blank=True,)
+    description = models.TextField(default="", blank=True, )
     skillID = models.IntegerField(blank=True, default=0)
     skillType = models.IntegerField(blank=True, default=0)
 
     class Meta:
         abstract = True
 
+
 class LeaderSkill(Skill):
     # literally just a placeholder to get the model to work
     doesNothing = models.BooleanField(default=False)
+
 
 # An active skill is just a specialized leader skill that can only be activated ever so often.
 # As a result, inheritance is perfect here.
@@ -21,8 +23,10 @@ class ActiveSkill(Skill):
     maxTurns = models.IntegerField(blank=True, default=0)
     minTurns = models.IntegerField(blank=True, default=0)
 
+
 class Evolution(models.Model):
     evo = models.IntegerField(default=0)
+
     def __str__(self):
         return str(self.evo)
 
@@ -55,6 +59,18 @@ class MonsterData(models.Model):
     rcv99 = models.IntegerField(default=0)
 
     evolutions = models.ManyToManyField(Evolution)
+
+    evomat1 = models.IntegerField(default=0)
+    evomat2 = models.IntegerField(default=0)
+    evomat3 = models.IntegerField(default=0)
+    evomat4 = models.IntegerField(default=0)
+    evomat5 = models.IntegerField(default=0)
+
+    unevomat1 = models.IntegerField(default=0)
+    unevomat2 = models.IntegerField(default=0)
+    unevomat3 = models.IntegerField(default=0)
+    unevomat4 = models.IntegerField(default=0)
+    unevomat5 = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

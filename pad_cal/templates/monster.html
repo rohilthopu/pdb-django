@@ -19,7 +19,6 @@
                                class="is-italic"> {{ evo.monster.name }} </a>
                         </h2>
                     {% endfor %}
-
                 {% endif %}
             </div>
         </div>
@@ -33,6 +32,9 @@
                         </li>
                         <li id="leadertab">
                             <a onclick="showSkill();">Skills</a>
+                        </li>
+                        <li id="evotab">
+                            <a onclick="showEvoData();">Evolution Information</a>
                         </li>
                     </ul>
                 </div>
@@ -167,5 +169,45 @@
                 <div class="has-text-centered">No Active Skill available</div>
             {% endif %}
         </div>
+
+        <div class="column" id="evomaterials" style="display: none;">
+            <label class="label has-text-centered">Evo Materials</label>
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <th class="has-text-centered">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for mat in evomats %}
+                    <tr>
+                        <td class="has-text-centered"><a href="/monster/na/{{ mat.cardID }}"> {{ mat.monster.name }}</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+
+
+        <div class="column" id="unevomaterials" style="display: none;">
+            <label class="label has-text-centered">Devolve Materials</label>
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <th class="has-text-centered">Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for mat in unevomats %}
+                    <tr>
+                        <td class="has-text-centered"><a href="/monster/na/{{ mat.cardID }}"> {{ mat.monster.name }}</a>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+
     </div>
 {% endblock %}
