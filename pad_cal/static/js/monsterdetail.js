@@ -60,4 +60,15 @@ function showEvoData() {
 
 }
 
+function hamburgerHelper() {
+    var nav = document.getElementsByClassName('navbar-menu')[0];
+    if (nav.classList.contains('is-active')) {
+        nav.classList.remove('is-active');
+    } else {
+        nav.classList.add('is-active');
+    }
+}
+
+
+
 
