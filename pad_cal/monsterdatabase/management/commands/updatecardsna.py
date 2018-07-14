@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill, MonsterData
+from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill, MonsterData, Evolution
 import requests
 import json
 import time
@@ -20,6 +20,7 @@ class Command(BaseCommand):
         activeSkillData = ActiveSkill.objects.all()
         leaderSkillData = LeaderSkill.objects.all()
         monsterData = MonsterData.objects.all()
+        evolutions = Evolution.objects.all()
 
         if len(cardData) > 0:
             print("Clearing Cards...")
@@ -31,6 +32,9 @@ class Command(BaseCommand):
             print("Clearing Leader Skills...")
             for skill in leaderSkillData:
                 skill.delete()
+                print("Clearing Evolutions...")
+            for evo in evolutions:
+                evo.delete()
             print("Clearing Monsters...")
             for monster in monsterData:
                 monster.delete()
@@ -148,11 +152,11 @@ class Command(BaseCommand):
         monsters = MonsterData.objects.all()
         for monster in monsters:
             if monster.ancestorID != monster.cardID:
-                if monster.ancestorID != 1929 and monster.ancestorID != 0:
-                    evo = monsters.get(cardID=monster.ancestorID)
-                    evo.nextEvo = monster.cardID
+                if monster.ancestorID != 0:
+                    ancestor = monsters.get(cardID=monster.ancestorID)
+                    evo = Evolution(evo=monster.cardID)
                     evo.save()
-
+                    ancestor.evolutions.add(evo)
 
         end_time = time.time()
 

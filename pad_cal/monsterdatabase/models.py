@@ -21,6 +21,11 @@ class ActiveSkill(Skill):
     maxTurns = models.IntegerField(blank=True, default=0)
     minTurns = models.IntegerField(blank=True, default=0)
 
+class Evolution(models.Model):
+    evo = models.IntegerField(default=0)
+    def __str__(self):
+        return str(self.evo)
+
 
 class MonsterData(models.Model):
     activeSkillID = models.IntegerField(blank=True)
@@ -48,7 +53,8 @@ class MonsterData(models.Model):
     hp99 = models.IntegerField(default=0)
     atk99 = models.IntegerField(default=0)
     rcv99 = models.IntegerField(default=0)
-    nextEvo = models.IntegerField(default=0)
+
+    evolutions = models.ManyToManyField(Evolution)
 
     def __str__(self):
         return self.name

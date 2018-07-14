@@ -22,23 +22,15 @@
                     <th class="has-text-centered">NA Monster List</th>
                 </tr>
                 </thead>
-
                 <tbody>
-
                 {% for card in cards %}
                     <tr>
-                        <td class="has-text-centered"> <a href="/monster/{{ card.monster.cardID }}">{{ card.monster.name }}</a></td>
+                        <td class="has-text-centered"> <a href="/monster/na/{{ card.monster.cardID }}">{{ card.monster.name }}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
-
             </table>
-
         </div>
-
-    </div>
-
-
     </div>
 
     <script type="text/javascript">

@@ -8,14 +8,18 @@
                 <h1 class="title">{{ monster.name }}</h1>
                 {% if ancestor is not None %}
 
-                    <h2 class="subtitle" style="margin-bottom: 0%">Evolution of <a
-                            href="/monster/{{ ancestor.monster.cardID }}"
+                    <h2 class="subtitle">Evolution of <a
+                            href="/monster/na/{{ ancestor.monster.cardID }}"
                             class="is-italic"> {{ ancestor.monster.name }}</a></h2>
                 {% endif %}
-                {% if evolution is not None %}
-                    <h2 class="subtitle">Evolves into <a
-                            href="/monster/{{ evolution.monster.cardID }}"
-                            class="is-italic"> {{ evolution.monster.name }}</a></h2>
+                {% if evolutions is not None %}
+                    {% for evo in evolutions %}
+                        <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
+                            <a href="/monster/na/{{ evo.monster.cardID }}"
+                               class="is-italic"> {{ evo.monster.name }} </a>
+                        </h2>
+                    {% endfor %}
+
                 {% endif %}
             </div>
         </div>

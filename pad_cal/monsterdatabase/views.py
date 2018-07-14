@@ -9,10 +9,10 @@ def cardViewNA(request, card_id):
     mnstr = MonsterData.objects.get(cardID=card_id)
     card = CardNA.objects.get(monster=mnstr)
 
+    # The following set of checks is necessary as some cards do not have leader skills, active skills, or ancestors.
     ancestor = None
-
     if mnstr.ancestorID != mnstr.cardID:
-        if mnstr.ancestorID != 1929 and mnstr.ancestorID != 0:
+        if mnstr.ancestorID != 0:
             ancestor = CardNA.objects.get(monster=MonsterData.objects.get(cardID=mnstr.ancestorID))
 
     leaderskill = None
@@ -20,17 +20,21 @@ def cardViewNA(request, card_id):
         leaderskill = card.leaderSkill.all().first()
 
     activeskill = None
-
     if card.activeSkill is not None:
         activeskill = card.activeSkill.all().first()
 
-    evo = None
-    if mnstr.nextEvo != 0:
-        evoData = MonsterData.objects.get(cardID=mnstr.nextEvo)
-        evo = CardNA.objects.get(monster=evoData)
+    evos = None
+
+    if len(mnstr.evolutions.all()) > 0:
+        evos = []
+
+        for evo in mnstr.evolutions.all():
+            evoCard = CardNA.objects.get(monster=MonsterData.objects.get(cardID=evo.evo))
+            if "Alt." not in evoCard.monster.name:
+                evos.append(evoCard)
 
     context = {'activeskill': activeskill, 'leaderskill': leaderskill,
-               'monster': card.monster, 'ancestor': ancestor, 'evolution': evo}
+               'monster': card.monster, 'ancestor': ancestor, "evolutions": evos}
 
     return render(request, template, context)
 
