@@ -2,8 +2,6 @@ from django.shortcuts import render
 from .models import CardNA, MonsterData
 
 
-# Create your views here.
-
 def cardViewNA(request, card_id):
     template = 'monster.html'
     mnstr = MonsterData.objects.get(cardID=card_id)
@@ -79,13 +77,16 @@ def getUnEvoMats(monster, cards, monsters):
 
 
 def cardListNA(request):
-    rawCards = CardNA.objects.all()
+    rawCards = MonsterData.objects.all()
     cards = []
+    cardID = []
 
     for card in rawCards:
-        if "*" not in card.monster.name:
-            cards.append(card)
+        if "*" not in card.name:
+            cards.append(card.name)
+            cardID.append(card.cardID)
 
-    context = {'cards': cards}
+    cardList = zip(cards, cardID)
+    context = {'cards': cardList}
     template = 'monsterlist.html'
     return render(request, template, context)

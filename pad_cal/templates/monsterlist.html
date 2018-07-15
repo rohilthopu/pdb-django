@@ -12,7 +12,7 @@
     </nav>
 
 
-    <div class="columns is-centered">
+    <div class="columns is-centered" style="visibility: hidden" id="tableview">
 
         <div class="column is-three-fifths">
 
@@ -23,9 +23,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for card in cards %}
+                {% for card, id in cards %}
                     <tr>
-                        <td class="has-text-centered"> <a href="/monster/na/{{ card.monster.cardID }}">{{ card.monster.name }}</a></td>
+                        <td class="has-text-centered"><a
+                                href="/monster/na/{{ id }}">{{ card }}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -38,10 +39,9 @@
             $('#myTable').DataTable({
                 'pageLength': 25
             });
+            document.getElementById('tableview').style.visibility = 'visible';
         });
     </script>
-
-
 
 
 {% endblock %}
