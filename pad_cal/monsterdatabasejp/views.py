@@ -93,5 +93,5 @@ def cardListJP(request):
 
     cardList = zip(cards, cardID)
     context = {'cards': cardList}
-    template = 'monsterlist.html'
+    template = 'monsterlistjp.html'
     return render(request, template, context)

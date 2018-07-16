@@ -44,7 +44,7 @@ class MonsterData(models.Model):
     cost = models.IntegerField(default=0)
 
     # JP only applicable
-    furigana = models.CharField(default="")
+    furigana = models.CharField(default="", max_length=100)
 
     inheritable = models.BooleanField(default=False)
     isCollab = models.BooleanField(default=False)
@@ -89,17 +89,6 @@ class MonsterData(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# Create your models here.
-class CardNA(models.Model):
-    activeSkill = models.ManyToManyField(ActiveSkill)
-    leaderSkill = models.ManyToManyField(LeaderSkill)
-    monster = models.OneToOneField(MonsterData, on_delete=models.CASCADE, related_name="monster", blank=True,
-                                   null=True)
-
-    def __str__(self):
-        return self.monster.name
 
 
 class CardJP(models.Model):
