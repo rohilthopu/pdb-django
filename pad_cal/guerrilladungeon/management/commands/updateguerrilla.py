@@ -1,6 +1,8 @@
 from django.core.management.base import BaseCommand
 import requests
 import json
+import time
+from datetime import datetime
 
 from guerrilladungeon.models import GuerrillaDungeon
 
@@ -16,8 +18,8 @@ class Command(BaseCommand):
 
 
 
-        # for d in GuerrillaDungeon.objects.all():
-        #     d.delete()
+        for d in GuerrillaDungeon.objects.all():
+            d.delete()
 
 
         for item in jsonDump['items']:
@@ -26,11 +28,11 @@ class Command(BaseCommand):
                 dungeon = GuerrillaDungeon()
 
                 dungeon.name = item['dungeon_name']
-                dungeon.startTime = item['start_timestamp']
-                dungeon.endTime = item['end_timestamp']
+                dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %I:%M:%S")
+                dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %I:%M:%S")
                 dungeon.group = item['group']
                 dungeon.server = item['server']
                 dungeon.save()
 
         for d in GuerrillaDungeon.objects.all():
-            print(d.name, d.server, d.group)
+            print(d.name, d.server, d.group, d.startTime, d.endTime)

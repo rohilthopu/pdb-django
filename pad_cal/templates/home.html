@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{% static 'css/dataTables.bulma.css' %}">
     <script type="text/javascript" src={% static 'js/dataTables.bulma.js' %}></script>
     <script type="text/javascript" src={% static 'js/monsterdetail.js' %}></script>
+    <script type="text/javascript" src={% static 'js/guerrillaswitch.js' %}></script>
 
 
 </head>
@@ -59,34 +60,72 @@
         <div class="hero-body has-text-centered">
             <div class="container">
                 <h1 class="title"> Calender </h1>
-                <h2 class="subtitle"> Dungeons for {{ date }}</h2>
+                <h2 class="subtitle" style="margin-bottom: 0%"> Guerrilla Dungeons for {{ date }}</h2>
+                <h2 class="subtitle is-6 is-italic"> Dates and Times listed are for CST </h2>
             </div>
         </div>
     </section>
 
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">
+        <ul>
+            <li class="is-active" id="natab"><a onclick="switchNA();">NA</a></li>
+            <li id="jptab"><a onclick="switchJP();">JP</a></li>
+        </ul>
+    </nav>
+
+    <div class="label has-text-centered">Dungeons are default sorted by Group</div>
+
     <div class="columns is-centered">
 
-        <div class="column is-two-thirds">
-            <table class="table is-fullwidth is-hoverable" id="myTable">
+        <div class="column is-two-thirds" id="na">
+            <table class="table is-fullwidth is-hoverable" id="natable">
                 <thead>
                 <tr>
                     <th class="has-text-left">Dungeon</th>
-                    <th class="has-text-right">Stamina Cost</th>
-                    <th class="has-text-right">Battles</th>
-                    <th class="has-text-right">Dungeon Type</th>
+                    <th class="has-text-right">Group</th>
+                    <th class="has-text-right">Start Time</th>
+                    <th class="has-text-right">End Time</th>
                 </tr>
                 </thead>
 
                 <tbody>
 
-                {% for dungeon in dungeons %}
+                {% for dungeon in na %}
                     <tr>
-                        <td class="has-text-left"><a href="/dungeon/{{ dungeon.id }}"> {{ dungeon.altTitle }}
-                            - {{ dungeon.altTitle2 }} </a></td>
-                        <td class="has-text-right"> {{ dungeon.stamina }}</td>
-                        <td class="has-text-right"> {{ dungeon.battles }}</td>
-                        <td class="has-text-right"> {{ dungeon.dungeonType }}</td>
+                        <td class="has-text-left">{{ dungeon.name }}</td>
+                        <td class="has-text-right">{{ dungeon.group }}</td>
+                        <td class="has-text-right">{{ dungeon.startTime }}</td>
+                        <td class="has-text-right">{{ dungeon.endTime }}</td>
                     </tr>
+
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+        <div class="column is-two-thirds" style="display: none" id="jp">
+
+            <table class="table is-fullwidth is-hoverable" id="jptable">
+                <thead>
+                <tr>
+                    <th class="has-text-left">Dungeon</th>
+                    <th class="has-text-right">Group</th>
+                    <th class="has-text-right">Start Time</th>
+                    <th class="has-text-right">End Time</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for dungeon in jp %}
+                    <tr>
+                        <td class="has-text-left">{{ dungeon.name }}</td>
+                        <td class="has-text-right">{{ dungeon.group }}</td>
+                        <td class="has-text-right">{{ dungeon.startTime }}</td>
+                        <td class="has-text-right">{{ dungeon.endTime }}</td>
+                    </tr>
+
                 {% endfor %}
                 </tbody>
 
@@ -96,21 +135,15 @@
 
     </div>
 
-    <div align="center">
-        <form method="POST">
-            {% csrf_token %}
 
-            <label class="label">Select a dungeon to add to the daily list.</label>
-            <div class="field">
-                <div class="select is-rounded">
-                    {{ form.dungeon }}
-                </div>
-            </div>
-
-            <input class="button is-info" type="submit" value="Submit"/>
-        </form>
-    </div>
-
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('table.table').DataTable({
+                'pageLength': 25,
+                'order': [],
+            });
+        });
+    </script>
 
 {% endblock %}
 
