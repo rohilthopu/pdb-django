@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .models import CardNA, MonsterData
+from .models import CardJP, MonsterData
 import json
 
 
-def cardViewNA(request, card_id):
+def cardViewJP(request, card_id):
     template = 'monster.html'
     mnstr = MonsterData.objects.get(cardID=card_id)
-    card = CardNA.objects.get(monster=mnstr)
-    cards = CardNA.objects.all()
+    card = CardJP.objects.get(monster=mnstr)
+    cards = CardJP.objects.all()
     monsters = MonsterData.objects.all()
 
     # The following set of checks is necessary as some cards do not have leader skills, active skills, or ancestors.
@@ -80,7 +80,7 @@ def getUnEvoMats(monster, cards, monsters):
     return evomats
 
 
-def cardListNA(request):
+def cardListJP(request):
     rawCards = MonsterData.objects.all()
     cards = []
     cardID = []

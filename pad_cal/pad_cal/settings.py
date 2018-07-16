@@ -23,7 +23,7 @@ SECRET_KEY = '0t0+n$4$1*rnk1@uyb&3fhyq*gqbilu=5&lx_fnhj7l0tm&k^-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '192.168.1.44']
+ALLOWED_HOSTS = ['*',]
 
 # Application definition
 
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles.finders',
     'dungeon',
     'monsterdatabase',
+    'monsterdatabasejp'
 ]
 
 MIDDLEWARE = [

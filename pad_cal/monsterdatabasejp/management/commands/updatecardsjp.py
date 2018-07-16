@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill, MonsterData, Evolution
+from monsterdatabasejp.models import CardJP, ActiveSkill, LeaderSkill, MonsterData, Evolution
 import requests
 import json
 import time
@@ -14,10 +14,8 @@ class Command(BaseCommand):
 
         start_time = time.time()
 
-        self.stdout.write(self.style.SUCCESS('Starting DB update.'))
-
         # Pull the new data, because with PAD, things often get buffs/changes often
-        monsterLink = "https://storage.googleapis.com/mirubot/paddata/processed/na_cards.json"
+        monsterLink = "https://storage.googleapis.com/mirubot/paddata/processed/jp_cards.json"
 
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
@@ -27,7 +25,7 @@ class Command(BaseCommand):
         for card in cards:
 
             if '?' not in card['card']['name']:
-                monsterCard = CardNA()
+                monsterCard = CardJP()
                 monsterCard.save()
                 rawCard = card['card']
 
@@ -49,6 +47,7 @@ class Command(BaseCommand):
                     monster.baseID = rawCard['base_id']
                     monster.cardID = rawCard['card_id']
                     monster.cost = rawCard['cost']
+                    monster.furigana = rawCard['furigana']
                     monster.inheritable = rawCard['inheritable']
                     monster.isCollab = rawCard['is_collab']
                     monster.isReleased = rawCard['is_released']
@@ -92,7 +91,6 @@ class Command(BaseCommand):
                     monster.type1 = TYPE_MAP[rawCard['type_1_id']]
                     monster.type2 = TYPE_MAP[rawCard['type_2_id']]
                     monster.type3 = TYPE_MAP[rawCard['type_3_id']]
-
 
                     sawakenings = []
                     for sa in rawCard['super_awakenings']:
