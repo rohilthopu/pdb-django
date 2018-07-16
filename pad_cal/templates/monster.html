@@ -1,13 +1,11 @@
 {% extends 'home.html' %}
 
 {% block content %}
-
     <section class="hero is-dark">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">{{ monster.name }}</h1>
                 {% if ancestor is not None %}
-
                     <h2 class="subtitle">Evolution of <a
                             href="/monster/na/{{ ancestor.monster.cardID }}"
                             class="is-italic"> {{ ancestor.monster.name }}</a></h2>
@@ -55,7 +53,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 <tr>
                     <th>HP</th>
                     <td class="has-text-right">{{ monster.minHP }}</td>
@@ -87,6 +84,31 @@
                 </tbody>
             </table>
 
+            <label class="label has-text-centered">Awakenings</label>
+            <table class="table is-fullwidth">
+                <tbody>
+                {% for awakening in awakenings %}
+                    <tr>
+                        <td class="has-text-centered">{{ awakening }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+            <label class="label has-text-centered">Super Awakenings</label>
+            <table class="table is-fullwidth">
+                <tbody>
+                {% for awakening in sawakenings %}
+                    <tr>
+                        <td class="has-text-centered">{{ awakening }}</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+
+
             <label class="label has-text-centered">Other Information</label>
             <table class="table is-fullwidth">
                 <tbody>
@@ -116,7 +138,6 @@
                 </tr>
                 </tbody>
             </table>
-
         </div>
 
         <div class="column" id="leaderskill" style="display: none;">
@@ -172,43 +193,54 @@
         </div>
 
         <div class="column" id="evomaterials" style="display: none;">
-            <label class="label has-text-centered">Evo Materials</label>
-            <table class="table is-fullwidth">
-                <thead>
-                <tr>
-                    <th class="has-text-centered">Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for mat in evomats %}
+            <label class="label has-text-centered">Evolution Materials</label>
+            {% if evomats|length > 0 %}
+                <table class="table is-fullwidth">
+                    <thead>
                     <tr>
-                        <td class="has-text-centered"><a href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
-                        </td>
+                        <th class="has-text-centered">Name</th>
                     </tr>
-
-                {% endfor %}
-            </table>
+                    </thead>
+                    <tbody>
+                    {% for mat in evomats %}
+                        <tr>
+                            <td class="has-text-centered"><a
+                                    href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <label class="label has-text-centered" style="margin-top: 10%">This monster cannot evolve
+                    further.</label>
+            {% endif %}
         </div>
 
 
         <div class="column" id="unevomaterials" style="display: none;">
-            <label class="label has-text-centered">Devolve Materials</label>
-            <table class="table is-fullwidth">
-                <thead>
-                <tr>
-                    <th class="has-text-centered">Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for mat in unevomats %}
+            <label class="label has-text-centered">Devolution Materials</label>
+            {% if unevomats|length > 0 %}
+                <table class="table is-fullwidth">
+                    <thead>
                     <tr>
-                        <td class="has-text-centered"><a href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
-                        </td>
+                        <th class="has-text-centered">Name</th>
                     </tr>
+                    </thead>
+                    <tbody>
+                    {% for mat in unevomats %}
+                        <tr>
+                            <td class="has-text-centered"><a
+                                    href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
+                            </td>
+                        </tr>
 
-                {% endfor %}
-            </table>
+                    {% endfor %}
+                </table>
+
+            {% else %}
+                <label class="label has-text-centered" style="margin-top: 10%">This monster cannot devolve
+                    further.</label>
+            {% endif %}
         </div>
-
     </div>
 {% endblock %}

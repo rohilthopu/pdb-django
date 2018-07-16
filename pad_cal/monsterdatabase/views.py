@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import CardNA, MonsterData
+import json
 
 
 def cardViewNA(request, card_id):
@@ -35,9 +36,12 @@ def cardViewNA(request, card_id):
     evomats = getEvoMats(mnstr, cards, monsters)
     unevomats = getUnEvoMats(mnstr, cards, monsters)
 
+    awakenings = json.loads(mnstr.awakenings)
+    sawakenings = json.loads(mnstr.superAwakenings)
+
     context = {'activeskill': activeskill, 'leaderskill': leaderskill,
                'monster': card.monster, 'ancestor': ancestor, "evolutions": evos, "evomats": evomats,
-               "unevomats": unevomats}
+               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings}
 
     return render(request, template, context)
 
@@ -83,8 +87,9 @@ def cardListNA(request):
 
     for card in rawCards:
         if "*" not in card.name:
-            cards.append(card.name)
-            cardID.append(card.cardID)
+            if "Alt." not in card.name:
+                cards.append(card.name)
+                cardID.append(card.cardID)
 
     cardList = zip(cards, cardID)
     context = {'cards': cardList}

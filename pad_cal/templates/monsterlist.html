@@ -11,6 +11,12 @@
         </ul>
     </nav>
 
+    <div class="columns is-centered" id="load" style="margin-top: 15%">
+        <div class="column is-half">
+            <div class="label has-text-centered" >Loading data...</div>
+        </div>
+    </div>
+
 
     <div class="columns is-centered" style="visibility: hidden" id="tableview">
 
@@ -39,6 +45,7 @@
             $('#myTable').DataTable({
                 'pageLength': 25
             });
+            document.getElementById('load').style.display = 'none';
             document.getElementById('tableview').style.visibility = 'visible';
         });
     </script>

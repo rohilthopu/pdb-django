@@ -1,4 +1,4 @@
-# pad-calendar
+# pad-db
 
                                 ----- UPDATE -----
         
@@ -15,20 +15,12 @@ New Goal :
     Make a wrapper for the Mirubot API for web.
 
 
-If you would like to join my Discord development group, use the link below.
+If you would like to join my Discord development group to follow progress, use the link below.
 
     https://discord.gg/4MhSWuY
-    
-If you would like to contribute to the project, go ahead and fork and submit pull requests for substantial changes and I'll
-check them out and consider incorporating them.
+   
 
-
-
-![alt_text](https://raw.githubusercontent.com/rohilthopu/pad-calendar/master/Screenshots/Screen%20Shot%202018-07-12%20at%204.02.39%20PM.png)
-
-
-
-*** NOW DEPRECATED ***
+*** DEPRECATED ***
 
 An open source, web-based utility to encourage crowdsourcing of data from within Puzzles and Dragons.
 
@@ -48,12 +40,3 @@ Thanks to the following services:
     1. Django
     2. Bulma CSS
     
-    
-    
-Old Screenshots
-
-![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.03%20PM.png)    
-![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.21%20PM.png)    
-![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-07-07%20at%205.00.36%20PM.png)       
-![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-06-28%20at%205.05.32%20PM.png)
-![alt text](https://raw.githubusercontent.com/rohilthopu/pad-calender/master/Screenshots/Screen%20Shot%202018-06-29%20at%201.20.29%20AM.png)

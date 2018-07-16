@@ -32,9 +32,13 @@ class Evolution(models.Model):
 
 
 class MonsterData(models.Model):
-    activeSkillID = models.IntegerField(blank=True)
+    activeSkillID = models.IntegerField(blank=True, default=0)
     ancestorID = models.IntegerField(default=0)
     attributeID = models.IntegerField(default=0)
+    attribute = models.CharField(default="", max_length=100)
+
+    awakenings = models.TextField(default="")
+
     baseID = models.IntegerField(default=0)
     cardID = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
@@ -42,7 +46,7 @@ class MonsterData(models.Model):
     isCollab = models.BooleanField(default=False)
     isReleased = models.BooleanField(default=False)
     isUlt = models.BooleanField(default=False)
-    leaderSkillID = models.IntegerField(blank=True)
+    leaderSkillID = models.IntegerField(blank=True, default=0)
     maxATK = models.IntegerField(default=0)
     maxHP = models.IntegerField(default=0)
     maxLevel = models.IntegerField(default=0)
@@ -54,9 +58,12 @@ class MonsterData(models.Model):
     name = models.CharField(default="", max_length=200)
     rarity = models.IntegerField(default=0)
     subAttributeID = models.IntegerField(default=0)
+    subattribute = models.CharField(default="", max_length=100)
     hp99 = models.IntegerField(default=0)
     atk99 = models.IntegerField(default=0)
     rcv99 = models.IntegerField(default=0)
+
+    superAwakenings = models.TextField(default="")
 
     evolutions = models.ManyToManyField(Evolution)
 
@@ -71,6 +78,10 @@ class MonsterData(models.Model):
     unevomat3 = models.IntegerField(default=0)
     unevomat4 = models.IntegerField(default=0)
     unevomat5 = models.IntegerField(default=0)
+
+    type1 = models.CharField(default="", max_length=100)
+    type2 = models.CharField(default="", max_length=100)
+    type3 = models.CharField(default="", max_length=100)
 
     def __str__(self):
         return self.name
