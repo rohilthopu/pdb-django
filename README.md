@@ -10,6 +10,25 @@
 
 
 
+TO RUN:
+    
+    1. Clone the project (duh)
+    
+    2. Build your database.. run the following:
+    
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+        
+    3. Collect cards using custom command:
+        
+        python3 manage.py updatecardsna
+        
+        (should take anywhere between 1-2 minutes usually)
+
+    4. Run the server
+        
+        python3 manage.py runserver
+
 New Goal :
 
     Make a wrapper for the Mirubot API for web.
