@@ -25,7 +25,7 @@
             <table class="table is-fullwidth" id="myTable">
                 <thead>
                 <tr>
-                    <th class="has-text-centered">NA Monster List</th>
+                    <th class="has-text-centered">Name</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -43,7 +43,8 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#myTable').DataTable({
-                'pageLength': 25
+                'pageLength': 25,
+                'order': []
             });
             document.getElementById('load').style.display = 'none';
             document.getElementById('tableview').style.visibility = 'visible';

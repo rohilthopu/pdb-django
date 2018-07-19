@@ -35,10 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.staticfiles.finders',
-    'dungeon',
     'monsterdatabase',
     'monsterdatabasejp',
-    'guerrilladungeon'
+    'guerrilladungeon',
+    'bonusdungeon',
+    'dungeon'
 ]
 
 MIDDLEWARE = [

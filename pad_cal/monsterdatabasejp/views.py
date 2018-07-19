@@ -4,7 +4,7 @@ import json
 
 
 def cardViewJP(request, card_id):
-    template = 'monster.html'
+    template = 'monsterjp.html'
     mnstr = MonsterData.objects.get(cardID=card_id)
     card = CardJP.objects.get(monster=mnstr)
     cards = CardJP.objects.all()
@@ -81,7 +81,7 @@ def getUnEvoMats(monster, cards, monsters):
 
 
 def cardListJP(request):
-    rawCards = MonsterData.objects.all()
+    rawCards = MonsterData.objects.order_by('cardID').all()
     cards = []
     cardID = []
 

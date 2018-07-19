@@ -81,7 +81,7 @@ def getUnEvoMats(monster, cards, monsters):
 
 
 def cardListNA(request):
-    rawCards = MonsterData.objects.all()
+    rawCards = MonsterData.objects.order_by('cardID').all()
     cards = []
     cardID = []
 

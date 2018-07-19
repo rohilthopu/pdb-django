@@ -17,7 +17,6 @@ class Command(BaseCommand):
         jsonDump = json.loads(jsonPull)
 
 
-
         for d in GuerrillaDungeon.objects.all():
             d.delete()
 
@@ -28,8 +27,8 @@ class Command(BaseCommand):
                 dungeon = GuerrillaDungeon()
 
                 dungeon.name = item['dungeon_name']
-                dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %I:%M:%S")
-                dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %I:%M:%S")
+                dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M:%S")
+                dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M:%S")
                 dungeon.group = item['group']
                 dungeon.server = item['server']
                 dungeon.save()
