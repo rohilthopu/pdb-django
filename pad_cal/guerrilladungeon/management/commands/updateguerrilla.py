@@ -32,6 +32,3 @@ class Command(BaseCommand):
                 dungeon.group = item['group']
                 dungeon.server = item['server']
                 dungeon.save()
-
-        for d in GuerrillaDungeon.objects.all():
-            print(d.name, d.server, d.group, d.startTime, d.endTime)

@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from dungeon import views as dv
 from monsterdatabase import views as mv
 from monsterdatabasejp import views as jpv
 from guerrilladungeon import views as gv
@@ -24,12 +23,6 @@ from guerrilladungeon import views as gv
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', gv.DungeonView),
-    path('add/', dv.addDungeonView),
-    path('all/dungeons', dv.allDungeons),
-    path('all/encounters', dv.allEncounters),
-    path('all/skills', dv.allSkills),
-    path('dungeon/<int:d_id>/', dv.dungeonView),
-    path('encounter/<str:m_name>/', dv.monsterView),
     path('monsterdb/na/', mv.cardListNA),
     path('monster/na/<int:card_id>/', mv.cardViewNA),
     path('monsterdb/jp/', jpv.cardListJP),
