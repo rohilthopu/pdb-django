@@ -19,6 +19,7 @@ from django.urls import path
 from monsterdatabase import views as mv
 from monsterdatabasejp import views as jpv
 from guerrilladungeon import views as gv
+from dungeon import views as dv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     path('monsterdb/na/', mv.cardListNA),
     path('monster/na/<int:card_id>/', mv.cardViewNA),
     path('monsterdb/jp/', jpv.cardListJP),
-    path('monster/jp/<int:card_id>/', jpv.cardViewJP)
+    path('monster/jp/<int:card_id>/', jpv.cardViewJP),
+    path('dungeons/na', dv.DungeonView)
 ]

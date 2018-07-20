@@ -35,11 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.staticfiles.finders',
+    'maintenance_mode',
     'monsterdatabase',
     'monsterdatabasejp',
     'guerrilladungeon',
     'bonusdungeon',
-    'dungeon'
+    'dungeon',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'maintenance_mode.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'pad_cal.urls'

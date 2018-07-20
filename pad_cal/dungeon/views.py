@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from .models import Dungeon
 
-# Create your views here.
+def DungeonView(request):
+    template = 'dungeonlist.html'
+
+    context = {'dungeons': Dungeon.objects.all()}
+
+    return render(request, template, context)
+

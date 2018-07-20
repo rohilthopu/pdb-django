@@ -1,0 +1,17 @@
+For FLOORS:
+
+
+Possibly indicates difficulties?
+
+unknown_003 ----> 640 ----> Score Dungeon
+
+    then unknown_009 ---> Score for S rank
+
+
+    ---> 0 ----> Legend or less difficulty?
+
+    ---> 128 ---> Mythical or higher?
+
+    ----> 384 --- > Tournament floor
+
+    ----> 512 ----> skill up dungeon? golem dungeon? mystic knights?
