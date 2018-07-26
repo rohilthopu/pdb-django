@@ -12,6 +12,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        self.stdout.write(self.style.SUCCESS('Starting JP MONSTER DB update.'))
+
         start_time = time.time()
 
         # Pull the new data, because with PAD, things often get buffs/changes often
@@ -20,7 +22,7 @@ class Command(BaseCommand):
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
         print()
-        self.stdout.write(self.style.SUCCESS('Adding new Cards.'))
+        self.stdout.write(self.style.SUCCESS('Adding new JP Cards.'))
 
         for card in cards:
 
@@ -50,7 +52,7 @@ class Command(BaseCommand):
                     monster.furigana = rawCard['furigana']
                     monster.inheritable = rawCard['inheritable']
                     monster.isCollab = rawCard['is_collab']
-                    monster.isReleased = rawCard['is_released']
+                    monster.isReleased = rawCard['released_status']
                     monster.isUlt = rawCard['is_ult']
                     monster.leaderSkillID = rawCard['leader_skill_id']
                     monster.maxATK = rawCard['max_atk']
@@ -150,7 +152,7 @@ class Command(BaseCommand):
 
                 monsterCard.save()
 
-        self.stdout.write(self.style.SUCCESS('Monster List Updated.'))
+        self.stdout.write(self.style.SUCCESS('JP Monster List Updated.'))
         print()
         self.stdout.write(self.style.SUCCESS('Updating forward evolutions.'))
 
@@ -165,6 +167,6 @@ class Command(BaseCommand):
 
         end_time = time.time()
 
-        self.stdout.write(self.style.SUCCESS('Update complete.'))
+        self.stdout.write(self.style.SUCCESS('JP update complete.'))
 
         print("Elapsed time :", end_time - start_time)

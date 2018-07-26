@@ -3,6 +3,10 @@ For FLOORS:
 
 Possibly indicates difficulties?
 
+
+unknown_002 ---> # of battles
+
+
 unknown_003 ----> 640 ----> Score Dungeon
 
     then unknown_009 ---> Score for S rank

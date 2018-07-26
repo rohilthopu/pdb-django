@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 import requests
 import json
 from ...models import Dungeon
+import time
 
 
 class Command(BaseCommand):
@@ -9,10 +10,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
 
-        for d in Dungeon.objects.all():
-            d.delete()
-
+        start = time.time()
 
         link = "https://storage.googleapis.com/mirubot/paddata/processed/na_dungeons.json"
 
@@ -24,7 +24,6 @@ class Command(BaseCommand):
             name = item['clean_name']
 
             if Dungeon.objects.filter(name=name).first() is None:
-
                 dungeon = Dungeon()
 
                 dungeon.name = name.rsplit("#")[-1]
@@ -34,6 +33,6 @@ class Command(BaseCommand):
 
                 dungeon.save()
 
-
-
-
+        end = time.time()
+        self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
+        print("Elapsed time :", end - start)

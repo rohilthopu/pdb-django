@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
         start_time = time.time()
 
-        self.stdout.write(self.style.SUCCESS('Starting DB update.'))
+        self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
         # Pull the new data, because with PAD, things often get buffs/changes often
         monsterLink = "https://storage.googleapis.com/mirubot/paddata/processed/na_cards.json"
@@ -22,7 +22,7 @@ class Command(BaseCommand):
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
         print()
-        self.stdout.write(self.style.SUCCESS('Adding new Cards.'))
+        self.stdout.write(self.style.SUCCESS('Adding new NA Cards.'))
 
         for card in cards:
 
@@ -51,7 +51,7 @@ class Command(BaseCommand):
                     monster.cost = rawCard['cost']
                     monster.inheritable = rawCard['inheritable']
                     monster.isCollab = rawCard['is_collab']
-                    monster.isReleased = rawCard['is_released']
+                    monster.isReleased = rawCard['released_status']
                     monster.isUlt = rawCard['is_ult']
                     monster.leaderSkillID = rawCard['leader_skill_id']
                     monster.maxATK = rawCard['max_atk']
@@ -92,7 +92,6 @@ class Command(BaseCommand):
                     monster.type1 = TYPE_MAP[rawCard['type_1_id']]
                     monster.type2 = TYPE_MAP[rawCard['type_2_id']]
                     monster.type3 = TYPE_MAP[rawCard['type_3_id']]
-
 
                     sawakenings = []
                     for sa in rawCard['super_awakenings']:
@@ -152,7 +151,7 @@ class Command(BaseCommand):
 
                 monsterCard.save()
 
-        self.stdout.write(self.style.SUCCESS('Monster List Updated.'))
+        self.stdout.write(self.style.SUCCESS('NA Monster List Updated.'))
         print()
         self.stdout.write(self.style.SUCCESS('Updating forward evolutions.'))
 
@@ -167,6 +166,6 @@ class Command(BaseCommand):
 
         end_time = time.time()
 
-        self.stdout.write(self.style.SUCCESS('Update complete.'))
+        self.stdout.write(self.style.SUCCESS('NA update complete.'))
 
         print("Elapsed time :", end_time - start_time)
