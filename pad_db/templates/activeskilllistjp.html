@@ -1,10 +1,13 @@
 {% extends 'home.html' %}
 
+
 {% block content %}
+
+
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">
         <ul>
-            <li class="is-active"><a href="/monsterdb/na">NA</a></li>
-            <li><a href="/monsterdb/jp/">JP</a></li>
+            <li><a href="/activeskills/na">NA</a></li>
+            <li class="is-active"><a href="/activeskills/jp/">JP</a></li>
         </ul>
     </nav>
 
@@ -14,18 +17,23 @@
         </div>
     </div>
 
+
     <div class="columns is-centered" style="visibility: hidden" id="tableview">
+
         <div class="column is-three-fifths">
+
             <table class="table is-fullwidth" id="myTable">
                 <thead>
                 <tr>
                     <th class="has-text-centered">Name</th>
+                    <th class="has-text-right">Skill ID</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for card, id in cards %}
+                {% for id, name, sid in skills %}
                     <tr>
-                        <td class="has-text-centered"><a href="/monster/na/{{ id }}">{{ card }}</a></td>
+                        <td class="has-text-centered"><a href="/activeskills/jp/{{ sid }}">{{ name }}</a></td>
+                        <td class="has-text-right">{{ sid }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -43,4 +51,6 @@
             document.getElementById('tableview').style.visibility = 'visible';
         });
     </script>
+
+
 {% endblock %}

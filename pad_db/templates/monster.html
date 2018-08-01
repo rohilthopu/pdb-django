@@ -142,6 +142,9 @@
             </table>
         </div>
 
+
+    {% block skills %}
+
         <div class="column" id="leaderskill" style="display: none;">
             <label class="label has-text-centered">Leader Skill</label>
             {% if leaderskill is not None %}
@@ -194,6 +197,8 @@
             {% endif %}
         </div>
 
+        {% endblock %}
+
         {% block evo %}
 
             <div class="column" id="evomaterials" style="display: none;">
@@ -219,7 +224,7 @@
                         available.</label>
                 {% endif %}
             </div>
-            
+
             <div class="column" id="unevomaterials" style="display: none;">
                 <label class="label has-text-centered">Devolution Materials</label>
                 {% if unevomats|length > 0 %}

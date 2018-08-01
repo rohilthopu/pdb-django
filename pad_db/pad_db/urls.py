@@ -19,18 +19,32 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from monsterdatabase import views as mv
-from monsterdatabasejp import views as jpv
+from monsterdatabasejp import views as jmv
 from guerrilladungeon import views as gv
 from dungeon import views as dv
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path('', gv.DungeonView),
-    path('monsterdb/na/', mv.cardListNA),
-    path('monster/na/<int:card_id>/', mv.cardViewNA),
-    path('monsterdb/jp/', jpv.cardListJP),
-    path('monster/jp/<int:card_id>/', jpv.cardViewJP),
-    path('dungeons/na/', dv.DungeonView),
-    path('activeskills/na/', mv.activeSkillListViewNA),
-    path('activeskills/na/<int:id>/', mv.activeSkillViewNA)
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  url(r'^admin/', admin.site.urls),
+
+                # Guerrilla Dungeons
+                  path('', gv.DungeonView),
+
+
+                # NA Items
+                  path('monsterdb/na/', mv.cardListNA),
+                  path('monster/na/<int:card_id>/', mv.cardViewNA),
+                  path('dungeons/na/', dv.DungeonView),
+                  path('activeskills/na/', mv.activeSkillListViewNA),
+                  path('activeskills/na/<int:id>/', mv.activeSkillViewNA),
+
+
+
+                # JP Items
+                  path('monsterdb/jp/', jmv.cardListJP),
+                  path('monster/jp/<int:card_id>/', jmv.cardViewJP),
+                  path('activeskills/jp/', jmv.activeSkillListViewJP),
+                  path('activeskills/jp/<int:id>/', jmv.activeSkillViewJP)
+
+
+
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

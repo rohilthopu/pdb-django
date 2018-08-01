@@ -36,6 +36,8 @@
 
         </div>
 
+    {% block monster_link %}
+
         <div class="column">
             <label class="label has-text-centered" style="margin-bottom: 2%">Used by the following Monsters</label>
 
@@ -45,6 +47,6 @@
 
             {% endfor %}
         </div>
-
+    {% endblock %}
     </div>
 {% endblock %}

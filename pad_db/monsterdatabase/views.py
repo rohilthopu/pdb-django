@@ -115,5 +115,5 @@ def activeSkillViewNA(request, id):
     monsters = MonsterData.objects.filter(activeSkillID=activeskill.skillID)
 
     context = {'activeskill': activeskill, "monsters": monsters}
-    template = 'activeskillna.html'
+    template = 'activeskill.html'
     return render(request, template, context)
