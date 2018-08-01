@@ -129,6 +129,8 @@
                     <th class="has-text-left">Dungeon</th>
                     <th class="has-text-right">Group</th>
                     <th class="has-text-right">Status</th>
+                    <th class="has-text-right">Starts in</th>
+                    <th class="has-text-right">Ends in</th>
                     <th class="has-text-right">Start</th>
                     <th class="has-text-right">End</th>
                 </tr>
@@ -138,7 +140,9 @@
                     <tr>
                         <td class="has-text-left">{{ dungeon.name }}</td>
                         <td class="has-text-right">{{ dungeon.group }}</td>
-                        <td class="has-text-right">{{ active }}</td>
+                        <td class="has-text-right" name="active">{{ active }}</td>
+                        <td class="has-text-right" name="starttime" value="{{ dungeon.startSecs }}"></td>
+                        <td class="has-text-right" name="endtime" value="{{ dungeon.startSecs }}"></td>
                         <td class="has-text-right">{{ dungeon.startTime }}</td>
                         <td class="has-text-right">{{ dungeon.endTime }}</td>
                     </tr>
@@ -154,19 +158,17 @@
                 'order': [],
                 'searching': false,
                 'paging': false,
-                responsive: true
+                responsive: true,
 
             });
         });
     </script>
 
     <script>
-
         window.onload = function () {
             computeTimes();
             setInterval(computeTimes, 5000);
         };
-
         function computeTimes() {
             var actives = document.getElementsByName('active');
             var starttimes = document.getElementsByName('starttime');
@@ -191,14 +193,9 @@
                     var timeDiff = (endtime - time) / 60;
                     endtimes[i].innerText = timeDiff.toLocaleString() + " Minutes";
                 }
-
             }
         }
-
-
     </script>
-
-
 {% endblock %}
 </body>
 </html>
