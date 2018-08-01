@@ -30,5 +30,7 @@ urlpatterns = [
     path('monster/na/<int:card_id>/', mv.cardViewNA),
     path('monsterdb/jp/', jpv.cardListJP),
     path('monster/jp/<int:card_id>/', jpv.cardViewJP),
-    path('dungeons/na', dv.DungeonView)
+    path('dungeons/na/', dv.DungeonView),
+    path('activeskills/na/', mv.activeSkillListViewNA),
+    path('activeskills/na/<int:id>/', mv.activeSkillViewNA)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

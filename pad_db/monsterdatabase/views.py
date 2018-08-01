@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import CardNA, MonsterData
+from .models import CardNA, MonsterData, ActiveSkill, LeaderSkill
 import json
 
 
@@ -94,4 +94,26 @@ def cardListNA(request):
     cardList = zip(cards, cardID)
     context = {'cards': cardList}
     template = 'monsterlist.html'
+    return render(request, template, context)
+
+
+def activeSkillListViewNA(request):
+    ids = ActiveSkill.objects.values_list('id', flat=True)
+    names = ActiveSkill.objects.values_list('name', flat=True)
+    sids = ActiveSkill.objects.values_list('skillID', flat=True)
+
+    aSkills = zip(ids, names, sids)
+
+    context = {'skills': aSkills}
+    template = 'activeskilllistna.html'
+
+    return render(request, template, context)
+
+
+def activeSkillViewNA(request, id):
+    activeskill = ActiveSkill.objects.get(pk=id)
+    monsters = MonsterData.objects.filter(activeSkillID=activeskill.skillID)
+
+    context = {'activeskill': activeskill, "monsters": monsters}
+    template = 'activeskillna.html'
     return render(request, template, context)

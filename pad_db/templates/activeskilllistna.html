@@ -1,0 +1,56 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+
+{#    <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">#}
+{#        <ul>#}
+{#            <li class="is-active"><a href="/monsterdb/na">NA</a></li>#}
+{#            <li><a href="/monsterdb/jp/">JP</a></li>#}
+{#        </ul>#}
+{#    </nav>#}
+
+    <div class="columns is-centered" id="load" style="margin-top: 15%">
+        <div class="column is-half">
+            <div class="label has-text-centered" >Loading data...</div>
+        </div>
+    </div>
+
+
+    <div class="columns is-centered" style="visibility: hidden" id="tableview">
+
+        <div class="column is-three-fifths">
+
+            <table class="table is-fullwidth" id="myTable">
+                <thead>
+                <tr>
+                    <th class="has-text-centered">Name</th>
+                    <th class="has-text-right">Skill ID</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for id, name, sid in skills %}
+                    <tr>
+                        <td class="has-text-centered"><a href="/activeskills/na/{{ id }}">{{ name }}</a></td>
+                        <td class="has-text-right">{{ sid }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                'pageLength': 100,
+                'order': []
+            });
+            document.getElementById('load').style.display = 'none';
+            document.getElementById('tableview').style.visibility = 'visible';
+        });
+    </script>
+
+
+{% endblock %}
