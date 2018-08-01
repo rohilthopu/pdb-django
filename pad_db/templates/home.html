@@ -113,7 +113,7 @@
                         <td class="has-text-right">{{ dungeon.group }}</td>
                         <td class="has-text-right" name="active">{{ active }}</td>
                         <td class="has-text-right" name="starttime" value="{{ dungeon.startSecs }}"></td>
-                        <td class="has-text-right" name="endtime" value="{{ dungeon.startSecs }}"></td>
+                        <td class="has-text-right" name="endtime" value="{{ dungeon.endSecs }}"></td>
                         <td class="has-text-right">{{ dungeon.startTime }}</td>
                         <td class="has-text-right">{{ dungeon.endTime }}</td>
                     </tr>
@@ -142,7 +142,7 @@
                         <td class="has-text-right">{{ dungeon.group }}</td>
                         <td class="has-text-right" name="active">{{ active }}</td>
                         <td class="has-text-right" name="starttime" value="{{ dungeon.startSecs }}"></td>
-                        <td class="has-text-right" name="endtime" value="{{ dungeon.startSecs }}"></td>
+                        <td class="has-text-right" name="endtime" value="{{ dungeon.endSecs }}"></td>
                         <td class="has-text-right">{{ dungeon.startTime }}</td>
                         <td class="has-text-right">{{ dungeon.endTime }}</td>
                     </tr>
@@ -184,6 +184,10 @@
                     if (timeDiff <= 1) {
                         starttimes[i].innerText = (timeDiff * 60).toLocaleString() + " Minutes"
                     }
+                    else if (timeDiff <=  0) {
+                        starttimes[i].innerText = "";
+                        actives[i].innerText = "Active"
+                    }
                     else {
                         starttimes[i].innerText = timeDiff.toLocaleString() + " Hours";
                     }
@@ -191,7 +195,13 @@
                 else if (status === "Active") {
                     var endtime = parseFloat(endtimes[i].getAttribute('value'));
                     var timeDiff = (endtime - time) / 60;
-                    endtimes[i].innerText = timeDiff.toLocaleString() + " Minutes";
+                    if (timeDiff > 0) {
+                        endtimes[i].innerText = timeDiff.toLocaleString() + " Minutes";
+                    }
+                    else {
+                        actives[i].innerText = "Ended";
+                        endtimes[i].innerText = "";
+                    }
                 }
             }
         }

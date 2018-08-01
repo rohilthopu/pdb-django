@@ -22,7 +22,7 @@ def DungeonView(request):
         elif timeNow < d.startSecs:
             naActives.append("Upcoming")
         else:
-            naActives.append("Completed")
+            naActives.append("Ended")
 
 
     for d in jpDungeons:
@@ -31,7 +31,7 @@ def DungeonView(request):
         elif timeNow < d.startSecs:
             jpActives.append("Upcoming")
         else:
-            jpActives.append("Completed")
+            jpActives.append("Ended")
 
 
     na = zip(naDungeons, naActives)
