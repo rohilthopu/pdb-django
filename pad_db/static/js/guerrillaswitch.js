@@ -1,4 +1,3 @@
-
 function switchJP() {
 
     document.getElementById('na').style.display = 'none';
@@ -7,6 +6,7 @@ function switchJP() {
     document.getElementById('jptab').classList.add('is-active');
 
 }
+
 function switchNA() {
 
     document.getElementById('jp').style.display = 'none';
@@ -15,3 +15,7 @@ function switchNA() {
     document.getElementById('natab').classList.add('is-active');
 
 }
+
+
+
+
