@@ -2,25 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pad DB Home</title>
+    <title>Pad DB</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
-    {#    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>#}
     <script src="https://use.fontawesome.com/659d3027f8.js"></script>
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-
 
     {% load static %}
     <link rel="stylesheet" href={% static 'css/dataTables.bulma.css' %}>
     <script type="text/javascript" src={% static 'js/dataTables.bulma.js' %}></script>
     <script type="text/javascript" src={% static 'js/monsterdetail.js' %}></script>
     <script type="text/javascript" src={% static 'js/guerrillaswitch.js' %}></script>
-
-
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +27,6 @@
             <span></span>
         </span>
     </div>
-
     <div id="navbar-menu" class="navbar-menu">
         <div class="navbar-start">
             <a class="navbar-item" href="/">Pad DB</a>
@@ -70,7 +62,6 @@
                 <a class="navbar-link" href="/activeskills/na">
                     Active Skills
                 </a>
-
                 <div class="navbar-dropdown">
                     <a class="navbar-item" href="/activeskills/na">
                         NA
@@ -85,93 +76,85 @@
 </nav>
 
 {% block content %}
-    <section class="hero is-dark" style="margin-bottom: 25px">
+    <section class="hero is-dark" style="margin-bottom: 25px; width: 100%">
         <div class="hero-body has-text-centered">
-            <div class="container">
+            <div class="container is-fluid">
                 <h1 class="title"> Calender </h1>
                 <h2 class="subtitle" style="margin-bottom: 0%"> Guerrilla Dungeons for {{ date }}</h2>
                 <h2 class="subtitle is-6 is-italic"> Dates and Times listed are for Pacific Time (UTC-8).</h2>
             </div>
         </div>
     </section>
-
-    <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
         <ul>
             <li class="is-active" id="natab"><a onclick="switchNA();">NA</a></li>
             <li id="jptab"><a onclick="switchJP();">JP</a></li>
         </ul>
     </nav>
-
     <div class="label has-text-centered">Dungeons are default sorted by Group</div>
-
-    <div class="columns is-centered">
-
+    <div class="columns is-centered" style="margin: 2%">
         <div class="column is-two-thirds" id="na">
             <table class="table is-fullwidth is-hoverable" id="natable">
                 <thead>
                 <tr>
                     <th class="has-text-left">Dungeon</th>
                     <th class="has-text-right">Group</th>
-                    <th class="has-text-right">Start Time</th>
-                    <th class="has-text-right">End Time</th>
+                    <th class="has-text-right">Status</th>
+                    <th class="has-text-right">Start</th>
+                    <th class="has-text-right">End</th>
                 </tr>
                 </thead>
-
                 <tbody>
-
-                {% for dungeon in na %}
+                {% for dungeon, active in na %}
                     <tr>
                         <td class="has-text-left">{{ dungeon.name }}</td>
                         <td class="has-text-right">{{ dungeon.group }}</td>
+                        <td class="has-text-right">{{ active }}</td>
                         <td class="has-text-right">{{ dungeon.startTime }}</td>
                         <td class="has-text-right">{{ dungeon.endTime }}</td>
                     </tr>
 
                 {% endfor %}
                 </tbody>
-
             </table>
-
         </div>
-        <div class="column is-two-thirds" style="display: none" id="jp">
-
+        <div class="column is-two-thirds" id="jp" style="display: none">
             <table class="table is-fullwidth is-hoverable" id="jptable">
                 <thead>
                 <tr>
                     <th class="has-text-left">Dungeon</th>
                     <th class="has-text-right">Group</th>
-                    <th class="has-text-right">Start Time</th>
-                    <th class="has-text-right">End Time</th>
+                    <th class="has-text-right">Status</th>
+                    <th class="has-text-right">Start</th>
+                    <th class="has-text-right">End</th>
                 </tr>
                 </thead>
-
                 <tbody>
-
-                {% for dungeon in jp %}
+                {% for dungeon, active in jp %}
                     <tr>
                         <td class="has-text-left">{{ dungeon.name }}</td>
                         <td class="has-text-right">{{ dungeon.group }}</td>
+                        <td class="has-text-right">{{ active }}</td>
                         <td class="has-text-right">{{ dungeon.startTime }}</td>
                         <td class="has-text-right">{{ dungeon.endTime }}</td>
                     </tr>
-
                 {% endfor %}
                 </tbody>
-
             </table>
         </div>
     </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('table.table').DataTable({
                 'pageLength': 25,
                 'order': [],
+                'searching': false,
+                'paging': false,
+                responsive: true
+
             });
         });
     </script>
-
 {% endblock %}
-
 </body>
 </html>

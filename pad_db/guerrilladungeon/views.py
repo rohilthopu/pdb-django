@@ -1,16 +1,44 @@
 from django.shortcuts import render
 from .models import GuerrillaDungeon
 from datetime import date
+from time import time
 # Create your views here.
 
 def DungeonView(request):
 
     template = 'home.html'
-    na = GuerrillaDungeon.objects.filter(server="NA").order_by('group').all()
-    jp = GuerrillaDungeon.objects.filter(server="JP").order_by('group').all()
+    naDungeons = GuerrillaDungeon.objects.filter(server="NA").order_by('group').all()
+    jpDungeons = GuerrillaDungeon.objects.filter(server="JP").order_by('group').all()
     dateT = date.today()
 
-    context = {'date': dateT, 'na': na, 'jp': jp}
+    timeNow = time()
+
+    naActives = []
+    jpActives = []
+
+    for d in naDungeons:
+        if d.startSecs <= timeNow <= d.endSecs:
+            naActives.append("Active")
+        elif timeNow < d.startSecs:
+            naActives.append("Upcoming")
+        else:
+            naActives.append("Completed")
+
+
+    for d in jpDungeons:
+        if d.startSecs <= timeNow <= d.endSecs:
+            jpActives.append("Active")
+        elif timeNow < d.startSecs:
+            jpActives.append("Upcoming")
+        else:
+            jpActives.append("Completed")
+
+
+    na = zip(naDungeons, naActives)
+
+    jp = zip(jpDungeons, jpActives)
+
+    context = {'date': dateT, 'na': na, 'jp': jp,}
 
 
     return render(request, template, context)
