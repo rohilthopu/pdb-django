@@ -5,10 +5,7 @@
     <section class="hero is-dark">
         <div class="hero-body">
             <div class="container">
-
                 {% block name %}
-
-
                     <h1 class="title">{{ monster.name }}</h1>
                     {% if ancestor is not None %}
                         <h2 class="subtitle">Evolution of <a
@@ -23,7 +20,6 @@
                             </h2>
                         {% endfor %}
                     {% endif %}
-
                 {% endblock %}
             </div>
         </div>
@@ -114,7 +110,6 @@
 
                 </tbody>
             </table>
-
 
             <label class="label has-text-centered">Other Information</label>
             <table class="table is-fullwidth">
@@ -224,8 +219,7 @@
                         available.</label>
                 {% endif %}
             </div>
-
-
+            
             <div class="column" id="unevomaterials" style="display: none;">
                 <label class="label has-text-centered">Devolution Materials</label>
                 {% if unevomats|length > 0 %}

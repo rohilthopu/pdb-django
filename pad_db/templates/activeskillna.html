@@ -17,34 +17,31 @@
         <div class="column is-half" id="activeskill">
             <label class="label has-text-centered"> Skill Information </label>
 
-            {% if activeskill is not None %}
-                <table class="table is-fullwidth">
-                    <tbody>
-                    <tr>
-                        <th>Min Turns</th>
-                        <td>{{ activeskill.minTurns }}</td>
-                    </tr>
-                    <tr>
-                        <th>Max Turns</th>
-                        <td>{{ activeskill.maxTurns }}</td>
-                    </tr>
-                    <tr>
-                        <th>Levels</th>
-                        <td>{{ activeskill.levels }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            {% else %}
-                <div class="has-text-centered">No Active Skill available</div>
-            {% endif %}
+            <table class="table is-fullwidth">
+                <tbody>
+                <tr>
+                    <th>Min Turns</th>
+                    <td>{{ activeskill.minTurns }}</td>
+                </tr>
+                <tr>
+                    <th>Max Turns</th>
+                    <td>{{ activeskill.maxTurns }}</td>
+                </tr>
+                <tr>
+                    <th>Levels</th>
+                    <td>{{ activeskill.levels }}</td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <div class="column">
             <label class="label has-text-centered" style="margin-bottom: 2%">Used by the following Monsters</label>
 
             {% for monster in monsters %}
-
-                <div class="has-text-centered" style="margin-bottom: 2%"><a href="/monster/na/{{ monster.id }}">{{ monster.name }}</a></div>
+                <div class="has-text-centered" style="margin-bottom: 2%"><a
+                        href="/monster/na/{{ monster.id }}">{{ monster.name }}</a></div>
 
             {% endfor %}
         </div>

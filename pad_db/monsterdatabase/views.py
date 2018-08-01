@@ -111,7 +111,7 @@ def activeSkillListViewNA(request):
 
 
 def activeSkillViewNA(request, id):
-    activeskill = ActiveSkill.objects.get(pk=id)
+    activeskill = ActiveSkill.objects.get(skillID=id)
     monsters = MonsterData.objects.filter(activeSkillID=activeskill.skillID)
 
     context = {'activeskill': activeskill, "monsters": monsters}
