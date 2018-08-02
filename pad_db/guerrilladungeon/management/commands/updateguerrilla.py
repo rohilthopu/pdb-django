@@ -26,7 +26,7 @@ class Command(BaseCommand):
             if GuerrillaDungeon.objects.filter(startTime=item['start_timestamp']).first() is None:
                 dungeon = GuerrillaDungeon()
 
-                dungeon.name = item['dungeon_name']
+                dungeon.name = item['dungeon_name'].rsplit('$')[-1]
                 dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M:%S")
                 dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M:%S")
                 dungeon.startSecs = item['start_timestamp']
