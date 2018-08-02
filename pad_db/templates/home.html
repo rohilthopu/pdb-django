@@ -100,8 +100,8 @@
                     <th class="has-text-left">Dungeon</th>
                     <th class="has-text-right">Group</th>
                     <th class="has-text-right">Status</th>
-                    <th class="has-text-right">Starts in</th>
-                    <th class="has-text-right">Ends in</th>
+                    <th class="has-text-right">ETA</th>
+                    <th class="has-text-right">Time Left</th>
                     <th class="has-text-right">Start</th>
                     <th class="has-text-right">End</th>
                 </tr>
@@ -129,8 +129,8 @@
                     <th class="has-text-left">Dungeon</th>
                     <th class="has-text-right">Group</th>
                     <th class="has-text-right">Status</th>
-                    <th class="has-text-right">Starts in</th>
-                    <th class="has-text-right">Ends in</th>
+                    <th class="has-text-right">ETA</th>
+                    <th class="has-text-right">Time Left</th>
                     <th class="has-text-right">Start</th>
                     <th class="has-text-right">End</th>
                 </tr>
@@ -151,18 +151,18 @@
             </table>
         </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('table.table').DataTable({
-                'pageLength': 25,
-                'order': [],
-                'searching': false,
-                'paging': false,
-                responsive: true,
-
-            });
-        });
-    </script>
+{#    <script type="text/javascript">#}
+{#        $(document).ready(function () {#}
+{#            $('table.table').DataTable({#}
+{#                'pageLength': 25,#}
+{#                'order': [],#}
+{#                'searching': false,#}
+{#                'paging': false,#}
+{#                responsive: true,#}
+{##}
+{#            });#}
+{#        });#}
+{#    </script>#}
 
     <script>
         window.onload = function () {
@@ -176,31 +176,44 @@
             var time = Date.now() / 1000;
 
             for (var i = 0; i < actives.length; i++) {
+
                 var status = actives[i].innerText;
-                if (status === 'Upcoming') {
+
+                if (status === "Upcoming") {
+
                     var startTime = parseFloat(starttimes[i].getAttribute('value'));
+
                     timeDiff = (startTime - time) / 3600;
 
-                    if (timeDiff <= 1) {
-                        starttimes[i].innerText = (timeDiff * 60).toLocaleString() + " Minutes"
+                    if ((timeDiff > 0) && (timeDiff < 1)) {
+                        starttimes[i].innerText = (timeDiff * 60).toFixed(2) + " Minutes";
                     }
-                    else if (timeDiff <=  0) {
+
+                    else if (timeDiff < 0) {
                         starttimes[i].innerText = "";
-                        actives[i].innerText = "Active"
+                        actives[i].innerText = "Active";
                     }
-                    else {
-                        starttimes[i].innerText = timeDiff.toLocaleString() + " Hours";
+
+                    else if (timeDiff >= 1) {
+                        starttimes[i].innerText = timeDiff.toFixed(1) + " Hours";
                     }
+
                 }
+
                 else if (status === "Active") {
+
                     var endtime = parseFloat(endtimes[i].getAttribute('value'));
+
                     var timeDiff = (endtime - time) / 60;
+
                     if (timeDiff > 0) {
-                        endtimes[i].innerText = timeDiff.toLocaleString() + " Minutes";
+                        endtimes[i].innerText = timeDiff.toFixed(2) + " Minutes";
                     }
+
                     else {
                         actives[i].innerText = "Ended";
                         endtimes[i].innerText = "";
+                        starttimes[i].innerText = "";
                     }
                 }
             }
