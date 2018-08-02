@@ -10,9 +10,7 @@ def DungeonView(request):
     naDungeons = GuerrillaDungeon.objects.filter(server="NA").order_by('group').all()
     jpDungeons = GuerrillaDungeon.objects.filter(server="JP").order_by('group').all()
     dateT = date.today()
-
     timeNow = time()
-
     naActives = []
     jpActives = []
 
@@ -24,7 +22,6 @@ def DungeonView(request):
         else:
             naActives.append("Ended")
 
-
     for d in jpDungeons:
         if d.startSecs <= timeNow <= d.endSecs:
             jpActives.append("Active")
@@ -33,12 +30,9 @@ def DungeonView(request):
         else:
             jpActives.append("Ended")
 
-
     na = zip(naDungeons, naActives)
-
     jp = zip(jpDungeons, jpActives)
 
     context = {'date': dateT, 'na': na, 'jp': jp,}
-
 
     return render(request, template, context)
