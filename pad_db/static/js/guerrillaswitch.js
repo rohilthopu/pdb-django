@@ -1,7 +1,7 @@
 function switchJP() {
 
     document.getElementById('na').style.display = 'none';
-    document.getElementById('jp').style.display = '';
+    document.getElementById('jp').style.display = "inline";
     document.getElementById('natab').classList.remove('is-active');
     document.getElementById('jptab').classList.add('is-active');
 
