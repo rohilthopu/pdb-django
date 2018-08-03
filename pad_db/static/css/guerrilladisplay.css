@@ -10,6 +10,10 @@ html,body
     visibility: hidden;
 }
 
+.spaced {
+    font-family: 'Roboto', Roboto, sans-serif, monospace;
+}
+
 @media (max-width: 767px) {
     tr th:nth-child(4), tr td:nth-child(4) {
         display: none;
