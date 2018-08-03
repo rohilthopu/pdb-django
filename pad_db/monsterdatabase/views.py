@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import CardNA, MonsterData, ActiveSkill, LeaderSkill
+from .maps import EXPLICIT_TYPE_MAP
 import json
 
 
@@ -38,41 +39,13 @@ def cardView(request, card_id):
     awakenings = json.loads(mnstr.awakenings)
     sawakenings = json.loads(mnstr.superAwakenings)
 
+    types = getTypes(mnstr)
+
     context = {'activeskill': activeskill, 'leaderskill': leaderskill,
                'monster': card.monster, 'ancestor': ancestor, "evolutions": evos, "evomats": evomats,
-               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings}
+               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types}
 
     return render(request, template, context)
-
-
-def getEvoMats(monster, cards, monsters):
-    evomats = []
-    if monster.evomat1 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat1)))
-    if monster.evomat2 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat2)))
-    if monster.evomat3 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat3)))
-    if monster.evomat4 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat4)))
-    if monster.evomat5 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat5)))
-    return evomats
-
-
-def getUnEvoMats(monster, cards, monsters):
-    evomats = []
-    if monster.unevomat1 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat1)))
-    if monster.unevomat2 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat2)))
-    if monster.unevomat3 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat3)))
-    if monster.unevomat4 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat4)))
-    if monster.unevomat5 != 0:
-        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat5)))
-    return evomats
 
 
 def cardList(request):
@@ -109,14 +82,16 @@ def activeSkillView(request, id):
     template = 'active_skill_na.html'
     return render(request, template, context)
 
+
 def leaderSkillListView(request):
     names = LeaderSkill.objects.values_list('name', flat=True)
     sids = LeaderSkill.objects.values_list('skillID', flat=True)
 
-    lSkills = zip(names,sids)
+    lSkills = zip(names, sids)
     context = {'skills': lSkills}
     template = 'leader_skill_list_na.html'
     return render(request, template, context)
+
 
 def leaderSkillView(request, id):
     leaderskill = LeaderSkill.objects.get(skillID=id)
@@ -125,3 +100,41 @@ def leaderSkillView(request, id):
     context = {'leaderskill': leaderskill, "monsters": monsters}
     template = 'leader_skill_na.html'
     return render(request, template, context)
+
+
+def getEvoMats(monster, cards, monsters):
+    evomats = []
+    if monster.evomat1 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat1)))
+    if monster.evomat2 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat2)))
+    if monster.evomat3 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat3)))
+    if monster.evomat4 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat4)))
+    if monster.evomat5 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat5)))
+    return evomats
+
+
+def getUnEvoMats(monster, cards, monsters):
+    evomats = []
+    if monster.unevomat1 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat1)))
+    if monster.unevomat2 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat2)))
+    if monster.unevomat3 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat3)))
+    if monster.unevomat4 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat4)))
+    if monster.unevomat5 != 0:
+        evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat5)))
+    return evomats
+
+
+def getTypes(monster) -> []:
+    types = []
+    types.append(EXPLICIT_TYPE_MAP[int(monster.type1)])
+    types.append(EXPLICIT_TYPE_MAP[int(monster.type2)])
+    types.append(EXPLICIT_TYPE_MAP[int(monster.type3)])
+    return types
