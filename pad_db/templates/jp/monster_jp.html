@@ -2,8 +2,10 @@
 
 
 {% block name %}
-
     <h1 class="title">{{ monster.name }}</h1>
+{% endblock %}
+
+{% block evos %}
     {% if ancestor is not None %}
         <h2 class="subtitle">Evolution of <a
                 href="/monster/jp/{{ ancestor.monster.cardID }}"
@@ -17,63 +19,61 @@
             </h2>
         {% endfor %}
     {% endif %}
-
-
 {% endblock %}
 
 {% block skills %}
 
-      <div class="column" id="leaderskill" style="display: none;">
-            <label class="label has-text-centered">Leader Skill</label>
-            {% if leaderskill is not None %}
-                <table class="table is-fullwidth">
-                    <tbody>
-                    <tr>
-                        <th>Name</th>
-                        <td> <a href="/leaderskills/jp/{{ leaderskill.skillID }}">{{ leaderskill.name }}</a></td>
-                    </tr>
-                    <tr>
-                        <th>Effect</th>
-                        <td>{{ leaderskill.description }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            {% else %}
-                <div class="has-text-centered">No Leader Skill available</div>
-            {% endif %}
-        </div>
+    <div class="column" id="leaderskill" style="display: none;">
+        <label class="label has-text-centered">Leader Skill</label>
+        {% if leaderskill is not None %}
+            <table class="table is-fullwidth">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><a href="/leaderskills/jp/{{ leaderskill.skillID }}">{{ leaderskill.name }}</a></td>
+                </tr>
+                <tr>
+                    <th>Effect</th>
+                    <td>{{ leaderskill.description }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <div class="has-text-centered">No Leader Skill available</div>
+        {% endif %}
+    </div>
 
-        <div class="column" id="activeskill" style="display: none;">
-            <label class="label has-text-centered">Active Skill</label>
-            {% if activeskill is not None %}
-                <table class="table is-fullwidth">
-                    <tbody>
-                    <tr>
-                        <th>Name</th>
-                        <td><a href="/activeskills/jp/{{ activeskill.skillID }}">{{ activeskill.name }}</a></td>
-                    </tr>
-                    <tr>
-                        <th>Effect</th>
-                        <td>{{ activeskill.description }}</td>
-                    </tr>
-                    <tr>
-                        <th>Min Turns</th>
-                        <td>{{ activeskill.minTurns }}</td>
-                    </tr>
-                    <tr>
-                        <th>Max Turns</th>
-                        <td>{{ activeskill.maxTurns }}</td>
-                    </tr>
-                    <tr>
-                        <th>Levels</th>
-                        <td>{{ activeskill.levels }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            {% else %}
-                <div class="has-text-centered">No Active Skill available</div>
-            {% endif %}
-        </div>
+    <div class="column" id="activeskill" style="display: none;">
+        <label class="label has-text-centered">Active Skill</label>
+        {% if activeskill is not None %}
+            <table class="table is-fullwidth">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><a href="/activeskills/jp/{{ activeskill.skillID }}">{{ activeskill.name }}</a></td>
+                </tr>
+                <tr>
+                    <th>Effect</th>
+                    <td>{{ activeskill.description }}</td>
+                </tr>
+                <tr>
+                    <th>Min Turns</th>
+                    <td>{{ activeskill.minTurns }}</td>
+                </tr>
+                <tr>
+                    <th>Max Turns</th>
+                    <td>{{ activeskill.maxTurns }}</td>
+                </tr>
+                <tr>
+                    <th>Levels</th>
+                    <td>{{ activeskill.levels }}</td>
+                </tr>
+                </tbody>
+            </table>
+        {% else %}
+            <div class="has-text-centered">No Active Skill available</div>
+        {% endif %}
+    </div>
 
 {% endblock %}
 {% block evo %}

@@ -7,35 +7,37 @@
             <div class="container has-text-centered">
                 {% block name %}
                     <h1 class="title">{{ monster.name }}</h1>
-                    <div class="subtitle">
-                        {{ types.0 }}
-
-                        {% if types.1 %}
-                           , {{ types.1 }}
-                        {% endif %}
-                        {% if types.2 %}
-                           , {{ types.2 }}
-                        {% endif %}
-                    </div>
                 {% endblock %}
+
+                <div class="subtitle">
+                    {{ types.0 }}
+
+                    {% if types.1 %}
+                        , {{ types.1 }}
+                    {% endif %}
+                    {% if types.2 %}
+                        , {{ types.2 }}
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="hero-body">
             <div class="container">
-                {% if ancestor is not None %}
-                    <h2 class="subtitle">Evolution of <a
-                            href="/monster/na/{{ ancestor.monster.cardID }}"
-                            class="is-italic"> {{ ancestor.monster.name }}</a></h2>
-                {% endif %}
-                {% if evolutions is not None %}
-                    {% for evo in evolutions %}
-                        <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
-                            <a href="/monster/na/{{ evo.monster.cardID }}"
-                               class="is-italic"> {{ evo.monster.name }} </a>
-                        </h2>
-                    {% endfor %}
-                {% endif %}
-
+                {% block evos %}
+                    {% if ancestor is not None %}
+                        <h2 class="subtitle">Evolution of <a
+                                href="/monster/na/{{ ancestor.monster.cardID }}"
+                                class="is-italic"> {{ ancestor.monster.name }}</a></h2>
+                    {% endif %}
+                    {% if evolutions is not None %}
+                        {% for evo in evolutions %}
+                            <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
+                                <a href="/monster/na/{{ evo.monster.cardID }}"
+                                   class="is-italic"> {{ evo.monster.name }} </a>
+                            </h2>
+                        {% endfor %}
+                    {% endif %}
+                {% endblock %}
             </div>
         </div>
 
