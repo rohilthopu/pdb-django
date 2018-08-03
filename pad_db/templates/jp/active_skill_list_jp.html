@@ -1,0 +1,11 @@
+{% extends 'skill_list.html' %}
+
+{% block region_switch %}
+    <li><a href="/activeskills/na">NA</a></li>
+    <li class="is-active"><a href="/activeskills/jp/">JP</a></li>
+
+{% endblock %}
+
+{% block skill_link %}
+    <td class="has-text-centered"><a href="/activeskills/jp/{{ sid }}">{{ name }}</a></td>
+{% endblock %}

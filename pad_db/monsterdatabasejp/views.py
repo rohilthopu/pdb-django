@@ -3,8 +3,8 @@ from .models import CardJP, MonsterData, ActiveSkill, LeaderSkill
 import json
 
 
-def cardViewJP(request, card_id):
-    template = 'monsterjp.html'
+def cardView(request, card_id):
+    template = 'monster_jp.html'
     mnstr = MonsterData.objects.get(cardID=card_id)
     card = CardJP.objects.get(monster=mnstr)
     cards = CardJP.objects.all()
@@ -80,7 +80,7 @@ def getUnEvoMats(monster, cards, monsters):
     return evomats
 
 
-def cardListJP(request):
+def cardList(request):
     rawCards = MonsterData.objects.order_by('cardID').all()
     cards = []
     cardID = []
@@ -93,26 +93,45 @@ def cardListJP(request):
 
     cardList = zip(cards, cardID)
     context = {'cards': cardList}
-    template = 'monsterlistjp.html'
+    template = 'monster_list_jp.html'
     return render(request, template, context)
 
-def activeSkillListViewJP(request):
-    ids = ActiveSkill.objects.values_list('id', flat=True)
+
+def activeSkillListView(request):
     names = ActiveSkill.objects.values_list('name', flat=True)
     sids = ActiveSkill.objects.values_list('skillID', flat=True)
 
-    aSkills = zip(ids, names, sids)
+    aSkills = zip(names, sids)
 
     context = {'skills': aSkills}
-    template = 'activeskilllistjp.html'
+    template = 'active_skill_list_jp.html'
 
     return render(request, template, context)
 
 
-def activeSkillViewJP(request, id):
+def activeSkillView(request, id):
     activeskill = ActiveSkill.objects.get(skillID=id)
     monsters = MonsterData.objects.filter(activeSkillID=activeskill.skillID)
 
     context = {'activeskill': activeskill, "monsters": monsters}
-    template = 'activeskilljp.html'
+    template = 'active_skill_jp.html'
+    return render(request, template, context)
+
+
+def leaderSkillListView(request):
+    names = LeaderSkill.objects.values_list('name', flat=True)
+    sids = LeaderSkill.objects.values_list('skillID', flat=True)
+
+    lSkills = zip(names,sids)
+    context = {'skills': lSkills}
+    template = 'leader_skill_list_jp.html'
+    return render(request, template, context)
+
+
+def leaderSkillView(request, id):
+    leaderskill = LeaderSkill.objects.get(skillID=id)
+    monsters = MonsterData.objects.filter(leaderSkillID=leaderskill.skillID)
+
+    context = {'leaderskill': leaderskill, "monsters": monsters}
+    template = 'leader_skill_jp.html'
     return render(request, template, context)

@@ -3,7 +3,7 @@ from django.db import models
 
 class Skill(models.Model):
     name = models.CharField(max_length=200, default="", blank=True)
-    description = models.TextField(default="", blank=True, )
+    description = models.TextField(default="", blank=True,)
     skillID = models.IntegerField(blank=True, default=0)
     skillType = models.IntegerField(blank=True, default=0)
 

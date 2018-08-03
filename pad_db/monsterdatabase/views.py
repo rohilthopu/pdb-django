@@ -3,8 +3,8 @@ from .models import CardNA, MonsterData, ActiveSkill, LeaderSkill
 import json
 
 
-def cardViewNA(request, card_id):
-    template = 'monster.html'
+def cardView(request, card_id):
+    template = 'monster_na.html'
     mnstr = MonsterData.objects.get(cardID=card_id)
     card = CardNA.objects.get(monster=mnstr)
     cards = CardNA.objects.all()
@@ -27,7 +27,6 @@ def cardViewNA(request, card_id):
     evos = None
     if len(mnstr.evolutions.all()) > 0:
         evos = []
-
         for evo in mnstr.evolutions.all():
             evoCard = cards.get(monster=MonsterData.objects.get(cardID=evo.evo))
             if "Alt." not in evoCard.monster.name:
@@ -48,7 +47,6 @@ def cardViewNA(request, card_id):
 
 def getEvoMats(monster, cards, monsters):
     evomats = []
-
     if monster.evomat1 != 0:
         evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat1)))
     if monster.evomat2 != 0:
@@ -59,13 +57,11 @@ def getEvoMats(monster, cards, monsters):
         evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat4)))
     if monster.evomat5 != 0:
         evomats.append(cards.get(monster=monsters.get(cardID=monster.evomat5)))
-
     return evomats
 
 
 def getUnEvoMats(monster, cards, monsters):
     evomats = []
-
     if monster.unevomat1 != 0:
         evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat1)))
     if monster.unevomat2 != 0:
@@ -76,11 +72,10 @@ def getUnEvoMats(monster, cards, monsters):
         evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat4)))
     if monster.unevomat5 != 0:
         evomats.append(cards.get(monster=monsters.get(cardID=monster.unevomat5)))
-
     return evomats
 
 
-def cardListNA(request):
+def cardList(request):
     rawCards = MonsterData.objects.order_by('cardID').all()
     cards = []
     cardID = []
@@ -93,27 +88,40 @@ def cardListNA(request):
 
     cardList = zip(cards, cardID)
     context = {'cards': cardList}
-    template = 'monsterlist.html'
+    template = 'monster_list_na.html'
     return render(request, template, context)
 
 
-def activeSkillListViewNA(request):
-    ids = ActiveSkill.objects.values_list('id', flat=True)
+def activeSkillListView(request):
     names = ActiveSkill.objects.values_list('name', flat=True)
     sids = ActiveSkill.objects.values_list('skillID', flat=True)
-
-    aSkills = zip(ids, names, sids)
-
+    aSkills = zip(names, sids)
     context = {'skills': aSkills}
-    template = 'activeskilllistna.html'
-
+    template = 'active_skill_list_na.html'
     return render(request, template, context)
 
 
-def activeSkillViewNA(request, id):
+def activeSkillView(request, id):
     activeskill = ActiveSkill.objects.get(skillID=id)
     monsters = MonsterData.objects.filter(activeSkillID=activeskill.skillID)
 
     context = {'activeskill': activeskill, "monsters": monsters}
-    template = 'activeskill.html'
+    template = 'active_skill_na.html'
+    return render(request, template, context)
+
+def leaderSkillListView(request):
+    names = LeaderSkill.objects.values_list('name', flat=True)
+    sids = LeaderSkill.objects.values_list('skillID', flat=True)
+
+    lSkills = zip(names,sids)
+    context = {'skills': lSkills}
+    template = 'leader_skill_list_na.html'
+    return render(request, template, context)
+
+def leaderSkillView(request, id):
+    leaderskill = LeaderSkill.objects.get(skillID=id)
+    monsters = MonsterData.objects.filter(leaderSkillID=leaderskill.skillID)
+
+    context = {'leaderskill': leaderskill, "monsters": monsters}
+    template = 'leader_skill_na.html'
     return render(request, template, context)

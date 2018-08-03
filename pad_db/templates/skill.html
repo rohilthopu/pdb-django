@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container">
+                {% block skill_info %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+    <div class="columns is-centered" style="margin: 2.5%;">
+        <div class="column is-half" id="activeskill">
+            <label class="label has-text-centered"> Skill Information </label>
+            {% block skill_table %}
+            {% endblock %}
+        </div>
+
+        <div class="column">
+            <label class="label has-text-centered" style="margin-bottom: 2%">Used by the following Monsters</label>
+            {% for monster in monsters %}
+                <div class="has-text-centered" style="margin-bottom: 2%">
+                {% block monster_link %}
+                {% endblock %}
+                </div>
+            {% endfor %}
+            </div>
+
+        </div>
+{% endblock %}

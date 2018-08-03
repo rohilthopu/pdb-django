@@ -1,0 +1,29 @@
+{% extends 'skill.html' %}
+
+{% block skill_info %}
+    <h1 class="title">{{ leaderskill.name }}</h1>
+    <h2 class="subtitle"> {{ leaderskill.description }}</h2>
+{% endblock %}
+
+{% block skill_table %}
+    <table class="table is-fullwidth">
+        <tbody>
+        <tr>
+            <th>Min Turns</th>
+            <td>{{ leaderskill.minTurns }}</td>
+        </tr>
+        <tr>
+            <th>Max Turns</th>
+            <td>{{ leaderskill.maxTurns }}</td>
+        </tr>
+        <tr>
+            <th>Levels</th>
+            <td>{{ leaderskill.levels }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block monster_link %}
+    <a href="/monster/jp/{{ monster.cardID }}">{{ monster.name }}</a>
+{% endblock %}

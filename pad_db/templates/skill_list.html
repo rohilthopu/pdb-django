@@ -6,14 +6,15 @@
 
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">
         <ul>
-            <li><a href="/activeskills/na">NA</a></li>
-            <li class="is-active"><a href="/activeskills/jp/">JP</a></li>
+            {% block region_switch %}
+
+            {% endblock %}
         </ul>
     </nav>
 
     <div class="columns is-centered" id="load" style="margin-top: 15%">
         <div class="column is-half">
-            <div class="label has-text-centered" >Loading data...</div>
+            <div class="label has-text-centered">Loading data...</div>
         </div>
     </div>
 
@@ -30,9 +31,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for id, name, sid in skills %}
+
+                {% for name, sid in skills %}
                     <tr>
-                        <td class="has-text-centered"><a href="/activeskills/jp/{{ sid }}">{{ name }}</a></td>
+                        {% block skill_link %}
+                        {% endblock %}
                         <td class="has-text-right">{{ sid }}</td>
                     </tr>
                 {% endfor %}
@@ -44,7 +47,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#myTable').DataTable({
-                'pageLength': 100,
+                'paging': false,
                 'order': []
             });
             document.getElementById('load').style.display = 'none';

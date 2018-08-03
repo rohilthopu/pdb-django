@@ -24,27 +24,27 @@ from guerrilladungeon import views as gv
 from dungeon import views as dv
 
 urlpatterns = [
-                  url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
 
-                # Guerrilla Dungeons
-                  path('', gv.DungeonView),
+    # Guerrilla Dungeons
+    path('', gv.DungeonView),
+
+    # NA Items
+    path('monsterdb/na/', mv.cardList),
+    path('monster/na/<int:card_id>/', mv.cardView),
+    path('dungeons/na/', dv.DungeonView),
+    path('activeskills/na/', mv.activeSkillListView),
+    path('activeskills/na/<int:id>/', mv.activeSkillView),
+    path('leaderskills/na', mv.leaderSkillListView),
+    path('leaderskills/na/<int:id>/', mv.leaderSkillView),
+
+    # JP Items
+    path('monsterdb/jp/', jmv.cardList),
+    path('monster/jp/<int:card_id>/', jmv.cardView),
+    path('activeskills/jp/', jmv.activeSkillListView),
+    path('activeskills/jp/<int:id>/', jmv.activeSkillView),
+    path('leaderskills/jp', jmv.leaderSkillListView),
+    path('leaderskills/jp/<int:id>/', jmv.leaderSkillView),
 
 
-                # NA Items
-                  path('monsterdb/na/', mv.cardListNA),
-                  path('monster/na/<int:card_id>/', mv.cardViewNA),
-                  path('dungeons/na/', dv.DungeonView),
-                  path('activeskills/na/', mv.activeSkillListViewNA),
-                  path('activeskills/na/<int:id>/', mv.activeSkillViewNA),
-
-
-
-                # JP Items
-                  path('monsterdb/jp/', jmv.cardListJP),
-                  path('monster/jp/<int:card_id>/', jmv.cardViewJP),
-                  path('activeskills/jp/', jmv.activeSkillListViewJP),
-                  path('activeskills/jp/<int:id>/', jmv.activeSkillViewJP)
-
-
-
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

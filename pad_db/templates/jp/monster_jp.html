@@ -1,4 +1,4 @@
-{% extends 'monster.html' %}
+{% extends 'monster_na.html' %}
 
 
 {% block name %}
@@ -30,7 +30,7 @@
                     <tbody>
                     <tr>
                         <th>Name</th>
-                        <td>{{ leaderskill.name }}</td>
+                        <td> <a href="/leaderskills/jp/{{ leaderskill.skillID }}">{{ leaderskill.name }}</a></td>
                     </tr>
                     <tr>
                         <th>Effect</th>
