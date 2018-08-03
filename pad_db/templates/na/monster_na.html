@@ -9,7 +9,7 @@
                     <h1 class="title">{{ monster.name }}</h1>
                 {% endblock %}
 
-                <div class="subtitle">
+                <div class="subtitle" style="margin-bottom: 0">
                     {{ types.0 }}
 
                     {% if types.1 %}
@@ -19,6 +19,9 @@
                         , {{ types.2 }}
                     {% endif %}
                 </div>
+                {% block img_link %}
+                    <img src="https://storage.googleapis.com/mirubot/padimages/na/full/{{ monster.cardID }}.png">
+                {% endblock %}
             </div>
         </div>
         <div class="hero-body">
@@ -221,15 +224,20 @@
             <div class="column" id="evomaterials" style="display: none;">
                 <label class="label has-text-centered">Evolution Materials</label>
                 {% if evomats|length > 0 %}
-                    <table class="table is-fullwidth">
+                    <table cellspacing="0" class="table is-fullwidth">
                         <thead>
                         <tr>
+                            <th></th>
                             <th class="has-text-centered">Name</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for mat in evomats %}
                             <tr>
+                                <td><a
+                                        href="/monster/na/{{ mat.monster.cardID }}"><img
+                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                                </td>
                                 <td class="has-text-centered"><a
                                         href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
                                 </td>
@@ -248,12 +256,17 @@
                     <table class="table is-fullwidth">
                         <thead>
                         <tr>
+                            <th></th>
                             <th class="has-text-centered">Name</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for mat in unevomats %}
                             <tr>
+                                <td><a
+                                        href="/monster/na/{{ mat.monster.cardID }}"><img
+                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                                </td>
                                 <td class="has-text-centered"><a
                                         href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
                                 </td>

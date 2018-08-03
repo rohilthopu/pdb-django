@@ -5,6 +5,10 @@
     <h1 class="title">{{ monster.name }}</h1>
 {% endblock %}
 
+{% block img_link %}
+    <img src="https://storage.googleapis.com/mirubot/padimages/jp/full/{{ monster.cardID }}.png">
+{% endblock %}
+
 {% block evos %}
     {% if ancestor is not None %}
         <h2 class="subtitle">Evolution of <a
@@ -84,12 +88,17 @@
             <table class="table is-fullwidth">
                 <thead>
                 <tr>
+                    <th></th>
                     <th class="has-text-centered">Name</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for mat in evomats %}
                     <tr>
+                        <td><a
+                                href="/monster/jp/{{ mat.monster.cardID }}"><img
+                                src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                        </td>
                         <td class="has-text-centered"><a
                                 href="/monster/jp/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
                         </td>
@@ -109,12 +118,17 @@
             <table class="table is-fullwidth">
                 <thead>
                 <tr>
+                    <th></th>
                     <th class="has-text-centered">Name</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for mat in unevomats %}
                     <tr>
+                        <td><a
+                                href="/monster/jp/{{ mat.monster.cardID }}"><img
+                                src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                        </td>
                         <td class="has-text-centered"><a
                                 href="/monster/jp/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
                         </td>
