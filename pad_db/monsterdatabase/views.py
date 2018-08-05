@@ -2,12 +2,13 @@ from django.shortcuts import render
 from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
 import json
+import math
 
 
 def cardView(request, card_id):
     template = 'monster_na.html'
     monster = Monster.objects.get(cardID=card_id)
-
+    evo_list = monster.evolutions.all()
     monsters = Monster.objects.all()
 
     # The following set of checks is necessary as some cards do not have leader skills, active skills, or ancestors.
@@ -24,37 +25,22 @@ def cardView(request, card_id):
     if Skill.objects.filter(skillID=monster.leaderSkillID).first() is not None:
         leaderskill = Skill.objects.get(skillID=monster.leaderSkillID)
 
-    multipliers = [1, 1, 1, 0]
-    l_skills = []
+    multipliers = [1, 1, 1, 0, 0]
+    a_multipliers = [1, 1, 1, 0]
 
     if leaderskill is not None:
-        if leaderskill.c_skill_1 != -1:
-            l_skills.append(Skill.objects.get(skillID=leaderskill.c_skill_1))
-            l_skills.append(Skill.objects.get(skillID=leaderskill.c_skill_2))
-            if leaderskill.c_skill_3 != -1:
-                l_skills.append((Skill.objects.get(skillID=leaderskill.c_skill_3)))
+        multipliers = getMultipliers(leaderskill)
 
+    if activeskill is not None:
+        getMultipliers(activeskill)
 
-        for skill in l_skills:
-
-            multipliers[0] *= skill.hp_mult
-            multipliers[1] *= skill.atk_mult
-            multipliers[2] *= skill.rcv_mult
-            if skill.dmg_reduction != 0:
-                if multipliers[3] != 0:
-                    multipliers[3] *= skill.dmg_reduction
-                else:
-                    multipliers[3] = skill.dmg_reduction
-        multipliers[3] *= 100
-
+    d_multipliers = [(item**2) for item in multipliers]
+    d_multipliers[3] = (1 - (1-multipliers[4])*(1-multipliers[4]))*100
+    d_multipliers[3] = d_multipliers[3]
 
     evos = None
-    if len(monster.evolutions.all()) > 0:
-        evos = []
-        for evo in monster.evolutions.all():
-            evoCard = Monster.objects.get(cardID=evo.evo)
-            if "Alt." not in evoCard.name:
-                evos.append(evoCard)
+    if len(evo_list) > 0:
+        evos = getEvos(monster)
 
     evomats = getEvoMats(monster, monsters)
     unevomats = getUnEvoMats(monster, monsters)
@@ -66,7 +52,7 @@ def cardView(request, card_id):
 
     context = {'activeskill': activeskill, 'leaderskill': leaderskill,
                'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evomats": evomats,
-               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types, 'lmultipliers': multipliers,}
+               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types, 'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers}
 
     return render(request, template, context)
 
@@ -162,3 +148,38 @@ def getTypes(monster) -> []:
     types.append(EXPLICIT_TYPE_MAP[int(monster.type2)])
     types.append(EXPLICIT_TYPE_MAP[int(monster.type3)])
     return types
+
+
+def getMultipliers(skill) -> []:
+    skill_list = []
+    multipliers = [1, 1, 1, 0, 0]
+    if skill.c_skill_1 != -1:
+        skill_list.append(Skill.objects.get(skillID=skill.c_skill_1))
+        skill_list.append(Skill.objects.get(skillID=skill.c_skill_2))
+        if skill.c_skill_3 != -1:
+            skill_list.append((Skill.objects.get(skillID=skill.c_skill_3)))
+
+    for skill in skill_list:
+
+        multipliers[0] *= skill.hp_mult
+        multipliers[1] *= skill.atk_mult
+        multipliers[2] *= skill.rcv_mult
+        if skill.dmg_reduction != 0:
+            if multipliers[3] != 0:
+                multipliers[3] *= skill.dmg_reduction
+            else:
+                multipliers[3] = skill.dmg_reduction
+    multipliers[4] = multipliers[3]
+    multipliers[3] *= 100
+    multipliers[3] = multipliers[3]
+
+    return multipliers
+
+
+def getEvos(evo_list) -> []:
+    evos = []
+    for evo in evo_list:
+        evoCard = Monster.objects.get(cardID=evo.evo)
+        if "Alt." not in evoCard.name:
+            evos.append(evoCard)
+    return evos

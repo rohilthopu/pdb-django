@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 from monsterdatabase.models import Skill
 import requests
 import json
+import time
 
 from .skill_parser import parse_skill_multiplier
 from .skill_type_maps import SKILL_TYPE
@@ -18,6 +19,11 @@ class Command(BaseCommand):
 
         req = requests.get(link).text
         data = json.loads(req)
+
+        print()
+        print("Updating skill list.")
+        print()
+        start = time.time()
 
         for item in data:
 
@@ -43,6 +49,8 @@ class Command(BaseCommand):
 
                 multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
 
+                if multipliers['atk'] == 0:
+                    print(multipliers, skill_type, item['skill_id'])
                 skill.hp_mult = multipliers['hp']
                 skill.atk_mult = multipliers['atk']
                 skill.rcv_mult = multipliers['rcv']
@@ -55,4 +63,9 @@ class Command(BaseCommand):
                         skill.c_skill_3 = other_fields[2]
 
                 skill.save()
+
+        end = time.time()
+        print()
+        print("Elapsed time:", end-start, "s")
+        print()
 

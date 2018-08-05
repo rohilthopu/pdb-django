@@ -178,21 +178,36 @@
                             <th>Effect</th>
                             <td>{{ leaderskill.description }}</td>
                         </tr>
+                        </tbody>
+                    </table>
+                         <table class="table is-fullwidth">
+                         <thead>
+                            <tr>
+                                <th></th>
+                                <th class="has-text-right">Single</th>
+                                <th class="has-text-right">Pair</th>
+                            </tr>
+                         </thead>
+                        <tbody>
                         <tr>
-                            <th>HP Multiplier</th>
-                            <td>{{ lmultipliers.0 }}</td>
+                            <th>HP</th>
+                            <td class="has-text-right">{{ lmultipliers.0 }}x</td>
+                            <td class="has-text-right">{{ dmultipliers.0 }}x</td>
                         </tr>
                         <tr>
-                            <th>Attack Multiplier</th>
-                            <td>{{ lmultipliers.1 }}</td>
+                            <th>Attack</th>
+                            <td class="has-text-right">{{ lmultipliers.1 }}x</td>
+                            <td class="has-text-right">{{ dmultipliers.1 }}x</td>
                         </tr>
                         <tr>
-                            <th>RCV Multiplier</th>
-                            <td>{{ lmultipliers.2 }}</td>
+                            <th>RCV</th>
+                            <td class="has-text-right">{{ lmultipliers.2 }}x</td>
+                            <td class="has-text-right">{{ dmultipliers.2 }}x</td>
                         </tr>
                         <tr>
-                            <th>Damage Reduction (shield)</th>
-                            <td>{{ lmultipliers.3 }}</td>
+                            <th>Shield</th>
+                            <td class="has-text-right">{{ lmultipliers.3 }}%</td>
+                            <td class="has-text-right">{{ dmultipliers.3 }}%</td>
                         </tr>
                         </tbody>
                     </table>
@@ -228,27 +243,23 @@
                         </tr>
                         <tr>
                             <th>HP Multiplier</th>
-                            <td>{{ activeskill.hp_mult }}</td>
+                            <td>{{ amultipliers.0 }}</td>
                         </tr>
                         <tr>
                             <th>Attack Multiplier</th>
-                            <td>{{ activeskill.atk_mult }}</td>
+                            <td>{{ amultipliers.1 }}</td>
                         </tr>
                         <tr>
                             <th>RCV Multiplier</th>
-                            <td>{{ activeskill.rcv_mult }}</td>
+                            <td>{{ amultipliers.2 }}</td>
                         </tr>
                         <tr>
                             <th>Damage Reduction (shield)</th>
-                            <td>{{ activeskill.dmg_reduction }}</td>
+                            <td>{{ amultipliers.3 }}</td>
                         </tr>
                         <tr>
                             <th>Skill Class</th>
                             <td>{{ activeskill.skill_class }}</td>
-                        </tr>
-                        <tr>
-                            <th>Skill Type</th>
-                            <td>{{ activeskill.skill_type }}</td>
                         </tr>
                         </tbody>
                     </table>

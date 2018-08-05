@@ -14,7 +14,10 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        start_time = time.time()
+
+        Monster.objects.all().delete()
+        Evolution.objects.all().delete()
+
 
         self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
@@ -23,6 +26,7 @@ class Command(BaseCommand):
 
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
+        start_time = time.time()
         print()
         self.stdout.write(self.style.SUCCESS('Adding new NA Cards.'))
 

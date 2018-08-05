@@ -5,8 +5,10 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
     # HP, ATK, RCV, Damage Reduction
     multipliers = {'hp': 1.0, 'atk': 1.0, 'rcv': 1.0, 'shield': 0.0}
 
+    if skill == 3:
+        multipliers['shield'] = get_last(other_fields)
     # Attack boost only
-    if skill in [11, 22, 26, 31, 40, 50, 66, 69, 88, 90, 92, 94, 95, 96, 97, 100, 101, 104, 109, 122, 130, 131, 150]:
+    elif skill in [11, 22, 26, 31, 40, 50, 66, 69, 88, 90, 92, 94, 95, 96, 97, 100, 101, 104, 109, 122, 130, 131, 150]:
         multipliers['atk'] *= get_last(other_fields)
 
     # HP boost only
@@ -62,8 +64,11 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
                 mult = get_second_last(other_fields) + (get_last(other_fields)) * (6 - other_fields[1])
                 multipliers['atk'] *= mult
         elif length == 5:
-            if other_fields[0] == 31:
-                multipliers['atk'] *= get_third_last(other_fields) + (5 - other_fields[1]) * get_second_last(other_fields)
+            if other_fields[-1] < other_fields[1]:
+                if other_fields[0] == 31:
+                    multipliers['atk'] *= get_third_last(other_fields) + (5 - other_fields[1]) * get_second_last(other_fields)
+                if other_fields[0] == 63:
+                    multipliers['atk'] *= get_third_last(other_fields) + (6 - other_fields[1]) * get_second_last(other_fields)
             else:
                 multipliers['atk'] *= get_third_last(other_fields) + (other_fields[-1] - other_fields[1]) * get_second_last(other_fields)
 
@@ -153,7 +158,8 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
         if length == 3:
             multipliers['atk'] *= get_last(other_fields)
         elif length == 4:
-            multipliers['atk'] *= get_second_last(other_fields)
+            if get_second_last(other_fields) != 0:
+                multipliers['atk'] *= get_second_last(other_fields)
             multipliers['rcv'] *= get_last(other_fields)
 
     elif skill == 136:
@@ -179,7 +185,8 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
             if other_fields[1] != 0:
                 multipliers['hp'] *= get_mult(other_fields[1])
             multipliers['atk'] *= get_mult(other_fields[2]) * get_last(other_fields)
-            multipliers['rcv'] *= get_mult(other_fields[3])
+            if other_fields[3] != 0:
+                multipliers['rcv'] *= get_mult(other_fields[3])
         elif length == 8:
             if get_mult(other_fields[1]) != 0:
                 multipliers['hp'] *= get_mult(other_fields[1])
@@ -201,7 +208,8 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
             multipliers['atk'] *= max(get_mult(other_fields[4]), get_last(other_fields))
 
     elif skill == 151:
-        multipliers['atk'] *= get_mult(other_fields[0])
+        if other_fields[0] != 0:
+            multipliers['atk'] *= get_mult(other_fields[0])
         multipliers['shield'] = get_last(other_fields)
 
     elif skill == 155:
@@ -338,7 +346,8 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
         if length == 4 or length == 7:
             multipliers['atk'] *= get_last(other_fields)
         elif length == 5:
-            multipliers['atk'] *= get_second_last(other_fields)
+            if get_second_last(other_fields) != 0:
+                multipliers['atk'] *= get_second_last(other_fields)
             multipliers['shield'] = get_last(other_fields)
         elif length == 8:
             multipliers['atk'] *= max(get_mult(other_fields[3]), get_second_last(other_fields))
