@@ -32,15 +32,15 @@ def cardView(request, card_id):
         multipliers = getMultipliers(leaderskill)
 
     if activeskill is not None:
-        getMultipliers(activeskill)
+        a_multipliers = getMultipliers(activeskill)
 
-    d_multipliers = [(item**2) for item in multipliers]
-    d_multipliers[3] = (1 - (1-multipliers[4])*(1-multipliers[4]))*100
-    d_multipliers[3] = d_multipliers[3]
+    d_multipliers = [(item ** 2) for item in multipliers]
+    d_multipliers[3] = (1 - (1 - multipliers[4]) * (1 - multipliers[4])) * 100
+    d_multipliers[3] = math.floor(d_multipliers[3])
 
     evos = None
     if len(evo_list) > 0:
-        evos = getEvos(monster)
+        evos = getEvos(evo_list)
 
     evomats = getEvoMats(monster, monsters)
     unevomats = getUnEvoMats(monster, monsters)
@@ -52,7 +52,8 @@ def cardView(request, card_id):
 
     context = {'activeskill': activeskill, 'leaderskill': leaderskill,
                'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evomats": evomats,
-               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types, 'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers}
+               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types,
+               'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers}
 
     return render(request, template, context)
 
@@ -171,7 +172,7 @@ def getMultipliers(skill) -> []:
                 multipliers[3] = skill.dmg_reduction
     multipliers[4] = multipliers[3]
     multipliers[3] *= 100
-    multipliers[3] = multipliers[3]
+    multipliers[3] = math.floor(multipliers[3])
 
     return multipliers
 

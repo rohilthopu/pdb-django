@@ -5,8 +5,7 @@ import json
 import time
 
 from .maps import TYPE_MAP, AWAKENING_MAP
-from .skill_parser import parse_skill_multiplier
-from .skill_type_maps import SKILL_TYPE
+
 
 
 class Command(BaseCommand):
@@ -14,10 +13,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-
         Monster.objects.all().delete()
         Evolution.objects.all().delete()
-
 
         self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
@@ -127,3 +124,4 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('NA update complete.'))
 
         print("Elapsed time :", end_time - start_time)
+        print()

@@ -3,25 +3,27 @@ from django.db import models
 
 class Skill(models.Model):
     name = models.CharField(max_length=200, default="", blank=True)
-    description = models.TextField(default="", blank=True, )
-    skillID = models.IntegerField(blank=True, default=0)
-    skillType = models.IntegerField(blank=True, default=0)
+    description = models.TextField(default="", blank=True,)
+    skillID = models.IntegerField(default=-1)
+    skill_type = models.CharField(max_length=50, default="")
+    hp_mult = models.FloatField(default=1)
+    atk_mult = models.FloatField(default=1)
+    rcv_mult = models.FloatField(default=1)
+    dmg_reduction = models.DecimalField(max_digits=6, decimal_places=2, default=0)
 
-    class Meta:
-        abstract = True
+    # connected skills
+    c_skill_1 = models.IntegerField(default=-1)
+    c_skill_2 = models.IntegerField(default=-1)
+    c_skill_3 = models.IntegerField(default=-1)
 
+    # skill type
+    skill_class = models.CharField(max_length=100, default="")
 
-class LeaderSkill(Skill):
-    # literally just a placeholder to get the model to work using inheritance
-    doesNothing = models.BooleanField(default=False)
-
-
-# An active skill is just a specialized leader skill that can only be activated ever so often.
-# As a result, inheritance is perfect here.
-class ActiveSkill(Skill):
     levels = models.IntegerField(default=0)
     maxTurns = models.IntegerField(blank=True, default=0)
     minTurns = models.IntegerField(blank=True, default=0)
+
+
 
 
 class Evolution(models.Model):
@@ -31,7 +33,7 @@ class Evolution(models.Model):
         return str(self.evo)
 
 
-class MonsterData(models.Model):
+class Monster(models.Model):
     activeSkillID = models.IntegerField(blank=True, default=0)
     ancestorID = models.IntegerField(default=0)
     attributeID = models.IntegerField(default=0)
@@ -43,8 +45,6 @@ class MonsterData(models.Model):
     cardID = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
 
-    # JP only applicable
-    furigana = models.CharField(default="", max_length=100)
 
     inheritable = models.BooleanField(default=False)
     isCollab = models.BooleanField(default=False)
@@ -89,13 +89,3 @@ class MonsterData(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class CardJP(models.Model):
-    activeSkill = models.ManyToManyField(ActiveSkill)
-    leaderSkill = models.ManyToManyField(LeaderSkill)
-    monster = models.OneToOneField(MonsterData, on_delete=models.CASCADE, related_name="monster", blank=True,
-                                   null=True)
-
-    def __str__(self):
-        return self.monster.name

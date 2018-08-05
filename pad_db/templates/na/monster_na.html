@@ -178,16 +178,28 @@
                             <th>Effect</th>
                             <td>{{ leaderskill.description }}</td>
                         </tr>
+                        <tr>
+                            <th>Min Turns</th>
+                            <td> N/A </td>
+                        </tr>
+                        <tr>
+                            <th>Max Turns</th>
+                            <td> N/A </td>
+                        </tr>
+                        <tr>
+                            <th>Levels</th>
+                            <td> N/A </td>
+                        </tr>
                         </tbody>
                     </table>
-                         <table class="table is-fullwidth">
-                         <thead>
-                            <tr>
-                                <th></th>
-                                <th class="has-text-right">Single</th>
-                                <th class="has-text-right">Pair</th>
-                            </tr>
-                         </thead>
+                    <table class="table is-fullwidth">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th class="has-text-right">Single</th>
+                            <th class="has-text-right">Pair</th>
+                        </tr>
+                        </thead>
                         <tbody>
                         <tr>
                             <th>HP</th>
@@ -241,25 +253,31 @@
                             <th>Levels</th>
                             <td>{{ activeskill.levels }}</td>
                         </tr>
+                        </tbody>
+                    </table>
+                       <table class="table is-fullwidth">
+                        <thead>
                         <tr>
-                            <th>HP Multiplier</th>
-                            <td>{{ amultipliers.0 }}</td>
+                            <th></th>
+                            <th class="has-text-right">Single</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>HP</th>
+                            <td class="has-text-right">{{ amultipliers.0 }}x</td>
                         </tr>
                         <tr>
-                            <th>Attack Multiplier</th>
-                            <td>{{ amultipliers.1 }}</td>
+                            <th>Attack</th>
+                            <td class="has-text-right">{{ amultipliers.1 }}x</td>
                         </tr>
                         <tr>
-                            <th>RCV Multiplier</th>
-                            <td>{{ amultipliers.2 }}</td>
+                            <th>RCV</th>
+                            <td class="has-text-right">{{ amultipliers.2 }}x</td>
                         </tr>
                         <tr>
-                            <th>Damage Reduction (shield)</th>
-                            <td>{{ amultipliers.3 }}</td>
-                        </tr>
-                        <tr>
-                            <th>Skill Class</th>
-                            <td>{{ activeskill.skill_class }}</td>
+                            <th>Shield</th>
+                            <td class="has-text-right">{{ amultipliers.3 }}%</td>
                         </tr>
                         </tbody>
                     </table>
