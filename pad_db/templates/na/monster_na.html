@@ -29,14 +29,14 @@
                 {% block evos %}
                     {% if ancestor is not None %}
                         <h2 class="subtitle">Evolution of <a
-                                href="/monster/na/{{ ancestor.monster.cardID }}"
-                                class="is-italic"> {{ ancestor.monster.name }}</a></h2>
+                                href="/monster/na/{{ ancestor.cardID }}"
+                                class="is-italic"> {{ ancestor.name }}</a></h2>
                     {% endif %}
                     {% if evolutions is not None %}
                         {% for evo in evolutions %}
                             <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
-                                <a href="/monster/na/{{ evo.monster.cardID }}"
-                                   class="is-italic"> {{ evo.monster.name }} </a>
+                                <a href="/monster/na/{{ evo.cardID }}"
+                                   class="is-italic"> {{ evo.name }} </a>
                             </h2>
                         {% endfor %}
                     {% endif %}
@@ -178,6 +178,22 @@
                             <th>Effect</th>
                             <td>{{ leaderskill.description }}</td>
                         </tr>
+                        <tr>
+                            <th>HP Multiplier</th>
+                            <td>{{ lmultipliers.0 }}</td>
+                        </tr>
+                        <tr>
+                            <th>Attack Multiplier</th>
+                            <td>{{ lmultipliers.1 }}</td>
+                        </tr>
+                        <tr>
+                            <th>RCV Multiplier</th>
+                            <td>{{ lmultipliers.2 }}</td>
+                        </tr>
+                        <tr>
+                            <th>Damage Reduction (shield)</th>
+                            <td>{{ lmultipliers.3 }}</td>
+                        </tr>
                         </tbody>
                     </table>
                 {% else %}
@@ -210,6 +226,30 @@
                             <th>Levels</th>
                             <td>{{ activeskill.levels }}</td>
                         </tr>
+                        <tr>
+                            <th>HP Multiplier</th>
+                            <td>{{ activeskill.hp_mult }}</td>
+                        </tr>
+                        <tr>
+                            <th>Attack Multiplier</th>
+                            <td>{{ activeskill.atk_mult }}</td>
+                        </tr>
+                        <tr>
+                            <th>RCV Multiplier</th>
+                            <td>{{ activeskill.rcv_mult }}</td>
+                        </tr>
+                        <tr>
+                            <th>Damage Reduction (shield)</th>
+                            <td>{{ activeskill.dmg_reduction }}</td>
+                        </tr>
+                        <tr>
+                            <th>Skill Class</th>
+                            <td>{{ activeskill.skill_class }}</td>
+                        </tr>
+                        <tr>
+                            <th>Skill Type</th>
+                            <td>{{ activeskill.skill_type }}</td>
+                        </tr>
                         </tbody>
                     </table>
                 {% else %}
@@ -235,11 +275,11 @@
                         {% for mat in evomats %}
                             <tr>
                                 <td><a
-                                        href="/monster/na/{{ mat.monster.cardID }}"><img
-                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                                        href="/monster/na/{{ mat.cardID }}"><img
+                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png"></a>
                                 </td>
                                 <td class="has-text-centered"><a
-                                        href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
+                                        href="/monster/na/{{ mat.cardID }}"> {{ mat.name }}</a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -264,11 +304,11 @@
                         {% for mat in unevomats %}
                             <tr>
                                 <td><a
-                                        href="/monster/na/{{ mat.monster.cardID }}"><img
-                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                                        href="/monster/na/{{ mat.cardID }}"><img
+                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png"></a>
                                 </td>
                                 <td class="has-text-centered"><a
-                                        href="/monster/na/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
+                                        href="/monster/na/{{ mat.cardID }}"> {{ mat.name }}</a>
                                 </td>
                             </tr>
 

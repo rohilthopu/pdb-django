@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def parse_leader_skill_multiplier(skill, other_fields, length) -> {}:
+def parse_skill_multiplier(skill, other_fields, length) -> {}:
     # HP, ATK, RCV, Damage Reduction
     multipliers = {'hp': 1.0, 'atk': 1.0, 'rcv': 1.0, 'shield': 0.0}
 
@@ -32,16 +32,16 @@ def parse_leader_skill_multiplier(skill, other_fields, length) -> {}:
         multipliers['shield'] = get_last(other_fields)
 
     elif skill in [39, 44]:
-        multipliers['atk'] = other_fields[3] / 100
+        multipliers['atk'] = get_last(other_fields)
         if other_fields[2] == 2:
-            multipliers['rcv'] = other_fields[3] / 100
+            multipliers['rcv'] = get_last(other_fields)
 
     elif skill in [45, 62, 73, 77, 111]:
         multipliers['hp'] = get_last(other_fields)
         multipliers['atk'] = get_last(other_fields)
 
     elif skill == 46:
-        multipliers['hp'] = other_fields[2] / 100
+        multipliers['hp'] = get_last(other_fields)
 
     elif skill == 86:
         if length == 4:
@@ -50,17 +50,17 @@ def parse_leader_skill_multiplier(skill, other_fields, length) -> {}:
     # rainbow parsing
     elif skill == 61:
         if length == 3:
-            multipliers['atk'] = other_fields[2]/100
+            multipliers['atk'] = get_last(other_fields)
         elif length == 4:
             r_type = other_fields[0]
             if r_type == 31:
-                mult = other_fields[2]/100 + (other_fields[3]/100) * (5-other_fields[1])
+                mult = get_second_last(other_fields) + get_last(other_fields) * (5-other_fields[1])
                 multipliers['atk'] = mult
             elif r_type % 14 == 0:
-                multipliers['atk'] = other_fields[2]/100 + other_fields[3]/100
+                multipliers['atk'] = get_second_last(other_fields) + get_last(other_fields)
             else:
                 # r_type is 63
-                mult = other_fields[2] / 100 + (other_fields[3] / 100) * (6 - other_fields[1])
+                mult = get_second_last(other_fields) + (get_last(other_fields)) * (6 - other_fields[1])
                 multipliers['atk'] = mult
         elif length == 5:
             multipliers['atk'] = other_fields[2] + (other_fields[4]-other_fields[1]) * other_fields[3]
@@ -84,27 +84,27 @@ def parse_leader_skill_multiplier(skill, other_fields, length) -> {}:
         if length == 3:
             multipliers['atk'] = get_last(other_fields)
         elif length == 5:
-            multipliers['atk'] = other_fields[2]/100 + (other_fields[4] - other_fields[1]) * (other_fields[3]/100)
+            multipliers['atk'] = get_third_last(other_fields) + (other_fields[4] - other_fields[1]) * (get_second_last(other_fields))
 
     elif skill == 121:
         if length == 4:
             multipliers['atk'] = get_last(other_fields)
-            if other_fields[2] != 0:
-                multipliers['hp'] = other_fields[2]/100
+            if get_second_last(other_fields) != 0:
+                multipliers['hp'] = get_second_last(other_fields)
         elif length == 5:
-            if other_fields[2] != 0:
-                multipliers['hp'] = other_fields[2]/100
-            if other_fields[3] != 0:
-                multipliers['atk'] = other_fields[3]/100
-            if other_fields[4] != 0:
-                multipliers['rcv'] = other_fields[4]/100
+            if get_third_last(other_fields) != 0:
+                multipliers['hp'] = get_third_last(other_fields)
+            if get_second_last(other_fields):
+                multipliers['atk'] = get_second_last(other_fields)
+            if get_last(other_fields) != 0:
+                multipliers['rcv'] = get_last(other_fields)
 
     elif skill == 123:
         if length == 4:
             multipliers['atk'] = get_last(other_fields)
         elif length == 5:
-            multipliers['atk'] = other_fields[3]/100
-            multipliers['rcv'] = other_fields[4]/100
+            multipliers['atk'] = get_second_last(other_fields)
+            multipliers['rcv'] = get_last(other_fields)
 
     elif skill == 124:
         if length == 7:
@@ -340,6 +340,22 @@ def parse_leader_skill_multiplier(skill, other_fields, length) -> {}:
                 multipliers['rcv'] = get_last(other_fields)
 
     return multipliers
+
+
+def get_mult(val):
+    return val / 100
+
+
+def get_last(other_fields):
+    return other_fields[-1] / 100
+
+
+def get_second_last(other_fields):
+    return other_fields[-2] / 100
+
+
+def get_third_last(other_fields):
+    return other_fields[-3] / 100
 
 
 def get_mult(val):

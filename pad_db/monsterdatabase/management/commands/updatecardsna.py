@@ -1,10 +1,12 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import CardNA, ActiveSkill, LeaderSkill, MonsterData, Evolution
+from monsterdatabase.models import Monster, Evolution
 import requests
 import json
 import time
 
 from .maps import TYPE_MAP, AWAKENING_MAP
+from .skill_parser import parse_skill_multiplier
+from .skill_type_maps import SKILL_TYPE
 
 
 class Command(BaseCommand):
@@ -27,12 +29,12 @@ class Command(BaseCommand):
         for card in cards:
 
             if '?' not in card['card']['name']:
-                monsterCard = CardNA()
-                monsterCard.save()
+                # monsterCard = CardNA()
+                # monsterCard.save()
                 rawCard = card['card']
 
                 if not isinstance(rawCard, type(None)):
-                    monster = MonsterData()
+                    monster = Monster()
                     monster.save()
                     monster.activeSkillID = rawCard['active_skill_id']
                     monster.ancestorID = rawCard['ancestor_id']
@@ -102,60 +104,12 @@ class Command(BaseCommand):
                     monster.superAwakenings = sadump
 
                     monster.save()
-                    monsterCard.monster = monster
-
-                rawActiveSkill = card['active_skill']
-
-                if not isinstance(rawActiveSkill, type(None)):
-
-                    # Check if a skill with the same ID already exists.
-                    # This is to deal with the situations where a skill has Name and Description of something
-                    # like "*****", because these are still valid.
-                    skillExists = ActiveSkill.objects.filter(skillID=rawActiveSkill['skill_id']).first()
-
-                    if skillExists is None:
-                        activeSkill = ActiveSkill()
-                        activeSkill.name = rawActiveSkill['name']
-                        activeSkill.description = rawActiveSkill['clean_description']
-                        activeSkill.skillID = rawActiveSkill['skill_id']
-                        activeSkill.skillType = rawActiveSkill['skill_type']
-                        activeSkill.levels = rawActiveSkill['levels']
-                        activeSkill.maxTurns = rawActiveSkill['turn_max']
-                        activeSkill.minTurns = rawActiveSkill['turn_min']
-
-                        activeSkill.save()
-                        monsterCard.activeSkill.add(activeSkill)
-
-                    else:
-                        monsterCard.activeSkill.add(ActiveSkill.objects.get(skillID=rawActiveSkill['skill_id']))
-
-                # Next we need to collect the Cards leader skill
-
-                rawLeaderSkill = card['leader_skill']
-                if not isinstance(rawLeaderSkill, type(None)):
-                    # Similarly to Active Skills, we need to consider null skills
-                    skillExists = LeaderSkill.objects.filter(skillID=rawLeaderSkill['skill_id']).first()
-
-                    if skillExists is None:
-                        leaderSkill = LeaderSkill()
-
-                        leaderSkill.name = rawLeaderSkill['name']
-                        leaderSkill.description = rawLeaderSkill['clean_description']
-                        leaderSkill.skillID = rawLeaderSkill['skill_id']
-                        leaderSkill.skillType = rawLeaderSkill['skill_type']
-
-                        leaderSkill.save()
-                        monsterCard.leaderSkill.add(leaderSkill)
-                    else:
-                        monsterCard.leaderSkill.add(LeaderSkill.objects.get(skillID=rawLeaderSkill['skill_id']))
-
-                monsterCard.save()
 
         self.stdout.write(self.style.SUCCESS('NA Monster List Updated.'))
         print()
         self.stdout.write(self.style.SUCCESS('Updating forward evolutions.'))
 
-        monsters = MonsterData.objects.all()
+        monsters = Monster.objects.all()
         for monster in monsters:
             if monster.ancestorID != monster.cardID:
                 if monster.ancestorID != 0:
