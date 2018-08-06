@@ -1,0 +1,411 @@
+Starting skill conversion of 10982 skills
+Unexpected leader skill type: 89 (skill id: 2317)
+
+Incorrect values at index 1 with values 13.5 13.52
+Failed test on skill Godly Wall of Holy Forest X 5706
+		Skill Description 1.5x ATK for each cross of Wood or Light Orbs; 4x ATK when Wood & Light attack at once
+				My calculated multipliers: [1.0, 13.5, 1.0, 0.0]
+						Validated results: [1.0, 13.52, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 3.375 3.38
+Failed test on skill  5707
+		Skill Description 
+				My calculated multipliers: [1.0, 3.375, 1.0, 0.0]
+						Validated results: [1.0, 3.38, 1.0, 0.0]
+
+
+Incorrect values at index 2 with values 5.0 3.0
+Failed test on skill Final Heaven 6365
+		Skill Description [7x6 board]^p; ATK & RCV increase with 5+ linked Light or Fire Orbs, up to 5x
+				My calculated multipliers: [1.0, 5.0, 5.0, 0.0]
+						Validated results: [1.0, 5.0, 3.0, 0.0]
+
+
+Incorrect values at index 2 with values 5.0 3.0
+Failed test on skill  6366
+		Skill Description 
+				My calculated multipliers: [1.0, 5.0, 5.0, 0.0]
+						Validated results: [1.0, 5.0, 3.0, 0.0]
+
+
+Incorrect values at index 1 with values 42.875 42.88
+Failed test on skill Unrest in Asgard 6404
+		Skill Description 3.5x ATK for each cross of 5 Wood or Light Orbs; recovers 10x RCV as HP when matching Orbs
+				My calculated multipliers: [1.0, 42.875, 1.0, 0.0]
+						Validated results: [1.0, 42.88, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 42.875 42.88
+Failed test on skill  6405
+		Skill Description 
+				My calculated multipliers: [1.0, 42.875, 1.0, 0.0]
+						Validated results: [1.0, 42.88, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill Sign of Mimir X 6501
+		Skill Description 2x HP for Water Att. & God Type; 2.5x ATK with each cross of 5 Water or Dark Orbs
+				My calculated multipliers: [2.0, 15.625, 1.0, 0.0]
+						Validated results: [2.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  6503
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 6.75 6.76
+Failed test on skill Sacred Young Flora 6908
+		Skill Description 2x HP & ATK for Healer Type; 1.5x ATK for each cross of 5 Wood or Light Orbs
+				My calculated multipliers: [2.0, 6.75, 1.0, 0.0]
+						Validated results: [2.0, 6.76, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 3.375 3.38
+Failed test on skill  6910
+		Skill Description 
+				My calculated multipliers: [1.0, 3.375, 1.0, 0.0]
+						Validated results: [1.0, 3.38, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill I'm gonna play on that field!! 7008
+		Skill Description 2.5x ATK for each cross of 5 Fire or Wood Orbs
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Take pride in your unbroken promises! 7100
+		Skill Description 3.5x ATK with 6+ combos; 2x ATK & reduces damage when Dark & Fire attack at once
+				My calculated multipliers: [1.0, 7.0, 1.0, 0.438]
+						Validated results: [1.0, 7.0, 1.0, 0.4375]
+
+
+Incorrect values at index 2 with values 2.0 3.0
+Failed test on skill Seventh Dragon Awakening 7445
+		Skill Description 2x ATK & RCV with 2 Wood combos, 3x ATK with 3+ combos; 5x ATK for each cross of 5 Poison or Lethal Poison Orbs
+				My calculated multipliers: [1.0, 375.0, 2.0, 0.0]
+						Validated results: [1.0, 375.0, 3.0, 0.0]
+
+
+Incorrect values at index 2 with values 2.0 3.0
+Failed test on skill  7446
+		Skill Description 
+				My calculated multipliers: [1.0, 3.0, 2.0, 0.0]
+						Validated results: [1.0, 3.0, 3.0, 0.0]
+
+
+Incorrect values at index 1 with values 62.5 62.48
+Failed test on skill Reminiscences of the Morning Star 8092
+		Skill Description 2.5x ATK for each cross of 5 Dark or Wood Orbs; 4x ATK & reduces damage with a cross of 5 Heal Orbs
+				My calculated multipliers: [1.0, 62.5, 1.0, 0.35]
+						Validated results: [1.0, 62.48, 1.0, 0.35]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  8093
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Six Coin Protective Crest 8831
+		Skill Description 3x ATK & reduces damage with 6+ linked Fire Orbs; 2.5x ATK & reduces damage with a cross of 5 Heal Orbs
+				My calculated multipliers: [1.0, 7.5, 1.0, 0.438]
+						Validated results: [1.0, 7.5, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Bellflower Protective Crest 8843
+		Skill Description 2.5x ATK & reduces damage with 2+ Dark combos;  3x ATK & reduces damage with 6+ linked Dark Orbs
+				My calculated multipliers: [1.0, 7.5, 1.0, 0.438]
+						Validated results: [1.0, 7.5, 1.0, 0.4375]
+
+
+Incorrect values at index 2 with values 1.0 0.0
+Failed test on skill  8896
+		Skill Description 
+				My calculated multipliers: [1.0, 1.0, 1.0, 0.0]
+						Validated results: [1.0, 1.0, 0.0, 0.0]
+
+
+Incorrect values at index 0 with values 0.5 1.0
+Failed test on skill Master of Death 9144
+		Skill Description 6x ATK for Dark Att., halves HP for other Att.; 2.5x ATK & reduces damage with 2+ Dark combos
+				My calculated multipliers: [0.5, 15.0, 1.0, 0.25]
+						Validated results: [1.0, 15.0, 1.0, 0.25]
+
+
+Incorrect values at index 0 with values 0.5 1.0
+Failed test on skill  9145
+		Skill Description 
+				My calculated multipliers: [0.5, 6.0, 1.0, 0.0]
+						Validated results: [1.0, 6.0, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 128.625 128.64
+Failed test on skill Phantom's Knowledge 9500
+		Skill Description 3.5x ATK for each cross of 5 Fire or Dark Orbs; 3x ATK & reduces damage with 2+ Heal combos
+				My calculated multipliers: [1.0, 128.625, 1.0, 0.25]
+						Validated results: [1.0, 128.64, 1.0, 0.25]
+
+
+Incorrect values at index 1 with values 42.875 42.88
+Failed test on skill  9501
+		Skill Description 
+				My calculated multipliers: [1.0, 42.875, 1.0, 0.0]
+						Validated results: [1.0, 42.88, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 78.125 78.1
+Failed test on skill Furious Augur 9521
+		Skill Description 5x ATK with 5+ combos; 2.5x ATK for each  cross of 5 Fire, Wood, or Light Orbs
+				My calculated multipliers: [1.0, 78.125, 1.0, 0.0]
+						Validated results: [1.0, 78.1, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  9523
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill 114 Shiki: Aragami 9559
+		Skill Description 3x ATK & reduces damage with 6+ combos; 2.5x ATK & reduces damage with 3+ Fire combos
+				My calculated multipliers: [1.0, 7.5, 1.0, 0.438]
+						Validated results: [1.0, 7.5, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Ura 108 Shiki: Orochinagi 9562
+		Skill Description 3x ATK & reduces damage with 6+ combos; 3x ATK & reduces damage with 2+ Fire combos
+				My calculated multipliers: [1.0, 9.0, 1.0, 0.438]
+						Validated results: [1.0, 9.0, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Ko-Ou Ken 9589
+		Skill Description 2.5x ATK & reduces dmg when attacking with 4+ Att.; 3x ATK & reduces damage with 6+ linked Light Orbs
+				My calculated multipliers: [1.0, 7.5, 1.0, 0.438]
+						Validated results: [1.0, 7.5, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Haoh Shoukou Ken 9592
+		Skill Description 3x ATK & reduces dmg when attacking with 4+ Att.; 4x ATK & reduces damage with 6+ linked Light Orbs
+				My calculated multipliers: [1.0, 12.0, 1.0, 0.438]
+						Validated results: [1.0, 12.0, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Moon Slasher 9604
+		Skill Description 3x ATK & reduces damage when attacking with 3+ Att.; 2x ATK & reduces damage with a cross of 5 Heal Orbs
+				My calculated multipliers: [1.0, 6.0, 1.0, 0.438]
+						Validated results: [1.0, 6.0, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Rebel Spark 9607
+		Skill Description 3x ATK & reduces damage when attacking with 3+ Att.; 4x ATK & reduces damage with a cross of 5 Heal Orbs
+				My calculated multipliers: [1.0, 12.0, 1.0, 0.438]
+						Validated results: [1.0, 12.0, 1.0, 0.4375]
+
+
+Incorrect values at index 1 with values 46.875 46.86
+Failed test on skill Gigantic Pressure 9703
+		Skill Description 1.5x HP & 3x ATK for Dark Att.; 2.5x ATK for each cross of 5 Dark Orbs or Jammers
+				My calculated multipliers: [1.5, 46.875, 1.0, 0.0]
+						Validated results: [1.5, 46.86, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  9705
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 62.5 62.48
+Failed test on skill Genocide Cutter 9706
+		Skill Description ATK increases when erasing 4+ linked Dark Orbs, up to 4x; 2.5x ATK for each cross of 5 Dark Orbs or Jammers
+				My calculated multipliers: [1.0, 62.5, 1.0, 0.0]
+						Validated results: [1.0, 62.48, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  9708
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 31.25 31.24
+Failed test on skill Dark Acolyte's Covenant 9715
+		Skill Description 2x ATK & RCV for Devil Type, Orb move time +1 second; 2.5x ATK for each cross of 5 Dark or Light Orbs
+				My calculated multipliers: [1.0, 31.25, 2.0, 0.0]
+						Validated results: [1.0, 31.24, 2.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  9717
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill True Awakening 9792
+		Skill Description 4x ATK & reduces damage when 5 Att. attack at once; 3x ATK & reduces damage with 7+ combos
+				My calculated multipliers: [1.0, 12.0, 1.0, 0.438]
+						Validated results: [1.0, 12.0, 1.0, 0.4375]
+
+
+Incorrect values at index 1 with values 46.875 46.86
+Failed test on skill Paolumu Power 9798
+		Skill Description 3x ATK for Dragon Type, Orb move time +2 seconds; 2.5x ATK for each cross of 5 Dark or Water Orbs
+				My calculated multipliers: [1.0, 46.875, 1.0, 0.0]
+						Validated results: [1.0, 46.86, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  9800
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Reversing Divine Clock 10076
+		Skill Description 3.5x ATK & reduces dmg with 6+ linked Fire or Dark Orbs; 4x ATK & reduces damage with 2+ Heal combos
+				My calculated multipliers: [1.0, 14.0, 1.0, 0.438]
+						Validated results: [1.0, 14.0, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill I accept your challenge!! 10133
+		Skill Description 3x ATK & reduces damage with 2+ Fire combos; 3x ATK & reduces dmg when Fire & Water attack at once
+				My calculated multipliers: [1.0, 9.0, 1.0, 0.438]
+						Validated results: [1.0, 9.0, 1.0, 0.4375]
+
+
+Incorrect values at index 1 with values 23.438 23.43
+Failed test on skill You can no longer escape from me. 10245
+		Skill Description 1.5x HP & ATK for Attacker Type; 2.5x ATK for each cross of 5 Fire or Dark Orbs
+				My calculated multipliers: [1.5, 23.438, 1.0, 0.0]
+						Validated results: [1.5, 23.43, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  10247
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill Flame Haze of the Underworld 10319
+		Skill Description [7x6 board]^p, Orb move time +5 seconds; 2.5x ATK for each cross of 5 Fire, Water or Dark Orbs
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  10322
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 2 with values 0.25 1.0
+Failed test on skill Zapan's Beard 10376
+		Skill Description 2x HP & ATK for Wt Att., vastly reduces RCV for Fr, Wd, Lt & Dk; 7x ATK for Att. erasing 5 Orbs incl. enhanced
+				My calculated multipliers: [2.0, 14.0, 0.25, 0.0]
+						Validated results: [2.0, 14.0, 1.0, 0.0]
+
+
+Incorrect values at index 2 with values 0.25 1.0
+Failed test on skill  10377
+		Skill Description 
+				My calculated multipliers: [2.0, 2.0, 0.25, 0.0]
+						Validated results: [2.0, 2.0, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 64.312 64.32
+Failed test on skill Harangue of Salvation 10528
+		Skill Description [No Skyfall Combos]^p, 1.5x to all stats for Wood Att.; 3.5x ATK for each cross of 5 Wood or Fire Orbs
+				My calculated multipliers: [1.5, 64.312, 1.5, 0.0]
+						Validated results: [1.5, 64.32, 1.5, 0.0]
+
+
+Incorrect values at index 1 with values 42.875 42.88
+Failed test on skill  10530
+		Skill Description 
+				My calculated multipliers: [1.0, 42.875, 1.0, 0.0]
+						Validated results: [1.0, 42.88, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill Happiness will always be with you 10760
+		Skill Description [7x6 board]^p, Orb move time +5 seconds; 2.5x ATK for each cross of 5 Water, Wood or Light Orbs
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 1 with values 15.625 15.62
+Failed test on skill  10763
+		Skill Description 
+				My calculated multipliers: [1.0, 15.625, 1.0, 0.0]
+						Validated results: [1.0, 15.62, 1.0, 0.0]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Liberated 10793
+		Skill Description 3x ATK & reduces damage with 4+ linked Jammers; 3.5x ATK & reduces damage with 2+ Jammer combos
+				My calculated multipliers: [1.0, 10.5, 1.0, 0.438]
+						Validated results: [1.0, 10.5, 1.0, 0.4375]
+
+
+Incorrect values at index 3 with values 0.438 0.4375
+Failed test on skill Distant Memories 10796
+		Skill Description 3x ATK & reduces damage with 4+ linked Jammers; 4x ATK & reduces damage with 2+ Jammer combos
+				My calculated multipliers: [1.0, 12.0, 1.0, 0.438]
+						Validated results: [1.0, 12.0, 1.0, 0.4375]
+
+
+Incorrect values at index 1 with values 4.0 8.0
+Failed test on skill Your Debt Begins 10873
+		Skill Description 2x ATK for Devil Type, 4x ATK with 6+ combos; halves ATK & damage when erasing Poison or Lethal Poison Orbs
+				My calculated multipliers: [1.0, 4.0, 1.0, 0.5]
+						Validated results: [1.0, 8.0, 1.0, 0.5]
+
+
+Incorrect values at index 1 with values 0.5 1.0
+Failed test on skill  10876
+		Skill Description 
+				My calculated multipliers: [1.0, 0.5, 1.0, 0.5]
+						Validated results: [1.0, 1.0, 1.0, 0.5]
+
+
+Incorrect values at index 1 with values 5.0 10.0
+Failed test on skill Ruler of Every Age 10877
+		Skill Description 2.5x ATK for Devil Type, 4x ATK with 6+ combos; halves ATK & damage when erasing Poison or Lethal Poison Orbs
+				My calculated multipliers: [1.0, 5.0, 1.0, 0.5]
+						Validated results: [1.0, 10.0, 1.0, 0.5]
+
+
+Incorrect values at index 1 with values 0.5 1.0
+Failed test on skill  10880
+		Skill Description 
+				My calculated multipliers: [1.0, 0.5, 1.0, 0.5]
+						Validated results: [1.0, 1.0, 1.0, 0.5]
+
+Tests passed: 5643
+Tests failed: 58
+Elapsed time: 6.568140745162964 seconds.

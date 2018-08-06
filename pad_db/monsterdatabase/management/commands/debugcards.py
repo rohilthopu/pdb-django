@@ -15,11 +15,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-
         def getMultipliers(skill) -> []:
             skill_list = []
             multipliers = [1, 1, 1, 0]
-            shield = 0
+            shield_calc = 1
+            shields = []
             if skill.c_skill_1 != -1:
                 skill_list.append(Skill.objects.get(skillID=skill.c_skill_1))
                 skill_list.append(Skill.objects.get(skillID=skill.c_skill_2))
@@ -32,12 +32,15 @@ class Command(BaseCommand):
                     multipliers[1] *= skill.atk_mult
                     multipliers[2] *= skill.rcv_mult
                     if skill.dmg_reduction != 0:
-                        if shield != 0:
-                            shield = (1 - shield) * (1 - skill.dmg_reduction)
-                        else:
-                            shield = skill.dmg_reduction
+                        shields.append(skill.dmg_reduction)
 
-                multipliers[3] = float(shield)
+                for shield in shields:
+                    shield_calc *= (1 - shield)
+
+                multipliers[0] = round(multipliers[0], 3)
+                multipliers[1] = round(multipliers[1], 3)
+                multipliers[2] = round(multipliers[2], 3)
+                multipliers[3] = float( round((1 - shield_calc), 3))
             else:
                 multipliers[0] = skill.hp_mult
                 multipliers[1] = skill.atk_mult
@@ -53,7 +56,7 @@ class Command(BaseCommand):
 
                     right = 0
                     for i in range(0, len(multipliers)):
-                        if abs(multipliers[i] - mults[i]) < 0.05:
+                        if multipliers[i] == mults[i]:
                             right += 1
                         else:
                             print()
