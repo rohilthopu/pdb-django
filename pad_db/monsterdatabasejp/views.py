@@ -34,9 +34,8 @@ def cardView(request, card_id):
     if activeskill is not None:
         a_multipliers = getMultipliers(activeskill)
 
-    d_multipliers = [(item ** 2) for item in multipliers]
-    d_multipliers[3] = (1 - (1 - multipliers[4]) * (1 - multipliers[4])) * 100
-    d_multipliers[3] = math.floor(d_multipliers[3])
+    d_multipliers = [round((item ** 2), 2) for item in multipliers]
+    d_multipliers[3] = round((1 - (1 - multipliers[4]) * (1 - multipliers[4])) * 100, 2)
 
     evos = None
     if len(evo_list) > 0:
@@ -152,6 +151,8 @@ def getTypes(monster) -> []:
 def getMultipliers(skill) -> []:
     skill_list = []
     multipliers = [1, 1, 1, 0, 0]
+    shield_calc = 1
+    shields = []
     if skill.c_skill_1 != -1:
         skill_list.append(Skill.objects.get(skillID=skill.c_skill_1))
         skill_list.append(Skill.objects.get(skillID=skill.c_skill_2))
@@ -164,18 +165,18 @@ def getMultipliers(skill) -> []:
             multipliers[1] *= skill.atk_mult
             multipliers[2] *= skill.rcv_mult
             if skill.dmg_reduction != 0:
-                if multipliers[3] != 0:
-                    multipliers[3] *= skill.dmg_reduction
-                else:
-                    multipliers[3] = skill.dmg_reduction
-        multipliers[4] = multipliers[3]
-        multipliers[3] *= 100
-        multipliers[3] = math.floor(multipliers[3])
+                shields.append(skill.dmg_reduction)
+
+        for shield in shields:
+            shield_calc *= (1 - shield)
+        multipliers[3] = round((1 - shield_calc) * 100, 2)
+        multipliers[4] = 1 - shield_calc
     else:
         multipliers[0] = skill.hp_mult
         multipliers[1] = skill.atk_mult
         multipliers[2] = skill.rcv_mult
         multipliers[3] = float(skill.dmg_reduction)
+        multipliers[4] = float(skill.dmg_reduction)
 
     return multipliers
 
