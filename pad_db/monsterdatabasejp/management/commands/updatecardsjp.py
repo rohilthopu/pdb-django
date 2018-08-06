@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
         Monster.objects.all().delete()
         Evolution.objects.all().delete()
-
+        print()
         self.stdout.write(self.style.SUCCESS('Starting JP MONSTER DB update.'))
 
         # Pull the new data, because with PAD, things often get buffs/changes often
@@ -25,7 +25,7 @@ class Command(BaseCommand):
         cards = json.loads(loadSite.text)
         start_time = time.time()
         print()
-        self.stdout.write(self.style.SUCCESS('Adding new NA Cards.'))
+        self.stdout.write(self.style.SUCCESS('Adding new JP Cards.'))
 
         for card in cards:
 

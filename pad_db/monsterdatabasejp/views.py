@@ -144,10 +144,8 @@ def getUnEvoMats(monster, monsters):
 
 
 def getTypes(monster) -> []:
-    types = []
-    types.append(EXPLICIT_TYPE_MAP[int(monster.type1)])
-    types.append(EXPLICIT_TYPE_MAP[int(monster.type2)])
-    types.append(EXPLICIT_TYPE_MAP[int(monster.type3)])
+    types = [EXPLICIT_TYPE_MAP[int(monster.type1)], EXPLICIT_TYPE_MAP[int(monster.type2)],
+             EXPLICIT_TYPE_MAP[int(monster.type3)]]
     return types
 
 
@@ -160,19 +158,24 @@ def getMultipliers(skill) -> []:
         if skill.c_skill_3 != -1:
             skill_list.append((Skill.objects.get(skillID=skill.c_skill_3)))
 
-    for skill in skill_list:
+        for skill in skill_list:
 
-        multipliers[0] *= skill.hp_mult
-        multipliers[1] *= skill.atk_mult
-        multipliers[2] *= skill.rcv_mult
-        if skill.dmg_reduction != 0:
-            if multipliers[3] != 0:
-                multipliers[3] *= skill.dmg_reduction
-            else:
-                multipliers[3] = skill.dmg_reduction
-    multipliers[4] = multipliers[3]
-    multipliers[3] *= 100
-    multipliers[3] = math.floor(multipliers[3])
+            multipliers[0] *= skill.hp_mult
+            multipliers[1] *= skill.atk_mult
+            multipliers[2] *= skill.rcv_mult
+            if skill.dmg_reduction != 0:
+                if multipliers[3] != 0:
+                    multipliers[3] *= skill.dmg_reduction
+                else:
+                    multipliers[3] = skill.dmg_reduction
+        multipliers[4] = multipliers[3]
+        multipliers[3] *= 100
+        multipliers[3] = math.floor(multipliers[3])
+    else:
+        multipliers[0] = skill.hp_mult
+        multipliers[1] = skill.atk_mult
+        multipliers[2] = skill.rcv_mult
+        multipliers[3] = float(skill.dmg_reduction)
 
     return multipliers
 

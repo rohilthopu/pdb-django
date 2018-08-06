@@ -16,6 +16,7 @@ class Command(BaseCommand):
         Monster.objects.all().delete()
         Evolution.objects.all().delete()
 
+        print()
         self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
         # Pull the new data, because with PAD, things often get buffs/changes often

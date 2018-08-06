@@ -49,8 +49,6 @@ class Command(BaseCommand):
 
                 multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
 
-                if multipliers['atk'] == 0:
-                    print(multipliers, skill_type, item['skill_id'])
                 skill.hp_mult = multipliers['hp']
                 skill.atk_mult = multipliers['atk']
                 skill.rcv_mult = multipliers['rcv']

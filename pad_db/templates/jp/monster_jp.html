@@ -12,14 +12,14 @@
 {% block evos %}
     {% if ancestor is not None %}
         <h2 class="subtitle">Evolution of <a
-                href="/monster/jp/{{ ancestor.monster.cardID }}"
-                class="is-italic"> {{ ancestor.monster.name }}</a></h2>
+                href="/monster/jp/{{ ancestor.cardID }}"
+                class="is-italic"> {{ ancestor.name }}</a></h2>
     {% endif %}
     {% if evolutions is not None %}
         {% for evo in evolutions %}
             <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
-                <a href="/monster/jp/{{ evo.monster.cardID }}"
-                   class="is-italic"> {{ evo.monster.name }} </a>
+                <a href="/monster/jp/{{ evo.cardID }}"
+                   class="is-italic"> {{ evo.name }} </a>
             </h2>
         {% endfor %}
     {% endif %}
@@ -39,6 +39,49 @@
                 <tr>
                     <th>Effect</th>
                     <td>{{ leaderskill.description }}</td>
+                </tr>
+                <tr>
+                    <th>Min Turns</th>
+                    <td> N/A</td>
+                </tr>
+                <tr>
+                    <th>Max Turns</th>
+                    <td> N/A</td>
+                </tr>
+                <tr>
+                    <th>Levels</th>
+                    <td> N/A</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th class="has-text-right">Single</th>
+                    <th class="has-text-right">Pair</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>HP</th>
+                    <td class="has-text-right">{{ lmultipliers.0 }}x</td>
+                    <td class="has-text-right">{{ dmultipliers.0 }}x</td>
+                </tr>
+                <tr>
+                    <th>Attack</th>
+                    <td class="has-text-right">{{ lmultipliers.1 }}x</td>
+                    <td class="has-text-right">{{ dmultipliers.1 }}x</td>
+                </tr>
+                <tr>
+                    <th>RCV</th>
+                    <td class="has-text-right">{{ lmultipliers.2 }}x</td>
+                    <td class="has-text-right">{{ dmultipliers.2 }}x</td>
+                </tr>
+                <tr>
+                    <th>Shield</th>
+                    <td class="has-text-right">{{ lmultipliers.3 }}%</td>
+                    <td class="has-text-right">{{ dmultipliers.3 }}%</td>
                 </tr>
                 </tbody>
             </table>
@@ -74,6 +117,32 @@
                 </tr>
                 </tbody>
             </table>
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th class="has-text-right">Single</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>HP</th>
+                    <td class="has-text-right">{{ amultipliers.0 }}x</td>
+                </tr>
+                <tr>
+                    <th>Attack</th>
+                    <td class="has-text-right">{{ amultipliers.1 }}x</td>
+                </tr>
+                <tr>
+                    <th>RCV</th>
+                    <td class="has-text-right">{{ amultipliers.2 }}x</td>
+                </tr>
+                <tr>
+                    <th>Shield</th>
+                    <td class="has-text-right">{{ amultipliers.3 }}%</td>
+                </tr>
+                </tbody>
+            </table>
         {% else %}
             <div class="has-text-centered">No Active Skill available</div>
         {% endif %}
@@ -96,11 +165,11 @@
                 {% for mat in evomats %}
                     <tr>
                         <td><a
-                                href="/monster/jp/{{ mat.monster.cardID }}"><img
-                                src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                                href="/monster/jp/{{ mat.cardID }}"><img
+                                src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png"></a>
                         </td>
                         <td class="has-text-centered"><a
-                                href="/monster/jp/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
+                                href="/monster/jp/{{ mat.cardID }}"> {{ mat.name }}</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -126,11 +195,11 @@
                 {% for mat in unevomats %}
                     <tr>
                         <td><a
-                                href="/monster/jp/{{ mat.monster.cardID }}"><img
-                                src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.monster.cardID }}.png"></a>
+                                href="/monster/jp/{{ mat.cardID }}"><img
+                                src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png"></a>
                         </td>
                         <td class="has-text-centered"><a
-                                href="/monster/jp/{{ mat.monster.cardID }}"> {{ mat.monster.name }}</a>
+                                href="/monster/jp/{{ mat.cardID }}"> {{ mat.name }}</a>
                         </td>
                     </tr>
 
