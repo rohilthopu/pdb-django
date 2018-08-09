@@ -96,8 +96,8 @@ def parse_skill_multiplier(skill, other_fields, length) -> {}:
         multipliers['rcv'] *= get_last(other_fields)
 
     elif skill == 98:
-        multipliers['atk'] *= get_third_last(other_fields) + (other_fields[3] - other_fields[0]) * get_second_last(
-            other_fields)
+        if length > 0:
+            multipliers['atk'] *= get_third_last(other_fields) + (other_fields[3] - other_fields[0]) * get_second_last(other_fields)
 
     elif skill == 100:
         if other_fields[0] != 0:

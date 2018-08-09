@@ -6,6 +6,19 @@
 
 {% endblock %}
 
+{% block skill_turn_head %}
+    <th class="has-text-right">Min Turns</th>
+    <th class="has-text-right">Max Turns</th>
+    <th class="has-text-right">Levels</th>
+{% endblock %}
+
 {% block skill_link %}
-    <td class="has-text-centered"><a href="/activeskills/jp/{{ sid }}">{{ name }}</a></td>
+    <td class="has-text-centered"><a href="/activeskills/jp/{{ skill.skillID }}">{{ skill.name }}</a></td>
+    <td class="has-text-right"><a href="/activeskills/jp/{{ skill.skillID }}">{{ skill.skillID }}</a></td>
+{% endblock %}
+
+{% block skill_turn %}
+    <td class="has-text-right">{{ skill.minTurns }}</td>
+    <td class="has-text-right">{{ skill.maxTurns }}</td>
+    <td class="has-text-right">{{ skill.levels }}</td>
 {% endblock %}

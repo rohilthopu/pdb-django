@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
         Skill.objects.all().delete()
 
-        link = 'https://storage.googleapis.com/mirubot/paddata/processed/na_skills.json'
+        link = 'https://storage.googleapis.com/mirubot/paddata/processed/jp_skills.json'
 
         req = requests.get(link).text
         data = json.loads(req)

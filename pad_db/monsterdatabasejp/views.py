@@ -75,10 +75,7 @@ def cardList(request):
 
 
 def activeSkillListView(request):
-    a_skills = Skill.objects.filter(skill_type="active")
-    names = a_skills.values_list('name', flat=True)
-    sids = a_skills.values_list('skillID', flat=True)
-    skills = zip(names, sids)
+    skills = Skill.objects.filter(skill_type="active").all()
     context = {'skills': skills}
     template = 'active_skill_list_jp.html'
     return render(request, template, context)
@@ -94,11 +91,8 @@ def activeSkillView(request, id):
 
 
 def leaderSkillListView(request):
-    l_skills = Skill.objects.filter(skill_type="leader")
-    names = l_skills.values_list('name', flat=True)
-    sids = l_skills.values_list('skillID', flat=True)
-    lSkills = zip(names, sids)
-    context = {'skills': lSkills}
+    skills = Skill.objects.filter(skill_type="leader").all()
+    context = {'skills': skills}
     template = 'leader_skill_list_jp.html'
     return render(request, template, context)
 

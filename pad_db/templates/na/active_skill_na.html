@@ -5,7 +5,6 @@
     <h2 class="subtitle"> {{ activeskill.description }}</h2>
 {% endblock %}
 
-
 {% block skill_table %}
     <table class="table is-fullwidth">
         <tbody>
@@ -23,9 +22,30 @@
         </tr>
         </tbody>
     </table>
+    <table class="table is-fullwidth">
+        <tbody>
+        <tr>
+            <th>HP</th>
+            <td class="has-text-right">{{ amultipliers.0 }}x</td>
+        </tr>
+        <tr>
+            <th>Attack</th>
+            <td class="has-text-right">{{ amultipliers.1 }}x</td>
+        </tr>
+        <tr>
+            <th>RCV</th>
+            <td class="has-text-right">{{ amultipliers.2 }}x</td>
+        </tr>
+        <tr>
+            <th>Shield</th>
+            <td class="has-text-right">{{ amultipliers.3 }}%</td>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}
-
 
 {% block monster_link %}
     <a href="/monster/na/{{ monster.cardID }}">{{ monster.name }}</a>
 {% endblock %}
+
+

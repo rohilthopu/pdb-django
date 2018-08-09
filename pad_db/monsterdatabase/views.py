@@ -75,10 +75,7 @@ def cardList(request):
 
 
 def activeSkillListView(request):
-    a_skills = Skill.objects.filter(skill_type="active")
-    names = a_skills.values_list('name', flat=True)
-    sids = a_skills.values_list('skillID', flat=True)
-    skills = zip(names, sids)
+    skills = Skill.objects.filter(skill_type="active").all()
     context = {'skills': skills}
     template = 'active_skill_list_na.html'
     return render(request, template, context)
@@ -87,18 +84,15 @@ def activeSkillListView(request):
 def activeSkillView(request, id):
     skill = Skill.objects.get(skillID=id)
     monsters = Monster.objects.filter(activeSkillID=id)
-
-    context = {'activeskill': skill, "monsters": monsters}
+    amultipliers = getMultipliers(skill)
+    context = {'activeskill': skill, "monsters": monsters, "amultipliers": amultipliers}
     template = 'active_skill_na.html'
     return render(request, template, context)
 
 
 def leaderSkillListView(request):
-    l_skills = Skill.objects.filter(skill_type="leader")
-    names = l_skills.values_list('name', flat=True)
-    sids = l_skills.values_list('skillID', flat=True)
-    lSkills = zip(names, sids)
-    context = {'skills': lSkills}
+    skills = Skill.objects.filter(skill_type="leader").all()
+    context = {'skills': skills}
     template = 'leader_skill_list_na.html'
     return render(request, template, context)
 
@@ -106,8 +100,10 @@ def leaderSkillListView(request):
 def leaderSkillView(request, id):
     skill = Skill.objects.get(skillID=id)
     monsters = Monster.objects.filter(leaderSkillID=id)
-
-    context = {'leaderskill': skill, "monsters": monsters}
+    lmultipliers = getMultipliers(skill)
+    d_multipliers = [round((item ** 2), 2) for item in lmultipliers]
+    d_multipliers[3] = round((1 - (1 - lmultipliers[4]) * (1 - lmultipliers[4])) * 100, 2)
+    context = {'leaderskill': skill, "monsters": monsters, "lmultipliers": lmultipliers, "dmultipliers": d_multipliers}
     template = 'leader_skill_na.html'
     return render(request, template, context)
 

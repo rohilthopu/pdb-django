@@ -22,6 +22,37 @@
         </tr>
         </tbody>
     </table>
+    <table class="table is-fullwidth">
+        <thead>
+        <tr>
+            <th></th>
+            <th class="has-text-right">Single</th>
+            <th class="has-text-right">Pair</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>HP</th>
+            <td class="has-text-right">{{ lmultipliers.0 }}x</td>
+            <td class="has-text-right">{{ dmultipliers.0 }}x</td>
+        </tr>
+        <tr>
+            <th>Attack</th>
+            <td class="has-text-right">{{ lmultipliers.1 }}x</td>
+            <td class="has-text-right">{{ dmultipliers.1 }}x</td>
+        </tr>
+        <tr>
+            <th>RCV</th>
+            <td class="has-text-right">{{ lmultipliers.2 }}x</td>
+            <td class="has-text-right">{{ dmultipliers.2 }}x</td>
+        </tr>
+        <tr>
+            <th>Shield</th>
+            <td class="has-text-right">{{ lmultipliers.3 }}%</td>
+            <td class="has-text-right">{{ dmultipliers.3 }}%</td>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}
 
 {% block monster_link %}

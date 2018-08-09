@@ -2,9 +2,10 @@
 
 {% block region_switch %}
     <li><a href="/leaderskills/na">NA</a></li>
-    <li class="is-active"><a href="/leaderskills/jp/">JP</a></li>
+    <li class="is-active"><a href="/leaderskills/jp">JP</a></li>
 {% endblock %}
 
 {% block skill_link %}
-    <td class="has-text-centered"><a href="/leaderskills/jp/{{ sid }}">{{ name }}</a></td>
+    <td class="has-text-centered"><a href="/leaderskills/jp/{{ skill.skillID }}">{{ skill.name }}</a></td>
+    <td class="has-text-right"><a href="/leaderskills/jp/{{ skill.skillID}}">{{ skill.skillID }}</a></td>
 {% endblock %}
