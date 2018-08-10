@@ -157,6 +157,7 @@ def getMultipliers(skill) -> []:
 
         for skill in skill_list:
 
+            print(skill.hp_mult, skill.atk_mult, skill.rcv_mult, skill.dmg_reduction)
             multipliers[0] *= skill.hp_mult
             multipliers[1] *= skill.atk_mult
             multipliers[2] *= skill.rcv_mult
