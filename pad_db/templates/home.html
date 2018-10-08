@@ -40,9 +40,9 @@
                     <a class="navbar-item" href="/monsterdb/na">
                         Monsters
                     </a>
-{#                    <a class="navbar-item" href="/dungeons/na">#}
-{#                        Dungeons#}
-{#                    </a>#}
+                    {#                    <a class="navbar-item" href="/dungeons/na">#}
+                    {#                        Dungeons#}
+                    {#                    </a>#}
                     <a class="navbar-item" href="/activeskills/na">
                         Active Skills
                     </a>
@@ -59,9 +59,9 @@
                     <a class="navbar-item" href="/monsterdb/jp">
                         Monsters
                     </a>
-{#                    <a class="navbar-item" href="/dungeons/jp">#}
-{#                        Dungeons#}
-{#                    </a>#}
+                    {#                    <a class="navbar-item" href="/dungeons/jp">#}
+                    {#                        Dungeons#}
+                    {#                    </a>#}
                     <a class="navbar-item" href="/activeskills/jp">
                         Active Skills
                     </a>
@@ -169,6 +169,14 @@
             computeTimes();
             setInterval(computeTimes, 1000);
         };
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#natable').DataTable({
+                'pageLength': 50
+            });
+        });
     </script>
 {% endblock %}
 </body>
