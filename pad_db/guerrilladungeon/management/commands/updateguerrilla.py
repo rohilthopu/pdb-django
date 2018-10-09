@@ -17,8 +17,7 @@ class Command(BaseCommand):
         jsonDump = json.loads(jsonPull)
 
 
-        for d in GuerrillaDungeon.objects.all():
-            d.delete()
+        GuerrillaDungeon.objects.all().delete()
 
 
         for item in jsonDump['items']:

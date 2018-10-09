@@ -4,12 +4,12 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127208131-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
-
         gtag('config', 'UA-127208131-1');
     </script>
-
     <meta charset="UTF-8">
     <title>Pad DB</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -84,9 +84,9 @@
                 <h1 class="title"> Calendar </h1>
                 <h2 class="subtitle" style="margin-bottom: 0%"> Guerrilla Dungeons for {{ date }}</h2>
                 <h2 class="subtitle is-6 is-italic" style="margin-bottom: 0%;"> Dates and Times listed are for Pacific
-                    Time (UTC-8).</h2>
-                <h2 class="subtitle is-6 is-italic"> Status, ETA, and Time Left are real time figures, irrespective of
-                    time zones.</h2>
+                    Time</h2>
+                <h2 class="subtitle is-6 is-italic"> Status, Time Until, and Time Left are real time figures,
+                    irrespective of time zones.</h2>
             </div>
         </div>
     </section>
@@ -101,7 +101,8 @@
                 <div class="field">
                     <div class="is-italic is-6" align="center">Put in the first three digits (or more) of your ID</div>
                     <div class="control">
-                        <input class="input" type="text" placeholder="ex. 123 or 123,456,789" id="userid" oninput="getGroup();">
+                        <input class="input" type="text" placeholder="ex. 123 or 123,456,789" id="userid"
+                               oninput="getGroup();">
                     </div>
                 </div>
                 <div align="center" id="groupOut"></div>
