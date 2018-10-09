@@ -12,6 +12,35 @@ function switchNA() {
     document.getElementById('natab').classList.add('is-active');
 }
 
+
+function getGroup() {
+    var userid = document.getElementById("userid").value;
+    if (userid.length >= 3 && userid.length <= 11) {
+        var thirdVal = parseInt(userid.charAt(2));
+        if(thirdVal == 0 || thirdVal == 5) {
+            document.getElementById("groupOut").innerText = "Group A";
+        }
+        else if(thirdVal == 1 || thirdVal == 6) {
+            document.getElementById("groupOut").innerText = "Group B";
+        }
+        else if(thirdVal == 2 || thirdVal == 7) {
+            document.getElementById("groupOut").innerText = "Group C";
+        }
+        else if(thirdVal == 3 || thirdVal == 8) {
+            document.getElementById("groupOut").innerText = "Group D";
+        }
+        else if(thirdVal == 4 || thirdVal == 9) {
+            document.getElementById("groupOut").innerText = "Group E";
+        }
+    }
+    else if (userid.length >= 12) {
+        document.getElementById("groupOut").innerText = "You have entered an invalid ID";
+    }
+    else {
+        document.getElementById("groupOut").innerText = "";
+    }
+}
+
 function computeTimes() {
     var actives = document.getElementsByName('active');
     var starttimes = document.getElementsByName('starttime');

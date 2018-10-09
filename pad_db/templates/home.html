@@ -87,13 +87,27 @@
             </div>
         </div>
     </section>
+    <div class="columns is-centered">
+        <div class="column is-one-quarter">
+            <div class="field">
+                <label align="center" class="label">What's my group?</label>
+                <div class="is-italic is-6" align="center">Put in the first three digits (or more) of your ID</div>
+                <div class="control">
+                    <input class="input" type="text" placeholder="ex. 123 or 123,456,789" id="userid" oninput="getGroup();">
+                </div>
+            </div>
+            <div align="center" id="groupOut">
+            </div>
+        </div>
+    </div>
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
         <ul>
             <li class="is-active" id="natab"><a onclick="switchNA();">NA</a></li>
             <li id="jptab"><a onclick="switchJP();">JP</a></li>
         </ul>
     </nav>
-    <div class="label has-text-centered">Dungeons are default sorted by Group</div>
+    {#    <div class="label has-text-centered">Dungeons are default sorted by Group</div>#}
+
     <div class="columns is-centered" style="margin-top: 2%; margin-bottom: 2%;">
         <div class="column is-four-fifths">
 
@@ -174,7 +188,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#natable').DataTable({
-                'pageLength': 50
+                'pageLength': 50,
+                columnDefs: [{
+                    orderData: [0, 1],
+                    targets: [1]
+                }]
             });
         });
     </script>
