@@ -12,6 +12,14 @@ function switchNA() {
     document.getElementById('natab').classList.add('is-active');
 }
 
+function showBox() {
+    if (document.getElementById('groupChecker').style.display === 'none') {
+        document.getElementById('groupChecker').style.display = '';
+    }
+    else {
+        document.getElementById('groupChecker').style.display = 'none';
+    }
+}
 
 function getGroup() {
     var userid = document.getElementById("userid").value;
