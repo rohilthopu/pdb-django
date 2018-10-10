@@ -46,5 +46,4 @@ urlpatterns = [
     path('leaderskills/jp', jmv.leaderSkillListView),
     path('leaderskills/jp/<int:id>/', jmv.leaderSkillView),
 
-
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
