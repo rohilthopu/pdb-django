@@ -26,8 +26,8 @@ class Command(BaseCommand):
                 dungeon = GuerrillaDungeon()
 
                 dungeon.name = item['dungeon_name'].rsplit('$')[-1]
-                dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M:%S")
-                dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M:%S")
+                dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M")
+                dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M")
                 dungeon.startSecs = item['start_timestamp']
                 dungeon.endSecs = item['end_timestamp']
                 dungeon.group = item['group']
