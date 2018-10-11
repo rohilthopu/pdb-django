@@ -204,6 +204,17 @@
             });
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#jptable').DataTable({
+                'pageLength': 50,
+                columnDefs: [{
+                    orderData: [0, 1],
+                    targets: [1]
+                }]
+            });
+        });
+    </script>
 {% endblock %}
 </body>
 </html>
