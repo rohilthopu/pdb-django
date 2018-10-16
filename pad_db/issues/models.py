@@ -9,3 +9,4 @@ class Issue(models.Model):
     itemName = models.CharField(default="", max_length=100)
     itemType = models.CharField(default="", max_length=50, choices=sorted(ISSUE_CHOICES))
     description = models.TextField(default="")
+    resolveStatus = models.BooleanField(default=False)
