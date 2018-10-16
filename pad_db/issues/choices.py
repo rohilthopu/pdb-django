@@ -2,7 +2,8 @@ ISSUE_CHOICES = (
     ('', 'Select a problem child'),
     ('monster', 'Monster'),
     ('askill', 'Active Skill'),
-    ('lskill', 'LeaderSkill')
+    ('lskill', 'LeaderSkill'),
+    ('g', 'guerrilla'),
 )
 
 SERVER_CHOICES = (
