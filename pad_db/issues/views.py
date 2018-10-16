@@ -5,12 +5,9 @@ from .forms import IssueForm
 
 # Create your views here.
 def IssueTrackerView(request):
-    template = 'datasources.html'
-
+    template = 'issues.html'
     source = Issue.objects.all()
-
     form = IssueForm()
-
     context = {'source': source, 'form': form}
     if request.method == 'POST':
         form = IssueForm(request.POST)
