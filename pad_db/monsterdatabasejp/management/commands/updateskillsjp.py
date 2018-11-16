@@ -49,10 +49,10 @@ class Command(BaseCommand):
 
                 multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
 
-                skill.hp_mult = multipliers['hp']
-                skill.atk_mult = multipliers['atk']
-                skill.rcv_mult = multipliers['rcv']
-                skill.dmg_reduction = multipliers['shield']
+                skill.hp_mult = multipliers.hp
+                skill.atk_mult = multipliers.atk
+                skill.rcv_mult = multipliers.rcv
+                skill.dmg_reduction = multipliers.shield
 
                 if skill_type == 116 or skill_type == 138:
                     skill.c_skill_1 = other_fields[0]
