@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+    <div class="columns is-centered">
+        <div class="column is-half">
+
+            <div align="center" style="margin-top: 20px; margin-bottom: 20px">
+                <h1 class="title">/r/puzzleanddragon Karma Leaderboard</h1>
+            </div>
+
+            <table class="table is-fullwidth" id="karmatable">
+                <thead>
+                <tr>
+                    <th class="has-text-left">User</th>
+                    <th class="has-text-centered">Karma</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td class="has-text-left">{{ user.author }}</td>
+                        <td class="has-text-centered">{{ user.score }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#karmatable').DataTable({
+                'pageLength': 50,
+                "order": [[ 1, "desc" ]]
+            });
+        });
+    </script>
+
+
+{% endblock %}

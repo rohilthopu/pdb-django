@@ -22,6 +22,7 @@ from monsterdatabase import views as mv
 from monsterdatabasejp import views as jmv
 from guerrilladungeon import views as gv
 from dungeon import views as dv
+from karmaleaderboard import views as kv
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -45,5 +46,7 @@ urlpatterns = [
     path('activeskills/jp/<int:id>/', jmv.activeSkillView),
     path('leaderskills/jp', jmv.leaderSkillListView),
     path('leaderskills/jp/<int:id>/', jmv.leaderSkillView),
+
+    path('leaderboard', kv.leaderboardView)
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
