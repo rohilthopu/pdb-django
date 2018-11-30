@@ -22,7 +22,7 @@ class Command(BaseCommand):
             else:
                 karmaCounts[post.author] += post.score
 
-        for post in reddit.subreddit('puzzleanddragons').top(limit=5):
+        for post in reddit.subreddit('puzzleanddragons').top(limit=10):
 
             addScore(post)
 
