@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 import praw
 from karmaleaderboard.models import RedditUser
+import time
 
 class Command(BaseCommand):
     help = 'Collects karma count for users in the PAD subreddit.'
@@ -22,27 +23,40 @@ class Command(BaseCommand):
             else:
                 karmaCounts[post.author] += post.score
 
+        def addCommentScore(comment):
+            if comment is None:
+                return
+
+            addScore(comment)
+
+            comment.replies.replace_more()
+            for reply in comment.replies:
+                addCommentScore(reply)
+
         for post in reddit.subreddit('puzzleanddragons').top(limit=10):
+
+            print("Collecting karma for :", post.title)
 
             addScore(post)
 
-            post.comments.replace_more(limit=0)
+            post.comments.replace_more()
+
             for comment in post.comments:
-                addScore(comment)
+                addCommentScore(comment)
+                time.sleep(.1)
+
+        karmaCounts["Deleted Users"] = karmaCounts[None]
+        del karmaCounts[None]
+
+        print()
+        print("Updating Database entries....")
+        print()
 
         for person in karmaCounts.keys():
-
-
-
             entry = RedditUser()
-
-            if person is None:
-                entry.author = "Deleted User"
-            else:
-                entry.author = person
-
+            entry.author = person
             entry.score = karmaCounts[person]
             entry.save()
 
-
-
+        print("Updated top posts.")
+        print()
