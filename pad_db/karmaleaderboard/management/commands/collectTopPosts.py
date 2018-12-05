@@ -33,9 +33,7 @@ class Command(BaseCommand):
             for reply in comment.replies:
                 addCommentScore(reply)
 
-        for post in reddit.subreddit('puzzleanddragons').top(limit=10):
-
-            print("Collecting karma for :", post.title)
+        for post in reddit.subreddit('puzzleanddragons').top(limit=25):
 
             addScore(post)
 
@@ -48,15 +46,9 @@ class Command(BaseCommand):
         karmaCounts["Deleted Users"] = karmaCounts[None]
         del karmaCounts[None]
 
-        print()
-        print("Updating Database entries....")
-        print()
 
         for person in karmaCounts.keys():
             entry = RedditUser()
             entry.author = person
             entry.score = karmaCounts[person]
             entry.save()
-
-        print("Updated top posts.")
-        print()

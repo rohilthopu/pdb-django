@@ -36,8 +36,6 @@ class Command(BaseCommand):
 
         for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="day")):
 
-            print("Collecting karma for :", post.title)
-
             addScore(post)
 
             post.comments.replace_more()
@@ -48,10 +46,6 @@ class Command(BaseCommand):
 
         karmaCounts["Deleted Users"] = karmaCounts[None]
         del karmaCounts[None]
-
-        print()
-        print("Updating Database entries....")
-        print()
 
         for person in karmaCounts.keys():
 
@@ -67,5 +61,3 @@ class Command(BaseCommand):
                 entry.score += karmaCounts[person]
                 entry.save()
 
-        print("Daily top post karma calculations complete.")
-        print()
