@@ -46,10 +46,10 @@ class Monster(models.Model):
     cost = models.IntegerField(default=0)
 
 
-    inheritable = models.BooleanField(default=False)
-    isCollab = models.BooleanField(default=False)
-    isReleased = models.BooleanField(default=False)
-    isUlt = models.BooleanField(default=False)
+    inheritable = models.CharField(default="", max_length=5)
+    isCollab = models.CharField(default="", max_length=5)
+    isReleased = models.CharField(default="", max_length=5)
+    isUlt = models.CharField(default="", max_length=5)
     leaderSkillID = models.IntegerField(blank=True, default=0)
     maxATK = models.IntegerField(default=0)
     maxHP = models.IntegerField(default=0)

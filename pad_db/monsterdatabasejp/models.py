@@ -3,7 +3,7 @@ from django.db import models
 
 class Skill(models.Model):
     name = models.CharField(max_length=200, default="", blank=True)
-    description = models.TextField(default="", blank=True,)
+    description = models.TextField(default="", blank=True, )
     skillID = models.IntegerField(default=-1)
     skill_type = models.CharField(max_length=50, default="")
     hp_mult = models.FloatField(default=1)
@@ -22,8 +22,6 @@ class Skill(models.Model):
     levels = models.IntegerField(default=0)
     maxTurns = models.IntegerField(blank=True, default=0)
     minTurns = models.IntegerField(blank=True, default=0)
-
-
 
 
 class Evolution(models.Model):
@@ -45,11 +43,10 @@ class Monster(models.Model):
     cardID = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
 
-
-    inheritable = models.BooleanField(default=False)
-    isCollab = models.BooleanField(default=False)
-    isReleased = models.BooleanField(default=False)
-    isUlt = models.BooleanField(default=False)
+    inheritable = models.CharField(default="", max_length=5)
+    isCollab = models.CharField(default="", max_length=5)
+    isReleased = models.CharField(default="", max_length=5)
+    isUlt = models.CharField(default="", max_length=5)
     leaderSkillID = models.IntegerField(blank=True, default=0)
     maxATK = models.IntegerField(default=0)
     maxHP = models.IntegerField(default=0)
