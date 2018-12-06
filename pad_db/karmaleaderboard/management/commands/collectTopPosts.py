@@ -18,7 +18,7 @@ class Command(BaseCommand):
                              user_agent='karma-calculator-hijackerjack')
 
         def addScore(post):
-            if post.author not in karmaCounts.keys():
+            if str(post.author) not in karmaCounts.keys():
                 karmaCounts[str(post.author)] = post.score
 
             else:
