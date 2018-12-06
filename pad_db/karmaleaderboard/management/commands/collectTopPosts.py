@@ -46,8 +46,8 @@ class Command(BaseCommand):
                 addCommentScore(comment)
 
         if None in karmaCounts:
-            karmaCounts["Deleted Users"] = karmaCounts[None]
-            del karmaCounts[None]
+            karmaCounts["Deleted Users"] = karmaCounts["None"]
+            del karmaCounts["None"]
 
         print("Storing new users....")
 
