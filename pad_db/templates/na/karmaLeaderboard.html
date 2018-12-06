@@ -20,7 +20,7 @@
                 <tbody>
                 {% for user in users %}
                     <tr>
-                        <td class="has-text-left">{{ user.author }}</td>
+                        <td class="has-text-left"><a href="https://www.reddit.com/u/{{ user.author }}">{{ user.author }}</a></td>
                         <td class="has-text-centered">{{ user.score }}</td>
                     </tr>
                 {% endfor %}
