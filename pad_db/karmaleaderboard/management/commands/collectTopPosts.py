@@ -19,10 +19,10 @@ class Command(BaseCommand):
 
         def addScore(post):
             if post.author not in karmaCounts.keys():
-                karmaCounts[post.author] = post.score
+                karmaCounts[str(post.author)] = post.score
 
             else:
-                karmaCounts[post.author] += post.score
+                karmaCounts[str(post.author.name)] += post.score
 
         def addCommentScore(comment):
             if comment is None:
@@ -34,7 +34,7 @@ class Command(BaseCommand):
             for reply in comment.replies:
                 addCommentScore(reply)
 
-        for post in reddit.subreddit('puzzleanddragons').top(limit=25):
+        for post in reddit.subreddit('puzzleanddragons').top(limit=10):
 
             print("Collect karma for:", post.title)
 
@@ -45,15 +45,13 @@ class Command(BaseCommand):
             for comment in post.comments:
                 addCommentScore(comment)
 
-        karmaCounts["Deleted Users"] = karmaCounts[None]
-        del karmaCounts[None]
+        if None in karmaCounts:
+            karmaCounts["Deleted Users"] = karmaCounts[None]
+            del karmaCounts[None]
 
         print("Storing new users....")
 
-
         for person in karmaCounts.keys():
-
-            print("\t\tUsername:", person)
             entry = RedditUser()
             entry.author = person
             entry.score = karmaCounts[person]

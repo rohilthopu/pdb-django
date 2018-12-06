@@ -18,10 +18,10 @@ class Command(BaseCommand):
 
         def addScore(post):
             if post.author not in karmaCounts.keys():
-                karmaCounts[post.author] = post.score
+                karmaCounts[str(post.author)] = post.score
 
             else:
-                karmaCounts[post.author] += post.score
+                karmaCounts[str(post.author)] += post.score
 
         def addCommentScore(comment):
             if comment is None:
@@ -43,9 +43,9 @@ class Command(BaseCommand):
             for comment in post.comments:
                 addCommentScore(comment)
 
-        karmaCounts["Deleted Users"] = karmaCounts[None]
-        del karmaCounts[None]
-
+        if None in karmaCounts:
+            karmaCounts["Deleted Users"] = karmaCounts[None]
+            del karmaCounts[None]
 
         for person in karmaCounts.keys():
 
@@ -60,4 +60,3 @@ class Command(BaseCommand):
                 entry = RedditUser.objects.get(author=person)
                 entry.score += karmaCounts[person]
                 entry.save()
-
