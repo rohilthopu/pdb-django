@@ -3,6 +3,11 @@
 
 Pad DB is a simple project of mine to wrap the data from within Puzzles and Dragons, using PadGuide data.
 
+The app uses a set of custom Django commands to parse and load the data into Django models. 
+
+Guerrilla dungeons and the karma leaderboards are updated regularly, with guerrillas updated every hour,
+and karma every day.
+
 If you would like to join my Discord development group to follow progress, use the link below.
 
     https://discord.gg/4MhSWuY
