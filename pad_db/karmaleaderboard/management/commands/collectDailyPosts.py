@@ -46,6 +46,7 @@ class Command(BaseCommand):
         karmaCounts["Deleted Users"] = karmaCounts[None]
         del karmaCounts[None]
 
+
         for person in karmaCounts.keys():
 
             if not RedditUser.objects.filter(author=person).exists():

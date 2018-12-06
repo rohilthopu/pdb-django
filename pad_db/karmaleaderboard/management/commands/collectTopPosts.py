@@ -48,6 +48,8 @@ class Command(BaseCommand):
         karmaCounts["Deleted Users"] = karmaCounts[None]
         del karmaCounts[None]
 
+        print("Storing new users....")
+
         for person in karmaCounts.keys():
             entry = RedditUser()
             entry.author = person
