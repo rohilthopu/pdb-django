@@ -38,7 +38,6 @@ class Command(BaseCommand):
 
             print("Collect karma for:", post.title)
 
-
             addScore(post)
 
             post.comments.replace_more()
@@ -50,12 +49,9 @@ class Command(BaseCommand):
             karmaCounts["Deleted Users"] = karmaCounts["None"]
             del karmaCounts["None"]
 
-
-
         print()
         print("Storing users....")
         print()
-
 
         for person in karmaCounts.keys():
 
