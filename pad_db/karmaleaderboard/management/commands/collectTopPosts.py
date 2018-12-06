@@ -22,7 +22,7 @@ class Command(BaseCommand):
                 karmaCounts[str(post.author)] = post.score
 
             else:
-                karmaCounts[str(post.author.name)] += post.score
+                karmaCounts[str(post.author)] += post.score
 
         def addCommentScore(comment):
             if comment is None:
