@@ -3,6 +3,7 @@ import praw
 from karmaleaderboard.models import RedditUser
 import time
 
+
 class Command(BaseCommand):
     help = 'Collects karma count for users in the PAD subreddit.'
 
@@ -32,7 +33,6 @@ class Command(BaseCommand):
             comment.replies.replace_more()
             for reply in comment.replies:
                 addCommentScore(reply)
-                time.sleep(.1)
 
         for post in reddit.subreddit('puzzleanddragons').top(limit=25):
 
@@ -44,11 +44,9 @@ class Command(BaseCommand):
 
             for comment in post.comments:
                 addCommentScore(comment)
-                time.sleep(.1)
 
         karmaCounts["Deleted Users"] = karmaCounts[None]
         del karmaCounts[None]
-
 
         for person in karmaCounts.keys():
             entry = RedditUser()

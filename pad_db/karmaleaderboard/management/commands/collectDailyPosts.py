@@ -33,7 +33,6 @@ class Command(BaseCommand):
 
             for reply in comment.replies:
                 addCommentScore(reply)
-                time.sleep(.1)
 
         for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="day")):
 
@@ -43,7 +42,6 @@ class Command(BaseCommand):
 
             for comment in post.comments:
                 addCommentScore(comment)
-                time.sleep(.1)
 
         karmaCounts["Deleted Users"] = karmaCounts[None]
         del karmaCounts[None]
