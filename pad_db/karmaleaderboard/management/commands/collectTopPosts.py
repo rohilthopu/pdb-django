@@ -50,7 +50,10 @@ class Command(BaseCommand):
 
         print("Storing new users....")
 
+
         for person in karmaCounts.keys():
+
+            print("\t\tUsername:", person)
             entry = RedditUser()
             entry.author = person
             entry.score = karmaCounts[person]
