@@ -36,6 +36,9 @@ class Command(BaseCommand):
 
         for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="day")):
 
+            print("Collect karma for:", post.title)
+
+
             addScore(post)
 
             post.comments.replace_more()
@@ -43,9 +46,16 @@ class Command(BaseCommand):
             for comment in post.comments:
                 addCommentScore(comment)
 
-        if None in karmaCounts:
+        if "None" in karmaCounts:
             karmaCounts["Deleted Users"] = karmaCounts["None"]
             del karmaCounts["None"]
+
+
+
+        print()
+        print("Storing users....")
+        print()
+
 
         for person in karmaCounts.keys():
 

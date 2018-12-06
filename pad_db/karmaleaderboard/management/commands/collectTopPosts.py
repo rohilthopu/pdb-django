@@ -45,7 +45,7 @@ class Command(BaseCommand):
             for comment in post.comments:
                 addCommentScore(comment)
 
-        if None in karmaCounts:
+        if "None" in karmaCounts:
             karmaCounts["Deleted Users"] = karmaCounts["None"]
             del karmaCounts["None"]
 
