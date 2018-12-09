@@ -34,7 +34,7 @@ class Command(BaseCommand):
             for reply in comment.replies:
                 addCommentScore(reply)
 
-        for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="day")):
+        for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="hour")):
 
             print("Collect karma for:", post.title)
 
