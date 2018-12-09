@@ -1,0 +1,197 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <section class="hero is-dark">
+        <div class="hero-head">
+            <div class="container has-text-centered">
+                {% block name %}
+                    <h1 class="title is-italic">{{ monster.name }}</h1>
+                {% endblock %}
+                {% block img_link %}
+                    <img src="https://storage.googleapis.com/mirubot/padimages/na/full/{{ monster.cardID }}.png">
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+
+    <div class="columns is-centered is-5" style="margin: 2.5%">
+        <div class="column"></div>
+        <div class="column">
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.name }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Card ID</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.cardID }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Rarity</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.rarity }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Cost</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.cost }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Maximum XP</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.maxXP }}">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="column">
+            <div class="field">
+                <label class="label">Is Inheritable</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.inheritable }}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Is Collab</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.isCollab }}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Is Ult</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.isUlt }}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Is Released</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.isReleased }}">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Max Lvl</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.maxLevel }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="field">
+                <label class="label">Awakenings</label>
+                <div class="control">
+                    <textarea class="textarea">{{ monster.awakenings }}</textarea>
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Super Awakenings</label>
+                <div class="control">
+                    <textarea class="textarea">{{ monster.superAwakenings }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="column"></div>
+    </div>
+
+    <div class="columns is-centered is-5">
+        <div class="column">
+
+        </div>
+        <div class="column">
+            <div class="field">
+                <label class="label">Min HP</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.minHP }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Max HP</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.maxHP }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Max HP +297</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.hp99 }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="field">
+                <label class="label">Min ATK</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.minATK }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Max ATK</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.maxATK }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Max ATK +297</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.atk99 }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="field">
+                <label class="label">Min ATK</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.minRCV }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Max ATK</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.maxRCV }}">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Max ATK +297</label>
+                <div class="control">
+                    <input class="input" type="text" value="{{ monster.rcv99 }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+
+        </div>
+    </div>
+
+
+    <div class="field">
+        <div class="control">
+            <button class="button is-link">Submit</button>
+        </div>
+    </div>
+
+
+    <div></div>
+{% endblock %}

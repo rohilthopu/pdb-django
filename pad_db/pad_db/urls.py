@@ -33,6 +33,7 @@ urlpatterns = [
     # NA Items
     path('monsterdb/na/', mv.cardList),
     path('monster/na/<int:card_id>/', mv.cardView),
+    path('monster/na/edit/<int:card_id>/', mv.editCardView),
     path('dungeons/na/', dv.DungeonView),
     path('activeskills/na/', mv.activeSkillListView),
     path('activeskills/na/<int:id>/', mv.activeSkillView),

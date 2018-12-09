@@ -6,7 +6,7 @@ from .models import RedditUser
 def leaderboardView(request):
     template = 'karmaLeaderboard.html'
 
-    users = RedditUser.objects.all().order_by("-score")
+    users = RedditUser.objects.all()
 
     context = {'users': users}
 

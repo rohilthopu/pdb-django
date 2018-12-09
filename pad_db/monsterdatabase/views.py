@@ -57,6 +57,14 @@ def cardView(request, card_id):
     return render(request, template, context)
 
 
+def editCardView(request, card_id):
+    template = 'edit_monster_na.html'
+    monster = Monster.objects.get(cardID=card_id)
+    context = {'monster': monster}
+
+    return render(request, template, context)
+
+
 def cardList(request):
     rawCards = Monster.objects.order_by('cardID').all()
     cards = []

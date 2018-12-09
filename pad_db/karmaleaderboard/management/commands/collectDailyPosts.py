@@ -64,5 +64,19 @@ class Command(BaseCommand):
 
             else:
                 entry = RedditUser.objects.get(author=person)
+
+                prevScore = entry.score
                 entry.score += karmaCounts[person]
+
+                if entry.score > prevScore:
+                    entry.scoreUp = True
+                    entry.scoreDown = False
+                elif entry.score < prevScore:
+                    entry.scoreUp = False
+                    entry.scoreDown = True
+                else:
+                    entry.scoreUp = False
+                    entry.scoreDown = False
+
+                entry.scoreDiff = abs(entry.score - prevScore)
                 entry.save()
