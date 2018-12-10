@@ -1,7 +1,14 @@
 {% extends 'skill.html' %}
 
 {% block skill_info %}
-    <h1 class="title">{{ activeskill.name }}</h1>
+    <h1 class="title">
+        <span>{{ activeskill.name }}</span> &nbsp;
+        <span class="icon">
+            <a href="/activeskill/na/edit/{{ activeskill.skillID }}">
+                <i class="fas fa-edit"></i>
+            </a>
+        </span>
+    </h1>
     <h2 class="subtitle"> {{ activeskill.description }}</h2>
 {% endblock %}
 

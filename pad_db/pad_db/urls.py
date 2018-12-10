@@ -39,6 +39,8 @@ urlpatterns = [
     path('activeskills/na/<int:id>/', mv.activeSkillView),
     path('leaderskills/na', mv.leaderSkillListView),
     path('leaderskills/na/<int:id>/', mv.leaderSkillView),
+    path ('leaderskill/na/edit/<int:id>/', mv.editLeaderSkill),
+    path ('activeskill/na/edit/<int:id>/', mv.editActiveSkill),
 
     # JP Items
     path('monsterdb/jp/', jmv.cardList),
