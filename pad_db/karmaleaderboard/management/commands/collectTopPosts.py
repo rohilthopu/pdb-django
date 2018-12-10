@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
 import praw
 from karmaleaderboard.models import RedditUser
-import time
 
 
 class Command(BaseCommand):

@@ -6,7 +6,14 @@
         <div class="hero-head">
             <div class="container has-text-centered">
                 {% block name %}
-                    <h1 class="title is-italic">{{ monster.name }}</h1>
+                    <h1 class="title is-italic">{{ monster.name }}&nbsp;
+                        <span class="icon">
+                            <a href="/monster/na/edit/{{ monster.cardID }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </span>
+
+                    </h1>
                 {% endblock %}
 
                 <div class="subtitle" style="margin-bottom: 0">
@@ -176,19 +183,21 @@
                         </tr>
                         <tr>
                             <th>Effect</th>
-                            <td>{{ leaderskill.description }}</td>
+                            <td>
+                                <div style="font-size: smaller">{{ leaderskill.description }}</div>
+                            </td>
                         </tr>
                         <tr>
-                            <th>Min Turns</th>
-                            <td> N/A </td>
+                            <th>Min</th>
+                            <td> N/A</td>
                         </tr>
                         <tr>
-                            <th>Max Turns</th>
-                            <td> N/A </td>
+                            <th>Max</th>
+                            <td> N/A</td>
                         </tr>
                         <tr>
                             <th>Levels</th>
-                            <td> N/A </td>
+                            <td> N/A</td>
                         </tr>
                         </tbody>
                     </table>
@@ -239,14 +248,16 @@
                         </tr>
                         <tr>
                             <th>Effect</th>
-                            <td>{{ activeskill.description }}</td>
+                            <td>
+                                <div style="font-size: smaller">{{ activeskill.description }}</div>
+                            </td>
                         </tr>
                         <tr>
-                            <th>Min Turns</th>
+                            <th>Min</th>
                             <td>{{ activeskill.minTurns }}</td>
                         </tr>
                         <tr>
-                            <th>Max Turns</th>
+                            <th>Max</th>
                             <td>{{ activeskill.maxTurns }}</td>
                         </tr>
                         <tr>
@@ -255,7 +266,7 @@
                         </tr>
                         </tbody>
                     </table>
-                       <table class="table is-fullwidth">
+                    <table class="table is-fullwidth">
                         <thead>
                         <tr>
                             <th></th>

@@ -2,8 +2,6 @@ from django.core.management.base import BaseCommand
 import praw
 from karmaleaderboard.models import RedditUser
 
-import time
-
 
 class Command(BaseCommand):
     help = 'Collects karma count for users in the PAD subreddit.'
@@ -34,7 +32,7 @@ class Command(BaseCommand):
             for reply in comment.replies:
                 addCommentScore(reply)
 
-        for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="hour")):
+        for post in list(reddit.subreddit('puzzleanddragons').top(time_filter="day")):
 
             print("Collect karma for:", post.title)
 

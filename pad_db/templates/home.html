@@ -4,9 +4,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127208131-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
         gtag('config', 'UA-127208131-1');
     </script>
@@ -25,7 +27,8 @@
     <script type="text/javascript" src={% static 'js/dataTables.bulma.js' %}></script>
     <script type="text/javascript" src={% static 'js/monsterdetail.js' %}></script>
     <script type="text/javascript" src={% static 'js/homecontroller.js' %}></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,10 +44,16 @@
     </div>
     <div id="navbar-menu" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="/">Pad DB</a>
+
+            <a class="navbar-item" href="/">
+                <span class="icon"><i class="fas fa-home"></i></span>
+                <span>Pad DB</span>
+            </a>
+
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="/monsterdb/na">
-                    NA
+                    <span class="icon"><i class="fas fa-globe-americas"></i></span>
+                    <span>NA</span>
                 </a>
                 <div class="navbar-dropdown">
                     <a class="navbar-item" href="/monsterdb/na">
@@ -60,7 +69,8 @@
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="/dungeons/na">
-                    JP
+                    <span class="icon"><i class="fas fa-globe-asia"></i></span>
+                    <span>JP</span>
                 </a>
                 <div class="navbar-dropdown">
                     <a class="navbar-item" href="/monsterdb/jp">
@@ -74,7 +84,10 @@
                     </a>
                 </div>
             </div>
-            <a class="navbar-item" href="/leaderboard">Leaderboard</a>
+            <a class="navbar-item" href="/leaderboard">
+                <span class="icon"><i class="fas fa-th-list"></i></span>
+                <span>Leaderboard</span>
+            </a>
         </div>
     </div>
 </nav>
@@ -206,17 +219,17 @@
             });
         });
     </script>
-{#    <script type="text/javascript">#}
-{#        $(document).ready(function () {#}
-{#            $('#jptable').DataTable({#}
-{#                'pageLength': 50,#}
-{#                columnDefs: [{#}
-{#                    orderData: [0, 1],#}
-{#                    targets: [1]#}
-{#                }]#}
-{#            });#}
-{#        });#}
-{#    </script>#}
+    {#    <script type="text/javascript">#}
+    {#        $(document).ready(function () {#}
+    {#            $('#jptable').DataTable({#}
+    {#                'pageLength': 50,#}
+    {#                columnDefs: [{#}
+    {#                    orderData: [0, 1],#}
+    {#                    targets: [1]#}
+    {#                }]#}
+    {#            });#}
+    {#        });#}
+    {#    </script>#}
 {% endblock %}
 </body>
 </html>

@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
+from .forms import MonsterForm
 import json
-import math
 
 
 def cardView(request, card_id):
@@ -58,9 +58,18 @@ def cardView(request, card_id):
 
 
 def editCardView(request, card_id):
-    template = 'edit_monster_na.html'
+    template = 'editMonster.html'
     monster = Monster.objects.get(cardID=card_id)
-    context = {'monster': monster}
+    form = MonsterForm(instance=monster)
+    context = {'form': form, 'monster': monster}
+
+    if request.method == 'POST':
+        form = MonsterForm(request.POST, instance=monster)
+
+        if form.is_valid():
+            form.save()
+            link = '/monster/na/' + str(card_id)
+            return redirect(link)
 
     return render(request, template, context)
 
