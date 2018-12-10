@@ -76,5 +76,5 @@ class Command(BaseCommand):
                     entry.scoreUp = False
                     entry.scoreDown = False
 
-                entry.scoreDiff = abs(entry.score - prevScore)
+                entry.scoreDiff = entry.score - prevScore
                 entry.save()

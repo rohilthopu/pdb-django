@@ -13,8 +13,11 @@
     </nav>
 
         <div class="columns is-centered" id="load" style="margin-top: 15%">
-            <div class="column is-half">
-                <div class="label has-text-centered">Loading data...</div>
+            <div class="column is-half" align="center">
+{#                <div class="label has-text-centered">Loading data...</div>#}
+                <span class="icon is-large" >
+                    <i class="fas fa-spinner fa-spin fa-4x"></i>
+                </span>
             </div>
         </div>
 
@@ -27,7 +30,7 @@
                 <thead>
                 <tr>
                     <th class="has-text-centered">Name</th>
-                    <th class="has-text-right">Skill ID</th>
+{#                    <th class="has-text-right">Skill ID</th>#}
                     {% block skill_turn_head %}
 
                     {% endblock %}
@@ -55,8 +58,8 @@
                     'paging': false,
                     'order': []
                 });
-    document.getElementById('load').style.display = 'none';
-    document.getElementById('tableview').style.visibility = 'visible';
+            document.getElementById('load').style.display = 'none';
+            document.getElementById('tableview').style.visibility = 'visible';
             });
         </script>
 
