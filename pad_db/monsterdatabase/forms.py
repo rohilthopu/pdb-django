@@ -1,5 +1,5 @@
 from django import forms
-from .models import Monster
+from .models import Monster, Skill
 
 
 class MonsterForm(forms.ModelForm):
@@ -21,7 +21,7 @@ class MonsterForm(forms.ModelForm):
             'isUlt': forms.TextInput(attrs={'class': 'input'}),
             'isReleased': forms.TextInput(attrs={'class': 'input'}),
             'maxLevel': forms.TextInput(attrs={'class': 'input'}),
-            'awakenings': forms.Textarea(attrs={'class': 'textarea',}),
+            'awakenings': forms.Textarea(attrs={'class': 'textarea', }),
             'superAwakenings': forms.Textarea(attrs={'class': 'textarea'}),
             'minHP': forms.TextInput(attrs={'class': 'input'}),
             'maxHP': forms.TextInput(attrs={'class': 'input'}),
@@ -33,3 +33,34 @@ class MonsterForm(forms.ModelForm):
             'maxRCV': forms.TextInput(attrs={'class': 'input'}),
             'rcv99': forms.TextInput(attrs={'class': 'input'}),
         }
+
+
+class SkillForm(forms.ModelForm):
+    class Meta:
+        model = Skill
+        fields = (
+            'name', 'description', 'skillID', 'skill_type', 'hp_mult', 'atk_mult', 'rcv_mult',
+            'dmg_reduction', 'c_skill_1', 'c_skill_2', 'c_skill_3', 'skill_class', 'levels', 'maxTurns',
+            'minTurns'
+
+        )
+
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'input'}),
+            'description': forms.TextInput(attrs={'class': 'input'}),
+            'skillID': forms.TextInput(attrs={'class': 'input'}),
+            'skill_type': forms.TextInput(attrs={'class': 'input'}),
+            'hp_mult': forms.TextInput(attrs={'class': 'input'}),
+            'atk_mult': forms.TextInput(attrs={'class': 'input'}),
+            'rcv_mult': forms.TextInput(attrs={'class': 'input'}),
+            'dmg_reduction': forms.TextInput(attrs={'class': 'input'}),
+            'c_skill_1': forms.TextInput(attrs={'class': 'input'}),
+            'c_skill_2': forms.TextInput(attrs={'class': 'input'}),
+            'c_skill_3': forms.TextInput(attrs={'class': 'input'}),
+            'skill_class': forms.TextInput(attrs={'class': 'input'}),
+            'levels': forms.TextInput(attrs={'class': 'input'}),
+            'maxTurns': forms.TextInput(attrs={'class': 'input'}),
+            'minTurns': forms.TextInput(attrs={'class': 'input'}),
+
+        }
+

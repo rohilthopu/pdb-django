@@ -4,11 +4,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127208131-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
-
         gtag('js', new Date());
         gtag('config', 'UA-127208131-1');
     </script>
@@ -220,17 +218,18 @@
             });
         });
     </script>
-    {#    <script type="text/javascript">#}
-    {#        $(document).ready(function () {#}
-    {#            $('#jptable').DataTable({#}
-    {#                'pageLength': 50,#}
-    {#                columnDefs: [{#}
-    {#                    orderData: [0, 1],#}
-    {#                    targets: [1]#}
-    {#                }]#}
-    {#            });#}
-    {#        });#}
-    {#    </script>#}
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#jptable').DataTable({
+                    'pageLength': 50,
+                    'paging': false,
+                    columnDefs: [{
+                        orderData: [0, 1],
+                        targets: [1]
+                    }]
+                });
+            });
+        </script>
 {% endblock %}
 </body>
 </html>

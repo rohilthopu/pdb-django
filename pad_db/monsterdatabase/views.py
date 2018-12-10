@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
-from .forms import MonsterForm
+from .forms import MonsterForm, SkillForm
 import json
 
 
@@ -124,6 +124,37 @@ def leaderSkillView(request, id):
     template = 'leader_skill_na.html'
     return render(request, template, context)
 
+def editActiveSkill(request, id):
+    skill = Skill.objects.get(skillID=id)
+    template = 'editSkill.html'
+    form = SkillForm(instance=skill)
+    context = {'skill': skill, 'form': form}
+
+    if request.method == 'POST':
+        form = SkillForm(request.POST, instance=skill)
+
+        if form.is_valid():
+            form.save()
+            link = '/activeskills/na/' + str(id)
+            return redirect(link)
+
+    return render(request, template, context)
+
+def editLeaderSkill(request, id):
+    skill = Skill.objects.get(skillID=id)
+    template = 'editSkill.html'
+    form = SkillForm(instance=skill)
+    context = {'skill': skill, 'form': form}
+
+    if request.method == 'POST':
+        form = SkillForm(request.POST, instance=skill)
+
+        if form.is_valid():
+            form.save()
+            link = '/leaderskills/na/' + str(id)
+            return redirect(link)
+
+    return render(request, template, context)
 
 def getEvoMats(monster, monsters):
     evomats = []
