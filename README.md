@@ -30,6 +30,9 @@ RECENT CHANGES (v1.1):
     Changed sorting options on the calendar tables so that both tables now use DataTables to organize and display stuff
     
     Re-enabled DataTables on the JP table
+    
+    Updated scripts for updatecardsna/updateskillsna to only collect most recent data, so as to preserve any changes that 
+        might have been made to the db from the front end.
 
     
     
