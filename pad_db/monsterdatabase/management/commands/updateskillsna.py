@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        Skill.objects.all().delete()
+        allSkills = Skill.objects.all()
 
         link = 'https://storage.googleapis.com/mirubot/paddata/processed/na_skills.json'
 
@@ -29,38 +29,40 @@ class Command(BaseCommand):
 
             if item['skill_id'] != 0:
 
-                skill = Skill()
-                skill.name = item['name']
-                skill.description = item['clean_description']
-                skill.skillID = item['skill_id']
+                if not allSkills.filter(skillID=item['skill_id']).exists():
 
-                if item['levels'] is not None:
-                    skill.levels = item['levels']
-                    skill.maxTurns = item['turn_max']
-                    skill.minTurns = item['turn_min']
-                    skill.skill_type = "active"
-                else:
-                    skill.skill_type = "leader"
+                    skill = Skill()
+                    skill.name = item['name']
+                    skill.description = item['clean_description']
+                    skill.skillID = item['skill_id']
 
-                skill_type = item['skill_type']
-                other_fields = item['other_fields']
+                    if item['levels'] is not None:
+                        skill.levels = item['levels']
+                        skill.maxTurns = item['turn_max']
+                        skill.minTurns = item['turn_min']
+                        skill.skill_type = "active"
+                    else:
+                        skill.skill_type = "leader"
 
-                skill.skill_class = SKILL_TYPE[skill_type]
+                    skill_type = item['skill_type']
+                    other_fields = item['other_fields']
 
-                multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
+                    skill.skill_class = SKILL_TYPE[skill_type]
 
-                skill.hp_mult = multipliers.hp
-                skill.atk_mult = multipliers.atk
-                skill.rcv_mult = multipliers.rcv
-                skill.dmg_reduction = multipliers.shield
+                    multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
 
-                if skill_type == 116 or skill_type == 138:
-                    skill.c_skill_1 = other_fields[0]
-                    skill.c_skill_2 = other_fields[1]
-                    if len(other_fields) == 3:
-                        skill.c_skill_3 = other_fields[2]
+                    skill.hp_mult = multipliers.hp
+                    skill.atk_mult = multipliers.atk
+                    skill.rcv_mult = multipliers.rcv
+                    skill.dmg_reduction = multipliers.shield
 
-                skill.save()
+                    if skill_type == 116 or skill_type == 138:
+                        skill.c_skill_1 = other_fields[0]
+                        skill.c_skill_2 = other_fields[1]
+                        if len(other_fields) == 3:
+                            skill.c_skill_3 = other_fields[2]
+
+                    skill.save()
 
         end = time.time()
         print()
