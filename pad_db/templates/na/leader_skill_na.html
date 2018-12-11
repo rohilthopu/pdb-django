@@ -1,7 +1,14 @@
 {% extends 'skill.html' %}
 
 {% block skill_info %}
-    <h1 class="title">{{ leaderskill.name }}</h1>
+    <h1 class="title">
+        <span>{{ leaderskill.name }}</span> &nbsp;
+        <span class="icon">
+            <a href="/leaderskills/na/edit/{{ leaderskill.skillID }}">
+                <i class="fas fa-edit"></i>
+            </a>
+        </span>
+    </h1>
     <h2 class="subtitle"> {{ leaderskill.description }}</h2>
 {% endblock %}
 

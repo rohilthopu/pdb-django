@@ -3,8 +3,128 @@
 
 {% block content %}
 
+    <section class="hero is-dark">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    {{ skill.name }}
+                </h1>
+                <h2 class="subtitle"> {{ skill.description }}</h2>
+            </div>
+        </div>
+    </section>
+
+    <form method="POST" name="form" class="post-form" enctype="multipart/form-data">
+
+        {% csrf_token %}
 
 
+        <div class="columns is-centered" style="margin: 2.5%">
+
+            <div class="column is-one-quarter">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Description</label>
+                    <div class="control">
+                        {{ form.description }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Skill ID</label>
+                    <div class="control">
+                        {{ form.skillID }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Skill Type</label>
+                    <div class="control">
+                        {{ form.skill_type }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">HP Multiplier</label>
+                    <div class="control">
+                        {{ form.hp_mult }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">ATK Multiplier</label>
+                    <div class="control">
+                        {{ form.atk_mult }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">RCV Multiplier</label>
+                    <div class="control">
+                        {{ form.rcv_mult }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Damage Reduction</label>
+                    <div class="control">
+                        {{ form.dmg_reduction }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="column is-one-quarter">
+                <div class="field">
+                    <label class="label">Skill Part 1</label>
+                    <div class="control">
+                        {{ form.c_skill_1 }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Skill Part 2</label>
+                    <div class="control">
+                        {{ form.c_skill_2 }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Skill Part 3</label>
+                    <div class="control">
+                        {{ form.c_skill_3 }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Skill Class</label>
+                    <div class="control">
+                        {{ form.skill_class }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Levels</label>
+                    <div class="control">
+                        {{ form.levels }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Max Turns</label>
+                    <div class="control">
+                        {{ form.maxTurns }}
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Min Turns</label>
+                    <div class="control">
+                        {{ form.minTurns }}
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div align="center" style="margin-bottom: 2.5%">
+            <button class="button is-link" name="submit" type="submit" value="submit">Submit</button>
+        </div>
+
+    </form>
 
 
 

@@ -98,9 +98,9 @@ def activeSkillListView(request):
     return render(request, template, context)
 
 
-def activeSkillView(request, id):
-    skill = Skill.objects.get(skillID=id)
-    monsters = Monster.objects.filter(activeSkillID=id)
+def activeSkillView(request, skill_id):
+    skill = Skill.objects.get(skillID=skill_id)
+    monsters = Monster.objects.filter(activeSkillID=skill_id)
     amultipliers = getMultipliers(skill)
     context = {'activeskill': skill, "monsters": monsters, "amultipliers": amultipliers}
     template = 'active_skill_na.html'
@@ -114,9 +114,9 @@ def leaderSkillListView(request):
     return render(request, template, context)
 
 
-def leaderSkillView(request, id):
-    skill = Skill.objects.get(skillID=id)
-    monsters = Monster.objects.filter(leaderSkillID=id)
+def leaderSkillView(request, skill_id):
+    skill = Skill.objects.get(skillID=skill_id)
+    monsters = Monster.objects.filter(leaderSkillID=skill_id)
     lmultipliers = getMultipliers(skill)
     d_multipliers = [round((item ** 2), 2) for item in lmultipliers]
     d_multipliers[3] = round((1 - (1 - lmultipliers[4]) * (1 - lmultipliers[4])) * 100, 2)
@@ -124,8 +124,9 @@ def leaderSkillView(request, id):
     template = 'leader_skill_na.html'
     return render(request, template, context)
 
-def editActiveSkill(request, id):
-    skill = Skill.objects.get(skillID=id)
+
+def editActiveSkill(request, skill_id):
+    skill = Skill.objects.get(skillID=skill_id)
     template = 'editSkill.html'
     form = SkillForm(instance=skill)
     context = {'skill': skill, 'form': form}
@@ -135,13 +136,16 @@ def editActiveSkill(request, id):
 
         if form.is_valid():
             form.save()
-            link = '/activeskills/na/' + str(id)
+            link = '/activeskills/na/' + str(skill_id)
             return redirect(link)
+        else:
+            return render(request, template, context)
 
     return render(request, template, context)
 
-def editLeaderSkill(request, id):
-    skill = Skill.objects.get(skillID=id)
+
+def editLeaderSkill(request, skill_id):
+    skill = Skill.objects.get(skillID=skill_id)
     template = 'editSkill.html'
     form = SkillForm(instance=skill)
     context = {'skill': skill, 'form': form}
@@ -151,10 +155,11 @@ def editLeaderSkill(request, id):
 
         if form.is_valid():
             form.save()
-            link = '/leaderskills/na/' + str(id)
+            link = '/leaderskills/na/' + str(skill_id)
             return redirect(link)
 
     return render(request, template, context)
+
 
 def getEvoMats(monster, monsters):
     evomats = []

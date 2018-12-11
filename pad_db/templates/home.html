@@ -65,23 +65,23 @@
                     </a>
                 </div>
             </div>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="/dungeons/na">
-                    <span class="icon"><i class="fas fa-globe-asia"></i></span>
-                    <span>JP</span>
-                </a>
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/monsterdb/jp">
-                        Monsters
-                    </a>
-                    <a class="navbar-item" href="/activeskills/jp">
-                        Active Skills
-                    </a>
-                    <a class="navbar-item" href="/leaderskills/jp">
-                        Leader Skills
-                    </a>
-                </div>
-            </div>
+{#            <div class="navbar-item has-dropdown is-hoverable">#}
+{#                <a class="navbar-link" href="/dungeons/na">#}
+{#                    <span class="icon"><i class="fas fa-globe-asia"></i></span>#}
+{#                    <span>JP</span>#}
+{#                </a>#}
+{#                <div class="navbar-dropdown">#}
+{#                    <a class="navbar-item" href="/monsterdb/jp">#}
+{#                        Monsters#}
+{#                    </a>#}
+{#                    <a class="navbar-item" href="/activeskills/jp">#}
+{#                        Active Skills#}
+{#                    </a>#}
+{#                    <a class="navbar-item" href="/leaderskills/jp">#}
+{#                        Leader Skills#}
+{#                    </a>#}
+{#                </div>#}
+{#            </div>#}
             <a class="navbar-item" href="/leaderboard">
                 <span class="icon"><i class="fas fa-th-list"></i></span>
                 <span>Leaderboard</span>
@@ -211,10 +211,10 @@
             $('#natable').DataTable({
                 'pageLength': 50,
                 'paging': false,
-                columnDefs: [{
-                    orderData: [0, 1],
-                    targets: [1]
-                }]
+                {#columnDefs: [{#}
+                {#    orderData: [0, 1],#}
+                {#    targets: [1]#}
+                {#}]#}
             });
         });
     </script>
@@ -223,10 +223,10 @@
                 $('#jptable').DataTable({
                     'pageLength': 50,
                     'paging': false,
-                    columnDefs: [{
-                        orderData: [0, 1],
-                        targets: [1]
-                    }]
+                    {#columnDefs: [{#}
+                    {#    orderData: [0, 1],#}
+                    {#    targets: [1]#}
+                    {#}]#}
                 });
             });
         </script>
