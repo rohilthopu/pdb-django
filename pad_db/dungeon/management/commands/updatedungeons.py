@@ -11,10 +11,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
 
-
-        for dun in Dungeon.objects.all():
-            dun.delete()
-
+        Dungeon.objects.all().delete()
 
         start = time.time()
 
@@ -28,13 +25,40 @@ class Command(BaseCommand):
 
             if '*' not in name:
 
-                dungeon = Dungeon()
+                for floor in item['floors']:
 
-                dungeon.name = name.rsplit("#")[-1]
-                dungeon.dungeonID = item['dungeon_id']
-                dungeon.floorCount = len(item['floors'])
-                dungeon.save()
+                    dungeon = Dungeon()
+
+                    dungeon.name = name.rsplit("#")[-1]
+                    dungeon.dungeonID = item['dungeon_id']
+                    dungeon.floorCount = floor['raw'][2]
+                    raw = floor['raw']
+
+                    dungeon.floorName = raw[1]
+                    pos = 8
+                    possibleDrops = {}
+
+                    while (int(raw[pos]) is not 0):
+                        rawVal = int(raw[pos])
+                        if rawVal > 10000:
+                            val = rawVal - 10000
+                            possibleDrops[val] = "rare"
+                            pos += 1
+                        else:
+                            possibleDrops[rawVal] = "normal"
+                            pos += 1
+
+                    dungeon.possibleDrops = json.dumps(possibleDrops)
+                    dungeon.save()
 
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
         print("Elapsed time :", end - start)
+
+        print("Printing all dungeon information.")
+
+        for dungeon in Dungeon.objects.all():
+            print("\tDungeon Name:", dungeon.name)
+            print("\t\tFloor Name:", dungeon.floorName)
+            print("\t\t\tDungeon Floor Count:", dungeon.floorCount)
+            print("\t\t\tPossible Drops:", json.loads(dungeon.possibleDrops))

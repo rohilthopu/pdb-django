@@ -12,4 +12,6 @@ class Dungeon(models.Model):
     name = models.CharField(default="", max_length=100)
     dungeonID = models.IntegerField(default=0)
     dungeonType = models.CharField(default="", max_length=50)
+    floorName = models.CharField(default="", max_length=50)
     floorCount = models.IntegerField(default=0)
+    possibleDrops = models.TextField(default="")
