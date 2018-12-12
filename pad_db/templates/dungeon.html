@@ -39,28 +39,53 @@
 
     <div class="columns is-centered">
 
-        {% for floor in drops %}
+        {% for floor, drop in drops %}
 
-            <div class="column is-half" style="display: none" name="drops">
-                <label class="label has-text-centered">Possible Drops</label>
-                <table class="table is-fullwidth">
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th class="has-text-centered">Name</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for drop, rarity in floor %}
-                        <tr>
-                            <td><a
-                                    href="/monster/na/{{ drop }}"><img
-                                    src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ drop }}.png"></a>
-                            </td>
-                            <td class="has-text-centered">{{ rarity }}</td>
-                        </tr>
-                    {% endfor %}
-                </table>
+            <div class="column is-three-quarters" style="display: none" name="drops">
+
+                <div class="columns">
+                    <div class="column">
+                        <label class="label has-text-centered">Floor Data</label>
+                        <table class="table is-fullwidth">
+                            <tbody>
+                            <tr>
+                                <th>Floor Name</th>
+                                <td class="has-text-right">{{ floor.name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Floor Number</th>
+                                <td class="has-text-right">{{ floor.floorNumber }}</td>
+                            </tr>
+                            <tr>
+                                <th>Stamina</th>
+                                <td class="has-text-right">{{ floor.stamina }}</td>
+                            </tr>
+                            <tr>
+                                <th>Battles</th>
+                                <td class="has-text-right">{{ floor.battles }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="column is-half">
+
+                        <label class="label has-text-centered">Possible drops</label>
+
+                        <table class="table is-fullwidth">
+                            <tbody>
+                            {% for key, val in drop.items %}
+                                <tr>
+                                    <td><a href="/monster/na/{{ key }}"><img
+                                            src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ key }}.png"
+                                            height="15%" width="15%"></a>
+                                    </td>
+                                    <td class="has-text-right">{{ val }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
             </div>
 
         {% endfor %}
@@ -69,6 +94,8 @@
     <script>
         window.onload = function () {
             document.getElementsByName("drops")[0].style.display = "";
+            var baseDiff = document.getElementById("diffSelector").options[0].text;
+            document.getElementById("diffLabel").innerText = "Possible drops for " + baseDiff
         }
     </script>
 

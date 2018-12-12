@@ -15,25 +15,11 @@ def dungeonView(request, d_id):
     floors = Floor.objects.filter(dungeonID=d_id)
 
     drops = []
-
-    rarities = []
-
-    floorData = []
-
     for floor in floors:
+        dropList = json.loads(floor.possibleDrops)
+        drops.append(dropList)
 
-        allDrops = json.loads(floor.possibleDrops)
-
-        for drop in allDrops.keys():
-            drops.append(drop)
-            rarities.append(allDrops[drop])
-
-        dropData = zip(drops, rarities)
-
-        drops = []
-        rarities = []
-
-        floorData.append(dropData)
+    floorData = zip(floors, drops)
 
     context = {'dungeon': dungeon, 'floors': floors, 'drops': floorData}
 

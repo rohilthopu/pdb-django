@@ -10,7 +10,6 @@ class Floor(models.Model):
     dungeonID = models.IntegerField(default=0)
 
 
-
 class Dungeon(models.Model):
     name = models.CharField(default="", max_length=100)
     dungeonID = models.IntegerField(default=0)
