@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 import requests
 import json
-from ...models import Dungeon
+from ...models import Dungeon, Floor
 import time
 
 
@@ -25,16 +25,22 @@ class Command(BaseCommand):
 
             if '*' not in name:
 
+                dungeon = Dungeon()
+                dungeon.name = name.rsplit("#")[-1]
+                dungeon.dungeonID = item['dungeon_id']
+                dungeon.floorCount = len(item['floors'])
+                dungeon.save()
+
                 for floor in item['floors']:
 
-                    dungeon = Dungeon()
-
-                    dungeon.name = name.rsplit("#")[-1]
-                    dungeon.dungeonID = item['dungeon_id']
-                    dungeon.floorCount = floor['raw'][2]
                     raw = floor['raw']
 
-                    dungeon.floorName = raw[1]
+                    floor = Floor()
+                    floor.dungeonID = dungeon.dungeonID
+                    floor.floorNumber = raw[0]
+                    floor.floorName = raw[1]
+                    floor.battles = raw[2]
+                    floor.stamina = raw[4]
                     pos = 8
                     possibleDrops = {}
 
@@ -48,17 +54,18 @@ class Command(BaseCommand):
                             possibleDrops[rawVal] = "normal"
                             pos += 1
 
-                    dungeon.possibleDrops = json.dumps(possibleDrops)
-                    dungeon.save()
+                    floor.possibleDrops = json.dumps(possibleDrops)
+                    floor.save()
 
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
         print("Elapsed time :", end - start)
 
-        print("Printing all dungeon information.")
+        # print("Printing all dungeon information.")
 
-        for dungeon in Dungeon.objects.all():
-            print("\tDungeon Name:", dungeon.name)
-            print("\t\tFloor Name:", dungeon.floorName)
-            print("\t\t\tDungeon Floor Count:", dungeon.floorCount)
-            print("\t\t\tPossible Drops:", json.loads(dungeon.possibleDrops))
+        # for dungeon in Dungeon.objects.all():
+        #     print("\tDungeon Name:", dungeon.name)
+        #     print("\t\tFloor Name:", dungeon.floorName)
+        #     print("\t\tFloor Name:", dungeon.stamina)
+        #     print("\t\t\tDungeon Floor Count:", dungeon.floorCount)
+        #     print("\t\t\tPossible Drops:", json.loads(dungeon.possibleDrops))

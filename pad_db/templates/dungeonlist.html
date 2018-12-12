@@ -20,7 +20,6 @@
                 <thead>
                 <tr>
                     <th>Dungeon</th>
-                    <th>Type</th>
                     <th>Floor Count</th>
                 </tr>
                 </thead>
@@ -29,8 +28,7 @@
 
                 {% for dungeon in dungeons %}
                     <tr>
-                        <td> {{ dungeon.name }}</td>
-                        <td> {{ dungeon.dungeonType }}</td>
+                        <td> <a href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
                         <td> {{ dungeon.floorCount }}</td>
                     </tr>
                 {% endfor %}
