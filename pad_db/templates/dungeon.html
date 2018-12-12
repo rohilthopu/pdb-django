@@ -26,39 +26,50 @@
         </div>
     </section>
 
-
-    <div class="dropdown">
-        <div class="dropdown-trigger">
-            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>{{ floors.0.name }}</span>
-                <span class="icon is-small">
-                    <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-            </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content">
+    <div align="center" style="margin-top: 2.5%; margin-bottom: 2.5%">
+        <div class="select">
+            <select id="diffSelector" onchange="showDifficulty();">
                 {% for floor in floors %}
-                    <a class="dropdown-item">
-                        {{ floor.name }}
-                    </a>
+                    <option>{{ floor.name }}</option>
                 {% endfor %}
-            </div>
+            </select>
         </div>
     </div>
 
-    {#    <div class="columns" style="margin: 2.5%">#}
-    {#        <div class="column is-one-half" align="center">#}
-    {#        </div>#}
-    {#    </div>#}
+
+    <div class="columns is-centered">
+
+        {% for floor in drops %}
+
+            <div class="column is-half" style="display: none" name="drops">
+                <label class="label has-text-centered">Possible Drops</label>
+                <table class="table is-fullwidth">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th class="has-text-centered">Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for drop, rarity in floor %}
+                        <tr>
+                            <td><a
+                                    href="/monster/na/{{ drop }}"><img
+                                    src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ drop }}.png"></a>
+                            </td>
+                            <td class="has-text-centered">{{ rarity }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+        {% endfor %}
+    </div>
 
     <script>
-        var dropdown = document.querySelector('.dropdown');
-        dropdown.addEventListener('click', function (event) {
-            event.stopPropagation();
-            dropdown.classList.toggle('is-active');
-        });
+        window.onload = function () {
+            document.getElementsByName("drops")[0].style.display = "";
+        }
     </script>
-
 
 {% endblock %}
