@@ -12,6 +12,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
 
         Dungeon.objects.all().delete()
+        Floor.objects.all().delete()
 
         start = time.time()
 
@@ -31,14 +32,14 @@ class Command(BaseCommand):
                 dungeon.floorCount = len(item['floors'])
                 dungeon.save()
 
-                for floor in item['floors']:
+                for floorItem in item['floors']:
 
-                    raw = floor['raw']
+                    raw = floorItem['raw']
 
                     floor = Floor()
                     floor.dungeonID = dungeon.dungeonID
                     floor.floorNumber = raw[0]
-                    floor.floorName = raw[1]
+                    floor.name = raw[1].split('$')[-1]
                     floor.battles = raw[2]
                     floor.stamina = raw[4]
                     pos = 8
