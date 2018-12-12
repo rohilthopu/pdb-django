@@ -33,6 +33,10 @@ RECENT CHANGES (v1.1):
     
     Updated scripts for updatecardsna/updateskillsna to only collect most recent data, so as to preserve any changes that 
         might have been made to the db from the front end.
+        
+    Add a parser to parse basic information from the Dungeons API such as Floor drop data
+    
+    Added a page to list the dungeons with a drop down to select the difficulty level
 
     
     
