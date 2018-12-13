@@ -103,3 +103,17 @@ function secondsToHms(d) {
 
     return ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
 }
+
+function showDifficulty() {
+    let diff = document.getElementById("diffSelector").selectedIndex;
+
+    let columns = document.getElementsByName("drops");
+
+    for (var i = 0; i < columns.length; i++) {
+        if (columns[i].style.display === '') {
+            columns[i].style.display = 'none';
+            break;
+        }
+    }
+    columns[diff].style.display = '';
+}
