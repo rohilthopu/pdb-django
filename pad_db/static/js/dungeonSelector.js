@@ -10,7 +10,4 @@ function showDifficulty() {
         }
     }
     columns[diff].style.display = '';
-
-    var baseDiff = document.getElementById("diffSelector").options[diff].text;
-    document.getElementById("diffLabel").innerText = "Possible drops for " + baseDiff
 }

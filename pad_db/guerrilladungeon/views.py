@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import GuerrillaDungeon
+from dungeon.models import Dungeon
 from datetime import date
 from time import time
 # Create your views here.
@@ -30,9 +31,19 @@ def DungeonView(request):
         else:
             jpActives.append("Ended")
 
-    na = zip(naDungeons, naActives)
+    naDungeonID = []
+
+    for dungeon in naDungeons:
+
+        d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
+        naDungeonID.append(d_id)
+
+    na = zip(naDungeons, naActives, naDungeonID)
     jp = zip(jpDungeons, jpActives)
 
-    context = {'date': dateT, 'na': na, 'jp': jp,}
+
+
+
+    context = {'date': dateT, 'na': na, 'jp': jp}
 
     return render(request, template, context)
