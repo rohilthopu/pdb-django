@@ -37,6 +37,8 @@ RECENT CHANGES (v1.1):
     Add a parser to parse basic information from the Dungeons API such as Floor drop data
     
     Added a page to list the dungeons with a drop down to select the difficulty level
+    
+    Linked dungeons from the calendar to those in the Dungeon DB
 
     
     
