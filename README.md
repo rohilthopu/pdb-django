@@ -39,6 +39,8 @@ RECENT CHANGES (v1.1):
     Added a page to list the dungeons with a drop down to select the difficulty level
     
     Linked dungeons from the calendar to those in the Dungeon DB
+    
+    Linked Monsters to the dungeons where they drop -> Slight restyle to monster page as a result to include dungeons.
 
     
     
