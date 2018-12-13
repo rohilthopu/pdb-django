@@ -26,7 +26,7 @@
                     {% endif %}
                 </div>
                 {% block img_link %}
-                    {#                    <img src="https://storage.googleapis.com/mirubot/padimages/na/full/{{ monster.cardID }}.png">#}
+                    <img src="https://storage.googleapis.com/mirubot/padimages/na/full/{{ monster.cardID }}.png">
                 {% endblock %}
             </div>
         </div>
@@ -185,7 +185,8 @@
                 <tbody>
                 {% for dungeon in dungeons %}
                     <tr>
-                        <td class="has-text-centered"><a href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
+                        <td class="has-text-centered"><a
+                                href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
