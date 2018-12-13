@@ -181,16 +181,23 @@
 
         <div class="column is-one-quarter">
             <label class="label has-text-centered"><em>{{ monster.name }}</em> drops from</label>
-            <table class="table is-fullwidth">
-                <tbody>
-                {% for dungeon in dungeons %}
-                    <tr>
-                        <td class="has-text-centered"><a
-                                href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+
+            {% if dungeons %}
+                <table class="table is-fullwidth">
+                    <tbody>
+                    {% for dungeon in dungeons %}
+                        <tr>
+                            <td class="has-text-centered"><a
+                                    href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+
+                <div class="has-text-centered">No dungeon information available.</div>
+
+            {% endif %}
 
         </div>
 
