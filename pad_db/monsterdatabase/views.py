@@ -3,6 +3,7 @@ from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
 from .forms import MonsterForm, SkillForm
 import json
+from dungeon.models import Dungeon, Floor
 
 
 def cardView(request, card_id):
@@ -49,10 +50,13 @@ def cardView(request, card_id):
 
     types = getTypes(monster)
 
+    dungeons = getDungeons(card_id)
+
     context = {'activeskill': activeskill, 'leaderskill': leaderskill,
                'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evomats": evomats,
                "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types,
-               'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers}
+               'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers,
+               'dungeons': dungeons}
 
     return render(request, template, context)
 
@@ -237,3 +241,18 @@ def getEvos(evo_list) -> []:
         if "Alt." not in evoCard.name:
             evos.append(evoCard)
     return evos
+
+
+def getDungeons(card_id) -> []:
+    dungeonList = []
+
+    floors = Floor.objects.all()
+    for floor in floors:
+        dropData = json.loads(floor.possibleDrops)
+        for key in dropData.keys():
+            if card_id == int(key):
+                dungeon = Dungeon.objects.filter(dungeonID=floor.dungeonID)[0]
+                if dungeon not in dungeonList:
+                    dungeonList.append(dungeon)
+
+    return dungeonList
