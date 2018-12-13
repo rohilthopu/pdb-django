@@ -4,7 +4,7 @@ function showDifficulty() {
     let columns = document.getElementsByName("drops");
 
     for (var i = 0; i < columns.length; i++) {
-        if (columns[i].style.display == '') {
+        if (columns[i].style.display === '') {
             columns[i].style.display = 'none';
             break;
         }
