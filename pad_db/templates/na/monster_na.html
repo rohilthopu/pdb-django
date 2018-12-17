@@ -115,6 +115,23 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div class="column">
+                    <label class="label has-text-centered">Awakenings</label>
+                    <table class="table is-fullwidth">
+                        <tbody>
+                        {% for awakening in awakenings %}
+                            <tr>
+                                <td class="has-text-centered">{{ awakening }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="columns">
                 <div class="column">
                     <label class="label has-text-centered">Other Information</label>
                     <table class="table is-fullwidth">
@@ -146,23 +163,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            <div class="columns">
-                <div class="column">
-                    <label class="label has-text-centered">Awakenings</label>
-                    <table class="table is-fullwidth">
-                        <tbody>
-                        {% for awakening in awakenings %}
-                            <tr>
-                                <td class="has-text-centered">{{ awakening }}</td>
-                            </tr>
-                        {% endfor %}
-
-                        </tbody>
-                    </table>
-                </div>
-
                 <div class="column">
                     <label class="label has-text-centered">Super Awakenings</label>
                     <table class="table is-fullwidth">
@@ -179,7 +179,7 @@
             </div>
         </div>
 
-        <div class="column is-one-quarter">
+        <div class="column is-one-quarter" id="dungeondata">
             <label class="label has-text-centered"><em>{{ monster.name }}</em> drops from</label>
 
             {% if dungeons %}
@@ -200,6 +200,8 @@
             {% endif %}
 
         </div>
+
+
 
 
         {% block skills %}

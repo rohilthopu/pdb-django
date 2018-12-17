@@ -3,6 +3,7 @@ function showSkill() {
     document.getElementById('monsterdata').style.display = 'none';
     document.getElementById('evomaterials').style.display = 'none';
     document.getElementById('unevomaterials').style.display = 'none';
+    document.getElementById('dungeondata').style.display = 'none';
 
 
     var actives = document.getElementsByClassName('is-active');
@@ -35,6 +36,7 @@ function showMonsterData() {
     document.getElementById('monstertab').classList.add('is-active');
 
     document.getElementById('monsterdata').style.display = 'block';
+    document.getElementById('dungeondata').style.display = 'block';
 
 
 }
@@ -45,6 +47,7 @@ function showEvoData() {
     document.getElementById('leaderskill').style.display = 'none';
     document.getElementById('activeskill').style.display = 'none';
     document.getElementById('monsterdata').style.display = 'none';
+    document.getElementById('dungeondata').style.display = 'none';
 
     var actives = document.getElementsByClassName('is-active');
     for (i = 0; i < actives.length; i++) {

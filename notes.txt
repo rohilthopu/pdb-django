@@ -1,0 +1,86 @@
+
+
+FLOOR RAW 3
+
+640 -> Score dungeon
+
+896 - > Score dungeon
+
+544 - > Score Dungeon
+
+512-> Score dungeon
+
+384 -> Tournament Dungeon
+
+340 -> ??? ['1', 'Skills', '3', '340', '0', '0', '0', '0', '76', '0', '1', '4', '1', '0', '0'] ???
+
+256 -> ??? ['1', '10MM Tournament', '6', '256', '50', '1', '1', '0', '781', '11328', '11329', '11327', '11326', '11325', '0', '64', 'fc1:2009;99;99;99;99;99;99;|fc2:2416;99;99;99;99;99;99;|fc3:2418;99;99;99;99;99;99;|fc4:2420;99;99;99;99;99;99;|fc5:2424;99;99;99;99;99;99;|fc6:2009;99;99;99;99;99;99;|hp:10000|at:3000|df:8000', '0', '0']
+
+128 -> Yike see file
+
+104 -> ['1', 'Enemies & Eggs', '3', '104', '0', '0', '0', '0', '52', '0', '1', '1', '1', '0', '0']
+
+103 -> ['1', 'Basic Controls', '3', '103', '0', '0', '0', '0', '0', '0', '0', '0']
+
+96 -> Tricolor Weekend Dungeon
+
+80 -> Useless ['1', 'Mass Attacks', '3', '80', '0', '0', '0', '0', '42', '0', '1', '2', '1', '0', '0']
+
+79 -> ['1', 'Attributes', '3', '79', '0', '0', '0', '0', '44', '0', '1', '3', '1', '0', '0']
+
+
+64 -> Wings of Sunlight dungeon
+
+32 -> lightless dungeon
+
+
+FLOOR RAW 5/6
+
+Indicates what series/collab it is part of?
+
+Both seem to have the same stuff for the most part, but 6 has a few things not in 5...
+
+
+
+FLOOR RAW 7
+
+
+Orb modifiers only?
+
+Looks like this is the one that tells you what your modifiers are aka Assists invalid, awoken skills invalid, etc
+
+2048 -> Assists Invalid
+1792 -> Awoken Skills Invalid
+1312 -> No RCV/Awoken Skills/No Continues
+1280 -> Awoken Skills Invalid/ No Continues
+1056 - No RCV/Awoken Skills
+1024 -> Awoken Skills Invalid
+800 -> No RCV?
+768 -> No clue/ Plus Difficulty modifier?
+288 -> No RCV
+280 -> No Clue/ No Continues?
+276 -> No Wood/Dark
+274 -> Fire/Wood/Light only
+261 -> Water/Light/Dark only
+259 -> Wood/Light/Dark only
+256 -> No Continues?
+128 -> Leader Skill Invalid
+64 -> Skills Invalid
+32 -> No RCV
+24 -> Tricolor
+20 -> No Wood/Dark / Fire/Water/Light only
+18 -> Fire/Wood/Light only
+17 -> Water/Wood/Light
+16 -> No Dark
+12 -> Fire/Water/Dark
+10 -> Fr/Wd/Dk Only
+9 -> Wt/Wd/Dk
+8 -> No Light
+6 -> Fire/Light/Dark
+5 -> Water/Light/Dark
+4 -> No Wood
+3 -> Wood/Light/Dark
+2 -> No Water
+1 -> No Fire
+0 -> No Modifier
+
