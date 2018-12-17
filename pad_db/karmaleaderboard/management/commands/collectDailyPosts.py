@@ -51,9 +51,11 @@ class Command(BaseCommand):
         print("Storing users....")
         print()
 
+        allUsers = RedditUser.objects.all()
+
         for person in karmaCounts.keys():
 
-            if not RedditUser.objects.filter(author=person).exists():
+            if not allUsers.filter(author=person).exists():
 
                 entry = RedditUser()
                 entry.author = person
@@ -78,3 +80,9 @@ class Command(BaseCommand):
 
                 entry.scoreDiff = entry.score - prevScore
                 entry.save()
+        for person in allUsers:
+            if person not in karmaCounts.keys():
+                person.scoreUp = False
+                person.scoreDown = False
+                person.scoreDiff = 0
+                person.save()
