@@ -8,6 +8,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        allUsers = RedditUser.objects.all()
+
+        for person in allUsers:
+            person.scoreUp = False
+            person.scoreDown = False
+            person.scoreDiff = 0
+            person.save()
+
         karmaCounts = {}
 
         reddit = praw.Reddit(client_id='EpY38Dgrh13atw',
@@ -51,8 +59,6 @@ class Command(BaseCommand):
         print("Storing users....")
         print()
 
-        allUsers = RedditUser.objects.all()
-
         for person in karmaCounts.keys():
 
             if not allUsers.filter(author=person).exists():
@@ -80,9 +86,3 @@ class Command(BaseCommand):
 
                 entry.scoreDiff = entry.score - prevScore
                 entry.save()
-        # for person in allUsers:
-        #     if person.author not in karmaCounts.keys():
-        #         person.scoreUp = False
-        #         person.scoreDown = False
-        #         person.scoreDiff = 0
-        #         person.save()
