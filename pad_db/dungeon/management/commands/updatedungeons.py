@@ -32,6 +32,7 @@ class Command(BaseCommand):
                 dungeon.name = name.rsplit("#")[-1]
                 dungeon.dungeonID = item['dungeon_id']
                 dungeon.floorCount = len(item['floors'])
+                dungeon.dungeonType = item['alt_dungeon_type']
                 dungeon.save()
 
                 for floorItem in item['floors']:
