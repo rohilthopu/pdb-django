@@ -145,20 +145,16 @@
                             <td class="has-text-right">{{ monster.rarity }}</td>
                         </tr>
                         <tr>
-                            <th>Inheritable</th>
+                            <th>Inheritable?</th>
                             <td class="has-text-right">{{ monster.inheritable }}</td>
                         </tr>
                         <tr>
-                            <th>Is Collab</th>
+                            <th>Collab?</th>
                             <td class="has-text-right">{{ monster.isCollab }}</td>
                         </tr>
                         <tr>
-                            <th>Is Ult</th>
+                            <th>Ultimate Evolution?</th>
                             <td class="has-text-right">{{ monster.isUlt }}</td>
-                        </tr>
-                        <tr>
-                            <th>Is Released</th>
-                            <td class="has-text-right">{{ monster.isReleased }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -200,9 +196,6 @@
             {% endif %}
 
         </div>
-
-
-
 
         {% block skills %}
 
@@ -350,7 +343,8 @@
                             <tr>
                                 <td><a
                                         href="/monster/na/{{ mat.cardID }}"><img
-                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png" height="75" width="75"></a>
+                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png"
+                                        height="75" width="75"></a>
                                 </td>
                                 <td class="has-text-centered"><a
                                         href="/monster/na/{{ mat.cardID }}"> {{ mat.name }}</a>
@@ -379,7 +373,8 @@
                             <tr>
                                 <td><a
                                         href="/monster/na/{{ mat.cardID }}"><img
-                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png" height="75" width="75"></a>
+                                        src="https://storage.googleapis.com/mirubot/padimages/na/portrait/{{ mat.cardID }}.png"
+                                        height="75" width="75"></a>
                                 </td>
                                 <td class="has-text-centered"><a
                                         href="/monster/na/{{ mat.cardID }}"> {{ mat.name }}</a>

@@ -34,6 +34,12 @@ FLOOR RAW 3
 32 -> lightless dungeon
 
 
+
+1 -> Normal Dungeons Stage 1
+
+0 -> "Red" dungeons
+
+
 FLOOR RAW 5/6
 
 Indicates what series/collab it is part of?
@@ -58,7 +64,7 @@ Looks like this is the one that tells you what your modifiers are aka Assists in
 800 -> No RCV?
 768 -> No clue/ Plus Difficulty modifier?
 288 -> No RCV
-280 -> No Clue/ No Continues?
+280 -> No Clue/ No Continues?/ Tricolor one shot
 276 -> No Wood/Dark
 274 -> Fire/Wood/Light only
 261 -> Water/Light/Dark only
@@ -84,3 +90,34 @@ Looks like this is the one that tells you what your modifiers are aka Assists in
 1 -> No Fire
 0 -> No Modifier
 
+
+FLOOR RAW n + 1 after last drop
+
+if n = 32
+
+	2 -> Max Cost -> list[-1] = max cost
+
+	4 -> Star Rating restricted -> list[-1] = n stars or less
+
+	7 -> Type Restricted -> list[-1] = type that is only allowed
+
+	9 -> Attr. Required
+
+	10 -> No Dupes
+
+	11 -> Special Descended
+
+	13 -> Exp Dragon Challenge -> list[-1] = id of dragon required to enter
+
+	14 -> teams of n or less -> list[-1] = n
+
+
+
+8 -> score is next value
+
+9 -> idk
+
+21 -> Fertile Land lvl 1
+
+
+96, 97, 101 -> unlocked after beating list[next], condition at list[n + 2]

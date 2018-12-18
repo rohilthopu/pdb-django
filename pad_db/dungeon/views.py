@@ -19,6 +19,8 @@ def dungeonView(request, d_id):
         dropList = json.loads(floor.possibleDrops)
         drops.append(dropList)
 
+    modifiers = [json.loads(floor.modifiers) for floor in floors]
+
     floorData = zip(floors, drops)
 
     context = {'dungeon': dungeon, 'floors': floors, 'drops': floorData}

@@ -8,6 +8,9 @@ class Floor(models.Model):
     battles = models.IntegerField(default=0)
     possibleDrops = models.TextField(default="")
     dungeonID = models.IntegerField(default=0)
+    requiredDungeon = models.IntegerField(default=0)
+    modifiers = models.TextField(default="")
+    entryRequirement = models.TextField(default="")
 
 
 class Dungeon(models.Model):

@@ -1,0 +1,48 @@
+[0, 1, 5, 8, 9, 21, 32, 33, 37, 40, 64, 65, 69, 72, 96, 97, 101]
+
+Fire War Dragon-All Att. Req. ['4', 'Wind, Forest, Fr & Mt.-Legend', '7', '640', '50', '1', '1', '0', '540', '546', '545', '63', '779', '681', '689', '551', '0', '40', '140000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Water War Dragon-All Att. Req. ['4', 'Bishamon Warlord-Legend', '7', '640', '50', '1', '1', '0', '541', '548', '547', '545', '718', '717', '681', '551', '0', '40', '130000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Wood War Dragon-All Att. Req. ['4', 'One Eyed Warlord-Legend', '7', '640', '50', '1', '1', '0', '542', '550', '547', '549', '718', '717', '681', '310', '311', '551', '0', '40', '130000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Light War Dragon-All Att. Req. ['4', 'Taiko Warlord-Legend', '7', '640', '50', '1', '1', '0', '543', '553', '552', '547', '718', '779', '689', '681', '551', '0', '40', '100000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Dark War Dragon-All Att. Req. ['4', 'Demonic Dragon-Legend', '7', '640', '50', '1', '1', '0', '544', '554', '553', '549', '717', '681', '551', '0', '40', '120000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Flame Dragon Knight-No Dupes ['4', 'Ancient Caldera-Legend', '7', '640', '50', '1', '1', '0', '1361', '1366', '580', '545', '63', '57', '311', '310', '551', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Ocean Dragon Knight-No Dupes ['4', 'Ancient Ocean-Legend', '7', '640', '50', '1', '1', '0', '1362', '1367', '582', '194', '65', '59', '313', '312', '193', '199', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Wind Dragon Knight-No Dupes ['4', 'Ancient Wind-Legend', '7', '640', '50', '1', '1', '0', '1363', '1368', '584', '196', '67', '61', '315', '314', '195', '199', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Holy Dragon Knight-No Dupes ['4', 'Ancient Holy Hour-Legend', '7', '640', '50', '1', '1', '0', '1364', '1369', '586', '268', '793', '53', '249', '909', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Shadow Dragon Knight-No Dupes ['4', 'Ancient Moon Shadow-Legend', '7', '640', '50', '1', '1', '0', '1365', '1370', '588', '270', '795', '554', '250', '910', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Flame Dragon Knight-No Dupes ['4', 'Ancient Caldera-Legend', '7', '640', '50', '1', '1', '0', '1361', '1366', '580', '545', '63', '57', '311', '310', '551', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Ocean Dragon Knight-No Dupes ['4', 'Ancient Ocean-Legend', '7', '640', '50', '1', '1', '0', '1362', '1367', '582', '194', '65', '59', '313', '312', '193', '199', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Wind Dragon Knight-No Dupes ['4', 'Ancient Wind-Legend', '7', '640', '50', '1', '1', '0', '1363', '1368', '584', '196', '67', '61', '315', '314', '195', '199', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Holy Dragon Knight-No Dupes ['4', 'Ancient Holy Hour-Legend', '7', '640', '50', '1', '1', '0', '1364', '1369', '586', '268', '793', '53', '249', '909', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Shadow Dragon Knight-No Dupes ['4', 'Ancient Moon Shadow-Legend', '7', '640', '50', '1', '1', '0', '1365', '1370', '588', '270', '795', '554', '250', '910', '0', '40', '100000', '10', '4']
+No Duplicate Cards
+Fire War Dragon-All Att. Req. ['4', 'Wind, Forest, Fr & Mt.-Legend', '7', '640', '50', '1', '1', '0', '540', '546', '545', '63', '779', '681', '689', '551', '0', '40', '140000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Water War Dragon-All Att. Req. ['4', 'Bishamon Warlord-Legend', '7', '640', '50', '1', '1', '0', '541', '548', '547', '545', '718', '717', '681', '551', '0', '40', '130000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Wood War Dragon-All Att. Req. ['4', 'One Eyed Warlord-Legend', '7', '640', '50', '1', '1', '0', '542', '550', '547', '549', '718', '717', '681', '310', '311', '551', '0', '40', '130000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Light War Dragon-All Att. Req. ['4', 'Taiko Warlord-Legend', '7', '640', '50', '1', '1', '0', '543', '553', '552', '547', '718', '779', '689', '681', '551', '0', '40', '100000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Dark War Dragon-All Att. Req. ['4', 'Demonic Dragon-Legend', '7', '640', '50', '1', '1', '0', '544', '554', '553', '549', '717', '681', '551', '0', '40', '120000', '9', '1', '2', '3', '4', '5']
+All Attributes Required
+Fire & Shadow Dog Dragons ['5', 'Burning Ninja Dog Dragon-Mythical/No Dupes', '7', '640', '50', '1', '1', '0', '2432', '2429', '554', '553', '546', '545', '2439', '2435', '2309', '1527', '779', '718', '717', '0', '40', '220000', '10', '0']
+No Duplicate Cards
+Water & Light Dog Dragons ['5', 'Shining Stream Dog Dragon-Mythical/No Dupes', '7', '640', '50', '1', '1', '0', '2430', '2434', '552', '548', '551', '547', '2438', '2436', '2307', '1526', '779', '718', '717', '0', '40', '220000', '10', '0']
+No Duplicate Cards
+Wood & Dark Dog Dragons ['5', 'Luxurious Concealed Dog Dragon-Mythical/No Dupes', '7', '640', '50', '1', '1', '0', '2433', '2431', '554', '550', '553', '549', '2439', '2437', '2309', '2307', '1529', '779', '718', '717', '0', '40', '220000', '10', '0']
+No Duplicate Cards

@@ -3,6 +3,7 @@ import requests
 import json
 from ...models import Dungeon, Floor
 import time
+from .dParse import getModifiers
 
 
 class Command(BaseCommand):
@@ -54,6 +55,12 @@ class Command(BaseCommand):
                         else:
                             possibleDrops[rawVal] = "normal"
                             pos += 1
+                    pos += 1
+                    modifiers = getModifiers(raw, pos)
+
+                    floor.entryRequirement = modifiers.entryRequirement
+                    floor.requiredDungeon = modifiers.requiredDungeon
+                    floor.modifiers = json.dumps(modifiers.modifiers)
 
                     floor.possibleDrops = json.dumps(possibleDrops)
                     floor.save()
