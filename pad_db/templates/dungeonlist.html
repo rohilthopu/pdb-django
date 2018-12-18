@@ -4,6 +4,8 @@
 {% block content %}
 
 
+
+
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs" style="margin-top: 25px;">
         <ul>
             <li class="is-active"><a href="/dungeon/na">NA</a></li>
@@ -11,8 +13,16 @@
         </ul>
     </nav>
 
+    <div class="columns is-centered" id="load" style="margin-top: 15%">
+        <div class="column is-half" align="center">
+            <span class="icon is-large">
+                <i class="fas fa-spinner fa-spin fa-4x"></i>
+            </span>
+        </div>
+    </div>
 
-    <div class="columns is-centered is-fluid">
+
+    <div class="columns is-centered is-fluid" id="tableview" style="visibility: hidden;">
 
         <div class="column is-three-fifths">
 
@@ -28,7 +38,7 @@
 
                 {% for dungeon in dungeons %}
                     <tr>
-                        <td> <a href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
+                        <td><a href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
                         <td> {{ dungeon.floorCount }}</td>
                     </tr>
                 {% endfor %}
@@ -46,6 +56,9 @@
             $('#myTable').DataTable({
                 'pageLength': 50
             });
+
+            document.getElementById('load').style.display = 'none';
+            document.getElementById('tableview').style.visibility = 'visible';
         });
     </script>
 

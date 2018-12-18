@@ -10,7 +10,15 @@
                 <h1 class="title">/r/PAD Karma Leaderboard</h1>
             </div>
 
-            <table class="table is-fullwidth" id="karmatable">
+            <div class="columns is-centered" id="load" style="margin-top: 15%">
+                <div class="column is-half" align="center">
+                    <span class="icon is-large">
+                        <i class="fas fa-spinner fa-spin fa-4x"></i>
+                    </span>
+                </div>
+            </div>
+
+            <table class="table is-fullwidth" id="karmatable" style="visibility: hidden;">
                 <thead>
                 <tr>
                     <th class="has-text-left">User</th>
@@ -21,7 +29,8 @@
                 <tbody>
                 {% for user in users %}
                     <tr>
-                        <td class="has-text-left"><a href="https://www.reddit.com/u/{{ user.author }}">{{ user.author }}</a></td>
+                        <td class="has-text-left"><a
+                                href="https://www.reddit.com/u/{{ user.author }}">{{ user.author }}</a></td>
                         <td class="has-text-centered">{{ user.score }}</td>
                         <td class="has-text-centered">
                             {{ user.scoreDiff }}
@@ -49,6 +58,8 @@
                 'pageLength': 100,
                 "order": [[1, "desc"]]
             });
+            document.getElementById('load').style.display = 'none';
+            document.getElementById('tableview').style.visibility = 'visible';
         });
     </script>
 
