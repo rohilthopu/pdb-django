@@ -19,9 +19,9 @@ l = []
 l2 = []
 
 v = 3
-n = 40
+n = 288
 
-pos = 8
+pos = 7
 
 for item in data:
     for floor in item['floors']:
@@ -29,11 +29,11 @@ for item in data:
         # vals.add(raw[v])
         # vals2.add((raw[5]))
 
-        while (int(raw[pos]) is not 0):
-            pos += 1
-        pos += 1
+        # while (int(raw[pos]) is not 0):
+        #     pos += 1
+        # pos += 1
         vals.add(int(raw[pos]))
-        pos = 8
+        # pos = 8
 
 for item in vals:
     l.append(int(item))
@@ -50,18 +50,18 @@ for item in data:
     for floor in item['floors']:
         raw = floor['raw']
 
-        while (int(raw[pos]) is not 0):
-            pos += 1
-        pos += 1
+        # while (int(raw[pos]) is not 0):
+        #     pos += 1
+        # pos += 1
         if int(raw[pos]) == n:
             # if int(raw[pos+1]) == 10:
             print(item['clean_name'], raw)
 
-            rVal = getModifiers(raw, pos).entryRequirement
-            #
-            print(rVal)
+            # rVal = getModifiers(raw, pos).entryRequirement
+            # #
+            # print(rVal)
 
         # if int(raw[5]) == n:
         #     print("\t\t", item['clean_name'])
 
-        pos = 8
+        # pos = 8

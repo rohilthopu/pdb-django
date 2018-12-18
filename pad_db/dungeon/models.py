@@ -11,6 +11,7 @@ class Floor(models.Model):
     requiredDungeon = models.IntegerField(default=0)
     modifiers = models.TextField(default="")
     entryRequirement = models.TextField(default="")
+    otherModifier = models.TextField(default="")
 
 
 class Dungeon(models.Model):

@@ -4,6 +4,7 @@ import json
 from ...models import Dungeon, Floor
 import time
 from .dParse import getModifiers
+from .maps import raw7_map
 
 
 class Command(BaseCommand):
@@ -43,6 +44,7 @@ class Command(BaseCommand):
                     floor.name = raw[1].split('$')[-1]
                     floor.battles = raw[2]
                     floor.stamina = raw[4]
+                    floor.otherModifier = raw7_map[int(raw[7])]
                     pos = 8
                     possibleDrops = {}
 
