@@ -33,9 +33,9 @@ class Command(BaseCommand):
             for reply in comment.replies:
                 addCommentScore(reply)
 
-        for post in reddit.subreddit('puzzleanddragons').top(limit=250):
+        for post in reddit.subreddit('puzzleanddragons').top(limit=500):
 
-            print("Collect karma for:", post.title)
+            # print("Collect karma for:", post.title)
 
             addScore(post)
 
