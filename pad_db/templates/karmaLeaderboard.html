@@ -18,36 +18,41 @@
                 </div>
             </div>
 
-            <table class="table is-fullwidth" id="karmatable" style="visibility: hidden;" id="tableview">
-                <thead>
-                <tr>
-                    <th class="has-text-left">User</th>
-                    <th class="has-text-centered">Karma</th>
-                    <th class="has-text-centered">Status</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for user in users %}
+
+            <div style="visibility:hidden;" id="tableview">
+                <table class="table is-fullwidth" id="karmatable">
+                    <thead>
                     <tr>
-                        <td class="has-text-left"><a
-                                href="https://www.reddit.com/u/{{ user.author }}">{{ user.author }}</a></td>
-                        <td class="has-text-centered">{{ user.score }}</td>
-                        <td class="has-text-centered">
-                            {{ user.scoreDiff }}
-                            {% if user.scoreUp %}
-                                <span class="icon">
+                        <th class="has-text-left">User</th>
+                        <th class="has-text-centered">Karma</th>
+                        <th class="has-text-centered">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td class="has-text-left"><a
+                                    href="https://www.reddit.com/u/{{ user.author }}">{{ user.author }}</a></td>
+                            <td class="has-text-centered">{{ user.score }}</td>
+                            <td class="has-text-centered">
+                                {{ user.scoreDiff }}
+                                {% if user.scoreUp %}
+                                    <span class="icon">
                                     <i class="fas fa-arrow-up"></i>
                                 </span>
-                            {% elif user.scoreDown %}
-                                <span class="icon">
+                                {% elif user.scoreDown %}
+                                    <span class="icon">
                                     <i class="fas fa-arrow-down"></i>
                                 </span>
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+
 
         </div>
     </div>
