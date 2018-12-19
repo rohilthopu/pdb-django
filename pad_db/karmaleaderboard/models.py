@@ -9,3 +9,13 @@ class RedditUser(models.Model):
     scoreUp = models.BooleanField(default=False)
     scoreDown = models.BooleanField(default=False)
     scoreDiff = models.IntegerField(default=0)
+
+
+class TopPost(models.Model):
+    title = models.TextField(default="")
+    link = models.CharField(default="", max_length=250)
+
+
+class NewsPost(models.Model):
+    title = models.TextField(default="")
+    link = models.CharField(default="", max_length=250)

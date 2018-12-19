@@ -14,8 +14,8 @@ function showSkill() {
     }
     document.getElementById('leadertab').classList.add('is-active');
 
-    document.getElementById('leaderskill').style.display = 'block';
-    document.getElementById('activeskill').style.display = 'block';
+    document.getElementById('leaderskill').style.display = '';
+    document.getElementById('activeskill').style.display = '';
 
 }
 
@@ -35,8 +35,8 @@ function showMonsterData() {
     }
     document.getElementById('monstertab').classList.add('is-active');
 
-    document.getElementById('monsterdata').style.display = 'block';
-    document.getElementById('dungeondata').style.display = 'block';
+    document.getElementById('monsterdata').style.display = '';
+    document.getElementById('dungeondata').style.display = '';
 
 
 }
@@ -57,8 +57,8 @@ function showEvoData() {
     }
 
     document.getElementById('evotab').classList.add('is-active');
-    document.getElementById('evomaterials').style.display = 'block';
-    document.getElementById('unevomaterials').style.display = 'block';
+    document.getElementById('evomaterials').style.display = '';
+    document.getElementById('unevomaterials').style.display = '';
 
 
 }

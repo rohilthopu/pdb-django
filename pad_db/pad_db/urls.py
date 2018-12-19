@@ -24,33 +24,39 @@ from guerrilladungeon import views as gv
 from dungeon import views as dv
 from karmaleaderboard import views as kv
 
+# API imports
+from guerrilladungeon import apiviews as gav
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+                  url(r'^admin/', admin.site.urls),
 
-    # Guerrilla Dungeons
-    path('', gv.DungeonView),
+                  # Guerrilla Dungeons
+                  path('', gv.DungeonView),
 
-    # NA Items
-    path('monsterdb/na/', mv.cardList),
-    path('monster/na/<int:card_id>/', mv.cardView),
-    path('monster/na/edit/<int:card_id>/', mv.editCardView),
-    path('dungeons/na/', dv.dungeonListView),
-    path('dungeons/na/<int:d_id>/', dv.dungeonView),
-    path('activeskills/na/', mv.activeSkillListView),
-    path('activeskills/na/<int:skill_id>/', mv.activeSkillView),
-    path('leaderskills/na', mv.leaderSkillListView),
-    path('leaderskills/na/<int:skill_id>/', mv.leaderSkillView),
-    path ('leaderskills/na/edit/<int:skill_id>/', mv.editLeaderSkill),
-    path ('activeskills/na/edit/<int:skill_id>/', mv.editActiveSkill),
+                  # NA Items
+                  path('monsterdb/na/', mv.cardList),
+                  path('monster/na/<int:card_id>/', mv.cardView),
+                  path('monster/na/edit/<int:card_id>/', mv.editCardView),
+                  path('dungeons/na/', dv.dungeonListView),
+                  path('dungeons/na/<int:d_id>/', dv.dungeonView),
+                  path('activeskills/na/', mv.activeSkillListView),
+                  path('activeskills/na/<int:skill_id>/', mv.activeSkillView),
+                  path('leaderskills/na', mv.leaderSkillListView),
+                  path('leaderskills/na/<int:skill_id>/', mv.leaderSkillView),
+                  path('leaderskills/na/edit/<int:skill_id>/', mv.editLeaderSkill),
+                  path('activeskills/na/edit/<int:skill_id>/', mv.editActiveSkill),
 
-    # JP Items
-    path('monsterdb/jp/', jmv.cardList),
-    path('monster/jp/<int:card_id>/', jmv.cardView),
-    path('activeskills/jp/', jmv.activeSkillListView),
-    path('activeskills/jp/<int:id>/', jmv.activeSkillView),
-    path('leaderskills/jp', jmv.leaderSkillListView),
-    path('leaderskills/jp/<int:id>/', jmv.leaderSkillView),
+                  # JP Items
+                  path('monsterdb/jp/', jmv.cardList),
+                  path('monster/jp/<int:card_id>/', jmv.cardView),
+                  path('activeskills/jp/', jmv.activeSkillListView),
+                  path('activeskills/jp/<int:id>/', jmv.activeSkillView),
+                  path('leaderskills/jp', jmv.leaderSkillListView),
+                  path('leaderskills/jp/<int:id>/', jmv.leaderSkillView),
 
-    path('leaderboard', kv.leaderboardView)
+                  path('leaderboard', kv.leaderboardView),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  # API views
+                  path('api/guerrilla/', gav.GuerrillaList.as_view())
+
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
