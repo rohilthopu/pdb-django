@@ -32,8 +32,9 @@ class Command(BaseCommand):
                 dungeon.group = item['group']
                 dungeon.server = item['server']
 
-                if Dungeon.objects.filter(name=dungeon.name)[0].exists():
-                    d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
-                    dungeon.dungeon_id = d_id
+                if dungeon.server == "NA":
+                    if Dungeon.objects.filter(name=dungeon.name).exists():
+                        d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
+                        dungeon.dungeon_id = d_id
 
                 dungeon.save()
