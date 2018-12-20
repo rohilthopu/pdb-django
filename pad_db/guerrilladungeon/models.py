@@ -10,3 +10,4 @@ class GuerrillaDungeon(models.Model):
     endSecs = models.FloatField(default=0)
     server = models.CharField(default="", max_length=10)
     group = models.CharField(default="", max_length=5)
+    dungeon_id = models.IntegerField(default=-1)

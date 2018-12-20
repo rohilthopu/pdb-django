@@ -5,6 +5,7 @@ import time
 from datetime import datetime
 
 from guerrilladungeon.models import GuerrillaDungeon
+from dungeon.models import Dungeon
 
 
 class Command(BaseCommand):
@@ -16,9 +17,7 @@ class Command(BaseCommand):
         jsonPull = requests.get(link).text
         jsonDump = json.loads(jsonPull)
 
-
         GuerrillaDungeon.objects.all().delete()
-
 
         for item in jsonDump['items']:
 
@@ -32,4 +31,9 @@ class Command(BaseCommand):
                 dungeon.endSecs = item['end_timestamp']
                 dungeon.group = item['group']
                 dungeon.server = item['server']
+
+                if Dungeon.objects.filter(name=dungeon.name)[0].exists():
+                    d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
+                    dungeon.dungeon_id = d_id
+
                 dungeon.save()
