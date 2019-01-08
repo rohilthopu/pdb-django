@@ -3,10 +3,11 @@ from .models import GuerrillaDungeon
 from dungeon.models import Dungeon
 from datetime import date
 from time import time
+
+
 # Create your views here.
 
 def DungeonView(request):
-
     template = 'home.html'
     naDungeons = GuerrillaDungeon.objects.filter(server="NA").order_by('group').all()
     jpDungeons = GuerrillaDungeon.objects.filter(server="JP").order_by('group').all()
@@ -34,15 +35,11 @@ def DungeonView(request):
     naDungeonID = []
 
     for dungeon in naDungeons:
-
         d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
         naDungeonID.append(d_id)
 
     na = zip(naDungeons, naActives, naDungeonID)
     jp = zip(jpDungeons, jpActives)
-
-
-
 
     context = {'date': dateT, 'na': na, 'jp': jp}
 

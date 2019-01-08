@@ -26,6 +26,7 @@ from karmaleaderboard import views as kv
 
 # API imports
 from guerrilladungeon import apiviews as gav
+from monsterdatabase import apiviews as mav
 
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
@@ -57,6 +58,7 @@ urlpatterns = [
                   path('leaderboard', kv.leaderboardView),
 
                   # API views
-                  path('api/guerrilla/', gav.GuerrillaList.as_view())
+                  path('api/guerrilla/', gav.GuerrillaList.as_view()),
+                  path('api/monsters/na/', mav.MonsterList.as_view())
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

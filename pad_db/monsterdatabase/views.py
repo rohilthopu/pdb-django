@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
 from .forms import MonsterForm, SkillForm
