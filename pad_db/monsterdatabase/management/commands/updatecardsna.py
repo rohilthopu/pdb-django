@@ -52,7 +52,7 @@ class Command(BaseCommand):
                         awakenings = []
                         awakenings_raw = []
                         for a in rawCard['awakenings']:
-                            awakenings_raw.append(a)
+                            awakenings_raw.append(int(a))
                             awakening = AWAKENING_MAP[a]
                             if awakening != "":
                                 awakenings.append(awakening)
@@ -113,7 +113,7 @@ class Command(BaseCommand):
                         sawakenings_raw = []
                         for sa in rawCard['super_awakenings']:
                             awakening = AWAKENING_MAP[sa]
-                            sawakenings_raw.append(sa)
+                            sawakenings_raw.append(int(sa))
                             if awakening != "":
                                 sawakenings.append(awakening)
                         sadump = json.dumps(sawakenings)
