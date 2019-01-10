@@ -12,8 +12,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # Monster.objects.all().delete()
-        # Evolution.objects.all().delete()
+        Monster.objects.all().delete()
+        Evolution.objects.all().delete()
 
         monsters = Monster.objects.all()
 
@@ -39,7 +39,7 @@ class Command(BaseCommand):
 
                 if not isinstance(rawCard, type(None)):
 
-                    if not monsters.filter(cardID=rawCard['card_id']).exists():
+                    # if not monsters.filter(cardID=rawCard['card_id']).exists():
 
                         # print("\t\tAdding new entry for", rawCard['name'])
 
