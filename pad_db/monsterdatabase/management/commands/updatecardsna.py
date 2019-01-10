@@ -50,13 +50,18 @@ class Command(BaseCommand):
                         monster.attributeID = rawCard['attr_id']
 
                         awakenings = []
+                        awakenings_raw = []
                         for a in rawCard['awakenings']:
+                            awakenings_raw.append(a)
                             awakening = AWAKENING_MAP[a]
                             if awakening != "":
                                 awakenings.append(awakening)
 
                         jsonDump = json.dumps(awakenings)
+                        jsonDump2 = json.dumps(awakenings_raw)
+
                         monster.awakenings = jsonDump
+                        monster.awakenings_raw = jsonDump2
                         monster.baseID = rawCard['base_id']
                         monster.cardID = rawCard['card_id']
                         monster.cost = rawCard['cost']
@@ -105,12 +110,15 @@ class Command(BaseCommand):
                         monster.type3 = TYPE_MAP[rawCard['type_3_id']]
 
                         sawakenings = []
+                        sawakenings_raw = []
                         for sa in rawCard['super_awakenings']:
                             awakening = AWAKENING_MAP[sa]
+                            sawakenings_raw.append(sa)
                             if awakening != "":
                                 sawakenings.append(awakening)
                         sadump = json.dumps(sawakenings)
                         monster.superAwakenings = sadump
+                        monster.superAwakenings_raw = json.dumps(sawakenings_raw)
 
                         monster.save()
 

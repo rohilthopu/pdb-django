@@ -38,6 +38,7 @@ class Monster(models.Model):
     attribute = models.CharField(default="", max_length=100)
 
     awakenings = models.TextField(default="")
+    awakenings_raw = models.TextField(default="")
 
     baseID = models.IntegerField(default=0)
     cardID = models.IntegerField(default=0)
@@ -65,6 +66,8 @@ class Monster(models.Model):
     rcv99 = models.IntegerField(default=0)
 
     superAwakenings = models.TextField(default="")
+    superAwakenings_raw = models.TextField(default="")
+
 
     evolutions = models.ManyToManyField(Evolution)
 
