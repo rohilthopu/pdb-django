@@ -12,6 +12,8 @@ class MonsterList(APIView):
         return Response(data)
 
 
+
+
 class SkillList(APIView):
     def get(self, request):
         dungeons = Skill.objects.all()
