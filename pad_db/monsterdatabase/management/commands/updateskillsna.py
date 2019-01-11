@@ -13,8 +13,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        allSkills = Skill.objects.all()
-
+        # allSkills = Skill.objects.all()
+        Skill.objects.all().delete()
         link = 'https://storage.googleapis.com/mirubot/paddata/processed/na_skills.json'
 
         req = requests.get(link).text
@@ -29,7 +29,7 @@ class Command(BaseCommand):
 
             if item['skill_id'] != 0:
 
-                if not allSkills.filter(skillID=item['skill_id']).exists():
+                # if not allSkills.filter(skillID=item['skill_id']).exists():
 
                     skill = Skill()
                     skill.name = item['name']

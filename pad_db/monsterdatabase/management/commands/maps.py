@@ -28,7 +28,7 @@ EXPLICIT_TYPE_MAP = {
     5: "Attacker",  # Attacker
     10: "Devil",  # Devil
     14: "Machine",  # Machine
-    13: "Awaken Material",  # Awoken
+    13: "Awoken Material",  # Awoken
     8: "Enhance Material",  # Enhance
     15: "Vendor",  # Vendor
 }
