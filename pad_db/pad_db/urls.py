@@ -60,6 +60,6 @@ urlpatterns = [
                   # API views
                   path('api/guerrilla/', gav.GuerrillaList.as_view()),
                   path('api/monsters/na/', mav.MonsterList.as_view()),
-                  path('api/skills/na/', mav.SkillList.as_view()),
+                  # path('api/skills/na/', mav.SkillList.as_view()),
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
