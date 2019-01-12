@@ -8,7 +8,7 @@ from .serializers import MonsterSerializer, SkillSerializer
 class MonsterList(APIView):
     def get(self, request):
         dungeons = Monster.objects.all()
-        data = MonsterSerializer(dungeons, many=True).data
+        data = Monster.objects.values()
         return Response(data)
 
 
