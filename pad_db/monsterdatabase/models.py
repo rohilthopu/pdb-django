@@ -70,6 +70,7 @@ class Monster(models.Model):
 
 
     evolutions = models.ManyToManyField(Evolution)
+    evos_raw = models.TextField(default="")
 
     evomat1 = models.IntegerField(default=0)
     evomat2 = models.IntegerField(default=0)

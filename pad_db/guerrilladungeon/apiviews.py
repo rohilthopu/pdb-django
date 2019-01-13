@@ -9,5 +9,5 @@ from .serializers import GuerillaSerializer
 class GuerrillaList(APIView):
     def get(self, request):
         dungeons = GuerrillaDungeon.objects.all()
-        data = GuerillaSerializer(dungeons, many=True).data
+        data = GuerrillaDungeon.objects.values()
         return Response(data)

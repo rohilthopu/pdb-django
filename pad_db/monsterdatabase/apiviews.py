@@ -17,5 +17,5 @@ class MonsterList(APIView):
 class SkillList(APIView):
     def get(self, request):
         dungeons = Skill.objects.all()
-        data = SkillSerializer(dungeons, many=True).data
+        data = Skill.objects.values()
         return Response(data)

@@ -137,6 +137,16 @@ class Command(BaseCommand):
                     evo.save()
                     ancestor.evolutions.add(evo)
 
+                    
+        for monster in newMonsters:
+            parsedEvos = monsters.evolutions.all()
+            evos = []
+            for evo in parsedEvos:
+                evos.append(evo.evo)
+
+            monster.evos_raw = json.dumps(evos)
+            monster.save()
+
         end_time = time.time()
 
         self.stdout.write(self.style.SUCCESS('NA update complete.'))
