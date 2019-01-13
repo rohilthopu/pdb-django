@@ -120,6 +120,12 @@ class Command(BaseCommand):
                         monster.superAwakenings = sadump
                         monster.superAwakenings_raw = json.dumps(sawakenings_raw)
 
+
+
+                        monster.sellMP = rawCard['sell_mp']
+                        monster.sellCoin = rawCard['sell_price_at_lvl_10']
+
+
                         monster.save()
 
                         newMonsters.append(monster)

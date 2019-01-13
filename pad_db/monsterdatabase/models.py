@@ -68,7 +68,6 @@ class Monster(models.Model):
     superAwakenings = models.TextField(default="")
     superAwakenings_raw = models.TextField(default="")
 
-
     evolutions = models.ManyToManyField(Evolution)
     evos_raw = models.TextField(default="")
 
@@ -87,6 +86,9 @@ class Monster(models.Model):
     type1 = models.CharField(default="", max_length=100)
     type2 = models.CharField(default="", max_length=100)
     type3 = models.CharField(default="", max_length=100)
+
+    sellMP = models.IntegerField(default=0)
+    sellCoin = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
