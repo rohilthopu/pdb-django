@@ -68,7 +68,7 @@ class Command(BaseCommand):
                         monster.inheritable = "Yes" if rawCard['inheritable'] else "No"
                         monster.isCollab = "Yes" if rawCard['is_collab'] else "No"
                         monster.isReleased = "Yes" if rawCard['released_status'] else "No"
-                        monster.isUlt = "Yes" if rawCard['is_ult'] else "No"
+                        monster.isUlt = rawCard['is_ult']
                         monster.leaderSkillID = rawCard['leader_skill_id']
                         monster.maxATK = rawCard['max_atk']
                         monster.maxHP = rawCard['max_hp']
