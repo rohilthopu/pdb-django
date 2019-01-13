@@ -137,9 +137,9 @@ class Command(BaseCommand):
                     evo.save()
                     ancestor.evolutions.add(evo)
 
-                    
+
         for monster in newMonsters:
-            parsedEvos = monsters.evolutions.all()
+            parsedEvos = monster.evolutions.all()
             evos = []
             for evo in parsedEvos:
                 evos.append(evo.evo)
