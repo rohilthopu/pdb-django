@@ -7,7 +7,6 @@ from .serializers import MonsterSerializer, SkillSerializer
 
 class MonsterList(APIView):
     def get(self, request):
-        dungeons = Monster.objects.all()
         data = Monster.objects.values()
         return Response(data)
 
@@ -16,6 +15,5 @@ class MonsterList(APIView):
 
 class SkillList(APIView):
     def get(self, request):
-        dungeons = Skill.objects.all()
         data = Skill.objects.values()
         return Response(data)
