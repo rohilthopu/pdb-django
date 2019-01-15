@@ -7,6 +7,7 @@ import time
 from .maps import TYPE_MAP, AWAKENING_MAP
 
 
+
 class Command(BaseCommand):
     help = 'Runs an update on the models to add to the database.'
 
@@ -19,7 +20,6 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
         # Pull the new data, because with PAD, things often get buffs/changes often
-        monsterLink = "https://storage.googleapis.com/mirubot/paddata/processed/na_cards.json"
 
         loadSite = requests.get(monsterLink)
         cards = json.loads(loadSite.text)
