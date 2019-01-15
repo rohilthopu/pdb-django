@@ -12,7 +12,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        monsterLink = "https://storage.googleapis.com/mirubot/paddata/processed/na_cards.json"
+        monsterLink = "https://storage.googleapis.com/mirubot/paddata/processed/jp_cards.json"
 
         Monster.objects.all().delete()
         Evolution.objects.all().delete()
