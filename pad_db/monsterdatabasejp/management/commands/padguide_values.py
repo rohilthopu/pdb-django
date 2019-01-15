@@ -1,5 +1,11 @@
-# ALL CREDIT GOES TO TACTICAL_RETREAT PLS NO KILL ME
+from enum import Enum
 
+"""
+Conversions from PAD values to PadGuide strings.
+
+Some of the PadGuide strings (e.g. awakening names) do not exactly match
+the NA client names.
+"""
 
 TYPE_MAP = {
     -1: 0,  # Not set
@@ -12,27 +18,15 @@ TYPE_MAP = {
     6: 5,  # Attacker
     7: 10,  # Devil
     8: 14,  # Machine
+    # x: 9,  # Protected (no longer exists)
+    # 10/11 don't exist
     12: 13,  # Awoken
+    # 13 doesn't exist
     14: 8,  # Enhance
     15: 15,  # Vendor
 }
 
-EXPLICIT_TYPE_MAP = {
-    0: "",  # Not set
-    7: "Evo Material",  # Evolve
-    2: "Balanced",  # Balance
-    3: "Physical",  # Physical
-    4: "Healer",  # Healer
-    1: "Dragon",  # Dragon
-    6: "God",  # God
-    5: "Attacker",  # Attacker
-    10: "Devil",  # Devil
-    14: "Machine",  # Machine
-    13: "Awoken Material",  # Awoken
-    8: "Enhance Material",  # Enhance
-    15: "Vendor",  # Vendor
-}
-
+# Might only be accurate for JP values?
 AWAKENING_MAP = {
     0: '',  # No need.
     1: 'Enhanced HP',
@@ -96,7 +90,11 @@ AWAKENING_MAP = {
     59: 'L-Shape Damage Reduction',
     60: 'L-Shape Attack',
     61: 'Super Enhanced Combo',
-    62: 'Combo Orb',
-    63: 'Skill Voice',
-    64: 'Dungeon Bonus',
 }
+
+
+class EvoType(Enum):
+    """Evo types supported by PadGuide. Numbers correspond to their id values."""
+    Evo = 0
+    UvoAwoken = 1
+    UuvoReincarnated = 2
