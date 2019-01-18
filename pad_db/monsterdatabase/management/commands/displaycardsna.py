@@ -1,14 +1,11 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import CardNA, ActiveSkill
-import requests
-import json
+from monsterdatabase.models import Monster, Skill
+
 
 
 class Command(BaseCommand):
     help = 'Runs an update on the models to add to the database.'
 
     def handle(self, *args, **options):
-        cards = CardNA.objects.all()
-
-        for card in cards:
-            print("Card :", card.monster.name)
+        cards = Monster.objects.all()
+        skills = Skill.objects.all()

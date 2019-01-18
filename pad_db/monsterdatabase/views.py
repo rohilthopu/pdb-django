@@ -215,23 +215,26 @@ def getMultipliers(skill) -> []:
 
         for skill in skill_list:
 
+
             multipliers[0] *= skill.hp_mult
             multipliers[1] *= skill.atk_mult
             multipliers[2] *= skill.rcv_mult
             if skill.dmg_reduction != 0:
                 shields.append(skill.dmg_reduction)
 
+
         for shield in shields:
             shield_calc *= (1 - shield)
 
         multipliers[3] = round((1 - shield_calc) * 100, 2)
         multipliers[4] = 1 - shield_calc
+
     else:
         multipliers[0] = skill.hp_mult
         multipliers[1] = skill.atk_mult
         multipliers[2] = skill.rcv_mult
-        multipliers[3] = float(skill.dmg_reduction * 100)
-        multipliers[4] = float(skill.dmg_reduction)
+        multipliers[3] = skill.dmg_reduction * 100
+        multipliers[4] = skill.dmg_reduction
     return multipliers
 
 
