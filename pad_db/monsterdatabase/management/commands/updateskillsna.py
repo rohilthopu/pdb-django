@@ -64,7 +64,10 @@ class Command(BaseCommand):
 
         for item in data:
             if item['skill_id'] != 0:
-                makeSkill(item)
+
+                name = item['name']
+                if '無し' not in name and name is not '' and '*' not in name:
+                    makeSkill(item)
 
         print()
         print("Merging JP skill list.")
