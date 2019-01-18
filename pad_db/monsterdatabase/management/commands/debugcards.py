@@ -75,7 +75,7 @@ class Command(BaseCommand):
                         global  passed_tests
                         passed_tests += 1
 
-        link = "https://storage.googleapis.com/mirubot/paddata/raw/na/download_skill_data.json"
+        link = "https://storage.googleapis.com/mirubot/paddata/raw/jp/download_skill_data.json"
 
         skills = Skill.objects.all()
 

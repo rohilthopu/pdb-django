@@ -9,7 +9,7 @@ class Skill(models.Model):
     hp_mult = models.FloatField(default=1)
     atk_mult = models.FloatField(default=1)
     rcv_mult = models.FloatField(default=1)
-    dmg_reduction = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    dmg_reduction = models.FloatField(default=0)
 
     # connected skills
     c_skill_1 = models.IntegerField(default=-1)

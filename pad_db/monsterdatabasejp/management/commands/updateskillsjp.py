@@ -4,7 +4,7 @@ import requests
 import json
 import time
 
-from .skill_parser import parse_skill_multiplier
+from .skill_parser import parse_skill_multiplier, Multiplier
 from .skill_type_maps import SKILL_TYPE
 
 
@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
         Skill.objects.all().delete()
 
-        link = 'https://storage.googleapis.com/mirubot/paddata/processed/jp_skills.json'
+        link = 'https://storage.googleapis.com/mirubot/paddata/raw/jp_skills.json'
 
         req = requests.get(link).text
         data = json.loads(req)
@@ -49,7 +49,12 @@ class Command(BaseCommand):
 
                     skill.skill_class = SKILL_TYPE[skill_type]
 
-                    multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
+                    try:
+                        multipliers = parse_skill_multiplier(skill_type, other_fields, len(other_fields))
+                    except Exception as e:
+                        print('skill parsing failed for', other_fields, 'with exception:', e)
+                        print('Skill:', item)
+                        multipliers = Multiplier()
 
                     skill.hp_mult = multipliers.hp
                     skill.atk_mult = multipliers.atk
