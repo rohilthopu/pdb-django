@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        link = "https://storage.googleapis.com/mirubot/paddata/merged/guerrilla_data.json"
+        link = "https://storage.googleapis.com/mirubot-data/paddata/merged/guerrilla_data.json"
         jsonPull = requests.get(link).text
         jsonDump = json.loads(jsonPull)
 
