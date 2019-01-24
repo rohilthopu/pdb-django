@@ -72,11 +72,3 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
         print("Elapsed time :", end - start)
 
-        # print("Printing all dungeon information.")
-
-        # for dungeon in Dungeon.objects.all():
-        #     print("\tDungeon Name:", dungeon.name)
-        #     print("\t\tFloor Name:", dungeon.floorName)
-        #     print("\t\tFloor Name:", dungeon.stamina)
-        #     print("\t\t\tDungeon Floor Count:", dungeon.floorCount)
-        #     print("\t\t\tPossible Drops:", json.loads(dungeon.possibleDrops))

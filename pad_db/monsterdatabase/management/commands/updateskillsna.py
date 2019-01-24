@@ -80,7 +80,7 @@ class Command(BaseCommand):
 
             for item in jsonData:
                 skillID = item['skill_id']
-                if skillID != 0 and not currSkills.filter(skillID=skillID):
+                if skillID != 0 and not currSkills.filter(skillID=skillID).exists():
                     makeSkill(item)
 
             end = time.time()
