@@ -3,6 +3,7 @@ import requests
 import json
 import time
 from datetime import datetime
+import os
 
 from guerrilladungeon.models import GuerrillaDungeon
 from dungeon.models import Dungeon
@@ -16,7 +17,7 @@ class Command(BaseCommand):
         # link = "https://storage.googleapis.com/mirubot-data/paddata/merged/guerrilla_data.json"
         # jsonPull = requests.get(link).text
 
-        with open('guerrilla_data.json') as jsonPull:
+        with open(os.path.join(os.path.dirname(__file__), "guerrilla_data.json"), 'r') as jsonPull:
             jsonDump = json.load(jsonPull)
 
             GuerrillaDungeon.objects.all().delete()
