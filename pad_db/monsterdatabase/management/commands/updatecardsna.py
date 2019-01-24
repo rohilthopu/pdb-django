@@ -97,7 +97,10 @@ class Command(BaseCommand):
             monster.save()
 
 
-        Monster.objects.all().delete()
+        m = Monster.objects.all()
+        prevSize = len(m.count())
+
+        m.delete()
         Evolution.objects.all().delete()
 
         with open(os.path.join(os.path.dirname(__file__), "na_cards.json"), 'r') as jsonPull:
@@ -180,7 +183,8 @@ class Command(BaseCommand):
             v.save()
         else:
             v = ver.first()
-            v.monster += 1
+            if prevSize < monsters.count():
+                v.monster += 1
             v.save()
 
 

@@ -34,7 +34,7 @@ class Command(BaseCommand):
             skill.hp_mult = item['hp_mult']
             skill.atk_mult = item['atk_mult']
             skill.rcv_mult = item['rcv_mult']
-            skill.dmg_reduction = item['shield']/100
+            skill.dmg_reduction = item['shield'] / 100
 
             c_skill_1 = item['skill_part_1_id']
             c_skill_2 = item['skill_part_2_id']
@@ -50,7 +50,10 @@ class Command(BaseCommand):
             skill.save()
 
         # allSkills = Skill.objects.all()
-        Skill.objects.all().delete()
+
+        s = Skill.objects.all()
+        prevSize = s.count()
+        s.delete()
 
         with open(os.path.join(os.path.dirname(__file__), "na_skills.json"), 'r') as jsonPull:
             jsonData = json.load(jsonPull)
@@ -66,8 +69,6 @@ class Command(BaseCommand):
                     name = item['name']
                     if '無し' not in name and name is not '' and '*' not in name:
                         makeSkill(item)
-
-
 
         with open(os.path.join(os.path.dirname(__file__), "jp_skills.json"), 'r') as jsonPull:
             jsonData = json.load(jsonPull)
@@ -100,6 +101,6 @@ class Command(BaseCommand):
             v.save()
         else:
             v = ver.first()
-            v.skill += 1
+            if prevSize < Skill.objects.all().count():
+                v.skill += 1
             v.save()
-
