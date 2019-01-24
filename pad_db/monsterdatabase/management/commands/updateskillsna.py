@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from monsterdatabase.models import Skill
-import requests
+form dataversions.models import Version
 import json
 import time
 import os
@@ -86,3 +86,20 @@ class Command(BaseCommand):
             print()
             print("Elapsed time:", end - start, "s")
             print()
+
+        print()
+        print("Updating version")
+
+        ver = Version.objects.all()
+
+        if len(ver) == 0:
+            v = Version()
+            v.dungeon = 1
+            v.monster = 1
+            v.skill = 1
+            v.save()
+        else:
+            v = ver.first()
+            v.skill += 1
+            v.save()
+
