@@ -116,8 +116,10 @@ class Command(BaseCommand):
 
             for card in cards:
 
+                released = card['released_status']
+
                 cardName = card['card']['name']
-                if '?' not in card['card']['name'] and '*' not in cardName and cardName is not '':
+                if released and cardName is not '':
 
                     rawCard = card['card']
 
