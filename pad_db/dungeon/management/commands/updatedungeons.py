@@ -3,8 +3,8 @@ import requests
 import json
 from ...models import Dungeon, Floor
 import time
-from .dParse import getModifiers
 from .maps import raw7_map
+import os
 
 
 class Command(BaseCommand):
@@ -21,54 +21,43 @@ class Command(BaseCommand):
         link = "https://storage.googleapis.com/mirubot/paddata/processed/na_dungeons.json"
 
         data = requests.get(link).text
-        pull = json.loads(data)
+        with open(os.path.join(os.path.dirname(__file__), "jp_cards.json"), 'r') as jsonPull:
+            pull = json.load(jsonPull)
 
-        for item in pull:
-            name = item['clean_name']
+            for item in pull:
+                name = item['clean_name']
 
-            if '*' not in name:
+                if '*' not in name:
 
-                dungeon = Dungeon()
-                dungeon.name = name.rsplit("#")[-1]
-                dungeon.dungeonID = item['dungeon_id']
-                dungeon.floorCount = len(item['floors'])
-                dungeon.dungeonType = item['alt_dungeon_type']
-                dungeon.save()
+                    dungeon = Dungeon()
+                    dungeon.name = name.rsplit("#")[-1]
+                    dungeon.dungeonID = item['dungeon_id']
+                    dungeon.floorCount = len(item['floors'])
+                    dungeon.dungeonType = item['alt_dungeon_type']
+                    dungeon.save()
 
-                for floorItem in item['floors']:
+                    for floorItem in item['floors']:
+                        floor = Floor()
+                        floor.dungeonID = dungeon.dungeonID
+                        floor.floorNumber = floorItem['floor_number']
+                        floor.name = floorItem['clean_name']
+                        floor.waves = floorItem['waves']
+                        floor.otherModifier = floorItem['other_modifier']
+                        floor.possibleDrops = json.dumps(floorItem['possible_drops'])
+                        floor.entryRequirement = floorItem['entry_requirement'] if floorItem[
+                                                                                       'entry_requirement'] is not None else "None"
+                        floor.requiredDungeon = floorItem['required_dungeon']
+                        floor.remainingModifiers = json.dumps(floorItem['remaining_modifiers'])
+                        floor.modifiers = json.dumps(floorItem['stat_modifiers'])
+                        floor.enhancedType = floorItem['enhanced_type']
+                        floor.enhancedAttribute = floorItem['enhanced_attribute']
+                        floor.messages = json.dumps(floorItem['messages'])
+                        floor.fixedTeam = json.dumps(floorItem['fixed_team'])
+                        floor.remainingModifiers = json.dumps(floorItem['remaining_modifiers'])
+                        floor.score = floorItem['score']
 
-                    raw = floorItem['raw']
+                        floor.save()
 
-                    floor = Floor()
-                    floor.dungeonID = dungeon.dungeonID
-                    floor.floorNumber = raw[0]
-                    floor.name = raw[1].split('$')[-1]
-                    floor.battles = raw[2]
-                    floor.stamina = raw[4]
-                    floor.otherModifier = raw7_map[int(raw[7])]
-                    pos = 8
-                    possibleDrops = {}
-
-                    while (int(raw[pos]) is not 0):
-                        rawVal = int(raw[pos])
-                        if rawVal > 10000:
-                            val = rawVal - 10000
-                            possibleDrops[val] = "rare"
-                            pos += 1
-                        else:
-                            possibleDrops[rawVal] = "normal"
-                            pos += 1
-                    pos += 1
-                    modifiers = getModifiers(raw, pos)
-
-                    floor.entryRequirement = modifiers.entryRequirement
-                    floor.requiredDungeon = modifiers.requiredDungeon
-                    floor.modifiers = json.dumps(modifiers.modifiers)
-
-                    floor.possibleDrops = json.dumps(possibleDrops)
-                    floor.save()
-
-        end = time.time()
-        self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
-        print("Elapsed time :", end - start)
-
+            end = time.time()
+            self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
+            print("Elapsed time :", end - start)

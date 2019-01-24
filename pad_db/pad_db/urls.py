@@ -29,8 +29,8 @@ from guerrilladungeon import apiviews as gav
 from monsterdatabase import apiviews as mav
 from karmaleaderboard import apiviews as kav
 from monsterdatabasejp import apiviews as mjav
-from dataversions import apiviews as dav
-
+from dataversions import apiviews as dvav
+from dungeon import apiviews as dav
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
 
@@ -67,6 +67,7 @@ urlpatterns = [
                   path('api/skills/na/', mav.SkillList.as_view()),
                   path('api/skills/jp/', mjav.SkillList.as_view()),
                   path('api/leaderboard/', kav.LeaderboardList.as_view()),
-                  path('api/version/', dav.VersionList.as_view()),
+                  path('api/version/', dvav.VersionList.as_view()),
+                  path('api/dungeons/', dav.DungeonList.as_view()),
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
