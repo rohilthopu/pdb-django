@@ -137,7 +137,7 @@ class Command(BaseCommand):
             print('Merging in JP monsters')
             print()
             for card in jsonData:
-                if '?' not in card['card']['name']:
+                if card['card']['name'] != '':
                     rawCard = card['card']
                     cardID = rawCard['card_id']
                     if not monsters.filter(cardID=cardID).exists():
