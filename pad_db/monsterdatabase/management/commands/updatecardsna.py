@@ -1,8 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
 from monsterdatabase.models import Monster, Evolution
-import requests
+from dataversions.models import Version
 import json
 import time
+import os
 
 from .maps import TYPE_MAP, AWAKENING_MAP
 
@@ -95,59 +96,47 @@ class Command(BaseCommand):
 
             monster.save()
 
-        monsterLink = "https://storage.googleapis.com/mirubot-data/paddata/processed/na_cards.json"
-        monsterLinkJP = "https://storage.googleapis.com/mirubot-data/paddata/processed/jp_cards.json"
 
         Monster.objects.all().delete()
         Evolution.objects.all().delete()
 
-        print()
-        self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
+        with open(os.path.join(os.path.dirname(__file__), "na_cards.json"), 'r') as jsonPull:
+            print()
+            self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
-        # Pull the new data, because with PAD, things often get buffs/changes often
+            # Pull the new data, because with PAD, things often get buffs/changes often
 
-        loadSite = requests.get(monsterLink)
-        cards = json.loads(loadSite.text)
-        start_time = time.time()
-        print()
-        self.stdout.write(self.style.SUCCESS('Adding new NA Cards.'))
+            cards = json.load(jsonPull)
+            start_time = time.time()
+            print()
+            self.stdout.write(self.style.SUCCESS('Adding new NA Cards.'))
 
-        for card in cards:
+            for card in cards:
 
-            cardName = card['card']['name']
-            if '?' not in card['card']['name'] and '*' not in cardName and cardName is not '':
+                cardName = card['card']['name']
+                if '?' not in card['card']['name'] and '*' not in cardName and cardName is not '':
 
-                rawCard = card['card']
+                    rawCard = card['card']
 
-                if not isinstance(rawCard, type(None)):
-                    makeMonster(rawCard)
-
-            # if not monsters.filter(cardID=rawCard['card_id']).exists():
-
-            # print("\t\tAdding new entry for", rawCard['name'])
+                    if not isinstance(rawCard, type(None)):
+                        makeMonster(rawCard)
 
 
         monsters = Monster.objects.all()
 
 
         # merge in JP monsters
+        with open(os.path.join(os.path.dirname(__file__), "jp_cards.json"), 'r') as jsonPull:
+            jsonData = json.load(jsonPull)
 
-        data = requests.get(monsterLinkJP).text
-        jsonData = json.loads(data)
-
-        print('Merging in JP monsters')
-        print()
-
-        for card in jsonData:
-
-            if '?' not in card['card']['name']:
-
-
-                rawCard = card['card']
-                cardID = rawCard['card_id']
-
-                if not monsters.filter(cardID=cardID).exists():
-                    makeMonster(rawCard)
+            print('Merging in JP monsters')
+            print()
+            for card in jsonData:
+                if '?' not in card['card']['name']:
+                    rawCard = card['card']
+                    cardID = rawCard['card_id']
+                    if not monsters.filter(cardID=cardID).exists():
+                        makeMonster(rawCard)
 
         monsters = Monster.objects.all()
 
@@ -170,7 +159,6 @@ class Command(BaseCommand):
             evos = []
             for evo in parsedEvos:
                 evos.append(evo.evo)
-
             monster.evos_raw = json.dumps(evos)
             monster.save()
 
@@ -178,6 +166,24 @@ class Command(BaseCommand):
         end_time = time.time()
 
         self.stdout.write(self.style.SUCCESS('NA update complete.'))
+
+        print()
+        print("Updating version")
+
+        ver = Version.objects.all()
+
+        if len(ver) == 0:
+            v = Version()
+            v.dungeon = 1
+            v.monster = 1
+            v.skill = 1
+            v.save()
+        else:
+            v = ver.first()
+            v.monster += 1
+            v.save()
+
+
 
         print("Elapsed time :", end_time - start_time)
         print()
