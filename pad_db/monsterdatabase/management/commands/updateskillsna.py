@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from monsterdatabase.models import Skill
-form dataversions.models import Version
+from dataversions.models import Version
 import json
 import time
 import os
