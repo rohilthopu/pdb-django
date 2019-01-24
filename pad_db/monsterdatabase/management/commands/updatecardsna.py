@@ -116,7 +116,7 @@ class Command(BaseCommand):
 
             for card in cards:
 
-                released = card['released_status']
+                released = card['card']['released_status']
 
                 cardName = card['card']['name']
                 if released and cardName is not '':
