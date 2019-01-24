@@ -13,28 +13,30 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        link = "https://storage.googleapis.com/mirubot-data/paddata/merged/guerrilla_data.json"
-        jsonPull = requests.get(link).text
-        jsonDump = json.loads(jsonPull)
+        # link = "https://storage.googleapis.com/mirubot-data/paddata/merged/guerrilla_data.json"
+        # jsonPull = requests.get(link).text
 
-        GuerrillaDungeon.objects.all().delete()
+        with open('guerrilla_data.json') as jsonPull:
+            jsonDump = json.load(jsonPull)
 
-        for item in jsonDump['items']:
+            GuerrillaDungeon.objects.all().delete()
 
-            if GuerrillaDungeon.objects.filter(startTime=item['start_timestamp']).first() is None:
-                dungeon = GuerrillaDungeon()
+            for item in jsonDump['items']:
 
-                dungeon.name = item['dungeon_name'].rsplit('$')[-1]
-                dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M")
-                dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M")
-                dungeon.startSecs = item['start_timestamp']
-                dungeon.endSecs = item['end_timestamp']
-                dungeon.group = item['group']
-                dungeon.server = item['server']
+                if GuerrillaDungeon.objects.filter(startTime=item['start_timestamp']).first() is None:
+                    dungeon = GuerrillaDungeon()
 
-                if dungeon.server == "NA":
-                    if Dungeon.objects.filter(name=dungeon.name).exists():
-                        d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
-                        dungeon.dungeon_id = d_id
+                    dungeon.name = item['dungeon_name'].rsplit('$')[-1]
+                    dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M")
+                    dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M")
+                    dungeon.startSecs = item['start_timestamp']
+                    dungeon.endSecs = item['end_timestamp']
+                    dungeon.group = item['group']
+                    dungeon.server = item['server']
 
-                dungeon.save()
+                    if dungeon.server == "NA":
+                        if Dungeon.objects.filter(name=dungeon.name).exists():
+                            d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
+                            dungeon.dungeon_id = d_id
+
+                    dungeon.save()
