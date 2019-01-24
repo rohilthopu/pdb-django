@@ -3,3 +3,5 @@ db.sqlite3
 logs/
 settings.py
 .DS_Store
+*.json
+staticroot/
