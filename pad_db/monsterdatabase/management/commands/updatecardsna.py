@@ -98,7 +98,7 @@ class Command(BaseCommand):
 
 
         m = Monster.objects.all()
-        prevSize = len(m.count())
+        prevSize = m.count()
 
         m.delete()
         Evolution.objects.all().delete()
