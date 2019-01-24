@@ -3,8 +3,8 @@ from monsterdatabase.models import Skill
 import requests
 import json
 import time
+import os
 
-from .skill_parser import parse_skill_multiplier
 from .skill_type_maps import SKILL_TYPE
 
 
@@ -51,39 +51,38 @@ class Command(BaseCommand):
 
         # allSkills = Skill.objects.all()
         Skill.objects.all().delete()
-        link = "https://storage.googleapis.com/mirubot-data/paddata/processed/na_skills.json"
-        linkJP = "https://storage.googleapis.com/mirubot-data/paddata/processed/jp_skills.json"
 
-        req = requests.get(link).text
-        data = json.loads(req)
+        with open(os.path.join(os.path.dirname(__file__), "na_skills.json"), 'r') as jsonPull:
+            jsonData = json.load(jsonPull)
 
-        print()
-        print("Updating NA skill list.")
-        print()
-        start = time.time()
+            print()
+            print("Updating NA skill list.")
+            print()
+            start = time.time()
 
-        for item in data:
-            if item['skill_id'] != 0:
+            for item in jsonData:
+                if item['skill_id'] != 0:
 
-                name = item['name']
-                if '無し' not in name and name is not '' and '*' not in name:
+                    name = item['name']
+                    if '無し' not in name and name is not '' and '*' not in name:
+                        makeSkill(item)
+
+
+
+        with open(os.path.join(os.path.dirname(__file__), "jp_skills.json"), 'r') as jsonPull:
+            jsonData = json.load(jsonPull)
+            print()
+            print("Merging JP skill list.")
+            print()
+
+            currSkills = Skill.objects.all()
+
+            for item in jsonData:
+                skillID = item['skill_id']
+                if skillID != 0 and not currSkills.filter(skillID=skillID):
                     makeSkill(item)
 
-        print()
-        print("Merging JP skill list.")
-        print()
-
-        currSkills = Skill.objects.all()
-
-        req = requests.get(linkJP).text
-        data = json.loads(req)
-
-        for item in data:
-            skillID = item['skill_id']
-            if skillID != 0 and not currSkills.filter(skillID=skillID):
-                makeSkill(item)
-
-        end = time.time()
-        print()
-        print("Elapsed time:", end - start, "s")
-        print()
+            end = time.time()
+            print()
+            print("Elapsed time:", end - start, "s")
+            print()
