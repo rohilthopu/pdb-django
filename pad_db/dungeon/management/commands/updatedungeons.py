@@ -35,6 +35,7 @@ class Command(BaseCommand):
                 fl.dungeonID = dungeon_id
                 fl.floorNumber = floor.floor_number
                 fl.name = floor.clean_name
+                fl.stamina = floor.stamina
                 fl.waves = floor.waves
                 fl.possibleDrops = json.dumps(floor.possible_drops)
                 fl.entryRequirement = floor.entry_requirement if floor.entry_requirement is not None else "None"
