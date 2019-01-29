@@ -21,10 +21,10 @@ class Command(BaseCommand):
 
         def make_dungeon_from_object(dungeon):
             item = Dungeon()
-            dungeon.name = dungeon.clean_name
-            dungeon.dungeonID = dungeon.dungeon_id
-            dungeon.floorCount = len(dungeon.floors)
-            dungeon.dungeonType = dungeon.alt_dungeon_type
+            item.name = dungeon.clean_name
+            item.dungeonID = dungeon.dungeon_id
+            item.floorCount = len(dungeon.floors)
+            item.dungeonType = dungeon.alt_dungeon_type
             item.save()
 
         def make_floor_from_object(floors, dungeon_id):
