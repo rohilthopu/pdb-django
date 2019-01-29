@@ -96,7 +96,6 @@ class Command(BaseCommand):
 
             monster.save()
 
-
         m = Monster.objects.all()
         prevSize = m.count()
 
@@ -126,9 +125,7 @@ class Command(BaseCommand):
                     if not isinstance(rawCard, type(None)):
                         makeMonster(rawCard)
 
-
         monsters = Monster.objects.all()
-
 
         # merge in JP monsters
         with open(os.path.join(os.path.dirname(__file__), "jp_cards.json"), 'r') as jsonPull:
@@ -167,7 +164,6 @@ class Command(BaseCommand):
             monster.evos_raw = json.dumps(evos)
             monster.save()
 
-
         end_time = time.time()
 
         self.stdout.write(self.style.SUCCESS('NA update complete.'))
@@ -188,8 +184,6 @@ class Command(BaseCommand):
             if prevSize < monsters.count():
                 v.monster += 1
             v.save()
-
-
 
         print("Elapsed time :", end_time - start_time)
         print()
