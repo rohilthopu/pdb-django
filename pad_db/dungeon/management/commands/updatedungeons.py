@@ -26,7 +26,7 @@ class Command(BaseCommand):
 
         start = time.time()
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_dungeons.jsonß'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_dungeons.json'), 'r') as jsonPull:
             pull = json.load(jsonPull)
 
             for item in pull:
