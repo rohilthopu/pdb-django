@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 import requests
 import json
-from dungeon import Dungeon, Floor
+from dungeon.models import Dungeon, Floor
 import time
 import os
 
