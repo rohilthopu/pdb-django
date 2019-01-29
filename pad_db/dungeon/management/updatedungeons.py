@@ -26,9 +26,6 @@ class Command(BaseCommand):
 
         start = time.time()
 
-        link = "https://storage.googleapis.com/mirubot/paddata/processed/na_dungeons.json"
-
-        data = requests.get(link).text
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_dungeons.jsonß'), 'r') as jsonPull:
             pull = json.load(jsonPull)
 

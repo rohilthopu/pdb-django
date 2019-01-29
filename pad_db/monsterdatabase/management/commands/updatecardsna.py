@@ -102,7 +102,7 @@ class Command(BaseCommand):
         m.delete()
         Evolution.objects.all().delete()
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/guerrilla/na_cards.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_cards.json'), 'r') as jsonPull:
             print()
             self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
 
@@ -128,7 +128,7 @@ class Command(BaseCommand):
         monsters = Monster.objects.all()
 
         # merge in JP monsters
-        with open(os.path.abspath('/home/rohil/data/pad_data/guerrilla/jp_cards.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_cards.json'), 'r') as jsonPull:
             jsonData = json.load(jsonPull)
 
             print('Merging in JP monsters')
