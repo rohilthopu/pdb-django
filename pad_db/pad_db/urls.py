@@ -31,6 +31,7 @@ from karmaleaderboard import apiviews as kav
 from monsterdatabasejp import apiviews as mjav
 from dataversions import apiviews as dvav
 from dungeon import apiviews as dav
+
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
 
@@ -69,5 +70,6 @@ urlpatterns = [
                   path('api/leaderboard/', kav.LeaderboardList.as_view()),
                   path('api/version/', dvav.VersionList.as_view()),
                   path('api/dungeons/', dav.DungeonList.as_view()),
+                  path('api/floors/', dav.FloorList.as_view()),
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
