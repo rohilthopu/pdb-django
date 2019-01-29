@@ -70,7 +70,7 @@ class Command(BaseCommand):
                     if '無し' not in name and name is not '' and '*' not in name:
                         makeSkill(item)
 
-         with open(os.path.abspath('/home/rohil/data/pad_data/guerrilla/jp_skills.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/guerrilla/jp_skills.json'), 'r') as jsonPull:
             jsonData = json.load(jsonPull)
             print()
             print("Merging JP skill list.")
