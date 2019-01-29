@@ -32,13 +32,13 @@ def DungeonView(request):
         else:
             jpActives.append("Ended")
 
-    naDungeonID = []
+    # naDungeonID = []
+    #
+    # for dungeon in naDungeons:
+    #     d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
+    #     naDungeonID.append(d_id)
 
-    for dungeon in naDungeons:
-        d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
-        naDungeonID.append(d_id)
-
-    na = zip(naDungeons, naActives, naDungeonID)
+    na = zip(naDungeons, naActives)
     jp = zip(jpDungeons, jpActives)
 
     context = {'date': dateT, 'na': na, 'jp': jp}
