@@ -19,7 +19,7 @@ def dungeonView(request, d_id):
         dropList = json.loads(floor.possibleDrops)
         drops.append(dropList)
 
-    modifiers = [json.loads(floor.modifiers) for floor in floors]
+    # modifiers = [json.loads(floor.teamModifiers) for floor in floors]
 
     floorData = zip(floors, drops)
 
