@@ -20,12 +20,13 @@ class Command(BaseCommand):
             dungeon.save()
 
         def make_dungeon_from_object(dungeon):
-            item = Dungeon()
-            item.name = dungeon.clean_name
-            item.dungeonID = dungeon.dungeon_id
-            item.floorCount = len(dungeon.floors)
-            item.dungeonType = dungeon.alt_dungeon_type
-            item.save()
+            if "*" not in dungeon.clean_name:
+                new_dungeon = Dungeon()
+                new_dungeon.name = dungeon.clean_name
+                new_dungeon.dungeonID = dungeon.dungeon_id
+                new_dungeon.floorCount = len(dungeon.floors)
+                new_dungeon.dungeonType = dungeon.alt_dungeon_type
+                new_dungeon.save()
 
         def make_floor_from_object(floors, dungeon_id):
 
@@ -62,7 +63,8 @@ class Command(BaseCommand):
 
             make_dungeon_from_object(item)
 
-            make_floor_from_object(item.floors, item.dungeon_id)
+            if '*' not in item.clean_name:
+                make_floor_from_object(item.floors, item.dungeon_id)
 
 
 
