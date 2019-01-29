@@ -21,12 +21,13 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
 
-        Dungeon.objects.all().delete()
-        # Floor.objects.all().delete()
-
         start = time.time()
 
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_dungeons.json'), 'r') as jsonPull:
+
+            Dungeon.objects.all().delete()
+            # Floor.objects.all().delete()
+
             pull = json.load(jsonPull)
 
             for item in pull:

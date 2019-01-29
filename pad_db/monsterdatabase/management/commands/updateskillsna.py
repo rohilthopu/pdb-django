@@ -53,9 +53,10 @@ class Command(BaseCommand):
 
         s = Skill.objects.all()
         prevSize = s.count()
-        s.delete()
+
 
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_skills.json'), 'r') as jsonPull:
+            s.delete()
             jsonData = json.load(jsonPull)
 
             print()
