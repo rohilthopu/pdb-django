@@ -29,7 +29,7 @@ class Command(BaseCommand):
         link = "https://storage.googleapis.com/mirubot/paddata/processed/na_dungeons.json"
 
         data = requests.get(link).text
-        with open(os.path.join(os.path.dirname(__file__), "jp_cards.json"), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_dungeons.jsonß'), 'r') as jsonPull:
             pull = json.load(jsonPull)
 
             for item in pull:
