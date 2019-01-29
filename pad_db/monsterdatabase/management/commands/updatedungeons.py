@@ -1,9 +1,8 @@
 from django.core.management.base import BaseCommand
 import requests
 import json
-from ...models import Dungeon, Floor
+from dungeon import Dungeon, Floor
 import time
-from .maps import raw7_map
 import os
 
 
