@@ -26,7 +26,7 @@ class Command(BaseCommand):
                 new_dungeon.dungeonID = dungeon.dungeon_id
                 new_dungeon.floorCount = len(dungeon.floors)
                 new_dungeon.dungeonType = dungeon.alt_dungeon_type
-                new_dungeon.imageID = image_id[-1] if len(image_id) > 0 else 0
+                new_dungeon.imageID = image_id[0] if len(image_id) > 0 else 0
                 new_dungeon.save()
 
         def make_floor_from_object(floors, dungeon_id):
@@ -53,7 +53,7 @@ class Command(BaseCommand):
 
                 # Just use the last drop for the image id for now.
                 image_id = [*floor.possible_drops]
-                fl.imageID = image_id[-1] if len(image_id) > 0 else 0
+                fl.imageID = image_id[0] if len(image_id) > 0 else 0
                 fl.save()
 
         self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
