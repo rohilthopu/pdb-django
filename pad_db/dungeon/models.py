@@ -9,6 +9,7 @@ class Floor(models.Model):
     possibleDrops = models.TextField(default="")
     dungeonID = models.IntegerField(default=0)
     requiredDungeon = models.IntegerField(default=0)
+    requiredFloor = models.IntegerField(default=0)
     encounterModifiers = models.TextField(default="")
     teamModifiers = models.TextField(default="")
     entryRequirement = models.TextField(default="")
