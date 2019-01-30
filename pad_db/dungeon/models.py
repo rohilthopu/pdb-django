@@ -19,6 +19,7 @@ class Floor(models.Model):
     remainingModifiers = models.TextField(default="")
     enhancedType = models.CharField(default=0, max_length=100)
     enhancedAttribute = models.CharField(default=0, max_length=100)
+    imageID = models.IntegerField(default=0)
 
 
 class Dungeon(models.Model):
@@ -26,3 +27,4 @@ class Dungeon(models.Model):
     dungeonID = models.IntegerField(default=0)
     dungeonType = models.CharField(default="", max_length=50)
     floorCount = models.IntegerField(default=0)
+    imageID = models.IntegerField(default=0)
