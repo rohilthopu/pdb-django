@@ -52,7 +52,7 @@ class Command(BaseCommand):
                 fl.score = floor.score if floor.score is not None else 0
 
                 # Just use the last drop for the image id for now.
-                image_id = floor.possible_drops.keys()[-1]
+                image_id = [*floor.possible_drops][-1]
                 fl.imageID = image_id if image_id is not None else 0
                 fl.save()
 
@@ -67,7 +67,7 @@ class Command(BaseCommand):
 
         for item in dungeon_list:
 
-            make_dungeon_from_object(item, item.floors[-1].possible_drops.keys()[-1])
+            make_dungeon_from_object(item, [*item.floors[-1].possible_drops][-1])
 
             if '*' not in item.clean_name:
                 make_floor_from_object(item.floors, item.dungeon_id)
