@@ -94,6 +94,14 @@ class Command(BaseCommand):
             monster.sellMP = rawCard['sell_mp']
             monster.sellCoin = rawCard['sell_price_at_lvl_10']
 
+
+            enemy_skills = []
+
+            for skill in rawCard['enemy_skill_refs']:
+                enemy_skills.append(skill['enemy_skill_id'])
+
+            monster.enemy_skills = json.dumps(enemy_skills)
+
             monster.save()
 
         m = Monster.objects.all()

@@ -90,5 +90,13 @@ class Monster(models.Model):
     sellMP = models.IntegerField(default=0)
     sellCoin = models.IntegerField(default=0)
 
+    enemy_skills = models.TextField(default="")
+
     def __str__(self):
         return self.name
+
+
+class EnemySkill(models.Model):
+    name = models.CharField(default="", max_length=100)
+    effect = models.CharField(default="", max_length=100)
+    enemy_skill_id = models.IntegerField(default=-1)

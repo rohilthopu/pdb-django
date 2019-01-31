@@ -6,7 +6,6 @@ class Modifier:
         self.required_dungeon = None
         self.required_floor = None
         self.remaining_modifiers = []
-        self.entry_requirement = None
         self.team_stat_modifiers = {}
         self.encounter_stat_modifiers = {}
         self.messages = []
@@ -134,19 +133,16 @@ def get_modifiers(raw):
     elif val == 33:
         dungeon_modifiers.required_dungeon = int(raw[pos + 1])
         dungeon_modifiers.required_floor = int(raw[pos + 2])
-        dungeon_modifiers.entry_requirement = ENTRY_REQUIREMENT_MAP[int(raw[pos + 3])](raw)
         dungeon_modifiers.messages.append(ENTRY_REQUIREMENT_MAP[int(raw[pos + 3])](raw))
         return dungeon_modifiers
 
     elif val == 37:
         dungeon_modifiers.required_dungeon = int(raw[pos + 1])
         dungeon_modifiers.required_floor = int(raw[pos + 2])
-        dungeon_modifiers.entry_requirement = ENTRY_REQUIREMENT_MAP[int(raw[-2])](raw)
         dungeon_modifiers.messages.append(ENTRY_REQUIREMENT_MAP[int(raw[-2])](raw))
         return dungeon_modifiers
 
     elif val == 40:
-        dungeon_modifiers.entry_requirement = ENTRY_REQUIREMENT_MAP[int(raw[pos + 2])](raw)
         dungeon_modifiers.messages.append(ENTRY_REQUIREMENT_MAP[int(raw[pos + 2])](raw))
         return dungeon_modifiers
 
@@ -176,7 +172,6 @@ def get_modifiers(raw):
         split_data = raw[pos + 1].split("|")
         for m in split_data:
             dungeon_modifiers.remaining_modifiers.append(m)
-        dungeon_modifiers.entry_requirement = ENTRY_REQUIREMENT_MAP[int(raw[pos + 2])](raw)
         dungeon_modifiers.messages.append(ENTRY_REQUIREMENT_MAP[int(raw[pos + 2])](raw))
         return dungeon_modifiers
 
