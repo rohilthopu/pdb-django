@@ -127,7 +127,7 @@ class Command(BaseCommand):
                 released = card['card']['released_status']
 
                 cardName = card['card']['name']
-                if released and cardName is not '':
+                if released and cardName is not '' and '*' not in cardName:
 
                     rawCard = card['card']
 
@@ -143,7 +143,8 @@ class Command(BaseCommand):
             print('Merging in JP monsters')
             print()
             for card in jsonData:
-                if card['card']['name'] != '':
+                name = card['card']['name']
+                if name != '':
                     rawCard = card['card']
                     cardID = rawCard['card_id']
                     if not monsters.filter(cardID=cardID).exists():
