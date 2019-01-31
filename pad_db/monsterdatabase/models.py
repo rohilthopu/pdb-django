@@ -97,6 +97,6 @@ class Monster(models.Model):
 
 
 class EnemySkill(models.Model):
-    name = models.CharField(default="", max_length=100)
-    effect = models.CharField(default="", max_length=100)
+    name = models.CharField(default="", max_length=200)
+    effect = models.CharField(default="", max_length=200)
     enemy_skill_id = models.IntegerField(default=-1)
