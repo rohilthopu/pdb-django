@@ -5,8 +5,6 @@ import json
 import time
 import os
 
-from .skill_type_maps import SKILL_TYPE
-
 
 class Command(BaseCommand):
     help = 'Runs an update on the models to add to the database.'

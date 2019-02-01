@@ -39,7 +39,6 @@ class Command(BaseCommand):
                 fl.stamina = floor.stamina
                 fl.waves = floor.waves
                 fl.possibleDrops = json.dumps(floor.possible_drops)
-                fl.entryRequirement = floor.entry_requirement if floor.entry_requirement is not None else "None"
                 fl.requiredDungeon = floor.required_dungeon if floor.required_dungeon is not None else 0
                 fl.requiredFloor = floor.required_floor if floor.required_floor is not None else 0
                 fl.remainingModifiers = json.dumps(floor.remaining_modifiers)
