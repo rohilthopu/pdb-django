@@ -36,7 +36,8 @@ class Command(BaseCommand):
                     dungeon.server = item['server']
 
                     if Dungeon.objects.filter(name=dungeon.name).exists():
-                        d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
-                        dungeon.dungeon_id = d_id
+                        d_id = Dungeon.objects.filter(name=dungeon.name)[0]
+                        dungeon.dungeon_id = d_id.dungeonID
+                        dungeon.image_id = d_id.imageID
 
                     dungeon.save()

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class GuerrillaDungeon(models.Model):
@@ -11,3 +12,4 @@ class GuerrillaDungeon(models.Model):
     server = models.CharField(default="", max_length=10)
     group = models.CharField(default="", max_length=5)
     dungeon_id = models.IntegerField(default=-1)
+    image_id = models.IntegerField(default=1)
