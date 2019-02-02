@@ -29,3 +29,14 @@ class Dungeon(models.Model):
     dungeonType = models.CharField(default="", max_length=50)
     floorCount = models.IntegerField(default=0)
     imageID = models.IntegerField(default=0)
+
+class Encounter(models.Model):
+    wave = models.IntegerField(default=-1)
+    floor = models.IntegerField(default=-1)
+    monster_id = models.IntegerField(default=-1)
+    hp = models.IntegerField(default=0)
+    atk = models.IntegerField(default=0)
+    defense = models.IntegerField(default=0)
+    drop_id = models.IntegerField(default=0)
+    dungeon_id = models.IntegerField(default=0)
+    comment = models.CharField(default="", max_length=200)

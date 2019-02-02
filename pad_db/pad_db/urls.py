@@ -72,5 +72,6 @@ urlpatterns = [
                   path('api/dungeons/', dav.DungeonList.as_view()),
                   path('api/floors/', dav.FloorList.as_view()),
                   path('api/enemyskills/', mav.EnemySkillList.as_view()),
+                  path('api/encounters/', dav.EncounterList.as_view())
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
