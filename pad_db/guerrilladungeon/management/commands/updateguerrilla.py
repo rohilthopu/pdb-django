@@ -17,6 +17,9 @@ class Command(BaseCommand):
         # link = "https://storage.googleapis.com/mirubot-data/paddata/merged/guerrilla_data.json"
         # jsonPull = requests.get(link).text
 
+        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_dungeons.json'), 'r') as jsonDungeon:
+            jpDungeons = json.load(jsonDungeon)
+
         with open(os.path.abspath('/home/rohil/data/pad_data/guerrilla/guerrilla_data.json'), 'r') as jsonPull:
             jsonDump = json.load(jsonPull)
 
@@ -39,5 +42,13 @@ class Command(BaseCommand):
                         d_id = Dungeon.objects.filter(name=dungeon.name)[0]
                         dungeon.dungeon_id = d_id.dungeonID
                         dungeon.image_id = d_id.imageID
+
+                    if dungeon.dungeon_id == -1:
+                        for j in jpDungeons:
+                            name = j['clean_name']
+                            if name == dungeon.name:
+                                jpID = j['dungeon_id']
+                                dungeon.dungeon_id = jpID
+                                dungeon.image_id = Dungeon.objects.get(dungeonID=jpID).imageID
 
                     dungeon.save()
