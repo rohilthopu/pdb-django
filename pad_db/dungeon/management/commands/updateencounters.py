@@ -45,7 +45,7 @@ class Command(BaseCommand):
             encounter.atk = atk
             encounter.defense = defense
             encounter.drop_id = drop_id
-            encounter.dungeon_id = dungeon_map
+            encounter.dungeon_id = dungeon_id
             encounter.comment = comment
             encounter.save()
 
