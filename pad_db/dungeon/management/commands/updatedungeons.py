@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 import requests
 import json
 from dungeon.models import Dungeon, Floor
+from dataversions.models import Version
 import time
 import os
 from .dungeon_parser.dungeon_parser import get_dungeon_list
@@ -60,6 +61,8 @@ class Command(BaseCommand):
 
         start = time.time()
 
+        prevSize = Dungeon.objects.all().count()
+
         Dungeon.objects.all().delete()
         Floor.objects.all().delete()
 
@@ -75,3 +78,19 @@ class Command(BaseCommand):
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
         print("Elapsed time :", end - start)
+
+        print("Updating version")
+
+        ver = Version.objects.all()
+
+        if len(ver) == 0:
+            v = Version()
+            v.dungeon = 1
+            v.monster = 1
+            v.skill = 1
+            v.save()
+        else:
+            v = ver.first()
+            if prevSize < Dungeon.objects.all().count():
+                v.dungeon += 1
+            v.save()
