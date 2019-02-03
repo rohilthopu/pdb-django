@@ -47,7 +47,6 @@ class Command(BaseCommand):
 
                     encounter = Encounter()
                     encounter.wave = wave
-                    encounter.floor = floor
                     encounter.turn = turn
                     encounter.monster_id = monster_id
                     encounter.hp = hp
