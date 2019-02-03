@@ -40,7 +40,7 @@ class Command(BaseCommand):
                     monster_id = int(item['MONSTER_NO'])
                     hp = int(item['HP'])
                     atk = int(item['ATK'])
-                    defense = int(item['DEF'])
+                    defense = float(item['DEF'])
                     drop_id = int(item['DROP_NO'])
                     comment = item['COMMENT_US']
 
