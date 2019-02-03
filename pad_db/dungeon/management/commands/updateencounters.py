@@ -32,27 +32,33 @@ class Command(BaseCommand):
         for item in encounter_data['items']:
 
             if int(item['DUNGEON_SEQ']) in dungeon_map.keys():
-                dungeon_id = dungeon_map[int(item['DUNGEON_SEQ'])]
-                wave = int(item['TURN'])
-                floor = int(item['FLOOR'])
-                monster_id = int(item['MONSTER_NO'])
-                hp = int(item['HP'])
-                atk = int(item['ATK'])
-                defense = int(item['DEF'])
-                drop_id = int(item['DROP_NO'])
-                comment = item['COMMENT_US']
 
-                encounter = Encounter()
-                encounter.wave = wave
-                encounter.floor = floor
-                encounter.monster_id = monster_id
-                encounter.hp = hp
-                encounter.atk = atk
-                encounter.defense = defense
-                encounter.drop_id = drop_id
-                encounter.dungeon_id = dungeon_id
-                encounter.comment = comment
-                encounter.save()
+                try:
+                    dungeon_id = dungeon_map[int(item['DUNGEON_SEQ'])]
+                    wave = int(item['TURN'])
+                    floor = int(item['FLOOR'])
+                    monster_id = int(item['MONSTER_NO'])
+                    hp = int(item['HP'])
+                    atk = int(item['ATK'])
+                    defense = int(item['DEF'])
+                    drop_id = int(item['DROP_NO'])
+                    comment = item['COMMENT_US']
+
+                    encounter = Encounter()
+                    encounter.wave = wave
+                    encounter.floor = floor
+                    encounter.monster_id = monster_id
+                    encounter.hp = hp
+                    encounter.atk = atk
+                    encounter.defense = defense
+                    encounter.drop_id = drop_id
+                    encounter.dungeon_id = dungeon_id
+                    encounter.comment = comment
+                    encounter.save()
+                except Exception as e:
+                    print("Error saving data with exception", e)
+                    print("Data:", item)
+                    print()
 
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
