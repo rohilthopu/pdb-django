@@ -34,6 +34,7 @@ class Dungeon(models.Model):
 class Encounter(models.Model):
     wave = models.IntegerField(default=-1)
     floor = models.IntegerField(default=-1)
+    turn = models.IntegerField(default=0)
     monster_id = models.IntegerField(default=-1)
     hp = models.IntegerField(default=0)
     atk = models.IntegerField(default=0)

@@ -35,8 +35,9 @@ class Command(BaseCommand):
 
                 try:
                     dungeon_id = dungeon_map[int(item['DUNGEON_SEQ'])]
-                    wave = int(item['TURN'])
-                    floor = int(item['FLOOR'])
+                    turn = int(item['TURN'])
+                    wave = int(item['FLOOR'])
+                    floor = int(item['ORDER_IDX'])
                     monster_id = int(item['MONSTER_NO'])
                     hp = int(item['HP'])
                     atk = int(item['ATK'])
@@ -47,6 +48,7 @@ class Command(BaseCommand):
                     encounter = Encounter()
                     encounter.wave = wave
                     encounter.floor = floor
+                    encounter.turn = turn
                     encounter.monster_id = monster_id
                     encounter.hp = hp
                     encounter.atk = atk
