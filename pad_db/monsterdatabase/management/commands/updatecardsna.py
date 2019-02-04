@@ -170,20 +170,6 @@ class Command(BaseCommand):
 
         for monster in monsters:
 
-            card_id = monster.cardID
-            dungeonList = []
-
-            floors = Floor.objects.all()
-            for floor in floors:
-                dropData = json.loads(floor.possibleDrops)
-                for key in dropData.keys():
-                    if card_id == int(key):
-                        dungeon = Dungeon.objects.filter(dungeonID=floor.dungeonID)[0].dungeonID
-                        if dungeon not in dungeonList:
-                            dungeonList.append(dungeon)
-
-            monster.dropDungeons = json.dumps(dungeonList)
-
             parsedEvos = monster.evolutions.all()
             evos = []
             for evo in parsedEvos:
