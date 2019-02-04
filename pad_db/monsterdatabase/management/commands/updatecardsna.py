@@ -178,7 +178,7 @@ class Command(BaseCommand):
                 dropData = json.loads(floor.possibleDrops)
                 for key in dropData.keys():
                     if card_id == int(key):
-                        dungeon = Dungeon.objects.filter(dungeonID=floor.dungeonID)[0]
+                        dungeon = Dungeon.objects.filter(dungeonID=floor.dungeonID)[0].dungeonID
                         if dungeon not in dungeonList:
                             dungeonList.append(dungeon)
 
