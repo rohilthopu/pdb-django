@@ -91,6 +91,8 @@ class Monster(models.Model):
     sellCoin = models.IntegerField(default=0)
 
     enemy_skills = models.TextField(default="")
+    dropDungeons = models.TextField(default="")
+
 
     def __str__(self):
         return self.name
