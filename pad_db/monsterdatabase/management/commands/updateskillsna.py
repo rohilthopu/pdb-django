@@ -67,7 +67,7 @@ class Command(BaseCommand):
                 if item['skill_id'] != 0:
 
                     name = item['name']
-                    if '無し' not in name and name is not '' and '*' not in name:
+                    if '無し' not in name and '*' not in name:
                         makeSkill(item)
 
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_skills.json'), 'r') as jsonPull:

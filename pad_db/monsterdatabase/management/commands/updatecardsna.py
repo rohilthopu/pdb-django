@@ -145,8 +145,7 @@ class Command(BaseCommand):
             print()
             for card in jsonData:
                 name = card['card']['name']
-                released = card['card']['released_status']
-                if name != '' and released:
+                if name != '':
                     rawCard = card['card']
                     cardID = rawCard['card_id']
                     if not monsters.filter(cardID=cardID).exists():
