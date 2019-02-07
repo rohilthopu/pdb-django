@@ -11,6 +11,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
+        EnemySkill.objects.all().delete()
+
         def makeSkill(item):
 
             skill = EnemySkill()
@@ -28,7 +30,6 @@ class Command(BaseCommand):
 
             skill.save()
 
-        EnemySkill.objects.all().delete()
 
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_enemy_skills.json'), 'r') as jsonPull:
             jsonData = json.load(jsonPull)

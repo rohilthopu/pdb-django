@@ -95,7 +95,6 @@ class Command(BaseCommand):
             monster.sellMP = rawCard['sell_mp']
             monster.sellCoin = rawCard['sell_price_at_lvl_10']
 
-
             enemy_skills = []
 
             for skill in rawCard['enemy_skill_refs']:
@@ -107,11 +106,10 @@ class Command(BaseCommand):
 
         m = Monster.objects.all()
         prevSize = m.count()
+        m.delete()
+        Evolution.objects.all().delete()
 
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_cards.json'), 'r') as jsonPull:
-
-            m.delete()
-            Evolution.objects.all().delete()
 
             print()
             self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
@@ -177,8 +175,6 @@ class Command(BaseCommand):
             monster.save()
 
         print("Getting relavent dungeons")
-
-
 
         end_time = time.time()
 
