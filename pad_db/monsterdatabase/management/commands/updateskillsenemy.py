@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from monsterdatabase.models import EnemySkill
-
+from enemy_skill_parser import parse_enemy_skills
 import json
 import time
 import os
@@ -16,22 +16,21 @@ class Command(BaseCommand):
         def makeSkill(item):
 
             skill = EnemySkill()
-            skill.enemy_skill_id = item['enemy_skill_id']
+            skill.enemy_skill_id = item.skill_id
+            # name = item['name']
+            # clean_name = name.replace('\n', ' ') if name is not None else name
+            #
+            # effect = str(item['params'][0])
+            #
+            # clean_effect = effect.replace('\n', ' ') if effect is not None else effect
 
-            name = item['name']
-            clean_name = name.replace('\n', ' ') if name is not None else name
-
-            effect = str(item['params'][0])
-
-            clean_effect = effect.replace('\n', ' ') if effect is not None else effect
-
-            skill.name = clean_name
-            skill.effect = clean_effect if clean_effect is not None else "No Effect"
+            skill.name = item.name
+            skill.effect = item.effect
 
             skill.save()
 
-
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_enemy_skills.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/na/download_enemy_skill_data.json'),
+                  'r') as jsonPull:
             jsonData = json.load(jsonPull)
 
             print()
@@ -39,13 +38,13 @@ class Command(BaseCommand):
             print()
             start = time.time()
 
-            for item in jsonData:
+            parsed_skills = parse_enemy_skills(jsonData)
 
-                name = item['name']
-                if '無し' not in name and name is not '' and '*' not in name:
-                    makeSkill(item)
+            for skill in parsed_skills:
+                makeSkill(skill)
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_enemy_skills.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/jp/download_enemy_skill_data.json'),
+                  'r') as jsonPull:
             jsonData = json.load(jsonPull)
             print()
             print("Merging JP enemy skill list.")
@@ -53,10 +52,12 @@ class Command(BaseCommand):
 
             currSkills = EnemySkill.objects.all()
 
-            for item in jsonData:
-                enemy_skill_id = item['enemy_skill_id']
+            parsed_skills = parse_enemy_skills(jsonData)
+
+            for skill in parsed_skills:
+                enemy_skill_id = skill.skill_id
                 if enemy_skill_id != 0 and not currSkills.filter(enemy_skill_id=enemy_skill_id).exists():
-                    makeSkill(item)
+                    makeSkill(skill)
 
             end = time.time()
             print()
