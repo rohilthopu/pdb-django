@@ -91,10 +91,9 @@ class EnemySkill:
         return str(self.__dict__)
 
 
-def get_skill_from_id(skill_id: int) -> EnemySkill:
-    for parsed_skill in parsed_skills:
-        if parsed_skill.skill_id == skill_id:
-            return parsed_skill
+def get_skill_from_id(skill_id: str) -> EnemySkill:
+    if skill_id in skill_lookup_map:
+        return parse_skill(skill_lookup_map[skill_id])
     else:
         return None
 
@@ -231,7 +230,6 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
         else:
             # fallback condition to come back to
             num_teammates = 1
-
         if int(num_teammates) == 6:
             bind_description = "all monsters"
         else:
@@ -275,8 +273,8 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
     elif skill_type == 83:
         effects = []
         for val in skill_data[2:]:
-            c_skill = get_skill_from_id(int(val))
-            if c_skill is not None and c_skill.effect != 'No effect':
+            c_skill = get_skill_from_id(val)
+            if c_skill is not None:
                 effects.append(c_skill.effect)
         effect_str = ', '.join(effects)
         s.effect = "Uses the following skills: {}".format(effect_str)
@@ -354,56 +352,61 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
         s.effect = "Enemy turn changes by {} turn(s) when {} enemy remains".format(skill_data[-1], skill_data[2])
 
 
-parsed_skills = []
+def parse_skill(split_skill_data: list) -> EnemySkill:
+    s = EnemySkill()
+
+    s.skill_id = int(split_skill_data[0])
+
+    name = split_skill_data[1]
+    curr_index = 2
+    while curr_index < len(split_skill_data) and not split_skill_data[curr_index].isdigit():
+        name += split_skill_data[curr_index]
+        curr_index += 1
+
+    s.name = name
+    split_skill_data = split_skill_data[curr_index:]
+
+    if len(split_skill_data) > 0:
+        s.skill_type = int(split_skill_data[0])
+
+        val = int(split_skill_data[1], 16)
+        if val & 1:
+            if not split_skill_data[2].isdigit():
+                message_str = ''
+                for item in split_skill_data[2:]:
+                    if not item.isdigit():
+                        message_str += item
+
+                s.effect = message_str
+
+        else:
+            make_effect(s.skill_type, s, split_skill_data)
+
+    # dat = skill.split(',')[curr_index:]
+    # if len(dat) > 0 and dat[0] == '83' and not int(dat[1], 16) & 1:
+    #     print('name', s.name)
+    #     print('messages', s.effect)
+    #     print('\t\t', skill.split(','))
+    #     print()
+
+    return s
+
+
+skill_lookup_map = {}
 
 
 def parse_enemy_skills(data) -> [EnemySkill]:
     skills = data['enemy_skills'].split('\n')
 
-    remaining_vals = set()
+    for skill in skills:
+        split_skill_data = skill.split(',')
+        if len(split_skill_data) > 0:
+            if split_skill_data[0].isdigit():
+                skill_lookup_map[split_skill_data[0]] = split_skill_data
+
     for skill in skills:
         split_skill_data = skill.split(',')
 
         if split_skill_data[0].isdigit():
             if len(split_skill_data) > 0:
-
-                s = EnemySkill()
-
-                s.skill_id = int(split_skill_data[0])
-
-                name = split_skill_data[1]
-                i = 2
-                while i < len(split_skill_data) and not split_skill_data[i].isdigit():
-                    name += split_skill_data[i]
-                    i += 1
-
-                s.name = name
-                split_skill_data = split_skill_data[i:]
-
-                if len(split_skill_data) > 0:
-                    s.skill_type = int(split_skill_data[0])
-
-                    val = int(split_skill_data[1], 16)
-                    if val & 1:
-                        if not split_skill_data[2].isdigit():
-                            message_str = ''
-                            for item in split_skill_data[2:]:
-                                if not item.isdigit():
-                                    message_str += item
-
-                            s.effect = message_str
-
-                    else:
-
-                        remaining_vals.add(int(split_skill_data[0]))
-                        make_effect(s.skill_type, s, split_skill_data)
-                        
-                parsed_skills.append(s)
-
-            # dat = skill.split(',')[i:]
-            # if len(dat) > 0 and dat[0] == '103' and not int(dat[1], 16) & 1:
-            #     print('name', s.name)
-            #     print('messages', s.effect)
-            #     print('\t\t', skill.split(','))
-            #     print()
-    return parsed_skills
+                s = parse_skill(split_skill_data)
