@@ -393,6 +393,7 @@ def parse_skill(split_skill_data: list) -> EnemySkill:
 
 
 skill_lookup_map = {}
+parsed_skills = []
 
 
 def parse_enemy_skills(data) -> [EnemySkill]:
@@ -410,3 +411,6 @@ def parse_enemy_skills(data) -> [EnemySkill]:
         if split_skill_data[0].isdigit():
             if len(split_skill_data) > 0:
                 s = parse_skill(split_skill_data)
+                parsed_skills.append(s)
+
+    return parsed_skills
