@@ -1,4 +1,3 @@
-import json
 
 ATTRIBUTE_MAP = {
     -1: 'a random attribute of',
@@ -104,13 +103,44 @@ def get_skill_from_id(skill_id: int) -> EnemySkill:
 def get_attrs_from_shift(val: int) -> []:
     attrs = []
     for i in range(0, 32):
-        if val & (1 << i):
+        if val == -1:
+            attrs.append(ATTRIBUTE_MAP[-1])
+            break
+        elif val & (1 << i):
             attrs.append(ATTRIBUTE_MAP[i])
     return attrs
 
 
-# todo list : 2, 76 - 80, 86
-# possibly update: 72, 94, 97
+def get_types_from_shift(val: int) -> []:
+    attrs = []
+    for i in range(0, 32):
+        if val & (1 << i):
+            attrs.append(EXPLICIT_TYPE_MAP[TYPE_MAP[i]])
+    return attrs
+
+
+def get_orb_change_location(rows: list) -> []:
+    vals = []
+
+    # this gets the rows bit list to be of length 5 to make a proper board
+    if len(rows) is not 5:
+        for i in range(0, 5 - len(rows)):
+            rows.append('0')
+
+    for row in rows:
+        orbs = []
+        for i in range(0, 6):
+            if (int(row) & (1 << i)) != 0:
+                orbs.append('X')
+            else:
+                orbs.append('-')
+        vals.append(orbs)
+
+    return vals
+
+
+# todo list : 76 - 80
+# possibly update: 2, 72, 94, 97
 
 def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
     if skill_type == 1:
@@ -122,14 +152,31 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
         else:
             turns = "{} to {} turn(s)".format(min_turns, max_turns)
         s.effect = "Binds {} teammate(s) for {}".format(skill_data[2], turns)
+    elif skill_type == 2:
+        min_turns = skill_data[2]
+        max_turns = skill_data[3]
+
+        if min_turns == max_turns:
+            turns = "{} turn(s)".format(min_turns)
+        else:
+            turns = "{} to {} turn(s)".format(min_turns, max_turns)
+
+        s.effect = "Binds teammates for {}".format(turns)
 
     elif skill_type == 3:
         bound_type = EXPLICIT_TYPE_MAP[TYPE_MAP[int(skill_data[2])]]
         turns = skill_data[3]
         s.effect = "Binds {} type teammates for {} turn(s)".format(bound_type, turns)
     elif skill_type == 4:
-        s.effect = "Changes {} orbs to {} orbs".format(ATTRIBUTE_MAP[int(skill_data[2])],
-                                                       ATTRIBUTE_MAP[int(skill_data[3])])
+        if len(skill_data) == 3:
+            # special case
+            attr1 = ATTRIBUTE_MAP[int(skill_data[1])]
+            attr2 = ATTRIBUTE_MAP[int(skill_data[2])]
+        else:
+            attr1 = ATTRIBUTE_MAP[int(skill_data[2])]
+            attr2 = ATTRIBUTE_MAP[int(skill_data[3])]
+
+        s.effect = "Changes {} orbs to {} orbs".format(attr1, attr2)
     elif skill_type == 5:
         s.effect = "Blinds the board"
     elif skill_type == 12:
@@ -144,9 +191,17 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
     elif skill_type == 40:
         s.effect = "Self-destruct"
     elif skill_type == 48:
-        s.effect = "Changes {} orbs to {} orbs and hits for {}% ATK".format(ATTRIBUTE_MAP[int(skill_data[3])],
-                                                                            ATTRIBUTE_MAP[int(skill_data[4])],
-                                                                            skill_data[2])
+
+        length = len(skill_data)
+
+        if length == 4:
+            s.effect = "Hits for {}% ATK and changes all orbs to {} orbs".format(skill_data[2],
+                                                                                 ATTRIBUTE_MAP[int(skill_data[3])])
+        else:
+            s.effect = "Hits for {}% ATK and changes {} orbs to {} orbs".format(skill_data[2],
+                                                                                ATTRIBUTE_MAP[int(skill_data[3])],
+                                                                                ', '.join(get_attrs_from_shift(
+                                                                                    int(skill_data[4]))))
     elif skill_type == 50:
         s.effect = "Gravity attack for {}% of players health".format(skill_data[2])
     elif skill_type == 52:
@@ -196,7 +251,6 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
             turns = "{} turn(s)".format(min_turns)
         else:
             turns = "{} to {} turns".format(min_turns, max_turns)
-
         s.effect = "Binds {} random sub teammate(s) for {}".format(skill_data[2], turns)
 
     elif skill_type == 68:
@@ -280,6 +334,25 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
             s.effect = "Hits for {}% ATK and randomly change {} orbs to bombs".format(skill_data[-1], skill_data[3])
         else:
             s.effect = "Randomly change {} orbs to bombs".format(skill_data[3])
+
+    elif skill_type == 103:
+        rows = get_orb_change_location(skill_data[3:-1])
+        s.effect = "Changes orbs in the following rows to bombs: {}".format(rows)
+    elif skill_type == 104:
+        s.effect = "For {} turns, clouds view of orbs in the {} row, {} column with {} orb(s) in height, {} orb(s) in width".format(
+            skill_data[-1], skill_data[2], skill_data[3], skill_data[4], skill_data[5])
+    elif skill_type == 106:
+        s.effect = "When HP is under {} , enemy's next turn changes by {}".format(skill_data[2], skill_data[-1])
+    elif skill_type == 108:
+        from_orbs = ', '.join(get_attrs_from_shift(int(skill_data[3])))
+        to_orbs = ', '.join(get_attrs_from_shift(int(skill_data[-1])))
+
+        s.effect = "Hit for {}% ATK, and change {} orb(s) to {} orb(s)".format(skill_data[2], from_orbs, to_orbs)
+    elif skill_type == 118:
+        types = get_types_from_shift(int(skill_data[2]))
+        s.effect = "Reduces damage by {}% from {} type(s)".format(skill_data[-1], ', '.join(types))
+    elif skill_type == 122:
+        s.effect = "Enemy turn changes by {} turn(s) when {} enemy remains".format(skill_data[-1], skill_data[2])
 
 
 parsed_skills = []
