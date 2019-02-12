@@ -1,4 +1,3 @@
-
 ATTRIBUTE_MAP = {
     -1: 'a random attribute of',
     0: 'fire',
@@ -381,12 +380,11 @@ def parse_enemy_skills(data) -> [EnemySkill]:
                 s.name = name
                 split_skill_data = split_skill_data[i:]
 
-                try:
-
+                if len(split_skill_data) > 0:
                     s.skill_type = int(split_skill_data[0])
 
                     val = int(split_skill_data[1], 16)
-                    if (val & 1):
+                    if val & 1:
                         if not split_skill_data[2].isdigit():
                             message_str = ''
                             for item in split_skill_data[2:]:
@@ -396,15 +394,10 @@ def parse_enemy_skills(data) -> [EnemySkill]:
                             s.effect = message_str
 
                     else:
+
                         remaining_vals.add(int(split_skill_data[0]))
                         make_effect(s.skill_type, s, split_skill_data)
-
-                except:
-                    # print("broke shit")
-                    # print(split_skill_data)
-                    # print()
-                    pass
-
+                        
                 parsed_skills.append(s)
 
             # dat = skill.split(',')[i:]
