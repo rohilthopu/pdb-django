@@ -275,9 +275,12 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
         for val in skill_data[2:]:
             c_skill = get_skill_from_id(val)
             if c_skill is not None:
-                effects.append(c_skill.effect)
+                if c_skill.effect is not 'No effect':
+                    effects.append(c_skill.effect)
+                else:
+                    effects.append(c_skill.name)
         effect_str = ', '.join(effects)
-        s.effect = "Uses the following skills: {}".format(effect_str)
+        s.effect = "{}".format(effect_str)
     elif skill_type == 84:
         attrs = get_attrs_from_shift(int(skill_data[2]))
         s.effect = "Changes all orbs to {}".format(', '.join(attrs))
