@@ -17,15 +17,9 @@ class Command(BaseCommand):
 
             skill = EnemySkill()
             skill.enemy_skill_id = item.skill_id
-            # name = item['name']
-            # clean_name = name.replace('\n', ' ') if name is not None else name
-            #
-            # effect = str(item['params'][0])
-            #
-            # clean_effect = effect.replace('\n', ' ') if effect is not None else effect
 
-            skill.name = item.name
-            skill.effect = item.effect
+            skill.name = item.name.replace('\'', '')
+            skill.effect = item.effect.replace('\'', '')
 
             skill.save()
 
