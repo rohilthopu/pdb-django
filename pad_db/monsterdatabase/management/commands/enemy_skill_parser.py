@@ -371,20 +371,21 @@ def parse_skill(split_skill_data: list) -> EnemySkill:
             s.name = name
             split_skill_data = split_skill_data[curr_index:]
 
-            val = int(split_skill_data[1], 16)
-            if val & 1:
-                if not split_skill_data[2].isdigit():
-                    message_str = ''
-                    for item in split_skill_data[2:]:
-                        if not item.isdigit():
-                            message_str += item
+            if len(split_skill_data) > 0:
+                val = int(split_skill_data[1], 16)
+                if val & 1:
+                    if not split_skill_data[2].isdigit():
+                        message_str = ''
+                        for item in split_skill_data[2:]:
+                            if not item.isdigit():
+                                message_str += item
 
-                    s.effect = message_str
+                        s.effect = message_str
 
-            else:
-                make_effect(s.skill_type, s, split_skill_data)
+                else:
+                    make_effect(s.skill_type, s, split_skill_data)
 
-        return s
+            return s
 
 skill_lookup_map = {}
 parsed_skills = []
