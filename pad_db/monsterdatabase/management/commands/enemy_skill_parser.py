@@ -353,39 +353,44 @@ def make_effect(skill_type: int, s: EnemySkill, skill_data: list):
 
 
 def parse_skill(split_skill_data: list) -> EnemySkill:
+    s = EnemySkill()
+
+    s.skill_id = int(split_skill_data[0])
+
+    name = split_skill_data[1]
+    curr_index = 2
+    while curr_index < len(split_skill_data) and not split_skill_data[curr_index].isdigit():
+        name += split_skill_data[curr_index]
+        curr_index += 1
+
+    s.name = name
+    split_skill_data = split_skill_data[curr_index:]
 
     if len(split_skill_data) > 0:
-        s = EnemySkill()
+        s.skill_type = int(split_skill_data[0])
 
-        s.skill_id = int(split_skill_data[0])
+        val = int(split_skill_data[1], 16)
+        if val & 1:
+            if not split_skill_data[2].isdigit():
+                message_str = ''
+                for item in split_skill_data[2:]:
+                    if not item.isdigit():
+                        message_str += item
 
-        name = split_skill_data[1]
+                s.effect = message_str
 
-        if 'なし' not in name or '*' not in name:
+        else:
+            make_effect(s.skill_type, s, split_skill_data)
 
-            curr_index = 2
-            while curr_index < len(split_skill_data) and not split_skill_data[curr_index].isdigit():
-                name += split_skill_data[curr_index]
-                curr_index += 1
+    # dat = skill.split(',')[curr_index:]
+    # if len(dat) > 0 and dat[0] == '83' and not int(dat[1], 16) & 1:
+    #     print('name', s.name)
+    #     print('messages', s.effect)
+    #     print('\t\t', skill.split(','))
+    #     print()
 
-            s.name = name
-            split_skill_data = split_skill_data[curr_index:]
+    return s
 
-            if len(split_skill_data) > 0:
-                val = int(split_skill_data[1], 16)
-                if val & 1:
-                    if not split_skill_data[2].isdigit():
-                        message_str = ''
-                        for item in split_skill_data[2:]:
-                            if not item.isdigit():
-                                message_str += item
-
-                        s.effect = message_str
-
-                else:
-                    make_effect(s.skill_type, s, split_skill_data)
-
-            return s
 
 skill_lookup_map = {}
 parsed_skills = []
