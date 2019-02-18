@@ -4,7 +4,7 @@ from dataversions.models import Version
 import json
 import time
 import os
-
+from .monster_skill import MonsterSkill
 from .skill_type_maps import SKILL_TYPE
 
 
@@ -16,29 +16,29 @@ class Command(BaseCommand):
         def makeSkill(item):
 
             skill = Skill()
-            skill.name = item['name']
-            skill.description = item['clean_description']
-            skill.skillID = item['skill_id']
+            skill.name = item.name
+            skill.description = item.clean_description
+            skill.skillID = item.skill_id
 
-            if item['levels'] is not None:
-                skill.levels = item['levels']
-                skill.maxTurns = item['turn_max']
-                skill.minTurns = item['turn_min']
+            if item.levels is not None:
+                skill.levels = item.levels
+                skill.maxTurns = item.turn_max
+                skill.minTurns = item.turn_min
                 skill.skill_type = "active"
             else:
                 skill.skill_type = "leader"
 
-            skill_type = item['skill_type']
+            skill_type = item.skill_type
             skill.skill_class = SKILL_TYPE[skill_type]
 
-            skill.hp_mult = item['hp_mult']
-            skill.atk_mult = item['atk_mult']
-            skill.rcv_mult = item['rcv_mult']
-            skill.dmg_reduction = item['shield'] / 100
+            skill.hp_mult = item.hp_mult
+            skill.atk_mult = item.atk_mult
+            skill.rcv_mult = item.rcv_mult
+            skill.dmg_reduction = item.shield / 100
 
-            c_skill_1 = item['skill_part_1_id']
-            c_skill_2 = item['skill_part_2_id']
-            c_skill_3 = item['skill_part_3_id']
+            c_skill_1 = item.skill_part_1_id
+            c_skill_2 = item.skill_part_2_id
+            c_skill_3 = item.skill_part_3_id
 
             if c_skill_1 is not None:
                 skill.c_skill_1 = c_skill_1
@@ -49,12 +49,11 @@ class Command(BaseCommand):
 
             skill.save()
 
-        # allSkills = Skill.objects.all()
 
         s = Skill.objects.all()
         prevSize = s.count()
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_skills.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/na/download_skill_data.json'), 'r') as jsonPull:
             s.delete()
             jsonData = json.load(jsonPull)
 
@@ -63,14 +62,13 @@ class Command(BaseCommand):
             print()
             start = time.time()
 
-            for item in jsonData:
-                if item['skill_id'] != 0:
+            for i, ms in enumerate(jsonData['skill']):
+                parsed_skill = MonsterSkill(i, ms)
 
-                    name = item['name']
-                    if '無し' not in name and '*' not in name:
-                        makeSkill(item)
+                if '無し' not in parsed_skill.name and '*' not in parsed_skill.name:
+                    makeSkill(parsed_skill)
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_skills.json'), 'r') as jsonPull:
+        with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/jp/download_skill_data.json'), 'r') as jsonPull:
             jsonData = json.load(jsonPull)
             print()
             print("Merging JP skill list.")
@@ -78,10 +76,11 @@ class Command(BaseCommand):
 
             currSkills = Skill.objects.all()
 
-            for item in jsonData:
-                skillID = item['skill_id']
-                if skillID != 0 and not currSkills.filter(skillID=skillID).exists():
-                    makeSkill(item)
+            for i, ms in enumerate(jsonData['skill']):
+                parsed_skill = MonsterSkill(i, ms)
+
+                if parsed_skill.skill_id != 0 and not currSkills.filter(skillID=parsed_skill.skill_id).exists():
+                    makeSkill(parsed_skill)
 
             end = time.time()
             print()
