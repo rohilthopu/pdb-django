@@ -49,7 +49,6 @@ class Command(BaseCommand):
 
             skill.save()
 
-
         s = Skill.objects.all()
         prevSize = s.count()
 
