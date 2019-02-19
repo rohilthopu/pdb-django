@@ -64,7 +64,7 @@ class Command(BaseCommand):
             for i, ms in enumerate(jsonData['skill']):
                 parsed_skill = MonsterSkill(i, ms)
 
-                if '無し' not in parsed_skill.name and '*' not in parsed_skill.name and parsed_skill.name is not None:
+                if '無し' not in parsed_skill.name and '*' not in parsed_skill.name and parsed_skill.skill_id != 0:
                     makeSkill(parsed_skill)
 
         with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/jp/download_skill_data.json'), 'r') as jsonPull:
@@ -78,7 +78,7 @@ class Command(BaseCommand):
             for i, ms in enumerate(jsonData['skill']):
                 parsed_skill = MonsterSkill(i, ms)
 
-                if parsed_skill.skill_id != 0 and not currSkills.filter(skillID=parsed_skill.skill_id).exists() and parsed_skill.name is not None:
+                if parsed_skill.skill_id != 0 and not currSkills.filter(skillID=parsed_skill.skill_id).exists() and parsed_skill.skill_id != 0:
                     makeSkill(parsed_skill)
 
             end = time.time()
