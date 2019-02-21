@@ -34,6 +34,7 @@ class Command(BaseCommand):
                     encounter_set.floor_id = floor['floor']
                     encounter_set.wave_number = wave['wave']
                     encounter_set.encounter_data = json.dumps(wave['encounter_list'])
+                    encounter_set.save()
 
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
