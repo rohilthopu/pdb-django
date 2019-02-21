@@ -2,7 +2,7 @@ import csv
 import json
 import os
 
-from spawn_classes import EncounterItem, Monster, Wave, Floor, Dungeon
+from .spawn_classes import EncounterItem, Monster, Wave, Floor, Dungeon
 
 
 def make_default_monster(encounter_item):
