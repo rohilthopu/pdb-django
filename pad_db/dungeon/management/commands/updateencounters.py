@@ -15,11 +15,17 @@ class Command(BaseCommand):
 
         EncounterSet.objects.all().delete()
 
+        print("Parsing values from csv")
         # call my wave parser to write to file
         parse_spawn_data.parse_waves()
 
+        print("CSV -> JSON conversion complete")
+
+        print("Importing new JSON data")
         with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/wave_data.json'), 'r') as jsonData:
             wave_data = json.load(jsonData)
+
+        print("Parsing items")
 
         for item in wave_data:
 
