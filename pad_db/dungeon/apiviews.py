@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Dungeon, Floor, Encounter
+from .models import Dungeon, Floor, EncounterSet
 
 
 class DungeonList(APIView):
@@ -14,7 +14,8 @@ class FloorList(APIView):
         data = Floor.objects.values()
         return Response(data)
 
+
 class EncounterList(APIView):
     def get(self, request):
-        data = Encounter.objects.values()
+        data = EncounterSet.objects.values()
         return Response(data)

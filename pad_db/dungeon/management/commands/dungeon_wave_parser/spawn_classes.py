@@ -6,7 +6,7 @@ class EncounterItem:
     def __init__(self, raw):
         self.server = raw[1]
         self.dungeon_id = int(raw[2])
-        self.floor_id = int(raw[3]) - 1
+        self.floor_id = int(raw[3])
         self.wave = int(raw[4])
         self.slot = int(raw[5])
 

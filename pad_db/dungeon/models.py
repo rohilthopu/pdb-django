@@ -31,14 +31,8 @@ class Dungeon(models.Model):
     imageID = models.IntegerField(default=0)
 
 
-class Encounter(models.Model):
-    wave = models.IntegerField(default=-1)
-    floor = models.IntegerField(default=-1)
-    turn = models.IntegerField(default=0)
-    monster_id = models.IntegerField(default=-1)
-    hp = models.IntegerField(default=0)
-    atk = models.IntegerField(default=0)
-    defense = models.FloatField(default=0)
-    drop_id = models.IntegerField(default=0)
+class EncounterSet(models.Model):
     dungeon_id = models.IntegerField(default=0)
-    comment = models.CharField(default="", max_length=200)
+    floor_id = models.IntegerField(default=-1)
+    wave_number = models.IntegerField(default=-1)
+    encounter_data = models.TextField(default="")

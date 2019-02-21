@@ -1,9 +1,9 @@
 from django.core.management.base import BaseCommand
 import json
-from dungeon.models import Encounter
+from dungeon.models import EncounterSet
 import time
 import os
-from .dungeon_parser.dungeon_parser import get_dungeon_list
+from .dungeon_wave_parser import parse_spawn_data
 
 
 class Command(BaseCommand):
@@ -13,53 +13,27 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS('Starting Dungeon encounter build.'))
 
-
         start = time.time()
 
-        Encounter.objects.all().delete()
+        EncounterSet.objects.all().delete()
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/padguide/etlDungeonMap.json'), 'r') as jsonData:
-            map_data = json.load(jsonData)
+        # call my wave parser to write to file
+        parse_spawn_data.parse_waves()
 
-        dungeon_map = {}
+        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/wave_data.json'), 'r') as jsonData:
+            wave_data = json.load(jsonData)
 
-        for item in map_data['items']:
-            dungeon_map[int(item['DUNGEON_SEQ'])] = int(item['PAD_DUNGEON_ID'])
+        for item in wave_data:
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/padguide/dungeonMonsterList.json'), 'r') as jsonData:
-            encounter_data = json.load(jsonData)
+            for floor in item['floors']:
 
-        for item in encounter_data['items']:
+                for wave in floor['waves']:
+                    encounter_set = EncounterSet()
 
-            if int(item['DUNGEON_SEQ']) in dungeon_map.keys():
-
-                try:
-                    dungeon_id = dungeon_map[int(item['DUNGEON_SEQ'])]
-                    turn = int(item['TURN'])
-                    wave = int(item['FLOOR'])
-                    floor = int(item['ORDER_IDX'])
-                    monster_id = int(item['MONSTER_NO'])
-                    hp = int(item['HP'])
-                    atk = int(item['ATK'])
-                    defense = float(item['DEF'])
-                    drop_id = int(item['DROP_NO'])
-                    comment = item['COMMENT_US']
-
-                    encounter = Encounter()
-                    encounter.wave = wave
-                    encounter.turn = turn
-                    encounter.monster_id = monster_id
-                    encounter.hp = hp
-                    encounter.atk = atk
-                    encounter.defense = defense
-                    encounter.drop_id = drop_id
-                    encounter.dungeon_id = dungeon_id
-                    encounter.comment = comment
-                    encounter.save()
-                except Exception as e:
-                    print("Error saving data with exception", e)
-                    print("Data:", item)
-                    print()
+                    encounter_set.dungeon_id = item['dungeon_id']
+                    encounter_set.floor_id = floor['floor']
+                    encounter_set.wave_number = wave['wave']
+                    encounter_set.encounter_data = json.dumps(wave['encounter_list'])
 
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
