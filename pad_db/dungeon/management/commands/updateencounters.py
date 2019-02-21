@@ -7,8 +7,6 @@ from .dungeon_wave_parser import parse_spawn_data
 
 
 class Command(BaseCommand):
-    help = 'Clears the daily dungeon list.'
-
     def handle(self, *args, **options):
 
         self.stdout.write(self.style.SUCCESS('Starting Dungeon encounter build.'))
@@ -37,5 +35,5 @@ class Command(BaseCommand):
                     encounter_set.save()
 
         end = time.time()
-        self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
+        self.stdout.write(self.style.SUCCESS('Encounter update complete.'))
         print("Elapsed time :", end - start)
