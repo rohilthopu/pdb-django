@@ -35,7 +35,9 @@ class Command(BaseCommand):
             parsed_skills = parse_enemy_skills(jsonData)
 
             for skill in parsed_skills:
-                makeSkill(skill)
+
+                if '*' not in skill.name and skill.name is not None and 'なし' not in skill.name:
+                    makeSkill(skill)
 
         with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/jp/download_enemy_skill_data.json'),
                   'r') as jsonPull:
