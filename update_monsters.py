@@ -2,7 +2,7 @@ import json
 import time
 import django
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pad_db.pad_db.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pad_db.settings")
 django.setup()
 
 from pad_db.monsterdatabase.models import Monster, Evolution
