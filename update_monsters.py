@@ -1,12 +1,8 @@
 import json
 import time
-import os
-
-from django.conf import settings
-from pad_db.pad_db.settings import INSTALLED_APPS, DATABASES
 import django
-
-settings.configure(DATABASES=DATABASES, INSTALLED_APPS=INSTALLED_APPS)
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pad_db.pad_db.settings")
 django.setup()
 
 from pad_db.monsterdatabase.models import Monster, Evolution
