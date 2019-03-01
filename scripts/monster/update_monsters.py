@@ -197,6 +197,3 @@ def update_monsters():
 
     print("Elapsed time :", end_time - start_time)
     print()
-
-
-update_monsters()
