@@ -14,7 +14,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        def makeMonster(rawcard):
+        def makeMonster(rawCard):
             monster = Monster()
             monster.save()
             monster.activeSkillID = rawCard['active_skill_id']
