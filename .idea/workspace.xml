@@ -20,11 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/monster/update_monsters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="192" column="23" lean-forward="true" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="105">
+              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -88,39 +85,7 @@
             <path>
               <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
               <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-              <item name="monsterdatabase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-              <item name="monsterdatabase" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-              <item name="monsterdatabase" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="scripts" type="462c0819:PsiDirectoryNode" />
-              <item name="monster" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -166,12 +131,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551469746881</updated>
-      <workItem from="1551469753910" duration="731000" />
+      <workItem from="1551469753910" duration="837000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="731000" />
+    <option name="totallyTimeSpent" value="837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="1630" height="955" extended-state="0" />
@@ -222,11 +187,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/monster/update_monsters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="192" column="23" lean-forward="true" selection-start-line="192" selection-start-column="23" selection-end-line="192" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
         </state>
       </provider>
     </entry>
