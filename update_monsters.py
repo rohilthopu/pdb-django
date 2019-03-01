@@ -1,11 +1,11 @@
 import json
 import time
 import os
-from ...pad_db.monsterdatabase.models import Monster, Evolution
-from ...pad_db.dataversions.models import Version
+from pad_db.monsterdatabase.models import Monster, Evolution
+from pad_db.dataversions.models import Version
 from maps import TYPE_MAP, AWAKENING_MAP
 from django.conf import settings
-from ...pad_db.pad_db.settings import INSTALLED_APPS, DATABASES
+from pad_db.pad_db.settings import INSTALLED_APPS, DATABASES
 import django
 
 
