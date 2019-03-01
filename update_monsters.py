@@ -2,12 +2,12 @@ import json
 import time
 import django
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pad_db.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pad_db.pad_db.settings")
 django.setup()
 
-from pad_db.monsterdatabase.models import Monster, Evolution
-from pad_db.dataversions.models import Version
-from maps import TYPE_MAP, AWAKENING_MAP
+from .pad_db.monsterdatabase.models import Monster, Evolution
+from .pad_db.dataversions.models import Version
+from .maps import TYPE_MAP, AWAKENING_MAP
 
 
 def makeMonster(rawCard):
