@@ -1,12 +1,17 @@
 import json
 import time
 import os
-from pad_db.monsterdatabase.models import Monster, Evolution
-from pad_db.dataversions.models import Version
-from maps import TYPE_MAP, AWAKENING_MAP
+
 from django.conf import settings
 from pad_db.pad_db.settings import INSTALLED_APPS, DATABASES
 import django
+
+settings.configure(DATABASES=DATABASES, INSTALLED_APPS=INSTALLED_APPS)
+django.setup()
+
+from pad_db.monsterdatabase.models import Monster, Evolution
+from pad_db.dataversions.models import Version
+from maps import TYPE_MAP, AWAKENING_MAP
 
 
 def makeMonster(rawCard):
@@ -101,9 +106,6 @@ def makeMonster(rawCard):
 
 
 def update_monsters():
-    settings.configure(DATABASES=DATABASES, INSTALLED_APPS=INSTALLED_APPS)
-    django.setup()
-
     m = Monster.objects.all()
     prevSize = m.count()
     m.delete()
