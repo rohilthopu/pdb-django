@@ -103,7 +103,7 @@ def makeMonster(rawCard):
 def update_monsters():
     settings.configure(DATABASES=DATABASES, INSTALLED_APPS=INSTALLED_APPS)
     django.setup()
-    
+
     m = Monster.objects.all()
     prevSize = m.count()
     m.delete()
@@ -197,3 +197,6 @@ def update_monsters():
 
     print("Elapsed time :", end_time - start_time)
     print()
+
+
+update_monsters()
