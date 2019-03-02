@@ -5,3 +5,4 @@ settings.py
 .DS_Store
 *.json
 staticroot/
+urls.py

@@ -1,8 +1,9 @@
 import json
 import time
-import django
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pad_db.pad_db.settings")
+import django
+from django.conf import settings
 django.setup()
 
 from monsterdatabase.models import Monster, Evolution
@@ -102,6 +103,7 @@ def makeMonster(rawCard):
 
 
 def update_monsters():
+
     m = Monster.objects.all()
     prevSize = m.count()
     m.delete()
