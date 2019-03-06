@@ -3,7 +3,7 @@ from .dungeon import DungeonFloor, Dungeon
 import os
 import csv
 from io import StringIO
-from typing import List, Any
+from typing import List
 
 
 def get_dungeon_list() -> List[Dungeon]:
