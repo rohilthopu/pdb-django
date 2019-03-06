@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e4a5ef9-ea83-4907-aa8f-d45556c41759" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pad_db/pad_db/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/pad_db/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pad_db/pad_db/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/pad_db/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +16,7 @@
         <entry file="file://$PROJECT_DIR$/pad_db/dungeon/management/commands/dungeon_parser/dungeon_parser.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="585">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -49,8 +48,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pad_db/pad_db/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="471">
-              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+            <state relative-caret-position="291">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -174,12 +173,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1551469746881</updated>
-      <workItem from="1551469753910" duration="4034000" />
+      <workItem from="1551469753910" duration="4156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4034000" />
+    <option name="totallyTimeSpent" value="4156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="1630" height="955" extended-state="0" />
@@ -370,7 +369,7 @@
     <entry file="file://$PROJECT_DIR$/pad_db/dungeon/management/commands/dungeon_parser/dungeon_parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
@@ -420,8 +419,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pad_db/pad_db/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="291">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
