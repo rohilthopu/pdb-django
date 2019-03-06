@@ -108,37 +108,3 @@ class Dungeon(pad_util.JsonDictEncodable):
 
     def __repr__(self):
         return 'Dungeon({} - {})'.format(self.dungeon_id, self.clean_name)
-
-
-def load_dungeon_data(data_dir: str = None, dungeon_file: str = None) -> List[Dungeon]:
-    """Converts dungeon JSON into an array of Dungeons."""
-    if dungeon_file is None:
-        dungeon_file = os.path.join(data_dir, FILE_NAME)
-
-    with open(dungeon_file) as f:
-        dungeon_json = json.load(f)
-
-    if dungeon_json['v'] > 6:
-        print('Warning! Version of dungeon file is not tested: {}'.format(dungeon_json['v']))
-
-    dungeon_info = dungeon_json['dungeons']
-
-    dungeons = []
-    cur_dungeon = None
-
-    for line in dungeon_info.split('\n'):
-        info = line[0:2]
-        data = line[2:]
-        data_values = next(csv.reader(StringIO(data), quotechar="'"))
-        if info == 'd;':
-            cur_dungeon = Dungeon(data_values)
-            dungeons.append(cur_dungeon)
-        elif info == 'f;':
-            floor = DungeonFloor(data_values)
-            cur_dungeon.floors.append(floor)
-        elif info == 'c;':
-            pass
-        else:
-            raise ValueError('unexpected line: ' + line)
-
-    return dungeons
