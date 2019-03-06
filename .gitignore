@@ -6,3 +6,5 @@ settings.py
 *.json
 staticroot/
 urls.py
+awoken\ skill\ images/
+type_icons/
