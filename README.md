@@ -12,3 +12,5 @@ Visit the project live at
 
     www.pad-db.com
     
+Do note that this is still a massive WIP and code cleanups will happen over time. The current code base is 
+a bit of a disaster right now.
