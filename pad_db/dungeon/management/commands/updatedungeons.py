@@ -10,13 +10,6 @@ class Command(BaseCommand):
     help = 'Clears the daily dungeon list.'
 
     def handle(self, *args, **options):
-        def make_dungeon(item):
-            dungeon = Dungeon()
-            dungeon.name = item['clean_name'].rsplit("#")[-1]
-            dungeon.dungeonID = item['dungeon_id']
-            dungeon.floorCount = len(item['floors'])
-            dungeon.dungeonType = item['alt_dungeon_type']
-            dungeon.save()
 
         def make_dungeon_from_object(dungeon, image_id):
             if "*" not in dungeon.clean_name:
