@@ -1,10 +1,8 @@
 from django.core.management.base import BaseCommand
-import requests
 import json
 from dungeon.models import Dungeon, Floor
 from dataversions.models import Version
 import time
-import os
 from .dungeon_parser.dungeon_parser import get_dungeon_list
 
 
