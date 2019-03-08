@@ -4,6 +4,7 @@ from dungeon.models import EncounterSet
 import time
 import os
 from .dungeon_wave_parser import parse_spawn_data
+from dataversions.models import Version
 
 
 class Command(BaseCommand):
@@ -13,6 +14,7 @@ class Command(BaseCommand):
 
         start = time.time()
 
+        prevSize = EncounterSet.objects.all().count()
         EncounterSet.objects.all().delete()
 
         print("Parsing values from csv")
@@ -43,3 +45,17 @@ class Command(BaseCommand):
         end = time.time()
         self.stdout.write(self.style.SUCCESS('Encounter update complete.'))
         print("Elapsed time :", end - start)
+
+        print("Updating version")
+
+        ver = Version.objects.all()
+
+        if len(ver) == 0:
+            v = Version()
+            v.monster = 1
+            v.save()
+        else:
+            v = ver.first()
+            if prevSize < EncounterSet.objects.all().count():
+                v.monster += 1
+            v.save()

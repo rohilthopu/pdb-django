@@ -4,12 +4,16 @@ from .enemy_skill_parser import parse_enemy_skills
 import json
 import time
 import os
+from dataversions.models import Version
+
 
 
 class Command(BaseCommand):
     help = 'Runs an update on the models to add to the database.'
 
     def handle(self, *args, **options):
+
+        prevSize = EnemySkill.objects.all().count()
 
         EnemySkill.objects.all().delete()
 
@@ -59,3 +63,19 @@ class Command(BaseCommand):
             print()
             print("Elapsed time:", end - start, "s")
             print()
+
+
+
+        print("Updating version")
+
+        ver = Version.objects.all()
+
+        if len(ver) == 0:
+            v = Version()
+            v.monster = 1
+            v.save()
+        else:
+            v = ver.first()
+            if prevSize < EnemySkill.objects.all().count():
+                v.monster += 1
+            v.save()

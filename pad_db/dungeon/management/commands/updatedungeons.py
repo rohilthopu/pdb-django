@@ -76,12 +76,10 @@ class Command(BaseCommand):
 
         if len(ver) == 0:
             v = Version()
-            v.dungeon = 1
             v.monster = 1
-            v.skill = 1
             v.save()
         else:
             v = ver.first()
             if prevSize < Dungeon.objects.all().count():
-                v.dungeon += 1
+                v.monster += 1
             v.save()
