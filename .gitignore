@@ -5,6 +5,5 @@ settings.py
 .DS_Store
 *.json
 staticroot/
-urls.py
 awoken\ skill\ images/
 type_icons/
