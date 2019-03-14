@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 import json
-from dungeon.models import Dungeon, Floor
+from dungeon.models import Dungeon, Floor, EncounterSet
 from dataversions.models import Version
 import time
 from .dungeon_parser.dungeon_parser import get_dungeon_list
@@ -11,17 +11,23 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        def make_dungeon_from_object(dungeon, image_id):
+        def make_dungeon_from_object(dungeon, encounters):
             if "*" not in dungeon.clean_name:
+
+
+                curr_set = encounters.get(dungeon_id=dungeon.dungeon_id)
+                dungeon_image_id = json.loads(curr_set[-1].encounter_data)[-1]
+
+
                 new_dungeon = Dungeon()
                 new_dungeon.name = dungeon.clean_name
                 new_dungeon.dungeonID = dungeon.dungeon_id
                 new_dungeon.floorCount = len(dungeon.floors)
                 new_dungeon.dungeonType = dungeon.alt_dungeon_type
-                new_dungeon.imageID = image_id[0] if len(image_id) > 0 else 0
+                new_dungeon.imageID = dungeon_image_id
                 new_dungeon.save()
 
-        def make_floor_from_object(floors, dungeon_id):
+        def make_floor_from_object(floors, dungeon_id, encounters):
 
             for floor in floors:
                 fl = Floor()
@@ -57,14 +63,18 @@ class Command(BaseCommand):
         Dungeon.objects.all().delete()
         Floor.objects.all().delete()
 
+        # reference list for encounter items to get the image id
+        encounters = EncounterSet.objects.all()
+
         dungeon_list = get_dungeon_list()
 
         for item in dungeon_list:
 
-            make_dungeon_from_object(item, [*item.floors[-1].possible_drops])
+
+            make_dungeon_from_object(item, encounters)
 
             if '*' not in item.clean_name:
-                make_floor_from_object(item.floors, item.dungeon_id)
+                make_floor_from_object(item.floors, item.dungeon_id, encounters)
 
         end = time.time()
         self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
