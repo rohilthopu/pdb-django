@@ -14,10 +14,11 @@ class Command(BaseCommand):
         def make_dungeon_from_object(dungeon, encounters):
             if "*" not in dungeon.clean_name:
 
-
-                curr_set = encounters.get(dungeon_id=dungeon.dungeon_id)
-                dungeon_image_id = json.loads(curr_set[-1].encounter_data)[-1]
-
+                if encounters.get(dungeon_id=dungeon.dungeon_id).exists():
+                    curr_set = encounters.get(dungeon_id=dungeon.dungeon_id)
+                    dungeon_image_id = json.loads(curr_set[-1].encounter_data)[-1]
+                else:
+                    dungeon_image_id = 1
 
                 new_dungeon = Dungeon()
                 new_dungeon.name = dungeon.clean_name
