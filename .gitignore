@@ -7,3 +7,5 @@ settings.py
 staticroot/
 awoken\ skill\ images/
 type_icons/
+
+.idea/
