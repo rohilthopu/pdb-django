@@ -1,12 +1,4 @@
 # pad-db
-
-
-Pad DB is a simple project of mine to wrap the data from within Puzzles and Dragons, using raw and processed PAD data.
-
-The app uses a set of custom Django commands to parse and load the data into Django models. 
-
-Guerrilla dungeons and the karma leaderboards are updated regularly, with guerrillas updated every hour,
-and karma every day.
    
 Visit the project live at
 
@@ -14,3 +6,6 @@ Visit the project live at
     
 Do note that this is still a massive WIP and code cleanups will happen over time. The current code base is 
 a bit of a disaster right now.
+
+Frontend is a massive WIP and will be expanded on later. The main purpose of this django project is to
+build the database for an API that the mobile app can hook into.

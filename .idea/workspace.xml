@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e4a5ef9-ea83-4907-aa8f-d45556c41759" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +21,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="524">
               <caret line="493" column="60" selection-start-line="493" selection-start-column="60" selection-end-line="493" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor>
+                <caret column="8" selection-start-column="8" selection-end-column="8" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -79,7 +91,6 @@
         <option value="$PROJECT_DIR$/scripts/monster/update_monsters.py" />
         <option value="$PROJECT_DIR$/scripts/update_data.py" />
         <option value="$PROJECT_DIR$/update_monsters.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/pad_db/dungeon/management/commands/dungeon_parser/dungeon_parser.py" />
         <option value="$PROJECT_DIR$/pad_db/dungeon/management/commands/dungeon_parser/dungeon.py" />
         <option value="$PROJECT_DIR$/pad_db/pad_db/settings.py" />
@@ -96,6 +107,7 @@
         <option value="$PROJECT_DIR$/debug_utils/debug_skills.py" />
         <option value="$PROJECT_DIR$/debug_utils/skill_parser.py" />
         <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -117,37 +129,6 @@
             <path>
               <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
               <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="debug_utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-              <item name="monsterdatabase" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-              <item name="monsterdatabase" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pad-db" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pad-db" type="462c0819:PsiDirectoryNode" />
-              <item name="pad_db" type="462c0819:PsiDirectoryNode" />
-              <item name="monsterdatabase" type="462c0819:PsiDirectoryNode" />
-              <item name="management" type="462c0819:PsiDirectoryNode" />
-              <item name="commands" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -199,12 +180,12 @@
       <workItem from="1551469753910" duration="4776000" />
       <workItem from="1552070545389" duration="17000" />
       <workItem from="1552070587692" duration="2855000" />
-      <workItem from="1553534895628" duration="2448000" />
+      <workItem from="1553534895628" duration="2655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10096000" />
+    <option name="totallyTimeSpent" value="10303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="1630" height="955" extended-state="0" />
@@ -256,16 +237,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/deprecated/bonusdungeons/models.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="60">
-            <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pad_db/dungeon/management/commands/maintenance_mode.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -513,6 +484,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="493" column="60" selection-start-line="493" selection-start-column="60" selection-end-line="493" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor>
+            <caret column="8" selection-start-column="8" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
