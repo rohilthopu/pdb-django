@@ -13,6 +13,11 @@ with open('skills.json', 'r+') as jsonPull:
     print("Building skill list.")
     print()
     for i, ms in enumerate(jsonData['skill']):
+
+        if i in [12436, 12437, 12438]:
+            print(ms, i)
+
+
         try:
             parsed_skill = MonsterSkill(i, ms)
         except:

@@ -407,7 +407,7 @@ def parse_skill_multiplier(skill, other_fields, length) -> Multiplier:
                 multipliers.atk *= get_mult(other_fields[2]) + diff * get_third_last(other_fields)
                 multipliers.rcv *= get_mult(other_fields[3]) + diff * get_second_last(other_fields)
 
-        elif skill in [169, 170, 171, 182]:
+        elif skill in [169, 170, 171]:
             if length > 0:
                 if get_second_last(other_fields) > 1:
                     multipliers.atk *= get_second_last(other_fields)
@@ -448,6 +448,13 @@ def parse_skill_multiplier(skill, other_fields, length) -> Multiplier:
                 if get_last(other_fields) != 0:
                     multipliers.rcv *= get_last(other_fields)
 
+        elif skill == 182:
+            if length == 4:
+                multipliers.shield = get_last(other_fields)
+                multipliers.atk *= get_second_last(other_fields)
+            else:
+                multipliers.atk *= get_last(other_fields)
+
         elif skill == 183:
             if length == 4 or length == 7:
                 multipliers.atk *= get_last(other_fields)
@@ -475,16 +482,16 @@ def parse_skill_multiplier(skill, other_fields, length) -> Multiplier:
 
         elif skill == 192:
             # row + 2 combo fix
-            multipliers.atk *= get_second_last(other_fields)
+            multipliers.atk *= get_second_last(other_fields) / 100
 
         elif skill == 193:
             # L match fix
-            multipliers.hp *= get_third_last(other_fields)
+            multipliers.hp *= get_third_last(other_fields) / 100
             multipliers.shield = get_last(other_fields)
 
         elif skill == 194:
             # rainbow + 1 combo fix
-            multipliers.atk *= get_second_last(other_fields)
+            multipliers.atk *= get_second_last(other_fields) / 100
 
     return multipliers
 
