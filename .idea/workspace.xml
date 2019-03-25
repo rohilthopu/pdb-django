@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e4a5ef9-ea83-4907-aa8f-d45556c41759" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug_utils/debug_skills.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug_utils/debug_skills.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug_utils/skill_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/debug_utils/skill_parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="786">
-              <caret line="521" lean-forward="true" selection-start-line="521" selection-end-line="521" />
+            <state relative-caret-position="524">
+              <caret line="493" column="60" selection-start-line="493" selection-start-column="60" selection-end-line="493" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -202,12 +199,12 @@
       <workItem from="1551469753910" duration="4776000" />
       <workItem from="1552070545389" duration="17000" />
       <workItem from="1552070587692" duration="2855000" />
-      <workItem from="1553534895628" duration="2278000" />
+      <workItem from="1553534895628" duration="2448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9926000" />
+    <option name="totallyTimeSpent" value="10096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="1630" height="955" extended-state="0" />
@@ -514,8 +511,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="786">
-          <caret line="521" lean-forward="true" selection-start-line="521" selection-end-line="521" />
+        <state relative-caret-position="524">
+          <caret line="493" column="60" selection-start-line="493" selection-start-column="60" selection-end-line="493" selection-end-column="60" />
         </state>
       </provider>
     </entry>

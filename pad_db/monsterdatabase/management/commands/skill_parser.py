@@ -482,16 +482,16 @@ def parse_skill_multiplier(skill, other_fields, length) -> Multiplier:
 
         elif skill == 192:
             # row + 2 combo fix
-            multipliers.atk *= get_second_last(other_fields) / 100
+            multipliers.atk *= get_second_last(other_fields)
 
         elif skill == 193:
             # L match fix
-            multipliers.hp *= get_third_last(other_fields) / 100
+            multipliers.hp *= get_third_last(other_fields)
             multipliers.shield = get_last(other_fields)
 
         elif skill == 194:
             # rainbow + 1 combo fix
-            multipliers.atk *= get_second_last(other_fields) / 100
+            multipliers.atk *= get_second_last(other_fields)
 
     return multipliers
 
