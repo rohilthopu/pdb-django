@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e4a5ef9-ea83-4907-aa8f-d45556c41759" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/debug_utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/debug_utils/debug_skills.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/debug_utils/monster_skill.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/debug_utils/skill_parser.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/debug_utils/skill_type_maps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_type_maps.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_type_maps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py" beforeDir="false" afterPath="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +12,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_type_maps.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
               <caret line="168" column="34" lean-forward="true" selection-start-line="168" selection-start-column="34" selection-end-line="168" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2274">
+              <caret line="514" lean-forward="true" selection-start-line="514" selection-end-line="514" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="745">
+              <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,7 +74,6 @@
         <option value="$PROJECT_DIR$/pad_db/dungeon/management/commands/updateencounters.py" />
         <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updatecardsna.py" />
         <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsenemy.py" />
-        <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py" />
         <option value="$PROJECT_DIR$/pad_db/dungeon/management/commands/updatedungeons.py" />
         <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/debug_skills.py" />
         <option value="$PROJECT_DIR$/debug_utils/monster_skill.py" />
@@ -69,6 +82,7 @@
         <option value="$PROJECT_DIR$/debug_utils/skill_parser.py" />
         <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py" />
         <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_type_maps.py" />
+        <option value="$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py" />
       </list>
     </option>
   </component>
@@ -172,12 +186,12 @@
       <workItem from="1551469753910" duration="4776000" />
       <workItem from="1552070545389" duration="17000" />
       <workItem from="1552070587692" duration="2855000" />
-      <workItem from="1553534895628" duration="1151000" />
+      <workItem from="1553534895628" duration="1258000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8799000" />
+    <option name="totallyTimeSpent" value="8906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="31" y="23" width="1630" height="955" extended-state="0" />
@@ -425,29 +439,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="67" column="43" selection-start-line="56" selection-start-column="12" selection-end-line="67" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/monster_skill.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="786">
-          <caret line="514" lean-forward="true" selection-start-line="514" selection-end-line="514" />
         </state>
       </provider>
     </entry>
@@ -486,6 +483,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="168" column="34" lean-forward="true" selection-start-line="168" selection-start-column="34" selection-end-line="168" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/skill_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2274">
+          <caret line="514" lean-forward="true" selection-start-line="514" selection-end-line="514" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pad_db/monsterdatabase/management/commands/updateskillsna.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="745">
+          <caret line="104" column="25" lean-forward="true" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

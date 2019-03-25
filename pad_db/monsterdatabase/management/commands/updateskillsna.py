@@ -62,10 +62,16 @@ class Command(BaseCommand):
             start = time.time()
 
             for i, ms in enumerate(jsonData['skill']):
-                parsed_skill = MonsterSkill(i, ms)
 
-                if '無し' not in parsed_skill.name and '*' not in parsed_skill.name and parsed_skill.skill_id != 0:
-                    makeSkill(parsed_skill)
+                try:
+                    parsed_skill = MonsterSkill(i, ms)
+
+                    if '無し' not in parsed_skill.name and '*' not in parsed_skill.name and parsed_skill.skill_id != 0:
+                        makeSkill(parsed_skill)
+                except:
+                    print('Error at', i)
+                    print('Data', ms)
+                    print()
 
         with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/jp/download_skill_data.json'), 'r') as jsonPull:
             jsonData = json.load(jsonPull)
@@ -76,11 +82,16 @@ class Command(BaseCommand):
             currSkills = Skill.objects.all()
 
             for i, ms in enumerate(jsonData['skill']):
-                parsed_skill = MonsterSkill(i, ms)
+                try:
+                    parsed_skill = MonsterSkill(i, ms)
 
-                if parsed_skill.skill_id != 0 and not currSkills.filter(skillID=parsed_skill.skill_id).exists() and parsed_skill.skill_id != 0:
-                    makeSkill(parsed_skill)
-
+                    if parsed_skill.skill_id != 0 and not currSkills.filter(
+                            skillID=parsed_skill.skill_id).exists() and parsed_skill.skill_id != 0:
+                        makeSkill(parsed_skill)
+                except:
+                    print('Error at', i)
+                    print('Data', ms)
+                    print()
             end = time.time()
             print()
             print("Elapsed time:", end - start, "s")
