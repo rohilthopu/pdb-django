@@ -12,5 +12,5 @@ class Command(BaseCommand):
 
         for dungeon in dungeons:
             encounter_data = encounters.filter(dungeon_id=dungeon.dungeonID)
-            card_id = json.loads(encounter_data[-1])[-1]['card_id']
+            card_id = json.loads(encounter_data.last())[-1]['card_id']
             print(card_id)
