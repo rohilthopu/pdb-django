@@ -7,8 +7,6 @@ from .dungeon_parser.dungeon_parser import get_dungeon_list
 
 
 class Command(BaseCommand):
-    help = 'Clears the daily dungeon list.'
-
     def handle(self, *args, **options):
 
         def make_dungeon_from_object(dungeon, image_id):
