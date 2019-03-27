@@ -2,6 +2,7 @@ from ...models import EncounterSet, Dungeon, Floor
 from django.core.management.base import BaseCommand
 import json
 
+
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
@@ -11,5 +12,5 @@ class Command(BaseCommand):
 
         for dungeon in dungeons:
             encounter_data = encounters.filter(dungeon_id=dungeon.dungeonID)
-            card_id = json.loads(encounter_data[-1].encounter_data)['card_id']
+            card_id = json.loads(encounter_data[-1])[-1]['card_id']
             print(card_id)
