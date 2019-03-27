@@ -12,6 +12,8 @@ class Command(BaseCommand):
 
         for dungeon in dungeons:
             encounter_data = encounters.filter(dungeon_id=dungeon.dungeonID)
-            if encounter_data is not None:
-                card_id = json.loads(encounter_data.last())[-1]['card_id']
+            if encounter_data.last() is not None:
+                boss = encounter_data.last().encounter_data
+
+                card_id = json.loads(boss)[-1]['card_id']
                 print(card_id)
