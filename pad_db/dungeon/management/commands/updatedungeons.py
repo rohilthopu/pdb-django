@@ -9,13 +9,14 @@ from .dungeon_parser.dungeon_parser import get_dungeon_list
 class Command(BaseCommand):
     def handle(self, *args, **options):
 
-        def make_dungeon_from_object(dungeon):
+        def make_dungeon_from_object(dungeon, image_id):
             if "*" not in dungeon.clean_name:
                 new_dungeon = Dungeon()
                 new_dungeon.name = dungeon.clean_name
                 new_dungeon.dungeonID = dungeon.dungeon_id
                 new_dungeon.floorCount = len(dungeon.floors)
                 new_dungeon.dungeonType = dungeon.alt_dungeon_type
+                new_dungeon.imageID = image_id[0] if len(image_id) > 0 else 0
                 new_dungeon.save()
 
         def make_floor_from_object(floors, dungeon_id):
@@ -39,6 +40,9 @@ class Command(BaseCommand):
                 fl.messages = json.dumps(floor.messages)
                 fl.fixedTeam = json.dumps(floor.fixed_team)
                 fl.score = floor.score if floor.score is not None else 0
+                # Just use the last drop for the image id for now.
+                image_id = [*floor.possible_drops]
+                fl.imageID = image_id[0] if len(image_id) > 0 else 0
                 fl.save()
 
         self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
@@ -54,7 +58,7 @@ class Command(BaseCommand):
 
         for item in dungeon_list:
 
-            make_dungeon_from_object(item)
+            make_dungeon_from_object(item, [*item.floors[-1].possible_drops])
 
             if '*' not in item.clean_name:
                 make_floor_from_object(item.floors, item.dungeon_id)
