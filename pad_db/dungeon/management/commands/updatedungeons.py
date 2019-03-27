@@ -45,6 +45,11 @@ class Command(BaseCommand):
                 fl.imageID = image_id[0] if len(image_id) > 0 else 0
                 fl.save()
 
+        def validate_card_id(card_id) -> int:
+            if card_id / 100000 > 0:
+                return card_id % 100000
+            return card_id
+
         self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
 
         start = time.time()
@@ -75,14 +80,14 @@ class Command(BaseCommand):
                 boss = encounter_data.last().encounter_data
 
                 card_id = json.loads(boss)[-1]['card_id']
-                dungeon.imageID = card_id
+                dungeon.imageID = validate_card_id(card_id)
                 dungeon.save()
 
                 for floor in dungeon_floors:
                     boss = encounter_data.filter(floor_id=floor.floorNumber)
                     if boss is not None and boss.last() is not None:
                         card_id = json.loads(boss.last().encounter_data)[-1]['card_id']
-                        floor.imageID = card_id
+                        floor.imageID = validate_card_id(card_id)
                         floor.save()
 
         end = time.time()
