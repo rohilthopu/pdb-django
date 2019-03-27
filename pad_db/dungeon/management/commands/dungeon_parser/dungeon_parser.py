@@ -4,11 +4,16 @@ import os
 import csv
 from io import StringIO
 from typing import List
+from django.conf import settings
 
 
 def get_dungeon_list() -> List[Dungeon]:
+    if settings.DEBUG:
+        location = '/Users/rohil/projects/personal/data_files/raw/na/download_dungeon_data.json'
+    else:
+        location = '/home/rohil/data/pad_data/raw_data/na/download_dungeon_data.json'
 
-    with open(os.path.abspath('/home/rohil/data/pad_data/raw_data/na/download_dungeon_data.json'), 'r') as jsonPull:
+    with open(os.path.abspath(location), 'r') as jsonPull:
 
         dungeons = json.load(jsonPull)
         dungeon_json = dungeons

@@ -5,7 +5,7 @@ import time
 import os
 from .dungeon_wave_parser import parse_spawn_data
 from dataversions.models import Version
-
+from django.conf import settings
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -24,7 +24,13 @@ class Command(BaseCommand):
         print("CSV -> JSON conversion complete")
 
         print("Importing new JSON data")
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/wave_data.json'), 'r') as jsonData:
+
+        if settings.DEBUG:
+            location = '/Users/rohil/projects/personal/data_files/processed/wave_data.json'
+        else:
+            location = '/home/rohil/data/pad_data/processed_data/wave_data.json'
+
+        with open(os.path.abspath(location), 'r') as jsonData:
             wave_data = json.load(jsonData)
 
         print("Parsing items")

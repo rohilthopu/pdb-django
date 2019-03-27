@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+from django.conf import settings
 
 from .spawn_classes import EncounterItem, Monster, Wave, Floor, Dungeon
 
@@ -31,7 +32,14 @@ def make_default_dungeon(encounter_item):
 def parse_waves():
     dungeons = {}
 
-    with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/wave_data.csv'), 'r') as raw_data:
+    if settings.DEBUG:
+        location = '/Users/rohil/projects/personal/data_files/processed/wave_data.csv'
+        end_location = '/Users/rohil/projects/personal/data_files/processed/wave_data.json'
+    else:
+        location = '/home/rohil/data/pad_data/processed_data/wave_data.csv'
+        end_location = '/home/rohil/data/pad_data/processed_data/wave_data.json'
+
+    with open(os.path.abspath(location), 'r') as raw_data:
         data = csv.reader(raw_data)
         next(data, None)
 
@@ -134,5 +142,5 @@ def parse_waves():
 
         # this outputs in the following order:
         # dungeon_id -> floor_id -> wave -> monster_id -> monster_data
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/wave_data.json'), 'w') as f:
+        with open(os.path.abspath(end_location), 'w') as f:
             json.dump(parsed_dungeons, f, sort_keys=True, default=lambda x: x.__dict__, indent=4)
