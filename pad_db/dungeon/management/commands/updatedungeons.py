@@ -7,6 +7,7 @@ from .dungeon_parser.dungeon_parser import get_dungeon_list
 from django.conf import settings
 from Utils.progress import progress
 
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
 
@@ -87,6 +88,8 @@ class Command(BaseCommand):
             if '*' not in item.clean_name:
                 make_floor_from_object(item.floors, item.dungeon_id)
 
+        print()
+
         self.stdout.write('NA conversion complete.')
 
         self.stdout.write('Building JP dungeon list...')
@@ -100,6 +103,7 @@ class Command(BaseCommand):
             if not Dungeon.objects.filter(dungeonID=item.dungeon_id).exists():
                 make_dungeon_from_object(item, [*item.floors[-1].possible_drops], 'jp')
                 make_floor_from_object(item.floors, item.dungeon_id)
+        print()
         self.stdout.write('Merge complete.')
 
         encounters = EncounterSet.objects.all()
@@ -150,4 +154,3 @@ class Command(BaseCommand):
             v.save()
 
         self.stdout.write('Dungeon database build complete.')
-
