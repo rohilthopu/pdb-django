@@ -22,6 +22,7 @@ class Skill(models.Model):
     levels = models.IntegerField(default=0)
     maxTurns = models.IntegerField(blank=True, default=0)
     minTurns = models.IntegerField(blank=True, default=0)
+    server = models.CharField(default='', max_length=2)
 
 
 class Evolution(models.Model):

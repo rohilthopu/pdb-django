@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        def makeSkill(item):
+        def makeSkill(item, server):
 
             skill = Skill()
             skill.name = item.name
@@ -40,12 +40,15 @@ class Command(BaseCommand):
             c_skill_2 = item.skill_part_2_id
             c_skill_3 = item.skill_part_3_id
 
+
             if c_skill_1 is not None:
                 skill.c_skill_1 = c_skill_1
             if c_skill_2 is not None:
                 skill.c_skill_2 = c_skill_2
             if c_skill_3 is not None:
                 skill.c_skill_3 = c_skill_3
+
+            skill.server = server
 
             skill.save()
 
@@ -67,7 +70,7 @@ class Command(BaseCommand):
                     parsed_skill = MonsterSkill(i, ms)
 
                     if '無し' not in parsed_skill.name and '*' not in parsed_skill.name and parsed_skill.skill_id != 0:
-                        makeSkill(parsed_skill)
+                        makeSkill(parsed_skill, 'na')
                 except:
                     print('Error at', i)
                     print('Data', ms)
@@ -87,7 +90,7 @@ class Command(BaseCommand):
 
                     if parsed_skill.skill_id != 0 and not currSkills.filter(
                             skillID=parsed_skill.skill_id).exists() and parsed_skill.skill_id != 0:
-                        makeSkill(parsed_skill)
+                        makeSkill(parsed_skill, 'jp')
                 except:
                     print('Error at', i)
                     print('Data', ms)
