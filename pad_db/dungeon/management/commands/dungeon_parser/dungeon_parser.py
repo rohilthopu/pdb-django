@@ -7,11 +7,7 @@ from typing import List
 from django.conf import settings
 
 
-def get_dungeon_list() -> List[Dungeon]:
-    if settings.DEBUG:
-        location = '/Users/rohil/projects/personal/data_files/raw/na/download_dungeon_data.json'
-    else:
-        location = '/home/rohil/data/pad_data/raw_data/na/download_dungeon_data.json'
+def get_dungeon_list(location) -> List[Dungeon]:
 
     with open(os.path.abspath(location), 'r') as jsonPull:
 

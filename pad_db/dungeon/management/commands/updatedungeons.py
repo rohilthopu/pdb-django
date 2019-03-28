@@ -4,12 +4,13 @@ from dungeon.models import Dungeon, Floor, EncounterSet
 from dataversions.models import Version
 import time
 from .dungeon_parser.dungeon_parser import get_dungeon_list
-
+from django.conf import settings
+from Utils.progress import progress
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
 
-        def make_dungeon_from_object(dungeon, image_id):
+        def make_dungeon_from_object(dungeon, image_id, server):
             if "*" not in dungeon.clean_name:
                 new_dungeon = Dungeon()
                 new_dungeon.name = dungeon.clean_name
@@ -17,6 +18,7 @@ class Command(BaseCommand):
                 new_dungeon.floorCount = len(dungeon.floors)
                 new_dungeon.dungeonType = dungeon.alt_dungeon_type
                 new_dungeon.imageID = image_id[0] if len(image_id) > 0 else 0
+                new_dungeon.server = server
                 new_dungeon.save()
 
         def make_floor_from_object(floors, dungeon_id):
@@ -50,7 +52,7 @@ class Command(BaseCommand):
                 return card_id % 100000
             return card_id
 
-        self.stdout.write(self.style.SUCCESS('Starting NA DUNGEON DB update.'))
+        self.stdout.write('Starting dungeon update')
 
         start = time.time()
 
@@ -59,20 +61,58 @@ class Command(BaseCommand):
         Dungeon.objects.all().delete()
         Floor.objects.all().delete()
 
-        dungeon_list = get_dungeon_list()
+        if settings.DEBUG:
+            self.stdout.write('\tDebug option enabled')
+            self.stdout.write('\tGrabbing files from alternative locations')
+            location = '/Users/rohil/projects/personal/data_files/raw/na/download_dungeon_data.json'
+            location2 = '/Users/rohil/projects/personal/data_files/raw/jp/download_dungeon_data.json'
+            self.stdout.write('\tLocation 1, NA: {}'.format(location))
+            self.stdout.write('\tLocation 2, JP: {}'.format(location2))
+        else:
+            self.stdout.write('\tUsing standard file path')
+            location = '/home/rohil/data/pad_data/raw_data/na/download_dungeon_data.json'
+            location2 = '/home/rohil/data/pad_data/raw_data/jp/download_dungeon_data.json'
 
-        for item in dungeon_list:
+        self.stdout.write('Building NA dungeon list...')
+        na_dungeon_list = get_dungeon_list(location)
+        self.stdout.write('Build complete.')
+        self.stdout.write('Building initial NA database...')
 
-            make_dungeon_from_object(item, [*item.floors[-1].possible_drops])
+        total = len(na_dungeon_list)
 
+        for i in range(0, total):
+            item = na_dungeon_list[i]
+            progress(i, total, 'Building entry for {}'.format(item.clean_name))
+            make_dungeon_from_object(item, [*item.floors[-1].possible_drops], 'na')
             if '*' not in item.clean_name:
                 make_floor_from_object(item.floors, item.dungeon_id)
+
+        self.stdout.write('NA conversion complete.')
+
+        self.stdout.write('Building JP dungeon list...')
+        jp_dungeon_list = get_dungeon_list(location2)
+        self.stdout.write('Build complete.')
+        self.stdout.write('Merging in JP dungeons...')
+        total = len(jp_dungeon_list)
+        for i in range(0, total):
+            item = jp_dungeon_list[i]
+            progress(i, total, 'Building entry for {}'.format(item.clean_name))
+            if not Dungeon.objects.filter(dungeonID=item.dungeon_id).exists():
+                make_dungeon_from_object(item, [*item.floors[-1].possible_drops], 'jp')
+                make_floor_from_object(item.floors, item.dungeon_id)
+        self.stdout.write('Merge complete.')
 
         encounters = EncounterSet.objects.all()
         dungeons = Dungeon.objects.all()
         floors = Floor.objects.all()
 
-        for dungeon in dungeons:
+        self.stdout.write('Linking dungeon images.')
+
+        total = dungeons.count()
+
+        for i in range(0, total):
+            dungeon = dungeons[i]
+            progress(i, total, 'Finding image for {}'.format(dungeon.name))
             encounter_data = encounters.filter(dungeon_id=dungeon.dungeonID)
             dungeon_floors = floors.filter(dungeonID=dungeon.dungeonID)
 
@@ -91,11 +131,11 @@ class Command(BaseCommand):
                         floor.save()
 
         end = time.time()
-        self.stdout.write(self.style.SUCCESS('NA DUNGEON update complete.'))
 
-        print("Elapsed time :", end - start)
+        print()
+        self.stdout.write("Elapsed time : {}".format(end - start))
 
-        print("Updating version")
+        self.stdout.write("Updating version")
 
         ver = Version.objects.all()
 
@@ -108,3 +148,6 @@ class Command(BaseCommand):
             if prevSize < Dungeon.objects.all().count():
                 v.monster += 1
             v.save()
+
+        self.stdout.write('Dungeon database build complete.')
+

@@ -29,6 +29,7 @@ class Dungeon(models.Model):
     dungeonType = models.CharField(default="", max_length=50)
     floorCount = models.IntegerField(default=0)
     imageID = models.IntegerField(default=0)
+    server = models.CharField(default='', max_length=2)
 
 
 class EncounterSet(models.Model):
