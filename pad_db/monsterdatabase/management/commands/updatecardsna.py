@@ -13,7 +13,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        def makeMonster(rawCard):
+        def makeMonster(rawCard, server):
             monster = Monster()
             monster.save()
             monster.activeSkillID = rawCard['active_skill_id']
@@ -94,6 +94,8 @@ class Command(BaseCommand):
             monster.sellMP = rawCard['sell_mp']
             monster.sellCoin = rawCard['sell_price_at_lvl_10']
 
+            monster.server = server
+
             enemy_skills = []
 
             for skill in rawCard['enemy_skill_refs']:
@@ -130,7 +132,7 @@ class Command(BaseCommand):
                     rawCard = card['card']
 
                     if not isinstance(rawCard, type(None)):
-                        makeMonster(rawCard)
+                        makeMonster(rawCard, 'na')
 
         monsters = Monster.objects.all()
 
@@ -146,7 +148,7 @@ class Command(BaseCommand):
                     rawCard = card['card']
                     cardID = rawCard['card_id']
                     if not monsters.filter(cardID=cardID).exists():
-                        makeMonster(rawCard)
+                        makeMonster(rawCard, 'jp')
 
         monsters = Monster.objects.all()
 

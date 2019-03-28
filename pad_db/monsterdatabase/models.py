@@ -92,6 +92,8 @@ class Monster(models.Model):
 
     enemy_skills = models.TextField(default="")
 
+    server = models.CharField(default='', max_length=2)
+
     def __str__(self):
         return self.name
 
