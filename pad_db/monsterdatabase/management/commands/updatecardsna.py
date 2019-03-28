@@ -6,7 +6,8 @@ import time
 import os
 
 from .maps import TYPE_MAP, AWAKENING_MAP
-
+from Utils.progress import progress
+from django.conf import settings
 
 class Command(BaseCommand):
     help = 'Runs an update on the models to add to the database.'
@@ -110,54 +111,72 @@ class Command(BaseCommand):
         m.delete()
         Evolution.objects.all().delete()
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/na_cards.json'), 'r') as jsonPull:
+        if settings.DEBUG:
+            self.stdout.write('\tDebug option enabled')
+            self.stdout.write('\tGrabbing files from alternative locations')
+            location = '/Users/rohil/projects/personal/data_files/processed/na_cards.json'
+            location2 = '/Users/rohil/projects/personal/data_files/processed/jp_cards.json'
+            self.stdout.write('\tLocation 1, NA: {}'.format(location))
+            self.stdout.write('\tLocation 2, JP: {}'.format(location2))
+        else:
+            self.stdout.write('\tUsing standard file path')
+            location = '/home/rohil/data/pad_data/processed_data/na_cards.json'
+            location2 = '/home/rohil/data/pad_data/processed_data/jp_cards.json'
 
-            print()
+        with open(os.path.abspath(location), 'r') as jsonPull:
+
+            self.stdout.write('')
             self.stdout.write(self.style.SUCCESS('Starting NA MONSTER DB update.'))
-
-            # Pull the new data, because with PAD, things often get buffs/changes often
 
             cards = json.load(jsonPull)
             start_time = time.time()
-            print()
+            self.stdout.write('')
             self.stdout.write(self.style.SUCCESS('Adding new NA Cards.'))
 
-            for card in cards:
 
+            total = len(cards)
+            for i in range(0, total):
+                card = cards[i]
                 released = card['card']['released_status']
-
                 cardName = card['card']['name']
                 if released and cardName is not '' and '*' not in cardName:
-
                     rawCard = card['card']
-
                     if not isinstance(rawCard, type(None)):
+                        progress(i, total, 'Building entry for {}'.format(cardName))
                         makeMonster(rawCard, 'na')
 
+        self.stdout.write('')
         monsters = Monster.objects.all()
 
         # merge in JP monsters
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_cards.json'), 'r') as jsonPull:
-            jsonData = json.load(jsonPull)
+        with open(os.path.abspath(location2), 'r') as jsonPull:
+            cards = json.load(jsonPull)
 
-            print('Merging in JP monsters')
-            print()
-            for card in jsonData:
+            self.stdout.write('Merging in JP monsters')
+            total = len(cards)
+            for i in range(0, total):
+                card = cards[i]
                 name = card['card']['name']
                 if name != '':
                     rawCard = card['card']
                     cardID = rawCard['card_id']
                     if not monsters.filter(cardID=cardID).exists():
+                        progress(i, total, 'Building entry for {}'.format(name))
                         makeMonster(rawCard, 'jp')
 
         monsters = Monster.objects.all()
 
+        self.stdout.write('')
         self.stdout.write(self.style.SUCCESS('NA Monster List Updated.'))
-        print()
-        self.stdout.write(self.style.SUCCESS('Updating forward evolutions and relavent dungeons.'))
-        print()
+        self.stdout.write('')
+        self.stdout.write(self.style.SUCCESS('Updating forward evolutions and relevant dungeons.'))
 
-        for monster in monsters:
+
+        total = monsters.count()
+
+        for i in range(0, total):
+            monster = monsters[i]
+            progress(i, total, 'Processing {}'.format(monster.name))
             if monster.ancestorID != monster.cardID:
                 if monster.ancestorID != 0:
                     ancestor = monsters.get(cardID=monster.ancestorID)
@@ -166,8 +185,11 @@ class Command(BaseCommand):
                     ancestor.evolutions.add(evo)
                     ancestor.save()
 
-        for monster in monsters:
-
+        self.stdout.write('')
+        self.stdout.write('Adding in raw evolution IDs')
+        for i in range(0, total):
+            monster = monsters[i]
+            progress(i, total, 'Processing {}'.format(monster.name))
             parsedEvos = monster.evolutions.all()
             evos = []
             for evo in parsedEvos:
@@ -175,14 +197,15 @@ class Command(BaseCommand):
             monster.evos_raw = json.dumps(evos)
             monster.save()
 
-        print("Getting relavent dungeons")
 
         end_time = time.time()
 
-        self.stdout.write(self.style.SUCCESS('NA update complete.'))
+        self.stdout.write('')
 
-        print()
-        print("Updating version")
+        self.stdout.write(self.style.SUCCESS('Monster update complete.'))
+
+        self.stdout.write('')
+        self.stdout.write("Updating version")
 
         ver = Version.objects.all()
 
@@ -196,5 +219,5 @@ class Command(BaseCommand):
                 v.monster += 1
             v.save()
 
-        print("Elapsed time :", end_time - start_time)
-        print()
+        self.stdout.write("Elapsed time : {}".format(end_time - start_time))
+        self.stdout.write('')
