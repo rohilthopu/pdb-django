@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-import requests
 import json
 import time
 from datetime import datetime

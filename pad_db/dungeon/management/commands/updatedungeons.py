@@ -53,6 +53,7 @@ class Command(BaseCommand):
                 return card_id % 100000
             return card_id
 
+        self.stdout.write('')
         self.stdout.write('Starting dungeon update')
 
         start = time.time()
@@ -128,8 +129,10 @@ class Command(BaseCommand):
                 dungeon.save()
 
                 for floor in dungeon_floors:
+
                     boss = encounter_data.filter(floor_id=floor.floorNumber)
-                    if boss is not None and boss.last() is not None:
+
+                    if boss.last() is not None:
                         card_id = json.loads(boss.last().encounter_data)[-1]['card_id']
                         floor.imageID = validate_card_id(card_id)
                         floor.save()
