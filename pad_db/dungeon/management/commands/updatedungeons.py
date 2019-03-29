@@ -132,7 +132,7 @@ class Command(BaseCommand):
 
                     boss = encounter_data.filter(floor_id=floor.floorNumber)
 
-                    if boss.last() is not None:
+                    if boss is not None and boss.last() is not None:
                         card_id = json.loads(boss.last().encounter_data)[-1]['card_id']
                         floor.imageID = validate_card_id(card_id)
                         floor.save()
