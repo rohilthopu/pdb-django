@@ -32,6 +32,8 @@ class Command(BaseCommand):
         else:
             location = '/home/rohil/data/pad_data/processed_data/wave_data.json'
 
+        self.stdout.write('\tFile Location: {}'.format(location))
+
         with open(os.path.abspath(location), 'r') as jsonData:
             wave_data = json.load(jsonData)
 
@@ -42,7 +44,7 @@ class Command(BaseCommand):
         for i in range(0, total):
             item = wave_data[i]
 
-            progress(i, total, 'Processing dungeon ID {}'.format(item['dungeon_id']))
+            progress(i, total)
 
             for floor in item['floors']:
 

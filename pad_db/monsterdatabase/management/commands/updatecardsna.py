@@ -116,12 +116,14 @@ class Command(BaseCommand):
             self.stdout.write('\tGrabbing files from alternative locations')
             location = '/Users/rohil/projects/personal/data_files/processed/na_cards.json'
             location2 = '/Users/rohil/projects/personal/data_files/processed/jp_cards.json'
-            self.stdout.write('\tLocation 1, NA: {}'.format(location))
-            self.stdout.write('\tLocation 2, JP: {}'.format(location2))
+
         else:
             self.stdout.write('\tUsing standard file path')
             location = '/home/rohil/data/pad_data/processed_data/na_cards.json'
             location2 = '/home/rohil/data/pad_data/processed_data/jp_cards.json'
+
+        self.stdout.write('\tLocation 1, NA: {}'.format(location))
+        self.stdout.write('\tLocation 2, JP: {}'.format(location2))
 
         with open(os.path.abspath(location), 'r') as jsonPull:
 
@@ -142,8 +144,9 @@ class Command(BaseCommand):
                 if released and cardName is not '' and '*' not in cardName:
                     rawCard = card['card']
                     if not isinstance(rawCard, type(None)):
-                        progress(i, total, 'Building entry for {}'.format(cardName))
+                        progress(i, total)
                         makeMonster(rawCard, 'na')
+                        self.stdout.flush()
 
         self.stdout.write('')
         monsters = Monster.objects.all()
@@ -161,8 +164,9 @@ class Command(BaseCommand):
                     rawCard = card['card']
                     cardID = rawCard['card_id']
                     if not monsters.filter(cardID=cardID).exists():
-                        progress(i, total, 'Building entry for {}'.format(name))
+                        progress(i, total)
                         makeMonster(rawCard, 'jp')
+                        self.stdout.flush()
 
         monsters = Monster.objects.all()
 
@@ -176,7 +180,7 @@ class Command(BaseCommand):
 
         for i in range(0, total):
             monster = monsters[i]
-            progress(i, total, 'Processing {}'.format(monster.name))
+            progress(i, total)
             if monster.ancestorID != monster.cardID:
                 if monster.ancestorID != 0:
                     ancestor = monsters.get(cardID=monster.ancestorID)
@@ -184,18 +188,21 @@ class Command(BaseCommand):
                     evo.save()
                     ancestor.evolutions.add(evo)
                     ancestor.save()
+            self.stdout.flush()
 
         self.stdout.write('')
         self.stdout.write('Adding in raw evolution IDs')
         for i in range(0, total):
             monster = monsters[i]
-            progress(i, total, 'Processing {}'.format(monster.name))
+            progress(i, total)
             parsedEvos = monster.evolutions.all()
             evos = []
             for evo in parsedEvos:
                 evos.append(evo.evo)
             monster.evos_raw = json.dumps(evos)
             monster.save()
+            self.stdout.flush()
+
 
 
         end_time = time.time()

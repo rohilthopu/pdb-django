@@ -67,12 +67,12 @@ class Command(BaseCommand):
             self.stdout.write('\tGrabbing files from alternative locations')
             location = '/Users/rohil/projects/personal/data_files/raw/na/download_dungeon_data.json'
             location2 = '/Users/rohil/projects/personal/data_files/raw/jp/download_dungeon_data.json'
-            self.stdout.write('\tLocation 1, NA: {}'.format(location))
-            self.stdout.write('\tLocation 2, JP: {}'.format(location2))
         else:
             self.stdout.write('\tUsing standard file path')
             location = '/home/rohil/data/pad_data/raw_data/na/download_dungeon_data.json'
             location2 = '/home/rohil/data/pad_data/raw_data/jp/download_dungeon_data.json'
+        self.stdout.write('\tLocation 1, NA: {}'.format(location))
+        self.stdout.write('\tLocation 2, JP: {}'.format(location2))
 
         self.stdout.write('Building NA dungeon list...')
         na_dungeon_list = get_dungeon_list(location)
@@ -83,7 +83,7 @@ class Command(BaseCommand):
 
         for i in range(0, total):
             item = na_dungeon_list[i]
-            progress(i, total, 'Building entry for {}'.format(item.clean_name))
+            progress(i, total)
             make_dungeon_from_object(item, [*item.floors[-1].possible_drops], 'na')
             if '*' not in item.clean_name:
                 make_floor_from_object(item.floors, item.dungeon_id)
@@ -99,7 +99,7 @@ class Command(BaseCommand):
         total = len(jp_dungeon_list)
         for i in range(0, total):
             item = jp_dungeon_list[i]
-            progress(i, total, 'Building entry for {}'.format(item.clean_name))
+            progress(i, total)
             if not Dungeon.objects.filter(dungeonID=item.dungeon_id).exists():
                 make_dungeon_from_object(item, [*item.floors[-1].possible_drops], 'jp')
                 make_floor_from_object(item.floors, item.dungeon_id)
@@ -116,7 +116,7 @@ class Command(BaseCommand):
 
         for i in range(0, total):
             dungeon = dungeons[i]
-            progress(i, total, 'Finding image for {}'.format(dungeon.name))
+            progress(i, total)
             encounter_data = encounters.filter(dungeon_id=dungeon.dungeonID)
             dungeon_floors = floors.filter(dungeonID=dungeon.dungeonID)
 
