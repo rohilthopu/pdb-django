@@ -71,23 +71,6 @@
                     </a>
                 </div>
             </div>
-            {#            <div class="navbar-item has-dropdown is-hoverable">#}
-            {#                <a class="navbar-link" href="/dungeons/na">#}
-            {#                    <span class="icon"><i class="fas fa-globe-asia"></i></span>#}
-            {#                    <span>JP</span>#}
-            {#                </a>#}
-            {#                <div class="navbar-dropdown">#}
-            {#                    <a class="navbar-item" href="/monsterdb/jp">#}
-            {#                        Monsters#}
-            {#                    </a>#}
-            {#                    <a class="navbar-item" href="/activeskills/jp">#}
-            {#                        Active Skills#}
-            {#                    </a>#}
-            {#                    <a class="navbar-item" href="/leaderskills/jp">#}
-            {#                        Leader Skills#}
-            {#                    </a>#}
-            {#                </div>#}
-            {#            </div>#}
             <a class="navbar-item" href="/leaderboard">
                 <span class="icon"><i class="fas fa-th-list"></i></span>
                 <span>Leaderboard</span>
@@ -104,29 +87,9 @@
                 <h2 class="subtitle" style="margin-bottom: 0%"> Guerrilla Dungeons for {{ date }}</h2>
                 <h2 class="subtitle is-6 is-italic" style="margin-bottom: 0%;"> Dates and Times listed are for Pacific
                     Time</h2>
-                {#                <h2 class="subtitle is-6 is-italic"> Status, Time Until, and Time Left are real time figures,#}
-                {#                    irrespective of time zones.</h2>#}
             </div>
         </div>
     </section>
-
-{#    <div class="columns is-centered">#}
-{#        <div class="column is-one-quarter">#}
-{#            <div align="center">#}
-{#                <a class="button is-light" onclick="showBox();">What's my group?</a>#}
-{#            </div>#}
-{#            <div id="groupChecker" style="display: none">#}
-{#                <div class="field">#}
-{#                    <div class="is-italic is-6" align="center">Put in the first three digits (or more) of your ID</div>#}
-{#                    <div class="control">#}
-{#                        <input class="input" type="text" placeholder="ex. 123 or 123,456,789" id="userid"#}
-{#                               oninput="getGroup();">#}
-{#                    </div>#}
-{#                </div>#}
-{#                <div align="center" id="groupOut"></div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
 
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
         <ul>
@@ -137,7 +100,6 @@
 
     <div class="columns is-centered" style="margin-top: 2%; margin-bottom: 2%;">
         <div class="column is-four-fifths">
-
             <div id="na">
                 <table class="table is-fullwidth is-hoverable" id="natable">
                     <thead>
@@ -147,8 +109,8 @@
                         <th class="has-text-centered">Status</th>
                         <th class="has-text-centered">Time Until</th>
                         <th class="has-text-centered">Time Left</th>
-                        <th class="has-text-left">Start</th>
-                        <th class="has-text-left">End</th>
+{#                        <th class="has-text-left">Start</th>#}
+{#                        <th class="has-text-left">End</th>#}
                         <th class="has-text-centered hide" id="nahead">Time</th>
                     </tr>
                     </thead>
@@ -160,8 +122,8 @@
                             <td class="has-text-centered" name="active">{{ active }}</td>
                             <td class="has-text-centered spaced" name="starttime" value="{{ dungeon.startSecs }}"></td>
                             <td class="has-text-centered spaced" name="endtime" value="{{ dungeon.endSecs }}"></td>
-                            <td class="has-text-left">{{ dungeon.startTime }}</td>
-                            <td class="has-text-left">{{ dungeon.endTime }}</td>
+{#                            <td class="has-text-left">{{ dungeon.startTime }}</td>#}
+{#                            <td class="has-text-left">{{ dungeon.endTime }}</td>#}
                             <td class="has-text-centered hide spaced" name="time-mobile" id="naval"></td>
                         </tr>
                     {% endfor %}
@@ -180,8 +142,8 @@
                         <th class="has-text-centered">Status</th>
                         <th class="has-text-centered">Time Until</th>
                         <th class="has-text-centered">Time Left</th>
-                        <th class="has-text-left">Start</th>
-                        <th class="has-text-left">End</th>
+{#                        <th class="has-text-left">Start</th>#}
+{#                        <th class="has-text-left">End</th>#}
                         <th class="has-text-centered hide spaced" id="jphead">Time</th>
                     </tr>
                     </thead>
@@ -193,15 +155,14 @@
                             <td class="has-text-centered" name="active">{{ active }}</td>
                             <td class="has-text-centered spaced" name="starttime" value="{{ dungeon.startSecs }}"></td>
                             <td class="has-text-centered spaced" name="endtime" value="{{ dungeon.endSecs }}"></td>
-                            <td class="has-text-left">{{ dungeon.startTime }}</td>
-                            <td class="has-text-left">{{ dungeon.endTime }}</td>
+{#                            <td class="has-text-left">{{ dungeon.startTime }}</td>#}
+{#                            <td class="has-text-left">{{ dungeon.endTime }}</td>#}
                             <td class="has-text-centered hide spaced" name="time-mobile" id="jpval"></td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
-
         </div>
 
     </div>
@@ -211,23 +172,23 @@
             setInterval(computeTimes, 1000);
         };
     </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#natable').DataTable({
-                'pageLength': 50,
-                'paging': false,
-            });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#jptable').DataTable({
-                'pageLength': 50,
-                'paging': false,
-            });
-        });
-    </script>
+    {##}
+    {#    <script type="text/javascript">#}
+    {#        $(document).ready(function () {#}
+    {#            $('#natable').DataTable({#}
+    {#                'pageLength': 50,#}
+    {#                'paging': false,#}
+    {#            });#}
+    {#        });#}
+    {#    </script>#}
+    {#    <script type="text/javascript">#}
+    {#        $(document).ready(function () {#}
+    {#            $('#jptable').DataTable({#}
+    {#                'pageLength': 50,#}
+    {#                'paging': false,#}
+    {#            });#}
+    {#        });#}
+    {#    </script>#}
 {% endblock %}
 </body>
 </html>

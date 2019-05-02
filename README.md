@@ -1,11 +1,7 @@
-# pad-db
-   
-Visit the project live at
+# PAD DB (Web)
 
-    www.pad-db.com
-    
-Do note that this is still a massive WIP and code cleanups will happen over time. The current code base is 
-a bit of a disaster right now.
+PAD DB is a pet project of mine to provide access to Puzzle and Dragons (PAD) data in an 
+alternative source to already existing platforms. This specific repository refers to the 
+desktop version usable via any browser. 
 
-Frontend is a massive WIP and will be expanded on later. The main purpose of this django project is to
-build the database for an API that the mobile app can hook into.
+See the site [here](!www.pad-db.com)
