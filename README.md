@@ -4,7 +4,7 @@ PAD DB is a pet project of mine to provide access to Puzzle and Dragons (PAD) da
 alternative source to already existing platforms. This specific repository refers to the 
 desktop version usable via any browser. 
 
-See the site [here](www.pad-db.com)
+See the site [here](https://www.pad-db.com).
 
 The site provides access to Guerrilla Dungeons, Monsters, Dungeon information, and an 
 arbitrary Reddit karma leaderboard for the PAD subreddit.
