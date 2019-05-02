@@ -11,19 +11,16 @@ arbitrary Reddit karma leaderboard for the PAD subreddit.
 
 ## Stack
 
-Current:
+Backend
 
-1. Backend
+    1. Django
+    2. Python
+    3. PostgreSQL
 
-        1. Django
-        2. Python
-        3. PostgreSQL
+Frontend
 
-2. Frontend
-
-        1. Django (Yikes)
-        2. Bulma CSS
-        
-        
+    1. Django (Yikes)
+    2. Bulma CSS
+         
 TODO:
 
