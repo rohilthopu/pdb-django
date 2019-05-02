@@ -10,7 +10,8 @@ The site provides access to Guerrilla Dungeons, Monsters, Dungeon information, a
 arbitrary Reddit karma leaderboard for the PAD subreddit.
 
 This site is meant to be a side resource to the mobile app, as the main goal is to just provide API
-access to my mobile app.
+access to my mobile app, [PAD DB (iOS)](https://github.com/rohilthopu/pdb-swift). Having a web interface
+helps me more easily visualize what the data currently looks like and helps me find errors in my code.
 
 ## Stack
 
