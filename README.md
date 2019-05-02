@@ -35,6 +35,10 @@ TODO:
     5. Fix broken parsing for the wave data since the complete zip no longer available
     
 
+## Installation
+
+It's not worth it.
+
 ## Contributions
 
 I'm probably not taking contributions for this right now, unless you can write a React frontend for me lol. 
