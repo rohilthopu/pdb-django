@@ -9,6 +9,9 @@ See the site [here](www.pad-db.com)
 The site provides access to Guerrilla Dungeons, Monsters, Dungeon information, and an 
 arbitrary Reddit karma leaderboard for the PAD subreddit.
 
+This site is meant to be a side resource to the mobile app, as the main goal is to just provide API
+access to my mobile app.
+
 ## Stack
 
 Backend
@@ -24,3 +27,14 @@ Frontend
          
 TODO:
 
+    1. Docker integration
+    2. ElasticSearch
+    3. Separate parser from Django
+        * Add multiprocessing/multithreading?
+    4. Make dedicated frontend with React?
+    5. Fix broken parsing for the wave data since the complete zip no longer available
+    
+
+## Contributions
+
+I'm probably not taking contributions for this right now, unless you can write a React frontend for me lol. 
