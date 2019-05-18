@@ -30,6 +30,8 @@ from karmaleaderboard import apiviews as kav
 from dataversions import apiviews as dvav
 from dungeon import apiviews as dav
 
+from guerrilla import views as guerrilla_views
+
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
 
@@ -60,6 +62,9 @@ urlpatterns = [
                   path('api/dungeons/', dav.DungeonList.as_view()),
                   path('api/floors/', dav.FloorList.as_view()),
                   path('api/enemyskills/', mav.EnemySkillList.as_view()),
-                  path('api/encounters/', dav.EncounterList.as_view())
+                  path('api/encounters/', dav.EncounterList.as_view()),
+
+                # new api endpoints
+                path('api/guerrilla_dungeons/', guerrilla_views.guerrilla_view)
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
