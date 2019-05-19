@@ -54,9 +54,9 @@ urlpatterns = [
     path('api/encounters/', dav.EncounterList.as_view()),
 
     # new api endpoints
-    path('api/guerrilla_dungeons/', guerrilla_views.guerrilla_view),
-    path('api/monsters/', monster_views.monsters_view),
-    path('api/dungeon/', dungeon_views.dungeons_view),
-    path('api/skills/', skill_views.skills_view),
+    path('api/live/guerrilla/', guerrilla_views.guerrilla_view),
+    path('api/live/monsters/', monster_views.monsters_view),
+    path('api/live/dungeons/', dungeon_views.dungeons_view),
+    path('api/live/skills/', skill_views.skills_view),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
