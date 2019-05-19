@@ -99,4 +99,7 @@ AWAKENING_MAP = {
     62: 'Combo Orb',
     63: 'Skill Voice',
     64: 'Dungeon Bonus',
+    65: 'Reduced HP',
+    66: 'Reduced Attack',
+    67: 'Reduced RCV',
 }
