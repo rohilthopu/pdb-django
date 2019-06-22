@@ -42,21 +42,21 @@ urlpatterns = [
 
     path('leaderboard', kv.leaderboardView),
 
-    # API views
-    path('api/guerrilla/', gav.GuerrillaList.as_view()),
-    path('api/monsters/na/', mav.MonsterList.as_view()),
-    path('api/skills/na/', mav.SkillList.as_view()),
-    path('api/leaderboard/', kav.LeaderboardList.as_view()),
-    path('api/version/', dvav.VersionList.as_view()),
-    path('api/dungeons/', dav.DungeonList.as_view()),
-    path('api/floors/', dav.FloorList.as_view()),
-    path('api/enemyskills/', mav.EnemySkillList.as_view()),
-    path('api/encounters/', dav.EncounterList.as_view()),
-
-    # new api endpoints
-    path('api/live/guerrilla/', guerrilla_views.guerrilla_view),
-    path('api/live/monsters/', monster_views.monsters_view),
-    path('api/live/dungeons/', dungeon_views.dungeons_view),
-    path('api/live/skills/', skill_views.skills_view),
+    # # API views
+    # path('api/guerrilla/', gav.GuerrillaList.as_view()),
+    # path('api/monsters/na/', mav.MonsterList.as_view()),
+    # path('api/skills/na/', mav.SkillList.as_view()),
+    # path('api/leaderboard/', kav.LeaderboardList.as_view()),
+    # path('api/version/', dvav.VersionList.as_view()),
+    # path('api/dungeons/', dav.DungeonList.as_view()),
+    # path('api/floors/', dav.FloorList.as_view()),
+    # path('api/enemyskills/', mav.EnemySkillList.as_view()),
+    # path('api/encounters/', dav.EncounterList.as_view()),
+    #
+    # # new api endpoints
+    # path('api/live/guerrilla/', guerrilla_views.guerrilla_view),
+    # path('api/live/monsters/', monster_views.monsters_view),
+    # path('api/live/dungeons/', dungeon_views.dungeons_view),
+    # path('api/live/skills/', skill_views.skills_view),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
