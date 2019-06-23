@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import Monster, Evolution
+from monsters.models import Monster, Evolution
 from dataversions.models import Version
 import json
 import time

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import EnemySkill
+from monsters.models import EnemySkill
 from .enemy_skill_parser import parse_enemy_skills
 import json
 import time

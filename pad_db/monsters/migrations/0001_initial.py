@@ -80,7 +80,7 @@ class Migration(migrations.Migration):
                 ('sellCoin', models.IntegerField(default=0)),
                 ('enemy_skills', models.TextField(default='')),
                 ('server', models.CharField(default='', max_length=2)),
-                ('evolutions', models.ManyToManyField(to='monsterdatabase.Evolution')),
+                ('evolutions', models.ManyToManyField(to='monsters.Evolution')),
             ],
         ),
         migrations.CreateModel(

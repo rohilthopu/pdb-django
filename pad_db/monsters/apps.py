@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class MonstersConfig(AppConfig):
+class MonsterdatabaseConfig(AppConfig):
     name = 'monsters'
