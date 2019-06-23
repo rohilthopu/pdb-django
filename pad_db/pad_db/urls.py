@@ -4,12 +4,12 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from monsters import views as mv
-from guerrilladungeon import views as gv
+from guerrilla import views as gv
 from dungeon import views as dv
 from karmaleaderboard import views as kv
 
 # # API imports
-# from guerrilladungeon import apiviews as gav
+# from guerrilla import apiviews as gav
 # from monsters import apiviews as mav
 # from karmaleaderboard import apiviews as kav
 # from dataversions import apiviews as dvav

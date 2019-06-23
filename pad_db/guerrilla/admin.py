@@ -1,5 +1,5 @@
 from django.contrib import admin
-from guerrilladungeon.models import GuerrillaDungeon
+from guerrilla.models import GuerrillaDungeon
 # Register your models here.
 
 class GuerrillaDungeonAdmin(admin.ModelAdmin):

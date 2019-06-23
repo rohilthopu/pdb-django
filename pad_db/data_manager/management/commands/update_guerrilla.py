@@ -2,7 +2,7 @@ import json
 import os
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from guerrilladungeon.models import GuerrillaDungeon
+from guerrilla.models import GuerrillaDungeon
 from pad_db.settings import DEBUG
 
 DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb_processor/output'

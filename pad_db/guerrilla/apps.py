@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class GuerilladungeonConfig(AppConfig):
-    name = 'guerrilladungeon'
+    name = 'guerrilla'
