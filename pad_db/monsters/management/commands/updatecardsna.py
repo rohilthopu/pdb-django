@@ -17,7 +17,7 @@ class Command(BaseCommand):
         def makeMonster(rawCard, server):
             monster = Monster()
             monster.save()
-            monster.activeSkillID = rawCard['active_skill_id']
+            monster.active_skill_id = rawCard['active_skill_id']
             monster.ancestorID = rawCard['ancestor_id']
             monster.attributeID = rawCard['attr_id']
 

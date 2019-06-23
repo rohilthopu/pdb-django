@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
 from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
-from .forms import MonsterForm, SkillForm
 import json
 from dungeon.models import Dungeon, Floor
 
@@ -62,23 +60,6 @@ def cardView(request, card_id):
     return render(request, template, context)
 
 
-def editCardView(request, card_id):
-    template = 'editMonster.html'
-    monster = Monster.objects.get(cardID=card_id)
-    form = MonsterForm(instance=monster)
-    context = {'form': form, 'monster': monster}
-
-    if request.method == 'POST':
-        form = MonsterForm(request.POST, instance=monster)
-
-        if form.is_valid():
-            form.save()
-            link = '/monster/na/' + str(card_id)
-            return redirect(link)
-
-    return render(request, template, context)
-
-
 def cardList(request):
     rawCards = Monster.objects.order_by('cardID').all()
     cards = []
@@ -127,42 +108,6 @@ def leaderSkillView(request, skill_id):
     d_multipliers[3] = round((1 - (1 - lmultipliers[4]) * (1 - lmultipliers[4])) * 100, 2)
     context = {'leaderskill': skill, "monsters": monsters, "lmultipliers": lmultipliers, "dmultipliers": d_multipliers}
     template = 'leader_skill_na.html'
-    return render(request, template, context)
-
-
-def editActiveSkill(request, skill_id):
-    skill = Skill.objects.get(skillID=skill_id)
-    template = 'editSkill.html'
-    form = SkillForm(instance=skill)
-    context = {'skill': skill, 'form': form}
-
-    if request.method == 'POST':
-        form = SkillForm(request.POST, instance=skill)
-
-        if form.is_valid():
-            form.save()
-            link = '/activeskills/na/' + str(skill_id)
-            return redirect(link)
-        else:
-            return render(request, template, context)
-
-    return render(request, template, context)
-
-
-def editLeaderSkill(request, skill_id):
-    skill = Skill.objects.get(skillID=skill_id)
-    template = 'editSkill.html'
-    form = SkillForm(instance=skill)
-    context = {'skill': skill, 'form': form}
-
-    if request.method == 'POST':
-        form = SkillForm(request.POST, instance=skill)
-
-        if form.is_valid():
-            form.save()
-            link = '/leaderskills/na/' + str(skill_id)
-            return redirect(link)
-
     return render(request, template, context)
 
 
