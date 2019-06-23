@@ -5,15 +5,15 @@ from django.urls import path
 from django.conf import settings
 from monsters import views as mv
 from guerrilla import views as gv
-from dungeon import views as dv
+from dungeons import views as dv
 from karmaleaderboard import views as kv
 
 # # API imports
 # from guerrilla import apiviews as gav
-# from monsters import apiviews as mav
+from monsters import apiviews as mav
 # from karmaleaderboard import apiviews as kav
 # from dataversions import apiviews as dvav
-# from dungeon import apiviews as dav
+# from dungeons import apiviews as dav
 #
 # from guerrilla import views as guerrilla_views
 # from monsters import views as monster_views
@@ -37,6 +37,11 @@ urlpatterns = [
     path('leaderskills/na', mv.leaderSkillListView),
     path('leaderskills/na/<int:skill_id>/', mv.leaderSkillView),
     path('leaderboard', kv.leaderboardView),
+
+    # new api endpoints
+
+    path('api/monster/<int:card_id>/', mv.get_monster),
+    path('api/monsters/', mav.MonsterList.as_view())
 
     # # API views
     # path('api/guerrilla/', gav.GuerrillaList.as_view()),

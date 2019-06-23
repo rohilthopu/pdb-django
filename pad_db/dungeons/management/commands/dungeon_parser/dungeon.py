@@ -65,7 +65,7 @@ prefix_to_dungeontype = {
 
 
 class Dungeon(pad_util.JsonDictEncodable):
-    """A top-level dungeon."""
+    """A top-level dungeons."""
 
     def __init__(self, raw: List[Any]):
         self.floors = []  # type: List[DungeonFloor]

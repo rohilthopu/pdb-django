@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 import json
-from dungeon.models import Dungeon, Floor, EncounterSet
+from dungeons.models import Dungeon, Floor, EncounterSet
 from dataversions.models import Version
 import time
 from .dungeon_parser.dungeon_parser import get_dungeon_list
@@ -54,7 +54,7 @@ class Command(BaseCommand):
             return card_id
 
         self.stdout.write('')
-        self.stdout.write('Starting dungeon update')
+        self.stdout.write('Starting dungeons update')
 
         start = time.time()
 
@@ -75,7 +75,7 @@ class Command(BaseCommand):
         self.stdout.write('\tLocation 1, NA: {}'.format(location))
         self.stdout.write('\tLocation 2, JP: {}'.format(location2))
 
-        self.stdout.write('Building NA dungeon list...')
+        self.stdout.write('Building NA dungeons list...')
         na_dungeon_list = get_dungeon_list(location)
         self.stdout.write('Build complete.')
         self.stdout.write('Building initial NA database...')
@@ -93,7 +93,7 @@ class Command(BaseCommand):
 
         self.stdout.write('NA conversion complete.')
 
-        self.stdout.write('Building JP dungeon list...')
+        self.stdout.write('Building JP dungeons list...')
         jp_dungeon_list = get_dungeon_list(location2)
         self.stdout.write('Build complete.')
         self.stdout.write('Merging in JP dungeons...')
@@ -111,7 +111,7 @@ class Command(BaseCommand):
         dungeons = Dungeon.objects.all()
         floors = Floor.objects.all()
 
-        self.stdout.write('Linking dungeon images.')
+        self.stdout.write('Linking dungeons images.')
 
         total = dungeons.count()
 

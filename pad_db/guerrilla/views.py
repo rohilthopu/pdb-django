@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import GuerrillaDungeon
-from dungeon.models import Dungeon
+from dungeons.models import Dungeon
 from datetime import date
 from time import time
 
@@ -34,8 +34,8 @@ def DungeonView(request):
 
     # naDungeonID = []
     #
-    # for dungeon in naDungeons:
-    #     d_id = Dungeon.objects.filter(name=dungeon.name)[0].dungeonID
+    # for dungeons in naDungeons:
+    #     d_id = Dungeon.objects.filter(name=dungeons.name)[0].dungeonID
     #     naDungeonID.append(d_id)
 
     na = zip(naDungeons, naActives)

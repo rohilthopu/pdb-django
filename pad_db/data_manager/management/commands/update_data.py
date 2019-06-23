@@ -6,6 +6,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from skills.models import Skill
 from monsters.models import Monster
+from dungeons.models import Dungeon, Floor
 from pad_db.settings import DEBUG
 
 DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb_processor/output'
@@ -17,8 +18,6 @@ DUNGEONS_FILE_NAME = 'dungeons.json'
 
 @transaction.atomic
 class Command(BaseCommand):
-    help = "Updates the Guerrilla Dungeon List."
-
     def handle(self, *args, **options):
         def make_skill_data(skill_data):
             print('Building Skills database table')
@@ -108,18 +107,64 @@ class Command(BaseCommand):
                 new_monster.save()
             print('Monster database build complete!')
 
+        def make_dungeon_from_object(dungeons):
+            print('Building Dungeon database table')
+            print('Deleting existing Dungeon')
+            Dungeon.objects.all().delete()
+            print('Processing dungeon...')
+            for dungeon in tqdm(dungeons):
+                new_dungeon = Dungeon()
+                new_dungeon.name = dungeon['clean_name']
+                new_dungeon.dungeon_id = dungeon['dungeon_id']
+                new_dungeon.floor_count = len(dungeon['floors'])
+                new_dungeon.dungeon_type = dungeon['alt_dungeon_type']
+                new_dungeon.image_id = dungeon['image_id']
+                new_dungeon.server = dungeon['server']
+                new_dungeon.save()
+                make_floor_from_object(dungeon['floors'])
+
+        def make_floor_from_object(floors):
+            # print('Building Floors database table')
+            # print('Deleting existing Floors')
+            Floor.objects.all().delete()
+            # print('Processing floors...')
+            for floor in floors:
+                fl = Floor()
+                fl.dungeon_id = floor['dungeon_id']
+                fl.floor_number = floor['floor_number']
+                fl.name = floor['clean_name']
+                fl.stamina = floor['stamina']
+                fl.waves = floor['waves']
+                fl.possible_drops = json.dumps(floor['possible_drops'])
+                fl.required_dungeon = floor['required_dungeon']
+                fl.required_floor = floor['required_floor']
+                fl.team_modifiers = json.dumps(floor['team_modifiers'])
+                fl.encounter_modifiers = json.dumps(floor['modifiers_clean'])
+                fl.enhanced_type = floor['enhanced_type']
+                fl.enhanced_attribute = floor['enhanced_attribute']
+                fl.messages = json.dumps(floor['messages'])
+                fl.fixed_team = json.dumps(floor['fixed_team'])
+                fl.score = floor['score']
+                fl.image_id = floor['image_id']
+                fl.save()
+
         if DEBUG:
             with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, SKILLS_FILE_NAME)), 'r') as skill_file:
                 skill_data = json.load(skill_file)
             with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, MONSTERS_FILE_NAME)), 'r') as monster_file:
                 monster_data = json.load(monster_file)
+            with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, DUNGEONS_FILE_NAME)), 'r') as dungeon_file:
+                dungeon_data = json.load(dungeon_file)
 
         else:
             with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, SKILLS_FILE_NAME)), 'r') as skill_file:
                 skill_data = json.load(skill_file)
             with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, MONSTERS_FILE_NAME)), 'r') as monster_file:
                 monster_data = json.load(monster_file)
+            with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, DUNGEONS_FILE_NAME)), 'r') as dungeon_file:
+                dungeon_data = json.load(dungeon_file)
 
         make_skill_data(skill_data)
         make_monster_data(monster_data)
+        make_dungeon_from_object(dungeon_data)
         print()

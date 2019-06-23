@@ -1,13 +1,28 @@
-from django.http import JsonResponse
+from django.shortcuts import render
+from .models import Dungeon, Floor
 import json
-import os
-from django.conf import settings
 
 
-# Load from file for mobile app
-def dungeons_view(request):
-    file_name = 'dungeons.json'
-    with open(os.path.abspath(settings.PROCESSED_FILE_DIR.format(file_name)), 'r') as f:
-        data = json.load(f)
+def dungeonListView(request):
+    template = 'dungeonlist.html'
+    context = {'dungeons': Dungeon.objects.all()}
+    return render(request, template, context)
 
-    return JsonResponse(data, safe=False)
+
+def dungeonView(request, d_id):
+    template = 'dungeons.html'
+    dungeon = Dungeon.objects.get(dungeonID=d_id)
+    floors = Floor.objects.filter(dungeonID=d_id)
+
+    drops = []
+    for floor in floors:
+        dropList = json.loads(floor.possibleDrops)
+        drops.append(dropList)
+
+    # modifiers = [json.loads(floor.teamModifiers) for floor in floors]
+
+    floorData = zip(floors, drops)
+
+    context = {'dungeons': dungeon, 'floors': floors, 'drops': floorData}
+
+    return render(request, template, context)

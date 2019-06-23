@@ -1,8 +1,13 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http import JsonResponse
 from .models import Monster, Skill
 from .maps import EXPLICIT_TYPE_MAP
 import json
-from dungeon.models import Dungeon, Floor
+from dungeons.models import Dungeon, Floor
+
+
+def get_monster(request, card_id):
+    return JsonResponse(Monster.objects.filter(card_id=card_id).values()[0])
 
 
 def cardView(request, card_id):

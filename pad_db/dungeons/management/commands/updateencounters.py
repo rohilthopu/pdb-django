@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 import json
-from dungeon.models import EncounterSet
+from dungeons.models import EncounterSet
 import time
 import os
 from .dungeon_wave_parser import parse_spawn_data

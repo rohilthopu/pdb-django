@@ -40,7 +40,7 @@ TEAM_REQUIREMENT_MAP = {
 }
 
 
-# This map takes in an int, indicated by the btype parameter in the dungeon modifiers, and returns
+# This map takes in an int, indicated by the btype parameter in the dungeons modifiers, and returns
 # the type of monster that gets a stat boost i.e. 1.5x stats for dragon type would be btype:16
 ENHANCED_TYPE_MAP = {
     2: 'Balanced',

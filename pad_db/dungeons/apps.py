@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class DungeonsConfig(AppConfig):
+class DungeonConfig(AppConfig):
     name = 'dungeons'

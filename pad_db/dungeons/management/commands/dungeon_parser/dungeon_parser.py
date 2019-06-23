@@ -15,7 +15,7 @@ def get_dungeon_list(location) -> List[Dungeon]:
         dungeon_json = dungeons
 
         if dungeon_json['v'] > 6:
-            print('Warning! Version of dungeon file is not tested: {}'.format(dungeon_json['v']))
+            print('Warning! Version of dungeons file is not tested: {}'.format(dungeon_json['v']))
 
         dungeon_info = dungeon_json['dungeons']
 

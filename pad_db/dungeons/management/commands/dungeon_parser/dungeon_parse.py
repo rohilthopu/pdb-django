@@ -93,7 +93,7 @@ def get_modifiers(raw):
         dungeon_modifiers.messages.append(team_requirement)
 
     # This next loop runs through the elements from raw[8] until it hits a 0. The 0 indicates the end of the list
-    # of drops for the floor, the following segments are the dungeon modifiers
+    # of drops for the floor, the following segments are the dungeons modifiers
     pos = 8
 
     while int(raw[pos]) is not 0:
@@ -225,12 +225,12 @@ def get_n_or_less(raw):
     return "Teams of " + get_last_as_string(raw) + " or less allowed"
 
 
-# Appears to be a special case, for a dungeon that no longer is in the game
+# Appears to be a special case, for a dungeons that no longer is in the game
 TYPE_FLIP = {
     '5': 'Dragon'
 }
 
-# for n = 32, returns back a description of the dungeon entry requirements
+# for n = 32, returns back a description of the dungeons entry requirements
 ENTRY_REQUIREMENT_MAP = {
     2: get_cost,
     4: get_max_star,
