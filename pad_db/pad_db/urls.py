@@ -14,7 +14,7 @@ from monsters import apiviews as mav
 from skills import apiviews as sav
 # from karmaleaderboard import apiviews as kav
 # from dataversions import apiviews as dvav
-# from dungeons import apiviews as dav
+from dungeons import apiviews as dav
 #
 # from guerrilla import views as guerrilla_views
 # from monsters import views as monster_views
@@ -41,7 +41,10 @@ urlpatterns = [
     path('api/monsters/', mav.MonsterList.as_view()),
     path('api/skills/', sav.SkillList.as_view()),
     path('api/skill/<int:skill_id>/', sav.SkillObject.as_view()),
-    path('api/guerrilla/', gav.GuerrillaList.as_view())
+    path('api/guerrilla/', gav.GuerrillaList.as_view()),
+    path('api/dungeons/', dav.DungeonList.as_view()),
+    path('api/floors/', dav.FloorList.as_view()),
+
 
     # # API views
     # path('api/guerrilla/', gav.GuerrillaList.as_view()),

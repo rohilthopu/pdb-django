@@ -20,6 +20,7 @@ DUNGEONS_FILE_NAME = 'dungeons.json'
 class Command(BaseCommand):
     def handle(self, *args, **options):
         def make_skill_data(skill_data):
+            skills = []
             print('Building Skills database table')
             print('Deleting existing Skills')
             Skill.objects.all().delete()
@@ -40,13 +41,16 @@ class Command(BaseCommand):
                 new_skill.levels = skill['levels']
                 new_skill.shield = skill['shield']
                 new_skill.server = skill['server']
-                new_skill.save()
+                skills.append(new_skill)
+            print('Inserting Skills via bulk_create()')
+            Skill.objects.bulk_create(skills)
             print("Skill database build complete!")
 
         def make_monster_data(monster_data):
             print('Building Monster database table')
             print('Deleting existing Monsters')
             Monster.objects.all().delete()
+            monsters = []
             print('Processing monsters...')
             for monster in tqdm(monster_data):
                 new_monster = Monster()
@@ -96,7 +100,7 @@ class Command(BaseCommand):
                 new_monster.enemy_skill_refs = monster['enemy_skill_refs']
                 new_monster.awakenings = monster['awakenings']
                 new_monster.super_awakenings = monster['super_awakenings']
-                new_monster.type_3= monster['type_3_id']
+                new_monster.type_3 = monster['type_3_id']
                 new_monster.sell_mp = monster['sell_mp']
                 new_monster.collab_id = monster['collab_id']
                 new_monster.inheritable = monster['inheritable']
@@ -104,15 +108,19 @@ class Command(BaseCommand):
                 new_monster.limit_mult = monster['limit_mult']
                 new_monster.evolutions = monster['evo_list']
                 new_monster.server = monster['server']
-                new_monster.save()
+                monsters.append(new_monster)
+            print('Inserting monster data')
+            Monster.objects.bulk_create(monsters)
             print('Monster database build complete!')
 
-        def make_dungeon_from_object(dungeons):
+        def make_dungeon_from_object(dungeon_data):
             print('Building Dungeon database table')
             print('Deleting existing Dungeon')
             Dungeon.objects.all().delete()
+            dungeons = []
+            floors = []
             print('Processing dungeon...')
-            for dungeon in tqdm(dungeons):
+            for dungeon in tqdm(dungeon_data):
                 new_dungeon = Dungeon()
                 new_dungeon.name = dungeon['clean_name']
                 new_dungeon.dungeon_id = dungeon['dungeon_id']
@@ -120,15 +128,19 @@ class Command(BaseCommand):
                 new_dungeon.dungeon_type = dungeon['alt_dungeon_type']
                 new_dungeon.image_id = dungeon['image_id']
                 new_dungeon.server = dungeon['server']
-                new_dungeon.save()
-                make_floor_from_object(dungeon['floors'])
+                dungeons.append(new_dungeon)
+                make_floor_from_object(dungeon['floors'], floors)
+            print('Inserting dungeon data')
+            Dungeon.objects.bulk_create(dungeons)
+            Floor.objects.bulk_create(floors)
+            print('Dungeon database build complete!')
 
-        def make_floor_from_object(floors):
+        def make_floor_from_object(floor_data, floors):
             # print('Building Floors database table')
             # print('Deleting existing Floors')
             Floor.objects.all().delete()
             # print('Processing floors...')
-            for floor in floors:
+            for floor in floor_data:
                 fl = Floor()
                 fl.dungeon_id = floor['dungeon_id']
                 fl.floor_number = floor['floor_number']
@@ -146,7 +158,7 @@ class Command(BaseCommand):
                 fl.fixed_team = json.dumps(floor['fixed_team'])
                 fl.score = floor['score']
                 fl.image_id = floor['image_id']
-                fl.save()
+                floors.append(fl)
 
         if DEBUG:
             with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, SKILLS_FILE_NAME)), 'r') as skill_file:

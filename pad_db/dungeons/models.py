@@ -30,10 +30,3 @@ class Dungeon(models.Model):
     floor_count = models.IntegerField(default=0)
     image_id = models.IntegerField(default=0)
     server = models.CharField(default='', max_length=2)
-
-
-class EncounterSet(models.Model):
-    dungeon_id = models.IntegerField(default=0)
-    floor_id = models.IntegerField(default=-1)
-    wave_number = models.IntegerField(default=-1)
-    encounter_data = models.TextField(default="")
