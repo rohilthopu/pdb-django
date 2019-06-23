@@ -1,11 +1,13 @@
 from django.core.management.base import BaseCommand
 import json
-import time
-from datetime import datetime
 import os
 
 from guerrilladungeon.models import GuerrillaDungeon
-from dungeon.models import Dungeon
+from pad_db.settings import DEBUG
+
+DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb_processor/output'
+PRODUCTION_PATH = '/home/rohil/pdb-processor/output'
+FILE_NAME = 'guerrilla_data.json'
 
 
 class Command(BaseCommand):
@@ -13,41 +15,25 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # link = "https://storage.googleapis.com/mirubot-data/paddata/merged/guerrilla_data.json"
-        # jsonPull = requests.get(link).text
+        if DEBUG:
+            with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, FILE_NAME)), 'r') as guerrilla_data:
+                guerrilla_dungeons = json.load(guerrilla_data)
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/processed_data/jp_dungeons.json'), 'r') as jsonDungeon:
-            jpDungeons = json.load(jsonDungeon)
+        else:
+            with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, FILE_NAME)), 'r') as guerrilla_data:
+                guerrilla_dungeons = json.load(guerrilla_data)
 
-        with open(os.path.abspath('/home/rohil/data/pad_data/guerrilla/guerrilla_data.json'), 'r') as jsonPull:
-            jsonDump = json.load(jsonPull)
+        GuerrillaDungeon.objects.all().delete()
 
-            GuerrillaDungeon.objects.all().delete()
-
-            for item in jsonDump['items']:
-
-                if GuerrillaDungeon.objects.filter(startTime=item['start_timestamp']).first() is None:
-                    dungeon = GuerrillaDungeon()
-
-                    dungeon.name = item['dungeon_name'].rsplit('$')[-1]
-                    dungeon.startTime = datetime.fromtimestamp(item['start_timestamp']).strftime("%A, %B %d, %Y %H:%M")
-                    dungeon.endTime = datetime.fromtimestamp(item['end_timestamp']).strftime("%A, %B %d, %Y %H:%M")
-                    dungeon.startSecs = item['start_timestamp']
-                    dungeon.endSecs = item['end_timestamp']
-                    dungeon.group = item['group']
-                    dungeon.server = item['server']
-
-                    if Dungeon.objects.filter(name=dungeon.name).exists():
-                        d_id = Dungeon.objects.filter(name=dungeon.name)[0]
-                        dungeon.dungeon_id = d_id.dungeonID
-                        dungeon.image_id = d_id.imageID
-
-                    if dungeon.dungeon_id == -1:
-                        for j in jpDungeons:
-                            name = j['clean_name']
-                            if name == dungeon.name:
-                                jpID = j['dungeon_id']
-                                dungeon.dungeon_id = jpID
-                                dungeon.image_id = Dungeon.objects.get(dungeonID=jpID).imageID
-
-                    dungeon.save()
+        for item in guerrilla_dungeons:
+            dungeon = GuerrillaDungeon()
+            dungeon.name = item['name']
+            dungeon.startTime = item['start_time']
+            dungeon.endTime = item['end_time']
+            dungeon.startSecs = item['start_secs']
+            dungeon.endSecs = item['end_secs']
+            dungeon.group = item['group']
+            dungeon.server = item['server']
+            dungeon.dungeon_id = item['dungeon_id']
+            dungeon.image_id = item['image_id']
+            dungeon.save()

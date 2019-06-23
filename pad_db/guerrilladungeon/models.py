@@ -1,8 +1,5 @@
 from django.db import models
 
-
-# Create your models here.
-
 class GuerrillaDungeon(models.Model):
     name = models.CharField(default="", max_length=100)
     startTime = models.CharField(default="", max_length=200)

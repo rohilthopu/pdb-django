@@ -8,17 +8,17 @@ from guerrilladungeon import views as gv
 from dungeon import views as dv
 from karmaleaderboard import views as kv
 
-# API imports
-from guerrilladungeon import apiviews as gav
-from monsterdatabase import apiviews as mav
-from karmaleaderboard import apiviews as kav
-from dataversions import apiviews as dvav
-from dungeon import apiviews as dav
-
-from guerrilla import views as guerrilla_views
-from monsters import views as monster_views
-from dungeons import views as dungeon_views
-from skills import views as skill_views
+# # API imports
+# from guerrilladungeon import apiviews as gav
+# from monsterdatabase import apiviews as mav
+# from karmaleaderboard import apiviews as kav
+# from dataversions import apiviews as dvav
+# from dungeon import apiviews as dav
+#
+# from guerrilla import views as guerrilla_views
+# from monsters import views as monster_views
+# from dungeons import views as dungeon_views
+# from skills import views as skill_views
 
 
 urlpatterns = [
