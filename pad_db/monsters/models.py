@@ -78,9 +78,9 @@ class Monster(models.Model):
     unevo_mat_4 = models.IntegerField(default=0)
     unevo_mat_5 = models.IntegerField(default=0)
 
-    type_1 = models.CharField(default="", max_length=100)
-    type_2 = models.CharField(default="", max_length=100)
-    type_3 = models.CharField(default="", max_length=100)
+    type_1 = models.IntegerField(default=0)
+    type_2 = models.IntegerField(default=0)
+    type_3 = models.IntegerField(default=0)
 
     sell_mp = models.IntegerField(default=0)
     sell_coin = models.IntegerField(default=0)

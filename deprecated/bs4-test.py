@@ -31,7 +31,7 @@ def parse_dungeon(soup):
     # Num of Battles
     battles = soup.body.find(class_='green').text
 
-    # Correct dungeon typing becuase fuck it
+    # Correct dungeons typing becuase fuck it
     if type_split == "SpecialDungeon":
         type_split = "Special Dungeon"
     elif type_split == "NormalDungeon":
@@ -43,7 +43,7 @@ def parse_dungeon(soup):
 
 
 def parse_titles(soup):
-    # The title of the dungeon
+    # The title of the dungeons
     title = soup.body.find(class_='name').get_text().strip()
     # Japanese Title
     titlej = soup.body.find(class_='jap').get_text()

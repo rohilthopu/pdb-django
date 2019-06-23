@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('listingDate', models.DateField(default=datetime.date(2018, 7, 12))),
-                ('dungeons', models.ManyToManyField(to='dungeon.Dungeon')),
+                ('dungeons', models.ManyToManyField(to='dungeons.Dungeon')),
             ],
         ),
         migrations.CreateModel(
@@ -61,11 +61,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='monster',
             name='skills',
-            field=models.ManyToManyField(to='dungeon.Skill'),
+            field=models.ManyToManyField(to='dungeons.Skill'),
         ),
         migrations.AddField(
-            model_name='dungeon',
+            model_name='dungeons',
             name='monsters',
-            field=models.ManyToManyField(to='dungeon.Monster'),
+            field=models.ManyToManyField(to='dungeons.Monster'),
         ),
     ]

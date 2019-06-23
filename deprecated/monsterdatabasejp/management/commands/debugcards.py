@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from monsterdatabase.models import CardNA, ActiveSkill, MonsterData
+from monsters.models import CardNA, ActiveSkill, MonsterData
 import requests
 import json
 

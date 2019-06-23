@@ -28,19 +28,15 @@ urlpatterns = [
     path('', gv.DungeonView),
 
     # NA Items
-    path('monsterdb/na/', mv.cardList),
-    path('monster/na/<int:card_id>/', mv.cardView),
+    path('monsterdb/na/', mv.monster_list),
+    path('monster/na/<int:card_id>/', mv.monster_view),
     path('dungeons/na/', dv.dungeonListView),
     path('dungeons/na/<int:d_id>/', dv.dungeonView),
-    path('activeskills/na/', mv.activeSkillListView),
-    path('activeskills/na/<int:skill_id>/', mv.activeSkillView),
-    path('leaderskills/na', mv.leaderSkillListView),
-    path('leaderskills/na/<int:skill_id>/', mv.leaderSkillView),
     path('leaderboard', kv.leaderboardView),
 
     # new api endpoints
 
-    path('api/monster/<int:card_id>/', mv.get_monster),
+    path('api/monster/<int:card_id>/', mav.MonsterObject.as_view()),
     path('api/monsters/', mav.MonsterList.as_view())
 
     # # API views

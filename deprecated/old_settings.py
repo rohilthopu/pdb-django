@@ -36,11 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.staticfiles.finders',
     'maintenance_mode',
-    'monsterdatabase',
+    'monsters',
     'monsterdatabasejp',
-    'guerrilladungeon',
+    'guerrilla',
     'bonusdungeon',
-    'dungeon',
+    'dungeons',
 ]
 
 MIDDLEWARE = [

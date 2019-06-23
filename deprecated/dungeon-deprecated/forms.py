@@ -11,7 +11,7 @@ class DungeonLink(forms.Form):
 
 class DailyDungeonSelector(forms.Form):
     dungeon = MyModelChoiceField(queryset=Dungeon.objects.order_by('altTitle').all(), to_field_name="jpnTitle",
-                                 empty_label='Choose a dungeon', )
+                                 empty_label='Choose a dungeons', )
     widgets = {
-        'dungeon': forms.Select(attrs={'class': 'select'}),
+        'dungeons': forms.Select(attrs={'class': 'select'}),
     }

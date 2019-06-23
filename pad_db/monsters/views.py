@@ -1,71 +1,68 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Monster, Skill
+from .models import Monster
+from skills.models import Skill
 from .maps import EXPLICIT_TYPE_MAP
 import json
 from dungeons.models import Dungeon, Floor
 
 
-def get_monster(request, card_id):
-    return JsonResponse(Monster.objects.filter(card_id=card_id).values()[0])
-
-
-def cardView(request, card_id):
+def monster_view(request, card_id):
     template = 'monster_na.html'
-    monster = Monster.objects.get(cardID=card_id)
-    evo_list = monster.evolutions.all()
+    monster = Monster.objects.get(card_id=card_id)
+    evo_list = json.loads(monster.evolutions)
     monsters = Monster.objects.all()
 
     # The following set of checks is necessary as some cards do not have leader skills, active skills, or ancestors.
     ancestor = None
-    if monster.ancestorID != monster.cardID:
-        if monster.ancestorID != 0:
-            ancestor = Monster.objects.get(cardID=monster.ancestorID)
+    if monster.ancestor_id != monster.card_id:
+        if monster.ancestor_id != 0:
+            ancestor = Monster.objects.get(card_id=monster.ancestor_id)
 
-    activeskill = None
-    leaderskill = None
+    active_skill = None
+    leader_skill = None
 
-    if Skill.objects.filter(skillID=monster.activeSkillID).first() is not None:
-        activeskill = Skill.objects.get(skillID=monster.activeSkillID)
-    if Skill.objects.filter(skillID=monster.leaderSkillID).first() is not None:
-        leaderskill = Skill.objects.get(skillID=monster.leaderSkillID)
+    if Skill.objects.filter(skill_id=monster.active_skill_id).first() is not None:
+        active_skill = Skill.objects.get(skill_id=monster.active_skill_id)
+    if Skill.objects.filter(skill_id=monster.leader_skill_id).first() is not None:
+        leader_skill = Skill.objects.get(skill_id=monster.leader_skill_id)
 
     multipliers = [1, 1, 1, 0, 0]
     a_multipliers = [1, 1, 1, 0]
 
-    if leaderskill is not None:
-        multipliers = getMultipliers(leaderskill)
+    if leader_skill is not None:
+        multipliers = get_multipliers(leader_skill)
 
-    if activeskill is not None:
-        a_multipliers = getMultipliers(activeskill)
+    if active_skill is not None:
+        a_multipliers = get_multipliers(active_skill)
 
     d_multipliers = [round((item ** 2), 2) for item in multipliers]
     d_multipliers[3] = round((1 - (1 - multipliers[4]) * (1 - multipliers[4])) * 100, 2)
 
     evos = None
     if len(evo_list) > 0:
-        evos = getEvos(evo_list)
+        evos = get_evos(evo_list)
 
-    evomats = getEvoMats(monster, monsters)
-    unevomats = getUnEvoMats(monster, monsters)
+    evo_mats = get_evo_mats(monster, monsters)
+    unevo_mats = get_unevo_mats(monster, monsters)
 
     awakenings = json.loads(monster.awakenings)
-    sawakenings = json.loads(monster.superAwakenings)
+    super_awakenings = json.loads(monster.super_awakenings)
 
-    types = getTypes(monster)
+    types = get_types(monster)
 
-    dungeons = getDungeons(card_id)
+    dungeons = get_dungeons(card_id)
 
-    context = {'activeskill': activeskill, 'leaderskill': leaderskill,
-               'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evomats": evomats,
-               "unevomats": unevomats, 'awakenings': awakenings, 'sawakenings': sawakenings, 'types': types,
+    context = {'active_skill': active_skill, 'leader_skill': leader_skill,
+               'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evo_mats": evo_mats,
+               "unevo_mats": unevo_mats, 'awakenings': awakenings, 'super_awakenings': super_awakenings, 'types': types,
                'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers,
                'dungeons': dungeons}
 
     return render(request, template, context)
 
 
-def cardList(request):
+def monster_list(request):
     rawCards = Monster.objects.order_by('cardID').all()
     cards = []
     cardID = []
@@ -82,86 +79,52 @@ def cardList(request):
     return render(request, template, context)
 
 
-def activeSkillListView(request):
-    skills = Skill.objects.filter(skill_type="active").all()
-    context = {'skills': skills}
-    template = 'active_skill_list_na.html'
-    return render(request, template, context)
+def get_evo_mats(monster, monsters):
+    evo_mats = []
+    if monster.evo_mat_1 != 0:
+        evo_mats.append(monsters.get(card_id=monster.evo_mat_1))
+    if monster.evo_mat_2 != 0:
+        evo_mats.append(monsters.get(card_id=monster.evo_mat_2))
+    if monster.evo_mat_3 != 0:
+        evo_mats.append(monsters.get(card_id=monster.evo_mat_3))
+    if monster.evo_mat_4 != 0:
+        evo_mats.append(monsters.get(card_id=monster.evo_mat_4))
+    if monster.evo_mat_5 != 0:
+        evo_mats.append(monsters.get(card_id=monster.evo_mat_5))
+    return evo_mats
 
 
-def activeSkillView(request, skill_id):
-    skill = Skill.objects.get(skillID=skill_id)
-    monsters = Monster.objects.filter(activeSkillID=skill_id)
-    amultipliers = getMultipliers(skill)
-    context = {'activeskill': skill, "monsters": monsters, "amultipliers": amultipliers}
-    template = 'active_skill_na.html'
-    return render(request, template, context)
+def get_unevo_mats(monster, monsters):
+    unevo_mats = []
+    if monster.unevo_mat_1 != 0:
+        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_1))
+    if monster.unevo_mat_2 != 0:
+        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_2))
+    if monster.unevo_mat_3 != 0:
+        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_3))
+    if monster.unevo_mat_4 != 0:
+        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_4))
+    if monster.unevo_mat_5 != 0:
+        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_5))
+    return unevo_mats
 
 
-def leaderSkillListView(request):
-    skills = Skill.objects.filter(skill_type="leader").all()
-    context = {'skills': skills}
-    template = 'leader_skill_list_na.html'
-    return render(request, template, context)
-
-
-def leaderSkillView(request, skill_id):
-    skill = Skill.objects.get(skillID=skill_id)
-    monsters = Monster.objects.filter(leaderSkillID=skill_id)
-    lmultipliers = getMultipliers(skill)
-    d_multipliers = [round((item ** 2), 2) for item in lmultipliers]
-    d_multipliers[3] = round((1 - (1 - lmultipliers[4]) * (1 - lmultipliers[4])) * 100, 2)
-    context = {'leaderskill': skill, "monsters": monsters, "lmultipliers": lmultipliers, "dmultipliers": d_multipliers}
-    template = 'leader_skill_na.html'
-    return render(request, template, context)
-
-
-def getEvoMats(monster, monsters):
-    evomats = []
-    if monster.evomat1 != 0:
-        evomats.append(monsters.get(cardID=monster.evomat1))
-    if monster.evomat2 != 0:
-        evomats.append(monsters.get(cardID=monster.evomat2))
-    if monster.evomat3 != 0:
-        evomats.append(monsters.get(cardID=monster.evomat3))
-    if monster.evomat4 != 0:
-        evomats.append(monsters.get(cardID=monster.evomat4))
-    if monster.evomat5 != 0:
-        evomats.append(monsters.get(cardID=monster.evomat5))
-    return evomats
-
-
-def getUnEvoMats(monster, monsters):
-    evomats = []
-    if monster.unevomat1 != 0:
-        evomats.append(monsters.get(cardID=monster.unevomat1))
-    if monster.unevomat2 != 0:
-        evomats.append(monsters.get(cardID=monster.unevomat2))
-    if monster.unevomat3 != 0:
-        evomats.append(monsters.get(cardID=monster.unevomat3))
-    if monster.unevomat4 != 0:
-        evomats.append(monsters.get(cardID=monster.unevomat4))
-    if monster.unevomat5 != 0:
-        evomats.append(monsters.get(cardID=monster.unevomat5))
-    return evomats
-
-
-def getTypes(monster) -> []:
-    types = [EXPLICIT_TYPE_MAP[int(monster.type1)], EXPLICIT_TYPE_MAP[int(monster.type2)],
-             EXPLICIT_TYPE_MAP[int(monster.type3)]]
+def get_types(monster) -> []:
+    types = [EXPLICIT_TYPE_MAP[monster.type_1], EXPLICIT_TYPE_MAP[monster.type_2],
+             EXPLICIT_TYPE_MAP[monster.type_3]]
     return types
 
 
-def getMultipliers(skill) -> []:
+def get_multipliers(skill) -> []:
     skill_list = []
     multipliers = [1, 1, 1, 0, 0]
     shield_calc = 1
     shields = []
-    if skill.c_skill_1 != -1:
-        skill_list.append(Skill.objects.get(skillID=skill.c_skill_1))
-        skill_list.append(Skill.objects.get(skillID=skill.c_skill_2))
-        if skill.c_skill_3 != -1:
-            skill_list.append((Skill.objects.get(skillID=skill.c_skill_3)))
+    if skill.skill_part_1_id != -1:
+        skill_list.append(Skill.objects.get(skill_id=skill.skill_part_1_id))
+        skill_list.append(Skill.objects.get(skill_id=skill.skill_part_2_id))
+        if skill.skill_part_3_id != -1:
+            skill_list.append((Skill.objects.get(skill_id=skill.skill_part_3_id)))
 
         for skill in skill_list:
 
@@ -186,25 +149,25 @@ def getMultipliers(skill) -> []:
     return multipliers
 
 
-def getEvos(evo_list) -> []:
+def get_evos(evo_list) -> []:
     evos = []
     for evo in evo_list:
-        evoCard = Monster.objects.get(cardID=evo.evo)
-        if "Alt." not in evoCard.name:
-            evos.append(evoCard)
+        evo_card = Monster.objects.get(card_id=evo)
+        if "Alt." not in evo_card.name:
+            evos.append(evo_card)
     return evos
 
 
-def getDungeons(card_id) -> []:
-    dungeonList = []
+def get_dungeons(card_id) -> []:
+    dungeon_list = []
 
     floors = Floor.objects.all()
     for floor in floors:
-        dropData = json.loads(floor.possibleDrops)
-        for key in dropData.keys():
+        drop_data = json.loads(floor.possible_drops)
+        for key in drop_data.keys():
             if card_id == int(key):
-                dungeon = Dungeon.objects.filter(dungeonID=floor.dungeonID)[0]
-                if dungeon not in dungeonList:
-                    dungeonList.append(dungeon)
+                dungeon = Dungeon.objects.filter(dungeon_id=floor.dungeon_id)[0]
+                if dungeon not in dungeon_list:
+                    dungeon_list.append(dungeon)
 
-    return dungeonList
+    return dungeon_list

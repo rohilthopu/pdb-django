@@ -10,6 +10,13 @@ class MonsterList(APIView):
         return Response(data)
 
 
+class MonsterObject(APIView):
+    def get(self, request, card_id):
+        data = Monster.objects.filter(card_id=card_id).values()
+        return Response(data)
+
+
+
 class SkillList(APIView):
     def get(self, request):
         data = Skill.objects.values()

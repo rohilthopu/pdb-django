@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
-from dungeon.models import Dungeon
+from dungeons.models import Dungeon
 
 class Command(BaseCommand):
-    help = 'Clears the daily dungeon list.'
+    help = 'Clears the daily dungeons list.'
 
     def handle(self, *args, **options):
         daily = Dungeon.objects.all()

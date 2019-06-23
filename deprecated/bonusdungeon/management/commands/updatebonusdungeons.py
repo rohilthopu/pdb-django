@@ -19,8 +19,8 @@ class Command(BaseCommand):
 
         for item in jsonLoad:
 
-            if item['dungeon'] is not None:
-                dungeon = item['dungeon']
+            if item['dungeons'] is not None:
+                dungeon = item['dungeons']
 
                 exists = Dungeon.objects.filter(name=dungeon['clean_name'], startTime=item['start_timestamp']).first()
 
