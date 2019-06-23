@@ -1,7 +1,7 @@
-from django.core.management.base import BaseCommand
 import json
 import os
-
+from django.core.management.base import BaseCommand
+from django.db import transaction
 from guerrilladungeon.models import GuerrillaDungeon
 from pad_db.settings import DEBUG
 
@@ -10,6 +10,7 @@ PRODUCTION_PATH = '/home/rohil/pdb-processor/output'
 FILE_NAME = 'guerrilla_data.json'
 
 
+@transaction.atomic
 class Command(BaseCommand):
     help = "Updates the Guerrilla Dungeon List."
 
