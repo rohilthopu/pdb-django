@@ -18,6 +18,7 @@ TYPE_MAP = {
 }
 
 EXPLICIT_TYPE_MAP = {
+    -1: "",
     0: "",  # Not set
     7: "Evo Material",  # Evolve
     2: "Balanced",  # Balance

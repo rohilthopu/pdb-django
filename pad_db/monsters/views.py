@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from .models import Monster
 from skills.models import Skill
 from .maps import EXPLICIT_TYPE_MAP
