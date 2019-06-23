@@ -71,11 +71,11 @@ class Monster(models.Model):
     evo_mat_4 = models.IntegerField(default=0)
     evo_mat_5 = models.IntegerField(default=0)
 
-    unevo_mat_1 = models.IntegerField(default=0)
-    unevo_mat_2 = models.IntegerField(default=0)
-    unevo_mat_3 = models.IntegerField(default=0)
-    unevo_mat_4 = models.IntegerField(default=0)
-    unevo_mat_5 = models.IntegerField(default=0)
+    un_evo_mat_1 = models.IntegerField(default=0)
+    un_evo_mat_2 = models.IntegerField(default=0)
+    un_evo_mat_3 = models.IntegerField(default=0)
+    un_evo_mat_4 = models.IntegerField(default=0)
+    un_evo_mat_5 = models.IntegerField(default=0)
 
     type_1 = models.IntegerField(default=0)
     type_2 = models.IntegerField(default=0)
