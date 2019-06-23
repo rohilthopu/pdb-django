@@ -23,6 +23,7 @@ class Command(BaseCommand):
             print('Building Skills database table')
             print('Deleting existing Skills')
             Skill.objects.all().delete()
+            print('Processing skills...')
             for skill in tqdm(skill_data):
                 new_skill = Skill()
                 new_skill.skill_id = skill['skill_id']
@@ -44,9 +45,13 @@ class Command(BaseCommand):
         if DEBUG:
             with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, SKILLS_FILE_NAME)), 'r') as skill_file:
                 skill_data = json.load(skill_file)
+            with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, MONSTERS_FILE_NAME)), 'r') as monster_file:
+                monster_data = json.load(monster_file)
+
 
         else:
             with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, SKILLS_FILE_NAME)), 'r') as skill_file:
                 skill_data = json.load(skill_file)
-
+            with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, MONSTERS_FILE_NAME)), 'r') as monster_file:
+                monster_data = json.load(monster_file)
         make_skill_data(skill_data)
