@@ -117,6 +117,7 @@ class Command(BaseCommand):
             print('Building Dungeon database table')
             print('Deleting existing Dungeon')
             Dungeon.objects.all().delete()
+            Floor.objects.all().delete()
             dungeons = []
             floors = []
             print('Processing dungeon...')
