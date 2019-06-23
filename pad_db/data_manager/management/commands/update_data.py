@@ -106,7 +106,7 @@ class Command(BaseCommand):
                 new_monster.inheritable = monster['inheritable']
                 new_monster.is_collab = monster['is_collab']
                 new_monster.limit_mult = monster['limit_mult']
-                new_monster.evolutions = monster['evo_list']
+                new_monster.evolutions = json.dumps(monster['evo_list'])
                 new_monster.server = monster['server']
                 monsters.append(new_monster)
             print('Inserting monster data')
