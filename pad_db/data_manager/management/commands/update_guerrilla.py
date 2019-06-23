@@ -29,8 +29,8 @@ class Command(BaseCommand):
         for item in guerrilla_dungeons:
             dungeon = GuerrillaDungeon()
             dungeon.name = item['name']
-            dungeon.startTime = item['start_time']
-            dungeon.endTime = item['end_time']
+            dungeon.start_time = item['start_time']
+            dungeon.end_time = item['end_time']
             dungeon.startSecs = item['start_secs']
             dungeon.endSecs = item['end_secs']
             dungeon.group = item['group']

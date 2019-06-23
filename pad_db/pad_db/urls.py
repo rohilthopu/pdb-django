@@ -9,7 +9,7 @@ from dungeons import views as dv
 from karmaleaderboard import views as kv
 
 # # API imports
-# from guerrilla import apiviews as gav
+from guerrilla import apiviews as gav
 from monsters import apiviews as mav
 from skills import apiviews as sav
 # from karmaleaderboard import apiviews as kav
@@ -40,7 +40,8 @@ urlpatterns = [
     path('api/monster/<int:card_id>/', mav.MonsterObject.as_view()),
     path('api/monsters/', mav.MonsterList.as_view()),
     path('api/skills/', sav.SkillList.as_view()),
-    path('api/skill/<int:skill_id>/', sav.SkillObject.as_view())
+    path('api/skill/<int:skill_id>/', sav.SkillObject.as_view()),
+    path('api/guerrilla/', gav.GuerrillaList.as_view())
 
     # # API views
     # path('api/guerrilla/', gav.GuerrillaList.as_view()),

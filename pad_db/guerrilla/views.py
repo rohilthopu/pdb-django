@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import GuerrillaDungeon
-from dungeons.models import Dungeon
 from datetime import date
 from time import time
 
@@ -9,38 +8,38 @@ from time import time
 
 def DungeonView(request):
     template = 'home.html'
-    naDungeons = GuerrillaDungeon.objects.filter(server="NA").order_by('group').all()
-    jpDungeons = GuerrillaDungeon.objects.filter(server="JP").order_by('group').all()
-    dateT = date.today()
-    timeNow = time()
-    naActives = []
-    jpActives = []
+    na_dungeons = GuerrillaDungeon.objects.filter(server="NA").order_by('group').all()
+    jp_dungeons = GuerrillaDungeon.objects.filter(server="JP").order_by('group').all()
+    date_t = date.today()
+    time_now = time()
+    na_actives = []
+    jp_actives = []
 
-    for d in naDungeons:
-        if d.startSecs <= timeNow <= d.endSecs:
-            naActives.append("Active")
-        elif timeNow < d.startSecs:
-            naActives.append("Upcoming")
+    for d in na_dungeons:
+        if d.start_secs <= time_now <= d.end_secs:
+            na_actives.append("Active")
+        elif time_now < d.start_secs:
+            na_actives.append("Upcoming")
         else:
-            naActives.append("Ended")
+            na_actives.append("Ended")
 
-    for d in jpDungeons:
-        if d.startSecs <= timeNow <= d.endSecs:
-            jpActives.append("Active")
-        elif timeNow < d.startSecs:
-            jpActives.append("Upcoming")
+    for d in jp_dungeons:
+        if d.start_secs <= time_now <= d.end_secs:
+            jp_actives.append("Active")
+        elif time_now < d.start_secs:
+            jp_actives.append("Upcoming")
         else:
-            jpActives.append("Ended")
+            jp_actives.append("Ended")
 
     # naDungeonID = []
     #
-    # for dungeons in naDungeons:
+    # for dungeons in na_dungeons:
     #     d_id = Dungeon.objects.filter(name=dungeons.name)[0].dungeonID
     #     naDungeonID.append(d_id)
 
-    na = zip(naDungeons, naActives)
-    jp = zip(jpDungeons, jpActives)
+    na = zip(na_dungeons, na_actives)
+    jp = zip(jp_dungeons, jp_actives)
 
-    context = {'date': dateT, 'na': na, 'jp': jp}
+    context = {'date': date_t, 'na': na, 'jp': jp}
 
     return render(request, template, context)
