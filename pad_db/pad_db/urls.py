@@ -6,7 +6,6 @@ from django.conf import settings
 from monsters import views as mv
 from guerrilla import views as gv
 from dungeons import views as dv
-from karmaleaderboard import views as kv
 
 # # API imports
 from guerrilla import apiviews as gav
