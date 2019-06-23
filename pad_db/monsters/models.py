@@ -41,7 +41,6 @@ class Monster(models.Model):
     awakenings = models.TextField(default="")
     awakenings_raw = models.TextField(default="")
 
-    base_id = models.IntegerField(default=0)
     card_id = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
 

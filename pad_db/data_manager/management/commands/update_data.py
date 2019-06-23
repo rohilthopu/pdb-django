@@ -37,6 +37,7 @@ class Command(BaseCommand):
                 new_skill.hp_mult = skill['hp_mult']
                 new_skill.atk_mult = skill['atk_mult']
                 new_skill.rcv_mult = skill['rcv_mult']
+                new_skill.levels = skill['levels']
                 new_skill.shield = skill['shield']
                 new_skill.server = skill['server']
                 new_skill.save()
@@ -95,7 +96,6 @@ class Command(BaseCommand):
                 new_monster.enemy_skill_refs = monster['enemy_skill_refs']
                 new_monster.awakenings = monster['awakenings']
                 new_monster.super_awakenings = monster['super_awakenings']
-                new_monster.base_id = monster['base_id']
                 new_monster.type_3= monster['type_3_id']
                 new_monster.sell_mp = monster['sell_mp']
                 new_monster.collab_id = monster['collab_id']
