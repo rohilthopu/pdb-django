@@ -114,6 +114,7 @@ class Command(BaseCommand):
                 new_monster.limit_mult = monster['limit_mult']
                 new_monster.evolutions = json.dumps(monster['evo_list'])
                 new_monster.server = monster['server']
+                new_monster.related_dungeons = monster['related_dungeons']
                 monsters.append(new_monster)
             print('Inserting monster data')
             Monster.objects.bulk_create(monsters)
