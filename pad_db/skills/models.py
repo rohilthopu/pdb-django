@@ -9,7 +9,13 @@ class Skill(models.Model):
     hp_mult = models.FloatField(default=1)
     atk_mult = models.FloatField(default=1)
     rcv_mult = models.FloatField(default=1)
-    dmg_reduction = models.FloatField(default=0)
+    shield = models.FloatField(default=0)
+
+    hp_mult_full = models.FloatField(default=1)
+    atk_mult_full = models.FloatField(default=1)
+    rcv_mult_full = models.FloatField(default=1)
+    shield_full = models.FloatField(default=1)
+
 
     # connected skills
     skill_part_1_id = models.IntegerField(default=-1)

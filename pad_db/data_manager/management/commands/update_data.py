@@ -38,6 +38,12 @@ class Command(BaseCommand):
                 new_skill.hp_mult = skill['hp_mult']
                 new_skill.atk_mult = skill['atk_mult']
                 new_skill.rcv_mult = skill['rcv_mult']
+
+                new_skill.hp_mult_full = skill['hp_mult_full']
+                new_skill.atk_mult_full = skill['atk_mult_full']
+                new_skill.rcv_mult_full = skill['rcv_mult_full']
+                new_skill.shield_full = skill['shield_full']
+
                 new_skill.levels = skill['levels']
                 new_skill.shield = skill['shield']
                 new_skill.server = skill['server']

@@ -6,7 +6,8 @@ from .models import Skill
 
 class SkillList(APIView):
     def get(self, request):
-        data = Skill.objects.exclude(name='').exclude(name="無し").values('name', 'description', 'skill_id')
+        data = Skill.objects.exclude(name='').exclude(name="無し").exclude(skill_part_1_id=-1)\
+            .values('name', 'description', 'skill_id', 'server')
         return Response(data)
 
 
