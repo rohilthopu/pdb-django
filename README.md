@@ -30,17 +30,4 @@ TODO:
 
     1. Docker integration
     2. ElasticSearch
-    3. Separate parser from Django
-        * Add multiprocessing/multithreading?
-        * Provide one command to do full site DB rebuild rather than 6...
-    4. Make dedicated frontend with React?
-    5. Fix broken parsing for the wave data since the complete zip no longer available
-    
-
-## Installation
-
-It's not worth it.
-
-## Contributions
-
-I'm probably not taking contributions for this right now, unless you can write a React frontend for me lol. 
+    3. React?
