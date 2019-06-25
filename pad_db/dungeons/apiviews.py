@@ -5,7 +5,7 @@ from .models import Dungeon, Floor
 
 class DungeonList(APIView):
     def get(self, request):
-        data = Dungeon.objects.values('name', 'dungeon_id', 'image_id')
+        data = Dungeon.objects.exclude(name__contains='*').values('name', 'dungeon_id', 'image_id', 'server', 'floor_count')
         return Response(data)
 
 
@@ -23,7 +23,7 @@ class AllFloorsList(APIView):
 
 class FloorList(APIView):
     def get(self, request, dungeon_id):
-        data = Floor.objects.filter(dungeon_id=dungeon_id).values('dungeon_id', 'image_id', 'name')
+        data = Floor.objects.filter(dungeon_id=dungeon_id).values('dungeon_id', 'image_id', 'name', 'stamina', 'waves')
         return Response(data)
 
 
