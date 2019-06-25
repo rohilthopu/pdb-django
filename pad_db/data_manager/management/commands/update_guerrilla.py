@@ -7,7 +7,7 @@ from pad_db.settings import DEBUG
 
 DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb_processor/output'
 PRODUCTION_PATH = '/home/rohil/pdb-processor/output'
-FILE_NAME = 'guerrilla_data.json'
+GUERRILLA_FILE_NAME = 'guerrilla_data.json'
 
 
 @transaction.atomic
@@ -17,11 +17,11 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         if DEBUG:
-            with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, FILE_NAME)), 'r') as guerrilla_data:
+            with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, GUERRILLA_FILE_NAME)), 'r') as guerrilla_data:
                 guerrilla_dungeons = json.load(guerrilla_data)
 
         else:
-            with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, FILE_NAME)), 'r') as guerrilla_data:
+            with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, GUERRILLA_FILE_NAME)), 'r') as guerrilla_data:
                 guerrilla_dungeons = json.load(guerrilla_data)
 
         GuerrillaDungeon.objects.all().delete()

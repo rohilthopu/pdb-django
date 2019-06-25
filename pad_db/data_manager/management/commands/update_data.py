@@ -8,22 +8,43 @@ from skills.models import Skill
 from monsters.models import Monster
 from dungeons.models import Dungeon, Floor
 from pad_db.settings import DEBUG
+from guerrilla.models import GuerrillaDungeon
 
 DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb_processor/output'
 PRODUCTION_PATH = '/home/rohil/pdb-processor/output'
 SKILLS_FILE_NAME = 'skills.json'
 MONSTERS_FILE_NAME = 'monsters.json'
 DUNGEONS_FILE_NAME = 'dungeons.json'
+GUERRILLA_FILE_NAME = 'guerrilla_data.json'
 
 
 @transaction.atomic
 class Command(BaseCommand):
     def handle(self, *args, **options):
+
+        def make_guerrilla_data(guerrilla_data):
+            gds = []
+            for item in guerrilla_data:
+                dungeon = GuerrillaDungeon()
+                dungeon.name = item['name']
+                dungeon.start_time = item['start_time']
+                dungeon.end_time = item['end_time']
+                dungeon.start_secs = item['start_secs']
+                dungeon.end_secs = item['end_secs']
+                dungeon.group = item['group']
+                dungeon.server = item['server']
+                dungeon.dungeon_id = item['dungeon_id']
+                dungeon.image_id = item['image_id']
+                gds.append(dungeon)
+            print('Inserting Guerrilla Dungeons')
+            GuerrillaDungeon.objects.all().delete()
+            GuerrillaDungeon.objects.bulk_create(gds)
+            print("Guerrilla Dungeon database build complete!")
+
         def make_skill_data(skill_data):
             skills = []
             print('Building Skills database table')
             print('Deleting existing Skills')
-            Skill.objects.all().delete()
             print('Processing skills...')
             for skill in tqdm(skill_data):
                 new_skill = Skill()
@@ -49,13 +70,13 @@ class Command(BaseCommand):
                 new_skill.server = skill['server']
                 skills.append(new_skill)
             print('Inserting Skills')
+            Skill.objects.all().delete()
             Skill.objects.bulk_create(skills)
             print("Skill database build complete!")
 
         def make_monster_data(monster_data):
             print('Building Monster database table')
             print('Deleting existing Monsters')
-            Monster.objects.all().delete()
             monsters = []
             print('Processing monsters...')
             for monster in tqdm(monster_data):
@@ -117,14 +138,13 @@ class Command(BaseCommand):
                 new_monster.related_dungeons = monster['related_dungeons']
                 monsters.append(new_monster)
             print('Inserting monster data')
+            Monster.objects.all().delete()
             Monster.objects.bulk_create(monsters)
             print('Monster database build complete!')
 
         def make_dungeon_from_object(dungeon_data):
             print('Building Dungeon database table')
             print('Deleting existing Dungeon')
-            Dungeon.objects.all().delete()
-            Floor.objects.all().delete()
             dungeons = []
             floors = []
             print('Processing dungeon...')
@@ -139,6 +159,8 @@ class Command(BaseCommand):
                 dungeons.append(new_dungeon)
                 make_floor_from_object(dungeon['floors'], floors)
             print('Inserting dungeon data')
+            Dungeon.objects.all().delete()
+            Floor.objects.all().delete()
             Dungeon.objects.bulk_create(dungeons)
             Floor.objects.bulk_create(floors)
             print('Dungeon database build complete!')
@@ -173,6 +195,8 @@ class Command(BaseCommand):
                 monster_data = json.load(monster_file)
             with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, DUNGEONS_FILE_NAME)), 'r') as dungeon_file:
                 dungeon_data = json.load(dungeon_file)
+            with open(os.path.abspath('{}/{}'.format(DEVELOPMENT_PATH, GUERRILLA_FILE_NAME)), 'r') as guerrilla_file:
+                guerrilla_data = json.load(guerrilla_file)
 
         else:
             with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, SKILLS_FILE_NAME)), 'r') as skill_file:
@@ -181,7 +205,10 @@ class Command(BaseCommand):
                 monster_data = json.load(monster_file)
             with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, DUNGEONS_FILE_NAME)), 'r') as dungeon_file:
                 dungeon_data = json.load(dungeon_file)
+            with open(os.path.abspath('{}/{}'.format(PRODUCTION_PATH, GUERRILLA_FILE_NAME)), 'r') as guerrilla_file:
+                guerrilla_data = json.load(guerrilla_file)
 
+        make_guerrilla_data(guerrilla_data)
         make_skill_data(skill_data)
         make_monster_data(monster_data)
         make_dungeon_from_object(dungeon_data)
