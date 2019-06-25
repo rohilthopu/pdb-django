@@ -21,6 +21,7 @@ class Floor(models.Model):
     enhanced_type = models.CharField(default=0, max_length=100)
     enhanced_attribute = models.CharField(default=0, max_length=100)
     image_id = models.IntegerField(default=0)
+    wave_data = models.TextField(default="")
 
 
 class Dungeon(models.Model):

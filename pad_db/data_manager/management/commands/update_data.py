@@ -48,7 +48,7 @@ class Command(BaseCommand):
                 new_skill.shield = skill['shield']
                 new_skill.server = skill['server']
                 skills.append(new_skill)
-            print('Inserting Skills via bulk_create()')
+            print('Inserting Skills')
             Skill.objects.bulk_create(skills)
             print("Skill database build complete!")
 
@@ -144,10 +144,7 @@ class Command(BaseCommand):
             print('Dungeon database build complete!')
 
         def make_floor_from_object(floor_data, floors):
-            # print('Building Floors database table')
-            # print('Deleting existing Floors')
-            Floor.objects.all().delete()
-            # print('Processing floors...')
+
             for floor in floor_data:
                 fl = Floor()
                 fl.dungeon_id = floor['dungeon_id']
@@ -166,6 +163,7 @@ class Command(BaseCommand):
                 fl.fixed_team = json.dumps(floor['fixed_team'])
                 fl.score = floor['score']
                 fl.image_id = floor['image_id']
+                fl.wave_data = json.dumps(floor['wave_data'])
                 floors.append(fl)
 
         if DEBUG:
