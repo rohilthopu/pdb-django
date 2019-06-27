@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=sammy
+Group=www-data
+WorkingDirectory=/home/rohil/pdb-django/pad_db
+ExecStart=/usr/bin/gunicorn3 --access-logfile - --workers 3 --bind unix:/home/rohil/pdb-django/pad_db/myproject.sock pad_db.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
