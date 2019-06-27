@@ -1,4 +1,4 @@
-bind = "192.168.1.200:8000"                   # Don't use port 80 becaue nginx occupied it already. 
+bind = "192.168.1.27:8000"                   # Don't use port 80 becaue nginx occupied it already. 
 errorlog = '/home/rohil/pad-db/logs/gunicorn-error.log'  # Make sure you have the log folder create
 accesslog = '/home/rohil/pad-db/logs/gunicorn-access.log'
 loglevel = 'debug'
