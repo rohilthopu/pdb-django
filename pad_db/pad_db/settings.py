@@ -18,9 +18,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0t0+n$4$1*rnk1@uyb&3fhyq*gqbilu=5&lx_fnhj7l0tm&k^-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False if 'home' in os.getcwd().split('/') else True
 
-ALLOWED_HOSTS = ['www.pad-db.com', '72.182.127.246', '*', 'pad-db.com']
+ALLOWED_HOSTS = ['www.pad-db.com', '72.182.127.246', 'pad-db.com']
 
 # Application definition
 
