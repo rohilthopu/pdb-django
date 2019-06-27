@@ -24,7 +24,9 @@ class Command(BaseCommand):
 
         def make_guerrilla_data(guerrilla_data):
             gds = []
-            for item in guerrilla_data:
+            print('Building Guerrilla database table')
+            print('Processing guerrilla dungeons...')
+            for item in tqdm(guerrilla_data):
                 dungeon = GuerrillaDungeon()
                 dungeon.name = item['name']
                 dungeon.start_time = item['start_time']
@@ -36,15 +38,15 @@ class Command(BaseCommand):
                 dungeon.dungeon_id = item['dungeon_id']
                 dungeon.image_id = item['image_id']
                 gds.append(dungeon)
-            print('Inserting Guerrilla Dungeons')
+            print('Deleting existing Skills')
             GuerrillaDungeon.objects.all().delete()
+            print('Inserting Guerrilla Dungeons')
             GuerrillaDungeon.objects.bulk_create(gds)
             print("Guerrilla Dungeon database build complete!")
 
         def make_skill_data(skill_data):
             skills = []
             print('Building Skills database table')
-            print('Deleting existing Skills')
             print('Processing skills...')
             for skill in tqdm(skill_data):
                 new_skill = Skill()
@@ -69,14 +71,14 @@ class Command(BaseCommand):
                 new_skill.shield = skill['shield']
                 new_skill.server = skill['server']
                 skills.append(new_skill)
-            print('Inserting Skills')
+            print('Deleting existing Skills')
             Skill.objects.all().delete()
+            print('Inserting Skills')
             Skill.objects.bulk_create(skills)
             print("Skill database build complete!")
 
         def make_monster_data(monster_data):
             print('Building Monster database table')
-            print('Deleting existing Monsters')
             monsters = []
             print('Processing monsters...')
             for monster in tqdm(monster_data):
@@ -137,14 +139,14 @@ class Command(BaseCommand):
                 new_monster.server = monster['server']
                 new_monster.related_dungeons = monster['related_dungeons']
                 monsters.append(new_monster)
-            print('Inserting monster data')
+            print('Deleting existing Monsters')
             Monster.objects.all().delete()
+            print('Inserting monster data')
             Monster.objects.bulk_create(monsters)
             print('Monster database build complete!')
 
         def make_dungeon_from_object(dungeon_data):
             print('Building Dungeon database table')
-            print('Deleting existing Dungeon')
             dungeons = []
             floors = []
             print('Processing dungeon...')
@@ -158,9 +160,10 @@ class Command(BaseCommand):
                 new_dungeon.server = dungeon['server']
                 dungeons.append(new_dungeon)
                 make_floor_from_object(dungeon['floors'], floors)
-            print('Inserting dungeon data')
+            print('Deleting existing Dungeon data')
             Dungeon.objects.all().delete()
             Floor.objects.all().delete()
+            print('Inserting Dungeon data')
             Dungeon.objects.bulk_create(dungeons)
             Floor.objects.bulk_create(floors)
             print('Dungeon database build complete!')
