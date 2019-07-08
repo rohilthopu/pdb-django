@@ -71,7 +71,6 @@ function computeTimes() {
             else if (timeDiff < 0) {
                 starttimes[i].innerText = "";
                 mobiletimes[i].innerText = "";
-                actives[i].innerText = "Active";
             }
         }
 
@@ -85,7 +84,6 @@ function computeTimes() {
                 mobiletimes[i].innerText = fmtTime;
             }
             else {
-                actives[i].innerText = "Ended";
                 endtimes[i].innerText = "";
                 starttimes[i].innerText = "";
                 mobiletimes[i].innerText = "";

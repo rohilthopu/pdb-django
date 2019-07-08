@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class GuerrillaDungeon(models.Model):
     name = models.CharField(default="", max_length=100)
     start_time = models.CharField(default="", max_length=200)
@@ -10,3 +11,4 @@ class GuerrillaDungeon(models.Model):
     group = models.CharField(default="", max_length=5)
     dungeon_id = models.IntegerField(default=-1)
     image_id = models.IntegerField(default=1)
+    status = models.CharField(default="", max_length=15)

@@ -37,8 +37,9 @@ class Command(BaseCommand):
                 dungeon.server = item['server']
                 dungeon.dungeon_id = item['dungeon_id']
                 dungeon.image_id = item['image_id']
+                dungeon.status = item['status']
                 gds.append(dungeon)
-            print('Deleting existing Skills')
+            print('Deleting existing Guerrilla Dungeons')
             GuerrillaDungeon.objects.all().delete()
             print('Inserting Guerrilla Dungeons')
             GuerrillaDungeon.objects.bulk_create(gds)

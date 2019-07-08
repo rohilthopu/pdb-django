@@ -99,7 +99,7 @@
     </nav>
 
     <div class="columns is-centered" style="margin-top: 2%; margin-bottom: 2%;">
-        <div class="column is-four-fifths">
+        <div class="column is-three-quarters">
             <div id="na">
                 <table class="table is-fullwidth is-hoverable" id="natable">
                     <thead>
@@ -109,21 +109,17 @@
                         <th class="has-text-centered">Status</th>
                         <th class="has-text-centered">Time Until</th>
                         <th class="has-text-centered">Time Left</th>
-{#                        <th class="has-text-left">Start</th>#}
-{#                        <th class="has-text-left">End</th>#}
                         <th class="has-text-centered hide" id="nahead">Time</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for dungeon, active in na %}
+                    {% for dungeon in na_dungeons %}
                         <tr>
                             <td class="has-text-left">{{ dungeon.name }}</td>
                             <td class="has-text-centered">{{ dungeon.group }}</td>
-                            <td class="has-text-centered" name="active">{{ active }}</td>
+                            <td class="has-text-centered" name="active">{{ dungeon.status }}</td>
                             <td class="has-text-centered spaced" name="starttime" value="{{ dungeon.start_secs }}"></td>
                             <td class="has-text-centered spaced" name="endtime" value="{{ dungeon.end_secs }}"></td>
-{#                            <td class="has-text-left">{{ dungeons.startTime }}</td>#}
-{#                            <td class="has-text-left">{{ dungeons.endTime }}</td>#}
                             <td class="has-text-centered hide spaced" name="time-mobile" id="naval"></td>
                         </tr>
                     {% endfor %}
@@ -142,21 +138,17 @@
                         <th class="has-text-centered">Status</th>
                         <th class="has-text-centered">Time Until</th>
                         <th class="has-text-centered">Time Left</th>
-{#                        <th class="has-text-left">Start</th>#}
-{#                        <th class="has-text-left">End</th>#}
                         <th class="has-text-centered hide spaced" id="jphead">Time</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for dungeon, active in jp %}
+                    {% for dungeon in jp_dungeons %}
                         <tr>
                             <td class="has-text-left">{{ dungeon.name }}</td>
                             <td class="has-text-centered">{{ dungeon.group }}</td>
-                            <td class="has-text-centered" name="active">{{ active }}</td>
+                            <td class="has-text-centered" name="active">{{ dungeon.status }}</td>
                             <td class="has-text-centered spaced" name="starttime" value="{{ dungeon.start_secs }}"></td>
                             <td class="has-text-centered spaced" name="endtime" value="{{ dungeon.end_secs }}"></td>
-{#                            <td class="has-text-left">{{ dungeons.startTime }}</td>#}
-{#                            <td class="has-text-left">{{ dungeons.endTime }}</td>#}
                             <td class="has-text-centered hide spaced" name="time-mobile" id="jpval"></td>
                         </tr>
                     {% endfor %}

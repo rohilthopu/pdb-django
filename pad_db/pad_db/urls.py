@@ -9,12 +9,11 @@ from dungeons import views as dv
 from guerrilla import apiviews as gav
 from monsters import apiviews as mav
 from skills import apiviews as sav
-# from karmaleaderboard import apiviews as kav
 from dungeons import apiviews as dav
 
 urlpatterns = [
     # Guerrilla Dungeons
-    path('', gv.DungeonView),
+    path('', gv.guerrilla_view),
 
     # # Site Locations
     # path('monsterdb/na/', mv.monster_list),
