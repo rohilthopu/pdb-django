@@ -31,7 +31,7 @@ def monster_view(request, card_id):
         evos = get_evos(evo_list)
 
     evo_mats = get_evo_mats(monster, monsters)
-    un_evo_mats = get_unevo_mats(monster, monsters)
+    un_evo_mats = get_un_evo_mats(monster, monsters)
 
     awakenings = json.loads(monster.awakenings)
     super_awakenings = json.loads(monster.super_awakenings)
@@ -72,19 +72,19 @@ def get_evo_mats(monster, monsters):
     return evo_mats
 
 
-def get_unevo_mats(monster, monsters):
-    unevo_mats = []
-    if monster.unevo_mat_1 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_1))
-    if monster.unevo_mat_2 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_2))
-    if monster.unevo_mat_3 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_3))
-    if monster.unevo_mat_4 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_4))
-    if monster.unevo_mat_5 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_5))
-    return unevo_mats
+def get_un_evo_mats(monster, monsters):
+    un_evo_mats = []
+    if monster.un_evo_mat_1 != 0:
+        un_evo_mats.append(monsters.get(card_id=monster.un_evo_mat_1))
+    if monster.un_evo_mat_2 != 0:
+        un_evo_mats.append(monsters.get(card_id=monster.un_evo_mat_2))
+    if monster.un_evo_mat_3 != 0:
+        un_evo_mats.append(monsters.get(card_id=monster.un_evo_mat_3))
+    if monster.un_evo_mat_4 != 0:
+        un_evo_mats.append(monsters.get(card_id=monster.un_evo_mat_4))
+    if monster.un_evo_mat_5 != 0:
+        un_evo_mats.append(monsters.get(card_id=monster.un_evo_mat_5))
+    return un_evo_mats
 
 
 def get_types(monster) -> []:
@@ -129,8 +129,9 @@ def get_multipliers(skill) -> []:
 
 def get_evos(evo_list) -> []:
     evos = []
+    print(evo_list)
     for evo in evo_list:
-        evo_card = Monster.objects.get(card_id=evo)
+        evo_card = Monster.objects.get(card_id=evo['card_id'])
         if "Alt." not in evo_card.name:
             evos.append(evo_card)
     return evos
