@@ -7,7 +7,7 @@ from dungeons.models import Dungeon, Floor
 
 
 def monster_view(request, card_id):
-    template = 'monster_na.html'
+    template = 'monster.html'
     monster = Monster.objects.get(card_id=card_id)
     evo_list = json.loads(monster.evolutions)
     monsters = Monster.objects.all()
@@ -26,55 +26,34 @@ def monster_view(request, card_id):
     if Skill.objects.filter(skill_id=monster.leader_skill_id).first() is not None:
         leader_skill = Skill.objects.get(skill_id=monster.leader_skill_id)
 
-    multipliers = [1, 1, 1, 0, 0]
-    a_multipliers = [1, 1, 1, 0]
-
-    if leader_skill is not None:
-        multipliers = get_multipliers(leader_skill)
-
-    if active_skill is not None:
-        a_multipliers = get_multipliers(active_skill)
-
-    d_multipliers = [round((item ** 2), 2) for item in multipliers]
-    d_multipliers[3] = round((1 - (1 - multipliers[4]) * (1 - multipliers[4])) * 100, 2)
-
     evos = None
     if len(evo_list) > 0:
         evos = get_evos(evo_list)
 
     evo_mats = get_evo_mats(monster, monsters)
-    unevo_mats = get_unevo_mats(monster, monsters)
+    un_evo_mats = get_unevo_mats(monster, monsters)
 
     awakenings = json.loads(monster.awakenings)
     super_awakenings = json.loads(monster.super_awakenings)
 
     types = get_types(monster)
 
-    dungeons = get_dungeons(card_id)
+    dungeons = []
 
     context = {'active_skill': active_skill, 'leader_skill': leader_skill,
                'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evo_mats": evo_mats,
-               "unevo_mats": unevo_mats, 'awakenings': awakenings, 'super_awakenings': super_awakenings, 'types': types,
-               'lmultipliers': multipliers, 'dmultipliers': d_multipliers, 'amultipliers': a_multipliers,
+               "un_evo_mats": un_evo_mats, 'awakenings': awakenings, 'super_awakenings': super_awakenings, 'types': types,
                'dungeons': dungeons}
 
     return render(request, template, context)
 
 
 def monster_list(request):
-    rawCards = Monster.objects.order_by('cardID').all()
-    cards = []
-    cardID = []
+    cards = Monster.objects.exclude(name__contains='?').exclude(name__contains='*').exclude(
+            name__contains='Alt.').values('name', 'card_id')
 
-    for card in rawCards:
-        if "*" not in card.name:
-            if "Alt." not in card.name:
-                cards.append(card.name)
-                cardID.append(card.cardID)
-
-    cardList = zip(cards, cardID)
-    context = {'cards': cardList}
-    template = 'monster_list_na.html'
+    context = {'cards': cards}
+    template = 'monsters.html'
     return render(request, template, context)
 
 
@@ -96,15 +75,15 @@ def get_evo_mats(monster, monsters):
 def get_unevo_mats(monster, monsters):
     unevo_mats = []
     if monster.unevo_mat_1 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_1))
+        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_1))
     if monster.unevo_mat_2 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_2))
+        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_2))
     if monster.unevo_mat_3 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_3))
+        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_3))
     if monster.unevo_mat_4 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_4))
+        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_4))
     if monster.unevo_mat_5 != 0:
-        unevo_mats.append(monsters.get(cardID=monster.unevo_mat_5))
+        unevo_mats.append(monsters.get(cardID=monster.un_evo_mat_5))
     return unevo_mats
 
 

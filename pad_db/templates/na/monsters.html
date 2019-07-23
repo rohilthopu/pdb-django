@@ -23,9 +23,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for card, id in cards %}
+                {% for card in cards %}
                     <tr>
-                        <td class="has-text-centered"><a href="/monster/na/{{ id }}">{{ card }}</a></td>
+                        <td class="has-text-centered"><a href="/monster/na/{{ card.card_id }}">{{ card.name }}</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>

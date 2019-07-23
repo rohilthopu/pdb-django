@@ -14,6 +14,7 @@ from dungeons import apiviews as dav
 urlpatterns = [
     # Guerrilla Dungeons
     path('', gv.guerrilla_view),
+    path('monsters/', mv.monster_list),
 
     # # Site Locations
     # path('monsterdb/na/', mv.monster_list),

@@ -8,7 +8,7 @@
                 {% block name %}
                     <h1 class="title is-italic">{{ monster.name }}&nbsp;
                         <span class="icon">
-                            <a href="/monster/na/edit/{{ monster.cardID }}">
+                            <a href="/monster/na/edit/{{ monster.card_id }}">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </span>
@@ -35,13 +35,13 @@
                 {% block evos %}
                     {% if ancestor is not None %}
                         <h2 class="subtitle">Evolution of <a
-                                href="/monster/na/{{ ancestor.cardID }}"
+                                href="/monster/na/{{ ancestor.card_id }}"
                                 class="is-italic"> {{ ancestor.name }}</a></h2>
                     {% endif %}
                     {% if evolutions is not None %}
                         {% for evo in evolutions %}
                             <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
-                                <a href="/monster/na/{{ evo.cardID }}"
+                                <a href="/monster/na/{{ evo.card_id }}"
                                    class="is-italic"> {{ evo.name }} </a>
                             </h2>
                         {% endfor %}
