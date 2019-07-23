@@ -10,8 +10,11 @@ from dungeons.models import Dungeon, Floor
 from pad_db.settings import DEBUG
 from guerrilla.models import GuerrillaDungeon
 
-DEVELOPMENT_PATH = os.environ['pdb_processor_output']
-# DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb-processor/data/output'
+try:
+    DEVELOPMENT_PATH = os.environ['pdb_processor_output']
+except:
+    DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb-processor/data/output'
+    
 PRODUCTION_PATH = '/home/rohil/pdb-processor/data/output'
 SKILLS_FILE_NAME = 'skills.json'
 MONSTERS_FILE_NAME = 'monsters.json'
