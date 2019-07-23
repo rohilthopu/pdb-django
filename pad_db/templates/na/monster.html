@@ -8,7 +8,7 @@
                 {% block name %}
                     <h1 class="title is-italic">{{ monster.name }}&nbsp;
                         <span class="icon">
-                            <a href="/monster/na/edit/{{ monster.card_id }}">
+                            <a href="/monster/edit/{{ monster.card_id }}">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </span>
@@ -26,7 +26,7 @@
                     {% endif %}
                 </div>
                 {% block img_link %}
-                    <img src="https://www.pad-db.com/static/padimages/na/full/{{ monster.cardID }}.png">
+                    <img src="https://www.pad-db.com/static/padimages/full/{{ monster.card_id }}.png">
                 {% endblock %}
             </div>
         </div>
@@ -35,13 +35,13 @@
                 {% block evos %}
                     {% if ancestor is not None %}
                         <h2 class="subtitle">Evolution of <a
-                                href="/monster/na/{{ ancestor.card_id }}"
+                                href="/monster/{{ ancestor.card_id }}"
                                 class="is-italic"> {{ ancestor.name }}</a></h2>
                     {% endif %}
                     {% if evolutions is not None %}
                         {% for evo in evolutions %}
                             <h2 class="subtitle" style="margin-bottom: 0%">Evolves into
-                                <a href="/monster/na/{{ evo.card_id }}"
+                                <a href="/monster/{{ evo.card_id }}"
                                    class="is-italic"> {{ evo.name }} </a>
                             </h2>
                         {% endfor %}
@@ -125,7 +125,6 @@
                                 <td class="has-text-centered">{{ awakening }}</td>
                             </tr>
                         {% endfor %}
-
                         </tbody>
                     </table>
                 </div>
@@ -201,7 +200,7 @@
 
             <div class="column" id="leaderskill" style="display: none;">
                 <label class="label has-text-centered">Leader Skill</label>
-                {% if leaderskill is not None %}
+                {% if leader_skill is not None %}
                     <table class="table is-fullwidth">
                         <tbody>
                         <tr>
@@ -266,12 +265,12 @@
 
             <div class="column" id="activeskill" style="display: none;">
                 <label class="label has-text-centered">Active Skill</label>
-                {% if activeskill is not None %}
+                {% if active_skill is not None %}
                     <table class="table is-fullwidth">
                         <tbody>
                         <tr>
                             <th>Name</th>
-                            <td><a href="/activeskills/na/{{ active_skill.skillID }}">{{ active_skill.name }}</a></td>
+                            <td><a href="/activeskills/na/{{ active_skill.skill_id }}">{{ active_skill.name }}</a></td>
                         </tr>
                         <tr>
                             <th>Effect</th>
@@ -281,11 +280,11 @@
                         </tr>
                         <tr>
                             <th>Min</th>
-                            <td>{{ active_skill.minTurns }}</td>
+                            <td>{{ active_skill.min_turns }}</td>
                         </tr>
                         <tr>
                             <th>Max</th>
-                            <td>{{ active_skill.maxTurns }}</td>
+                            <td>{{ active_skill.max_turns }}</td>
                         </tr>
                         <tr>
                             <th>Levels</th>
@@ -330,7 +329,7 @@
 
             <div class="column" id="evomaterials" style="display: none;">
                 <label class="label has-text-centered">Evolution Materials</label>
-                {% if evomats|length > 0 %}
+                {% if evo_mats|length > 0 %}
                     <table cellspacing="0" class="table is-fullwidth">
                         <thead>
                         <tr>
@@ -339,14 +338,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for mat in evomats %}
+                        {% for mat in evo_mats %}
                             <tr>
                                 <td><a
-                                        href="/monster/na/{{ mat.card_id }}"><img
-                                        src="https://www.pad-db.com/static/padimages/na/portrait/{{ mat.cardID }}.png" height="75" width="75"></a>
+                                        href="/monster/{{ mat.card_id }}"><img
+                                        src="https://www.pad-db.com/static/padimages/portrait/{{ mat.card_id }}.png" height="75" width="75"></a>
                                 </td>
                                 <td class="has-text-centered"><a
-                                        href="/monster/na/{{ mat.card_id }}"> {{ mat.name }}</a>
+                                        href="/monster/{{ mat.card_id }}"> {{ mat.name }}</a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -359,7 +358,7 @@
 
             <div class="column" id="unevomaterials" style="display: none;">
                 <label class="label has-text-centered">Devolution Materials</label>
-                {% if unevomats|length > 0 %}
+                {% if un_evo_mats|length > 0 %}
                     <table class="table is-fullwidth">
                         <thead>
                         <tr>
@@ -368,14 +367,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        {% for mat in unevomats %}
+                        {% for mat in un_evo_mats %}
                             <tr>
                                 <td><a
-                                        href="/monster/na/{{ mat.card_id }}"><img
-                                        src="https://www.pad-db.com/static/padimages/na/portrait/{{ mat.cardID }}.png" height="75" width="75"></a>
+                                        href="/monster/{{ mat.card_id }}"><img
+                                        src="https://www.pad-db.com/static/padimages/portrait/{{ mat.card_id }}.png" height="75" width="75"></a>
                                 </td>
                                 <td class="has-text-centered"><a
-                                        href="/monster/na/{{ mat.card_id }}"> {{ mat.name }}</a>
+                                        href="/monster/{{ mat.card_id }}"> {{ mat.name }}</a>
                                 </td>
                             </tr>
 

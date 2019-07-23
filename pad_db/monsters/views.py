@@ -18,13 +18,8 @@ def monster_view(request, card_id):
         if monster.ancestor_id != 0:
             ancestor = Monster.objects.get(card_id=monster.ancestor_id)
 
-    active_skill = None
-    leader_skill = None
-
-    if Skill.objects.filter(skill_id=monster.active_skill_id).first() is not None:
-        active_skill = Skill.objects.get(skill_id=monster.active_skill_id)
-    if Skill.objects.filter(skill_id=monster.leader_skill_id).first() is not None:
-        leader_skill = Skill.objects.get(skill_id=monster.leader_skill_id)
+    active_skill = Skill.objects.get(skill_id=monster.active_skill_id)
+    leader_skill = Skill.objects.get(skill_id=monster.leader_skill_id)
 
     evos = None
     if len(evo_list) > 0:
@@ -36,21 +31,22 @@ def monster_view(request, card_id):
     awakenings = json.loads(monster.awakenings)
     super_awakenings = json.loads(monster.super_awakenings)
 
+    print(awakenings)
     types = get_types(monster)
 
     dungeons = []
 
     context = {'active_skill': active_skill, 'leader_skill': leader_skill,
                'monster': monster, 'ancestor': ancestor, "evolutions": evos, "evo_mats": evo_mats,
-               "un_evo_mats": un_evo_mats, 'awakenings': awakenings, 'super_awakenings': super_awakenings, 'types': types,
-               'dungeons': dungeons}
+               "un_evo_mats": un_evo_mats, 'awakenings': awakenings, 'super_awakenings': super_awakenings,
+               'types': types, 'dungeons': dungeons}
 
     return render(request, template, context)
 
 
 def monster_list(request):
     cards = Monster.objects.exclude(name__contains='?').exclude(name__contains='*').exclude(
-            name__contains='Alt.').values('name', 'card_id')
+        name__contains='Alt.').values('name', 'card_id')
 
     context = {'cards': cards}
     template = 'monsters.html'
@@ -93,43 +89,8 @@ def get_types(monster) -> []:
     return types
 
 
-def get_multipliers(skill) -> []:
-    skill_list = []
-    multipliers = [1, 1, 1, 0, 0]
-    shield_calc = 1
-    shields = []
-    if skill.skill_part_1_id != -1:
-        skill_list.append(Skill.objects.get(skill_id=skill.skill_part_1_id))
-        skill_list.append(Skill.objects.get(skill_id=skill.skill_part_2_id))
-        if skill.skill_part_3_id != -1:
-            skill_list.append((Skill.objects.get(skill_id=skill.skill_part_3_id)))
-
-        for skill in skill_list:
-
-            multipliers[0] *= skill.hp_mult
-            multipliers[1] *= skill.atk_mult
-            multipliers[2] *= skill.rcv_mult
-            if skill.dmg_reduction != 0:
-                shields.append(skill.dmg_reduction)
-
-        for shield in shields:
-            shield_calc *= (1 - shield)
-
-        multipliers[3] = round((1 - shield_calc) * 100, 2)
-        multipliers[4] = 1 - shield_calc
-
-    else:
-        multipliers[0] = skill.hp_mult
-        multipliers[1] = skill.atk_mult
-        multipliers[2] = skill.rcv_mult
-        multipliers[3] = skill.dmg_reduction * 100
-        multipliers[4] = skill.dmg_reduction
-    return multipliers
-
-
 def get_evos(evo_list) -> []:
     evos = []
-    print(evo_list)
     for evo in evo_list:
         evo_card = Monster.objects.get(card_id=evo['card_id'])
         if "Alt." not in evo_card.name:
