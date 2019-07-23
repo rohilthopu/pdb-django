@@ -15,6 +15,7 @@ urlpatterns = [
     # Guerrilla Dungeons
     path('', gv.guerrilla_view),
     path('monsters/', mv.monster_list),
+    path('monster/<int:card_id>/', mv.monster_view),
 
     # # Site Locations
     # path('monsterdb/na/', mv.monster_list),
