@@ -271,25 +271,25 @@
                         <tbody>
                         <tr>
                             <th>Name</th>
-                            <td><a href="/activeskills/na/{{ activeskill.skillID }}">{{ activeskill.name }}</a></td>
+                            <td><a href="/activeskills/na/{{ active_skill.skillID }}">{{ active_skill.name }}</a></td>
                         </tr>
                         <tr>
                             <th>Effect</th>
                             <td>
-                                <div style="font-size: smaller">{{ activeskill.description }}</div>
+                                <div style="font-size: smaller">{{ active_skill.description }}</div>
                             </td>
                         </tr>
                         <tr>
                             <th>Min</th>
-                            <td>{{ activeskill.minTurns }}</td>
+                            <td>{{ active_skill.minTurns }}</td>
                         </tr>
                         <tr>
                             <th>Max</th>
-                            <td>{{ activeskill.maxTurns }}</td>
+                            <td>{{ active_skill.maxTurns }}</td>
                         </tr>
                         <tr>
                             <th>Levels</th>
-                            <td>{{ activeskill.levels }}</td>
+                            <td>{{ active_skill.levels }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -303,19 +303,19 @@
                         <tbody>
                         <tr>
                             <th>HP</th>
-                            <td class="has-text-right">{{ amultipliers.0 }}x</td>
+                            <td class="has-text-right">{{ active_skill.hp_mult }}x</td>
                         </tr>
                         <tr>
                             <th>Attack</th>
-                            <td class="has-text-right">{{ amultipliers.1 }}x</td>
+                            <td class="has-text-right">{{ active_skill.atk_mult }}x</td>
                         </tr>
                         <tr>
                             <th>RCV</th>
-                            <td class="has-text-right">{{ amultipliers.2 }}x</td>
+                            <td class="has-text-right">{{ active_skill.rcv_mult }}x</td>
                         </tr>
                         <tr>
                             <th>Shield</th>
-                            <td class="has-text-right">{{ amultipliers.3 }}%</td>
+                            <td class="has-text-right">{{ active_skill.shield }}%</td>
                         </tr>
                         </tbody>
                     </table>
