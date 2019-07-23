@@ -86,31 +86,31 @@
                         <tbody>
                         <tr>
                             <th>HP</th>
-                            <td class="has-text-right">{{ monster.minHP }}</td>
-                            <td class="has-text-right">{{ monster.maxHP }}</td>
-                            <td class="has-text-right">{{ monster.hp99 }}</td>
+                            <td class="has-text-right">{{ monster.min_hp }}</td>
+                            <td class="has-text-right">{{ monster.max_hp }}</td>
+                            <td class="has-text-right">{{ monster.max_hp }}</td>
                         </tr>
                         <tr>
                             <th>ATK</th>
-                            <td class="has-text-right">{{ monster.minATK }}</td>
-                            <td class="has-text-right">{{ monster.maxATK }}</td>
-                            <td class="has-text-right">{{ monster.atk99 }}</td>
+                            <td class="has-text-right">{{ monster.min_atk }}</td>
+                            <td class="has-text-right">{{ monster.max_atk }}</td>
+                            <td class="has-text-right">{{ monster.max_atk }}</td>
                         </tr>
                         <tr>
                             <th>RCV</th>
-                            <td class="has-text-right">{{ monster.minRCV }}</td>
-                            <td class="has-text-right">{{ monster.maxRCV }}</td>
-                            <td class="has-text-right">{{ monster.rcv99 }}</td>
+                            <td class="has-text-right">{{ monster.min_rcv }}</td>
+                            <td class="has-text-right">{{ monster.max_rcv }}</td>
+                            <td class="has-text-right">{{ monster.max_rcv }}</td>
                         </tr>
                         <tr>
                             <th>LVL</th>
                             <td class="has-text-right"> 1</td>
-                            <td class="has-text-right">{{ monster.maxLevel }}</td>
+                            <td class="has-text-right">{{ monster.max_level }}</td>
                         </tr>
                         <tr>
                             <th>XP</th>
                             <td class="has-text-right">1</td>
-                            <td class="has-text-right">{{ monster.maxXP }}</td>
+                            <td class="has-text-right">{{ monster.max_xp }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -150,11 +150,11 @@
                         </tr>
                         <tr>
                             <th>Collab?</th>
-                            <td class="has-text-right">{{ monster.isCollab }}</td>
+                            <td class="has-text-right">{{ monster.is_collab }}</td>
                         </tr>
                         <tr>
                             <th>Ultimate Evolution?</th>
-                            <td class="has-text-right">{{ monster.isUlt }}</td>
+                            <td class="has-text-right">{{ monster.is_ult }}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -163,7 +163,7 @@
                     <label class="label has-text-centered">Super Awakenings</label>
                     <table class="table is-fullwidth">
                         <tbody>
-                        {% for awakening in sawakenings %}
+                        {% for awakening in super_awakenings %}
                             <tr>
                                 <td class="has-text-centered">{{ awakening }}</td>
                             </tr>
@@ -184,7 +184,7 @@
                     {% for dungeon in dungeons %}
                         <tr>
                             <td class="has-text-centered"><a
-                                    href="/dungeons/na/{{ dungeon.dungeonID }}">{{ dungeon.name }}</a></td>
+                                    href="/dungeons/na/{{ dungeon.dungeon_id }}">{{ dungeon.name }}</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -206,12 +206,12 @@
                         <tbody>
                         <tr>
                             <th>Name</th>
-                            <td><a href="/leaderskills/na/{{ leaderskill.skillID }}">{{ leaderskill.name }}</a></td>
+                            <td><a href="/leaderskills/na/{{ leader_skill.skill_id }}">{{ leader_skill.name }}</a></td>
                         </tr>
                         <tr>
                             <th>Effect</th>
                             <td>
-                                <div style="font-size: smaller">{{ leaderskill.description }}</div>
+                                <div style="font-size: smaller">{{ leader_skill.description }}</div>
                             </td>
                         </tr>
                         <tr>
@@ -239,23 +239,23 @@
                         <tbody>
                         <tr>
                             <th>HP</th>
-                            <td class="has-text-right">{{ lmultipliers.0 }}x</td>
-                            <td class="has-text-right">{{ dmultipliers.0 }}x</td>
+                            <td class="has-text-right">{{ leader_skill.hp_mult }}x</td>
+                            <td class="has-text-right">{{ leader_skill.hp_mult_full }}x</td>
                         </tr>
                         <tr>
                             <th>Attack</th>
-                            <td class="has-text-right">{{ lmultipliers.1 }}x</td>
-                            <td class="has-text-right">{{ dmultipliers.1 }}x</td>
+                            <td class="has-text-right">{{ leader_skill.atk_mult }}x</td>
+                            <td class="has-text-right">{{ leader_skill.atk_mult_full }}x</td>
                         </tr>
                         <tr>
                             <th>RCV</th>
-                            <td class="has-text-right">{{ lmultipliers.2 }}x</td>
-                            <td class="has-text-right">{{ dmultipliers.2 }}x</td>
+                            <td class="has-text-right">{{ leader_skill.rcv_mult }}x</td>
+                            <td class="has-text-right">{{ leader_skill.rcv_mult_full }}x</td>
                         </tr>
                         <tr>
                             <th>Shield</th>
-                            <td class="has-text-right">{{ lmultipliers.3 }}%</td>
-                            <td class="has-text-right">{{ dmultipliers.3 }}%</td>
+                            <td class="has-text-right">{{ leader_skill.shield }}%</td>
+                            <td class="has-text-right">{{ leader_skill.shield_full }}%</td>
                         </tr>
                         </tbody>
                     </table>
