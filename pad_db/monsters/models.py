@@ -1,37 +1,6 @@
 from django.db import models
 
 
-class Skill(models.Model):
-    name = models.CharField(max_length=200, default="", blank=True)
-    description = models.TextField(default="", blank=True, )
-    skillID = models.IntegerField(default=-1)
-    skill_type = models.CharField(max_length=50, default="")
-    hp_mult = models.FloatField(default=1)
-    atk_mult = models.FloatField(default=1)
-    rcv_mult = models.FloatField(default=1)
-    dmg_reduction = models.FloatField(default=0)
-
-    # connected skills
-    c_skill_1 = models.IntegerField(default=-1)
-    c_skill_2 = models.IntegerField(default=-1)
-    c_skill_3 = models.IntegerField(default=-1)
-
-    # skill type
-    skill_class = models.CharField(max_length=100, default="")
-
-    levels = models.IntegerField(default=0)
-    maxTurns = models.IntegerField(blank=True, default=0)
-    minTurns = models.IntegerField(blank=True, default=0)
-    server = models.CharField(default='', max_length=2)
-
-
-class Evolution(models.Model):
-    evo = models.IntegerField(default=0)
-
-    def __str__(self):
-        return str(self.evo)
-
-
 class Monster(models.Model):
     active_skill_id = models.IntegerField(blank=True, default=0)
     ancestor_id = models.IntegerField(default=0)
@@ -90,9 +59,3 @@ class Monster(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class EnemySkill(models.Model):
-    name = models.TextField(default="")
-    effect = models.TextField(default="")
-    enemy_skill_id = models.IntegerField(default=-1)

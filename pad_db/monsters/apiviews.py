@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Monster, Skill, EnemySkill
+from .models import Monster
 
 
 class MonsterList(APIView):
