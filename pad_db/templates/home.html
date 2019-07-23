@@ -85,7 +85,7 @@
             <div class="container is-fluid">
                 <h1 class="title"> Calendar </h1>
                 <h2 class="subtitle" style="margin-bottom: 0%"> Guerrilla Dungeons for {{ date }}</h2>
-                <h2 class="subtitle is-6 is-italic" style="margin-bottom: 0%;"> Dates and Times listed are for Pacific
+                <h2 class="subtitle is-6 is-italic" style="margin-bottom: 0;"> Dates and Times listed are for Pacific
                     Time</h2>
             </div>
         </div>
@@ -93,8 +93,8 @@
 
     <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
         <ul>
-            <li class="is-active" id="natab"><a onclick="switchNA();">NA</a></li>
-            <li id="jptab"><a onclick="switchJP();">JP</a></li>
+            <li class="is-active" id="natab"><a onclick="switchNA();">Active</a></li>
+            <li id="jptab"><a onclick="switchJP();">Upcoming</a></li>
         </ul>
     </nav>
 
@@ -164,23 +164,23 @@
             setInterval(computeTimes, 1000);
         };
     </script>
-    {##}
-    {#    <script type="text/javascript">#}
-    {#        $(document).ready(function () {#}
-    {#            $('#natable').DataTable({#}
-    {#                'pageLength': 50,#}
-    {#                'paging': false,#}
-    {#            });#}
-    {#        });#}
-    {#    </script>#}
-    {#    <script type="text/javascript">#}
-    {#        $(document).ready(function () {#}
-    {#            $('#jptable').DataTable({#}
-    {#                'pageLength': 50,#}
-    {#                'paging': false,#}
-    {#            });#}
-    {#        });#}
-    {#    </script>#}
+{##}
+{#        <script type="text/javascript">#}
+{#            $(document).ready(function () {#}
+{#                $('#natable').DataTable({#}
+{#                    'pageLength': 50,#}
+{#                    'paging': false,#}
+{#                });#}
+{#            });#}
+{#        </script>#}
+{#        <script type="text/javascript">#}
+{#            $(document).ready(function () {#}
+{#                $('#jptable').DataTable({#}
+{#                    'pageLength': 50,#}
+{#                    'paging': false,#}
+{#                });#}
+{#            });#}
+{#        </script>#}
 {% endblock %}
 </body>
 </html>
