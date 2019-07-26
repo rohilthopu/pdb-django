@@ -15,7 +15,7 @@ try:
 except:
     DEVELOPMENT_PATH = '/Users/rohil/projects/personal/pdb-processor/data/output'
 
-PRODUCTION_PATH = '/home/rohil/pdb-processor/data/output'
+PRODUCTION_PATH = '/home/pdb-processor/data/output'
 SKILLS_FILE_NAME = 'skills.json'
 MONSTERS_FILE_NAME = 'monsters.json'
 DUNGEONS_FILE_NAME = 'dungeons.json'
