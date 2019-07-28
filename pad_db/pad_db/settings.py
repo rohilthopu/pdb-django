@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'data_manager',
     'monsters',
     'skills',
+    'corsheaders',
+
 ]
 
 MIDDLEWARE = [
