@@ -20,7 +20,7 @@ SECRET_KEY = '0t0+n$4$1*rnk1@uyb&3fhyq*gqbilu=5&lx_fnhj7l0tm&k^-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if 'home' in os.getcwd().split('/') else True
 
-ALLOWED_HOSTS = ['www.pad-db.com', '72.182.127.246', 'pad-db.com', 'api.pad-db.com', 'localhost', '167.71.87.102']
+ALLOWED_HOSTS = ['www.pad-db.com', 'pad-db.com', 'api.pad-db.com', '*']
 
 # Application definition
 
@@ -47,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'pad_db.urls'
@@ -127,3 +128,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+CORS_ORIGIN_ALLOW_ALL = True
