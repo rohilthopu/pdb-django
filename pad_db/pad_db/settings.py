@@ -20,7 +20,7 @@ SECRET_KEY = '0t0+n$4$1*rnk1@uyb&3fhyq*gqbilu=5&lx_fnhj7l0tm&k^-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if 'home' in os.getcwd().split('/') else True
 
-ALLOWED_HOSTS = ['www.pad-db.com', 'pad-db.com', 'api.pad-db.com', '*']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -42,9 +42,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -132,3 +132,25 @@ STATICFILES_DIRS = [
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
