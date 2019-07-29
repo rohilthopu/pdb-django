@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     'monsters',
     'skills',
     'corsheaders',
-    'django_elasticsearch_dsl'
-
 ]
 
 MIDDLEWARE = [
@@ -155,9 +153,3 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
-
-ELASTICSEARCH_DSL = {
-    'default': {
-        'hosts': 'localhost:9200'
-    },
-}
