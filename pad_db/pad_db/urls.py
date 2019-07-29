@@ -10,7 +10,7 @@ from guerrilla import apiviews as gav
 from monsters import apiviews as mav
 from skills import apiviews as sav
 from dungeons import apiviews as dav
-
+from data_manager import views as dmv
 urlpatterns = [
     # Guerrilla Dungeons
     path('', gv.guerrilla_view),
@@ -35,5 +35,10 @@ urlpatterns = [
     path('api/floors/', dav.AllFloorsList.as_view()),
     path('api/floors/<int:dungeon_id>/', dav.FloorList.as_view()),
     path('api/floor/<int:dungeon_id>/<int:floor_number>/', dav.FloorObject.as_view()),
+
+    # elk test
+    # path('api/search/monsters/<str:query>/', dmv.monster_search),
+    # path('api/search/dungeons/<str:query>/', dmv.dungeon_search),
+    # path('api/search/skills/<str:query>/', dmv.skill_search),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
