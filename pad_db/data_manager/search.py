@@ -1,7 +1,12 @@
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search, connections
-from .maps import AWAKENINGS
 from prettytable import PrettyTable
+
+# this just allows me to run the script outside of the djano env for testing
+try:
+    from .maps import AWAKENINGS
+except:
+    from maps import AWAKENINGS
 
 connections.create_connection(hosts=['localhost'])
 
@@ -233,7 +238,7 @@ def query(index: str, raw_query: str):
     return results.hits
 
 
-def get_raw_query(query_str: str):
+def query_es(query_str: str):
     update_awakening_map()
     # # index = input('Enter an index: ')
     # raw_query = input('Enter a query to filter data: ')
