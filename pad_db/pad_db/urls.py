@@ -10,6 +10,7 @@ from guerrilla import apiviews as gav
 from monsters import apiviews as mav
 from skills import apiviews as sav
 from dungeons import apiviews as dav
+from data_manager import views as sv
 
 urlpatterns = [
     # Guerrilla Dungeons
@@ -35,5 +36,6 @@ urlpatterns = [
     path('api/floors/', dav.AllFloorsList.as_view()),
     path('api/floors/<int:dungeon_id>/', dav.FloorList.as_view()),
     path('api/floor/<int:dungeon_id>/<int:floor_number>/', dav.FloorObject.as_view()),
+    path('search/<str:query>/', sv.search),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

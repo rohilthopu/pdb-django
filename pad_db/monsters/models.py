@@ -8,7 +8,6 @@ class Monster(models.Model):
     attribute = models.CharField(default="", max_length=100)
 
     awakenings = models.TextField(default="")
-    awakenings_raw = models.TextField(default="")
 
     card_id = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
