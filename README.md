@@ -9,5 +9,7 @@ See the site [here](https://www.pad-db.com).
 The site provides access to Guerrilla Dungeons, Monsters, and Dungeon information.
 
 This site is meant to be a side resource to the mobile app, as the main goal is to just provide API
-access to my mobile app, [PAD DB (iOS)](https://github.com/rohilthopu/pdb-swift). Having a web interface
-helps me more easily visualize what the data currently looks like and helps me find errors in my code.
+access to my mobile app, [PAD DB (iOS)](https://github.com/rohilthopu/pdb-swift).
+
+I am currently rewriting the frontend using ReactJS with the goal of leaving this for my
+API only.
