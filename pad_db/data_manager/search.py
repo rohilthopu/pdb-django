@@ -1,5 +1,5 @@
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Search, connections
+from elasticsearch_dsl import Search
 from prettytable import PrettyTable
 
 # this just allows me to run the script outside of the djano env for testing
@@ -8,9 +8,8 @@ try:
 except:
     from maps import AWAKENINGS
 
-connections.create_connection(hosts=['https://elastic.pad-db.com'])
 
-client = Elasticsearch()
+client = Elasticsearch('https://elastic.pad-db.com')
 
 operators = ['>=', '<=', '=', '>', '<']
 int_attributes = ['awakenings', 'evolutions']
