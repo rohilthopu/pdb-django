@@ -8,7 +8,6 @@ try:
 except:
     from maps import AWAKENINGS
 
-
 client = Elasticsearch('https://elastic.pad-db.com')
 
 operators = ['>=', '<=', '=', '>', '<']
@@ -84,19 +83,42 @@ def query_by_terms_list(es_search: Search, attribute: str, values: []):
     return es_search.filter('terms', **body)
 
 
+def query_by_script(es_search: Search, body: {}):
+    return es_search.filter('script', **body)
+
+
 def query_by_awakenings(es_search: Search, attribute: str, value: str):
     print('Matched raw values for {}'.format(attribute))
     awakenings = [val.strip() for val in value.strip().split(',')]
     print('Requested awakenings: {}'.format(awakenings))
-    awakenings_raw = []
+    raw_awakenings = []
     for awakening in awakenings:
+        # see if there is a count requested
+        awk_parts = awakening.split('x')
+        # reset the pure awakening str value
+        awakening = awk_parts[0].strip()
+        # this would be the count requested i.e. x2, x3 etc
+
         if awakening in AWAKENINGS:
-            awakenings_raw.append(AWAKENINGS[awakening])
+            # raw_awakenings.append(AWAKENINGS[awakening])
+            raw_awakening = AWAKENINGS[awakening]
+            print('Found raw awakening: {} for {}'.format(raw_awakening, awakening))
+            if len(awk_parts) > 1:
+                count = awk_parts[1].strip()
+                script = 'doc[\'awakenings_raw\'].count(%i) == %i' % (raw_awakening, int(count))
+                print('Found request of {} {}'.format(count, attribute))
+                print('Script : {}'.format(script))
+                body = {'script': {'source': script, 'lang': 'painless'}}
+                print('Body generated : {}'.format(body))
+                es_search = query_by_script(es_search, body)
+
+            else:
+                es_search = query_by_terms_list(es_search, attribute + '_raw', [raw_awakening])
         else:
             print('Invalid awakening found: {}'.format(awakening))
 
-    for awakening in awakenings_raw:
-        es_search = query_by_terms_list(es_search, attribute + '_raw', [awakening])
+    # for awakening in raw_awakenings:
+    #     es_search = query_by_terms_list(es_search, attribute + '_raw', [awakening])
 
     return es_search
 
@@ -270,9 +292,9 @@ def query_es(query_str: str):
 def test_raw_query():
     update_awakening_map()
     # index = input('Enter an index: ')
-    raw_query = input('Enter a query to filter data: ')
+    # raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
-    # raw_query = 'awakenings = healer killer, balanced killer'
+    raw_query = 'awakenings = 7c x2'
 
     if index in indices:
         print()
