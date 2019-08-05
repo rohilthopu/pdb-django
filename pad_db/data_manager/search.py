@@ -8,7 +8,7 @@ try:
 except:
     from maps import AWAKENINGS
 
-connections.create_connection(hosts=['localhost'])
+connections.create_connection(hosts=['https://elastic.pad-db.com'])
 
 client = Elasticsearch()
 
@@ -192,9 +192,9 @@ def analyze_query_part(es_search: Search, query_part: str):
             attribute = tokens[0].strip().replace(' ', '_')
             value = tokens[1].strip()
 
-            if attribute not in ['evolves_into', 'awakenings', 'card_id', 'name']:
-                COLUMNS.append(attribute.upper())
-                VALUES.append(attribute)
+            # if attribute not in ['evolves_into', 'awakenings', 'card_id', 'name']:
+            #     COLUMNS.append(attribute.upper())
+            #     VALUES.append(attribute)
 
             if '>' in operator:
                 return query_greater_than(es_search, operator, attribute, value)
