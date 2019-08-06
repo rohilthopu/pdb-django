@@ -147,7 +147,7 @@ def query_monster_types(es_search: Search, value: str):
     monster_types = [val.strip() for val in value.strip().split(',')]
     print('Requested types: {}'.format(monster_types))
     for monster_type in monster_types:
-        es_search = query_by_terms_list(es_search, 'types', [monster_type])
+        es_search = query_by_terms_list(es_search, 'type', [monster_type])
     return es_search
 
 
@@ -157,7 +157,7 @@ def query_equals(es_search: Search, attribute: str, value: str):
         return query_by_awakenings(es_search, attribute, value)
     elif attribute == 'evolves_into':
         return query_evolutions(es_search, value)
-    elif attribute == 'types':
+    elif attribute == 'type':
         return query_monster_types(es_search, value)
 
     eq_tokens = value.strip().split(' ')
