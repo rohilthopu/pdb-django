@@ -120,16 +120,12 @@ def query_by_awakenings(es_search: Search, attribute: str, value: str):
                 print('Found request of {} {}'.format(count, attribute))
                 print('Script : {}'.format(script))
                 body = {'script': {'inline': script, 'lang': 'painless'}}
-                # print('Body generated : {}'.format(body))
                 es_search = query_by_script(es_search, body)
 
             else:
                 es_search = query_by_terms_list(es_search, attribute + '_raw', [raw_awakening])
         else:
             print('Invalid awakening found: {}'.format(awakening))
-
-    # for awakening in raw_awakenings:
-    #     es_search = query_by_terms_list(es_search, attribute + '_raw', [awakening])
 
     return es_search
 
