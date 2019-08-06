@@ -91,7 +91,6 @@ def query_by_awakenings(es_search: Search, attribute: str, value: str):
     print('Matched raw values for {}'.format(attribute))
     awakenings = [val.strip() for val in value.strip().split(',')]
     print('Requested awakenings: {}'.format(awakenings))
-    raw_awakenings = []
     for awakening in awakenings:
         # see if there is a count requested
         awk_parts = awakening.split('x')
@@ -104,12 +103,24 @@ def query_by_awakenings(es_search: Search, attribute: str, value: str):
             raw_awakening = AWAKENINGS[awakening]
             print('Found raw awakening: {} for {}'.format(raw_awakening, awakening))
             if len(awk_parts) > 1:
-                count = awk_parts[1].strip()
-                script = 'doc[\'awakenings_raw\'].count(%i) == %i' % (raw_awakening, int(count))
+                count = int(awk_parts[1].strip())
+                atr_label = attribute + '_raw'
+
+                script = \
+                    """
+                    int total = 0; 
+                    for (int i = 0; i < doc[\'%s\'].length; ++i) { 
+                        if (doc[\'%s\'][i] == %i) { 
+                            total += 1;
+                        } 
+                    }    
+                    return total == %i;
+                    """ % (atr_label, atr_label, raw_awakening, count)
+
                 print('Found request of {} {}'.format(count, attribute))
                 print('Script : {}'.format(script))
-                body = {'script': {'source': script, 'lang': 'painless'}}
-                print('Body generated : {}'.format(body))
+                body = {'script': {'inline': script, 'lang': 'painless'}}
+                # print('Body generated : {}'.format(body))
                 es_search = query_by_script(es_search, body)
 
             else:
@@ -294,7 +305,7 @@ def test_raw_query():
     # index = input('Enter an index: ')
     # raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
-    raw_query = 'awakenings = 7c x2'
+    raw_query = 'awakenings = 7c x3'
 
     if index in indices:
         print()
