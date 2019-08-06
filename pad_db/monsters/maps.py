@@ -14,3 +14,19 @@ EXPLICIT_TYPE_MAP = {
     8: "Enhance Material",  # Enhance
     15: "Vendor",  # Vendor
 }
+
+TYPE_MAP = {
+    -1: 0,  # Not set
+    0: 7,  # Evolve
+    1: 2,  # Balance
+    2: 3,  # Physical
+    3: 4,  # Healer
+    4: 1,  # Dragon
+    5: 6,  # God
+    6: 5,  # Attacker
+    7: 10,  # Devil
+    8: 14,  # Machine
+    12: 13,  # Awoken
+    14: 8,  # Enhance
+    15: 15,  # Vendor
+}

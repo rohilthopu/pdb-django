@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Monster
 from skills.models import Skill
-from .maps import EXPLICIT_TYPE_MAP
+from .maps import EXPLICIT_TYPE_MAP, TYPE_MAP
 import json
 from dungeons.models import Dungeon, Floor
 
@@ -84,8 +84,8 @@ def get_un_evo_mats(monster, monsters):
 
 
 def get_types(monster) -> []:
-    types = [EXPLICIT_TYPE_MAP[monster.type_1], EXPLICIT_TYPE_MAP[monster.type_2],
-             EXPLICIT_TYPE_MAP[monster.type_3]]
+    types = [EXPLICIT_TYPE_MAP[TYPE_MAP[monster.type_1]], EXPLICIT_TYPE_MAP[TYPE_MAP[monster.type_2]],
+             EXPLICIT_TYPE_MAP[TYPE_MAP[monster.type_3]]]
     return types
 
 
