@@ -305,7 +305,7 @@ def test_raw_query():
     # index = input('Enter an index: ')
     # raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
-    raw_query = 'awakenings = 7c x3'
+    raw_query = 'awakenings = unbindable+ and awakenings = 7c x2'
 
     if index in indices:
         print()
