@@ -23,6 +23,15 @@ AWAKENING_ALIASES = {
     'unbindable+': 52,
 }
 
+ATTRIBUTE_ALIASES = {
+    'hpmf': 'hp_mult_full',
+    'atkmf': 'atk_mult_full',
+    'rcvmf': 'rcv_mult_full',
+    'hpm': 'hp_mult',
+    'atkm': 'atk_mult',
+    'rcvm': 'rcv_mult',
+}
+
 
 def update_awakening_map():
     AWAKENINGS.update(AWAKENING_ALIASES)
@@ -223,6 +232,9 @@ def analyze_query_part(es_search: Search, query_part: str):
             # if attribute not in ['evolves_into', 'awakenings', 'card_id', 'name']:
             #     COLUMNS.append(attribute.upper())
             #     VALUES.append(attribute)
+
+            if attribute in ATTRIBUTE_ALIASES:
+                attribute = ATTRIBUTE_ALIASES[attribute]
 
             if '>' in operator:
                 return query_greater_than(es_search, operator, attribute, value)
