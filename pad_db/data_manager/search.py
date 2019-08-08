@@ -14,13 +14,53 @@ operators = ['>=', '<=', '=', '>', '<']
 int_attributes = ['awakenings', 'evolutions']
 indices = ['skills', 'monsters']
 COLUMNS = ['CARD_ID', 'NAME']
-VALUES = ['card_id', 'name']
 
 AWAKENING_ALIASES = {
     '7c': 43,
     '10c': 61,
     'unbindable': 10,
     'unbindable+': 52,
+    'autoheal': 9,
+    'blind resist': 10,
+    'jammer resist': 12,
+    'poison resist': 13,
+    'time extend': 19,
+    'te': 19,
+    'bind clear': 20,
+    'sb': 21,
+    'tpa': 27,
+    'prong': 27,
+    'skill bind resist': 28,
+    'sbr': 28,
+    'heal prong': 29,
+    'fua': 45,
+    'follow up attack': 45,
+    'followup attack': 45,
+    'team hp+': 46,
+    'team rcv+': 46,
+    'super fua': 50,
+    'fua2': 50,
+    'fua 2': 50,
+    'vdp': 48,
+    'dvp': 48,
+    'void damage piercer': 48,
+    'equip': 49,
+    'time extend+': 53,
+    'te+': 53,
+    'tape resist': 55,
+    'sb+': 56,
+    'gt 80%': 57,
+    'lt 50%': 58,
+    'l unlock': 59,
+    'l-unlock': 59,
+    'l attack': 60,
+    'l-attack': 60,
+    'hp down': 65,
+    'atk down': 66,
+    'rcv down': 67,
+    'poison resist+': 70,
+    'jammer resist+': 71,
+    'blind resist+': 72,
 }
 
 ATTRIBUTE_ALIASES = {
@@ -30,11 +70,16 @@ ATTRIBUTE_ALIASES = {
     'hpm': 'leader_skill.hp_mult',
     'atkm': 'leader_skill.atk_mult',
     'rcvm': 'leader_skill.rcv_mult',
+    'leader shield': 'leader_skill.shield',
+    'pair shield': 'leader_skill.shield_full',
     'active_hpm': 'active_skill.hp_mult',
     'active_atkm': 'active_skill.atk_mult',
     'active_rcvm': 'active_skill.rcv_mult',
+    'active_shield': 'active_skill.shield',
     'has_evomat': 'evolution_materials',
-    'has_devomat': 'un_evolution_materials'
+    'has_devomat': 'un_evolution_materials',
+    'has_evomat_raw': 'evolution_materials_raw',
+    'has_devomat_raw': 'un_evolution_materials_raw',
 }
 
 
@@ -44,15 +89,11 @@ def update_awakening_map():
     AWAKENINGS.update({key.lower(): val for key, val in AWAKENINGS.items()})
 
 
-def make_rows(hit):
-    return [getattr(hit, col_name, None) for col_name in VALUES]
-
-
 def show_results(hits):
     table = PrettyTable()
-    table.field_names = COLUMNS
+    table.field_names = ['CARD_ID', 'NAME']
     for hit in hits:
-        table.add_row(make_rows(hit))
+        table.add_row([hit.card_id, hit.name])
     print(table)
 
 
@@ -179,7 +220,15 @@ def query_evolution_lists(es_search: Search, attribute: str, value: str):
     print('Found materials : {} '.format(materials))
     if len(materials) > 0:
         for material in materials:
-            es_search = query_by_terms_list(es_search, attribute, [material])
+            es_search = query_by_terms_list(es_search, attribute + '_raw', [material])
+    return es_search
+
+
+def query_evolution_lists_raw(es_search: Search, attribute: str, value: str):
+    print('Matched {} Query'.format(attribute))
+    print('Found materials : {} '.format(value))
+    for val in value.strip().split(','):
+        es_search = query_by_terms_list(es_search, attribute, [val])
     return es_search
 
 
@@ -203,6 +252,8 @@ def query_equals(es_search: Search, attribute: str, value: str):
     elif attribute == 'type':
         return query_monster_types(es_search, value)
     elif attribute == 'evolution_materials':
+        if 'raw' in attribute:
+            return query_evolution_lists_raw(es_search, attribute, value)
         return query_evolution_lists(es_search, attribute, value)
 
     body = {attribute: value.strip()}
@@ -273,6 +324,8 @@ def analyze_query_part(es_search: Search, query_part: str):
 
             if attribute in ATTRIBUTE_ALIASES:
                 attribute = ATTRIBUTE_ALIASES[attribute]
+
+            print('Attribute: {}, Value: {}'.format(attribute, value))
 
             if '>' in operator:
                 return query_greater_than(es_search, operator, attribute, value)
