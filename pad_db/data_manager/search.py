@@ -98,7 +98,7 @@ def show_results(hits):
 
 
 def match_monster_from_name(monster_name: str):
-    s = Search(using=client, index="monsters").query('match', name=monster_name)
+    s = Search(using=client, index="monsters")
     eq_tokens = monster_name.split(' ')
     for tok in eq_tokens:
         s = s.query("match", name=tok.strip())
@@ -241,6 +241,16 @@ def query_monster_types(es_search: Search, value: str):
     return es_search
 
 
+def query_name(es_search: Search, query_part: str):
+    body = {}
+    eq_tokens = query_part.strip().split(' ')
+    for tok in eq_tokens:
+        body['name'] = tok.strip()
+        print('Body generated: {}'.format(body))
+        es_search = es_search.query('match', **body)
+    return es_search
+
+
 def query_equals(es_search: Search, attribute: str, value: str):
     print('Matched EQ')
     if attribute == 'awakenings' or attribute == 'super_awakenings':
@@ -255,6 +265,8 @@ def query_equals(es_search: Search, attribute: str, value: str):
         if 'raw' in attribute:
             return query_evolution_lists_raw(es_search, attribute, value)
         return query_evolution_lists(es_search, attribute, value)
+    elif attribute == 'name':
+        return query_name(es_search, value)
 
     body = {attribute: value.strip()}
 
@@ -290,16 +302,6 @@ def query_greater_than(es_search: Search, operator: str, attribute: str, value: 
     print('Matched GT')
     print('Body generated: {}'.format(body))
     return es_search.filter('range', **body)
-
-
-def query_name(es_search: Search, query_part: str):
-    body = {}
-    eq_tokens = query_part.strip().split(' ')
-    for tok in eq_tokens:
-        body['name'] = tok.strip()
-        print('Body generated: {}'.format(body))
-        es_search = es_search.query('match', **body)
-    return es_search
 
 
 def get_operator(query_part: str):
