@@ -139,12 +139,26 @@ def query_by_awakenings(es_search: Search, attribute: str, value: str):
     return es_search
 
 
-def query_evolutions(es_search: Search, value: str):
-    print('Matched Evolutions List')
+def query_evolves_into(es_search: Search, value: str):
+    print('Matched Evolves Into Query')
     evolutions = []
     for val in value.strip().split(','):
         monsters = match_monster_from_name(val.strip())
         evolutions.extend([monster.ancestor_id for monster in monsters])
+    print('Matched {} to {}'.format(value, evolutions))
+    if len(evolutions) > 0:
+        return query_by_terms_list(es_search, 'card_id', evolutions)
+    return es_search
+
+
+def query_evolves_from(es_search: Search, value: str):
+    print('Matched Evolves From Query')
+    evolutions = []
+    for val in value.strip().split(','):
+        monsters = match_monster_from_name(val.strip())
+        for monster in monsters:
+            if 'evolution_list' in monster.to_dict():
+                evolutions.extend(monster.evolution_list)
     print('Matched {} to {}'.format(value, evolutions))
     if len(evolutions) > 0:
         return query_by_terms_list(es_search, 'card_id', evolutions)
@@ -165,7 +179,9 @@ def query_equals(es_search: Search, attribute: str, value: str):
     if attribute == 'awakenings' or attribute == 'super_awakenings':
         return query_by_awakenings(es_search, attribute, value)
     elif attribute == 'evolves_into':
-        return query_evolutions(es_search, value)
+        return query_evolves_into(es_search, value)
+    elif attribute == 'evolves_from':
+        return query_evolves_from(es_search, value)
     elif attribute == 'type':
         return query_monster_types(es_search, value)
 
@@ -313,7 +329,7 @@ def test_raw_query():
     # index = input('Enter an index: ')
     # raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
-    raw_query = 'awakenings = unbindable+ and awakenings = 7c x2'
+    raw_query = 'evolves from = reincarnated haku'
 
     if index in indices:
         print()
