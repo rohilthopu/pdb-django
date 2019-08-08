@@ -227,8 +227,7 @@ def query_evolution_lists(es_search: Search, attribute: str, value: str):
         materials.extend([monster.card_id for monster in monsters])
     print('Found materials : {} '.format(materials))
     if len(materials) > 0:
-        for material in materials:
-            es_search = query_by_terms_list(es_search, attribute + '_raw', [material])
+        es_search = query_by_terms_list(es_search, attribute + '_raw', materials)
     return es_search
 
 
