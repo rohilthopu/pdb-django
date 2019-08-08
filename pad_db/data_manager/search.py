@@ -97,11 +97,19 @@ def show_results(hits):
     print(table)
 
 
+def query_name(es_search: Search, query_part: str):
+    body = {}
+    eq_tokens = query_part.strip().split(' ')
+    for tok in eq_tokens:
+        body['name'] = tok.strip()
+        print('Body generated: {}'.format(body))
+        es_search = es_search.query('match', **body)
+    return es_search
+
+
 def match_monster_from_name(monster_name: str):
     s = Search(using=client, index="monsters")
-    eq_tokens = monster_name.split(' ')
-    for tok in eq_tokens:
-        s = s.query("match", name=tok.strip())
+    s = query_name(s, monster_name)
     s = s[0:s.count()]
     s = s.execute()
     return s.hits
@@ -238,16 +246,6 @@ def query_monster_types(es_search: Search, value: str):
     print('Requested types: {}'.format(monster_types))
     for monster_type in monster_types:
         es_search = query_by_terms_list(es_search, 'type', [monster_type])
-    return es_search
-
-
-def query_name(es_search: Search, query_part: str):
-    body = {}
-    eq_tokens = query_part.strip().split(' ')
-    for tok in eq_tokens:
-        body['name'] = tok.strip()
-        print('Body generated: {}'.format(body))
-        es_search = es_search.query('match', **body)
     return es_search
 
 
