@@ -24,12 +24,17 @@ AWAKENING_ALIASES = {
 }
 
 ATTRIBUTE_ALIASES = {
-    'hpmf': 'hp_mult_full',
-    'atkmf': 'atk_mult_full',
-    'rcvmf': 'rcv_mult_full',
-    'hpm': 'hp_mult',
-    'atkm': 'atk_mult',
-    'rcvm': 'rcv_mult',
+    'hpmf': 'leader_skill.hp_mult_full',
+    'atkmf': 'leader_skill.atk_mult_full',
+    'rcvmf': 'leader_skill.rcv_mult_full',
+    'hpm': 'leader_skill.hp_mult',
+    'atkm': 'leader_skill.atk_mult',
+    'rcvm': 'leader_skill.rcv_mult',
+    'active_hpm': 'active_skill.hp_mult',
+    'active_atkm': 'active_skill.atk_mult',
+    'active_rcvm': 'active_skill.rcv_mult',
+    'has_evomat': 'evolution_materials',
+    'has_devomat': 'un_evolution_materials'
 }
 
 
@@ -165,6 +170,19 @@ def query_evolves_from(es_search: Search, value: str):
     return es_search
 
 
+def query_evolution_lists(es_search: Search, attribute: str, value: str):
+    print('Matched {} Query'.format(attribute))
+    materials = []
+    for val in value.strip().split(','):
+        monsters = match_monster_from_name(val.strip())
+        materials.extend([monster.card_id for monster in monsters])
+    print('Found materials : {} '.format(materials))
+    if len(materials) > 0:
+        for material in materials:
+            es_search = query_by_terms_list(es_search, attribute, [material])
+    return es_search
+
+
 def query_monster_types(es_search: Search, value: str):
     print('Matched TYPE query')
     monster_types = [val.strip() for val in value.strip().split(',')]
@@ -184,13 +202,17 @@ def query_equals(es_search: Search, attribute: str, value: str):
         return query_evolves_from(es_search, value)
     elif attribute == 'type':
         return query_monster_types(es_search, value)
+    elif attribute == 'evolution_materials':
+        return query_evolution_lists(es_search, attribute, value)
 
-    eq_tokens = value.strip().split(' ')
-    for tok in eq_tokens:
-        body = {attribute: tok.strip()}
-        print('Body generated: {}'.format(body))
-        es_search = es_search.filter('match', **body)
-    return es_search
+    body = {attribute: value.strip()}
+
+    # eq_tokens = value.strip().split(' ')
+    # for tok in eq_tokens:
+    #     body = {attribute: tok.strip()}
+    #     print('Body generated: {}'.format(body))
+    #     es_search = es_search.filter('match', **body)
+    return es_search.filter('match', **body)
 
 
 def query_less_than(es_search: Search, operator: str, attribute: str, value: str):
@@ -329,7 +351,7 @@ def test_raw_query():
     # index = input('Enter an index: ')
     # raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
-    raw_query = 'evolves from = reincarnated haku'
+    raw_query = 'has evomat = machine athena gem'
 
     if index in indices:
         print()
