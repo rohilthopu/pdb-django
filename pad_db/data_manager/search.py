@@ -318,7 +318,7 @@ def get_operator(query_part: str):
     return None
 
 
-def analyze_query_part(es_search: Search, operator: str, attribute: str, value: str):
+def query_by_operator(es_search: Search, operator: str, attribute: str, value: str):
     # if len(query_part) > 1:
     print('Attribute: {}, Value: {}'.format(attribute, value))
 
@@ -328,6 +328,49 @@ def analyze_query_part(es_search: Search, operator: str, attribute: str, value: 
         return query_less_than(es_search, operator, attribute, value)
     elif operator == '=':
         return query_equals(es_search, attribute, value)
+
+
+def query_by_skill_attribute(skill_search: Search, operator: str, attribute: str, value: str):
+     # and get the results for that individual item which i use to filter down the current monster index query values
+    # this is a hack to get the actual attribute that we are querying from the skills index object
+    # example : leader_skill.hp_mult_full -> hp_mult_full
+    attribute = attribute.split('.')[-1]
+    skill_search = query_by_operator(skill_search, operator, attribute, value)
+    skill_search = skill_search[0:skill_search.count()]
+    skill_search_results = skill_search.execute()
+    return [hit.skill_id for hit in skill_search_results.hits]
+
+
+def analyze_query_part(es_search: Search, query_part: str):
+    operator = get_operator(query_part)
+    if operator is not None:
+        tokens = query_part.split(operator)
+        if len(tokens) > 1:
+            attribute = tokens[0].strip().replace(' ', '_')
+            value = tokens[1].strip()
+
+            if attribute in ATTRIBUTE_ALIASES:
+                attribute = ATTRIBUTE_ALIASES[attribute]
+
+            # handle the case that the user searches for a leader skill alias based filter
+            if attribute in LEADER_SKILL_VALUES:
+                print('Found a leader skill query')
+                # make a new search object using the skills index
+                skill_search = Search(using=client, index="skills").filter('term', **{'skill_type': 'leader'})
+                skills = query_by_skill_attribute(skill_search, operator, attribute, value)
+                return query_by_terms_list(es_search, 'leader_skill_id', skills)
+            elif attribute in ACTIVE_SKILL_VALUES:
+                print('Found an active skill query')
+                skill_search = Search(using=client, index="skills").filter('term', **{'skill_type': 'active'})
+                skills = query_by_skill_attribute(skill_search, operator, attribute, value)
+                return query_by_terms_list(es_search, 'active_skill_id', skills)
+
+            else:
+                return query_by_operator(es_search, operator, attribute, value)
+
+    # assume that the user is looking for the name of the item
+    print('Assuming NAME query: {}'.format(query_part))
+    return query_name(es_search, query_part)
 
 
 def query(index: str, raw_query: str):
@@ -343,42 +386,7 @@ def query(index: str, raw_query: str):
     print()
     for query_part in raw_query_parts:
         print('Processing query part: {}'.format(query_part))
-
-
-        operator = get_operator(query_part)
-        if operator is not None:
-            tokens = query_part.split(operator)
-            if len(tokens) > 1:
-                attribute = tokens[0].strip().replace(' ', '_')
-                value = tokens[1].strip()
-
-                if attribute in ATTRIBUTE_ALIASES:
-                    attribute = ATTRIBUTE_ALIASES[attribute]
-
-                # handle the case that the user searches for a leader skill alias based filter
-                if attribute in LEADER_SKILL_VALUES:
-                    print('Found a leader skill query')
-                    # make a new search object using the skills index
-                    skill_search = Search(using=client, index="skills")
-                    # and get the results for that individual item which i use to filter down the current monster index query values
-
-                    # this is a hack to get the actual attribute that we are querying from the skills index object
-                    # example : leader_skill.hp_mult_full -> hp_mult_full
-                    attribute = attribute.split('.')[-1]
-                    skill_search = analyze_query_part(skill_search, operator, attribute, value)
-                    skill_search = skill_search[0:skill_search.count()]
-                    skill_search_results = skill_search.execute()
-                    skills = [ hit.skill_id for hit in skill_search_results.hits ]
-                    es_search = query_by_terms_list(es_search, 'leader_skill_id', skills)
-
-                else:
-                    es_search = analyze_query_part(es_search, operator, attribute, value)
-
-        else:
-            # assume that the user is looking for the name of the item
-            print('Assuming NAME query: {}'.format(query_part))
-            es_search = query_name(es_search, query_part)
-            
+        es_search = analyze_query_part(es_search, query_part)
         print()
 
     print('Executing search...')
