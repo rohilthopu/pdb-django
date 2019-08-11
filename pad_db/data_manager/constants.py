@@ -3,6 +3,30 @@ OPERATORS = ['>=', '<=', '=', '>', '<']
 INDICES = ['skills', 'monsters']
 COLUMNS = ['CARD_ID', 'NAME']
 
+ATTRIBUTE_ALIASES = {
+    'hpmf': 'leader_skill.hp_mult_full',
+    'atkmf': 'leader_skill.atk_mult_full',
+    'rcvmf': 'leader_skill.rcv_mult_full',
+    'hpm': 'leader_skill.hp_mult',
+    'atkm': 'leader_skill.atk_mult',
+    'rcvm': 'leader_skill.rcv_mult',
+    'leader_shield': 'leader_skill.shield',
+    'pair_shield': 'leader_skill.shield_full',
+    'active_hpm': 'active_skill.hp_mult',
+    'active_atkm': 'active_skill.atk_mult',
+    'active_rcvm': 'active_skill.rcv_mult',
+    'active_shield': 'active_skill.shield',
+    'has_evomat': 'evolution_materials',
+    'has_devomat': 'un_evolution_materials',
+    'has_evomat_raw': 'evolution_materials_raw',
+    'has_devomat_raw': 'un_evolution_materials_raw',
+}
+
+LEADER_SKILL_VALUES = {'leader_skill.hp_mult_full', 'leader_skill.rcv_mult_full', 'leader_skill.rcv_mult', 'leader_skill.shield_full',
+                       'leader_skill.atk_mult', 'leader_skill.atk_mult_full', 'leader_skill.shield', 'leader_skill.hp_mult'}
+
+ACTIVE_SKILL_VALUES = {'active_skill.atk_mult', 'active_skill.shield',
+                       'active_skill.rcv_mult', 'active_skill.hp_mult'}
 
 AWAKENINGS = {
     '': 0,
@@ -122,28 +146,3 @@ AWAKENING_ALIASES = {
     'jammer resist+': 71,
     'blind resist+': 72,
 }
-
-ATTRIBUTE_ALIASES = {
-    'hpmf': 'leader_skill.hp_mult_full',
-    'atkmf': 'leader_skill.atk_mult_full',
-    'rcvmf': 'leader_skill.rcv_mult_full',
-    'hpm': 'leader_skill.hp_mult',
-    'atkm': 'leader_skill.atk_mult',
-    'rcvm': 'leader_skill.rcv_mult',
-    'leader_shield': 'leader_skill.shield',
-    'pair_shield': 'leader_skill.shield_full',
-    'active_hpm': 'active_skill.hp_mult',
-    'active_atkm': 'active_skill.atk_mult',
-    'active_rcvm': 'active_skill.rcv_mult',
-    'active_shield': 'active_skill.shield',
-    'has_evomat': 'evolution_materials',
-    'has_devomat': 'un_evolution_materials',
-    'has_evomat_raw': 'evolution_materials_raw',
-    'has_devomat_raw': 'un_evolution_materials_raw',
-}
-
-LEADER_SKILL_VALUES = {'leader_skill.hp_mult_full', 'leader_skill.rcv_mult_full', 'leader_skill.rcv_mult', 'leader_skill.shield_full',
-                       'leader_skill.atk_mult', 'leader_skill.atk_mult_full', 'leader_skill.shield', 'leader_skill.hp_mult'}
-
-ACTIVE_SKILL_VALUES = {'active_skill.atk_mult', 'active_skill.shield',
-                       'active_skill.rcv_mult', 'active_skill.hp_mult'}
