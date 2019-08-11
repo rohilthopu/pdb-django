@@ -13,18 +13,6 @@ from dungeons import apiviews as dav
 from data_manager import views as sv
 
 urlpatterns = [
-    # Guerrilla Dungeons
-    path('', gv.guerrilla_view),
-    path('monsters/', mv.monster_list),
-    path('monster/<int:card_id>/', mv.monster_view),
-
-    # # Site Locations
-    # path('monsterdb/na/', mv.monster_list),
-    # path('monster/na/<int:card_id>/', mv.monster_view),
-    # path('dungeons/na/', dv.dungeonListView),
-    # path('dungeons/na/<int:d_id>/', dv.dungeonView),
-    # path('leaderboard', kv.leaderboardView),
-
     # new api endpoints
     path('api/monster/<int:card_id>/', mav.MonsterObject.as_view()),
     path('api/monsters/', mav.MonsterList.as_view()),
