@@ -344,29 +344,47 @@ def query_by_skill_attribute(skill_search: Search, operator: str, attribute: str
 def analyze_query_part(es_search: Search, query_part: str):
     operator = get_operator(query_part)
     if operator is not None:
+        
+        # atkmf >= 900 -> [atkmf, 900]
         tokens = query_part.split(operator)
+        
+        # this is to avoid cases where someone enters a broken query
+        # example : atkmf >=
+        # since this would lead to querying an empty value against atkmf
         if len(tokens) > 1:
+            # this modifies an attribute as follows:
+            # sub attribute id -> sub_attribute_id 
+            # to query by the exact attribute stored in the index
             attribute = tokens[0].strip().replace(' ', '_')
+
+            # this gets the raw str value for whatever is being searched and removes trailing whitespace
+            # i.e. ' 900 ' -> '900'
+            # relies on elastic to correctly cast to the right type of value on query execution
+            # holds up for now
             value = tokens[1].strip()
 
+            # gets back the literal value for a given alias
             if attribute in ATTRIBUTE_ALIASES:
                 attribute = ATTRIBUTE_ALIASES[attribute]
 
             # handle the case that the user searches for a leader skill alias based filter
+            # this creates a new search object specifically to search the Skills index
             if attribute in LEADER_SKILL_VALUES:
                 print('Found a leader skill query')
-                # make a new search object using the skills index
                 skill_search = Search(using=client, index="skills").filter('term', **{'skill_type': 'leader'})
                 skills = query_by_skill_attribute(skill_search, operator, attribute, value)
                 return query_by_terms_list(es_search, 'leader_skill_id', skills)
+            
+            # handle the case where a user alias or literal was an active skill element
             elif attribute in ACTIVE_SKILL_VALUES:
                 print('Found an active skill query')
                 skill_search = Search(using=client, index="skills").filter('term', **{'skill_type': 'active'})
                 skills = query_by_skill_attribute(skill_search, operator, attribute, value)
                 return query_by_terms_list(es_search, 'active_skill_id', skills)
 
-            else:
-                return query_by_operator(es_search, operator, attribute, value)
+                
+            # run a normal query filter in the monster index
+            return query_by_operator(es_search, operator, attribute, value)
 
     # assume that the user is looking for the name of the item
     print('Assuming NAME query: {}'.format(query_part))
@@ -405,12 +423,15 @@ def query(index: str, raw_query: str):
 
 def query_es(query_str: str):
     update_awakening_map()
-    # # index = input('Enter an index: ')
-    # raw_query = input('Enter a query to filter data: ')
-    index = 'monsters'
-    raw_query = query_str
-    # raw_query = 'awakenings = healer killer, balanced killer'
 
+    # default center searches around monsters
+    # this might change in the future
+    index = 'monsters'
+
+    # input query from django request string
+    raw_query = query_str
+
+    # make sure the index exists (if i ever allow non monster centered queries)
     if index in indices:
         print()
         print('Searching {} index'.format(index.upper()))
@@ -418,6 +439,9 @@ def query_es(query_str: str):
         print('Input query: {}'.format(raw_query))
         print()
 
+        # break by logical OR
+        # combines two query sets together and spits back the results. 
+        # not sure why anyone would use this tbh
         raw_query = raw_query.split(' || ')
         query_results = []
         for rq in raw_query:
@@ -436,7 +460,6 @@ def query_es(query_str: str):
 
 def test_raw_query():
     update_awakening_map()
-    # index = input('Enter an index: ')
     raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
     # raw_query = 'has evomat = machine athena gem'
