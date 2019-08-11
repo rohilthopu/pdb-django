@@ -1,9 +1,6 @@
 from django.conf.urls.static import static
 from django.urls import path
 from django.conf import settings
-from monsters import views as mv
-from guerrilla import views as gv
-from dungeons import views as dv
 
 # # API imports
 from guerrilla import apiviews as gav
