@@ -1,13 +1,17 @@
 from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Search
 from prettytable import PrettyTable
+import os
+
 # this just allows me to run the script outside of the djano env for testing
 try:
-    from .maps import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
+    from .constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
 except:
-    from maps import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
+    from constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
 
-client = Elasticsearch('https://elastic.pad-db.com')
+
+es_client = os.environ.get('ELASTIC_CLIENT')
+client = Elasticsearch(es_client)
 
 
 def update_awakening_map():
