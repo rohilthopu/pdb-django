@@ -9,7 +9,7 @@ try:
 except:
     from constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
 
-client = Elasticsearch('https://elastic.pad-db.com')
+client = Elasticsearch(os.environ.get('ELASTIC_CLIENT'))
 
 
 def update_awakening_map():
