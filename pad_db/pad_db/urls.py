@@ -22,7 +22,7 @@ urlpatterns = [
     path('rest/floors/', dav.AllFloorsList.as_view()),
     path('rest/floors/<int:dungeon_id>/', dav.FloorList.as_view()),
     path('rest/floor/<int:dungeon_id>/<int:floor_number>/', dav.FloorObject.as_view()),
-    path('search/<str:query>/', search_api.search),
+    path('search/<str:index>/<str:query>/', search_api.search),
     path('monster/<int:card_id>/', search_api.get_monster_by_id),
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

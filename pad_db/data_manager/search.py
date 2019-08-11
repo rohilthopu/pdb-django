@@ -18,11 +18,17 @@ def update_awakening_map():
     AWAKENINGS.update({key.lower(): val for key, val in AWAKENINGS.items()})
 
 
-def show_results(hits):
+def show_results(index: str, hits):
     table = PrettyTable()
-    table.field_names = ['CARD_ID', 'NAME']
-    for hit in hits:
-        table.add_row([hit.card_id, hit.name])
+
+    if index == 'skills':
+        table.field_names = ['SKILL_ID', 'NAME']
+        for hit in hits:
+            table.add_row([hit.skill_id, hit.name])
+    elif index == 'monsters':
+        table.field_names = ['CARD_ID', 'NAME']
+        for hit in hits:
+            table.add_row([hit.card_id, hit.name])
     print(table)
 
 
@@ -355,16 +361,10 @@ def query(index: str, raw_query: str):
     es_search = es_search[0:es_search.count()]
     results = es_search.execute()
 
-    if index == 'skills':
-        monsters = []
-        for hit in results.hits:
-            monsters.extend(match_monster_from_hit(hit, monster_name))
-        return monsters
-
     return results.hits
 
 
-def query_es(query_str: str):
+def query_es(index: str, query_str: str):
     """a function that queries an ES index
     
     Arguments:
@@ -377,7 +377,7 @@ def query_es(query_str: str):
 
     # default center searches around monsters
     # this might change in the future
-    index = 'monsters'
+    index = index
 
     # input query from django request string
     raw_query = query_str
@@ -400,8 +400,8 @@ def query_es(query_str: str):
                 index, rq) if q not in query_results)
 
         print('FOUND {} ITEMS'.format(len(query_results)))
-        print()
-        show_results(query_results)
+        print()            
+        show_results(index, query_results)
         print()
         return query_results
 
