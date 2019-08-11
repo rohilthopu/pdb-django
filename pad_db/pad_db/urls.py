@@ -23,7 +23,8 @@ urlpatterns = [
     path('rest/dungeon/<int:dungeon_id>/', dav.DungeonObject.as_view()),
     path('rest/floors/', dav.AllFloorsList.as_view()),
     path('rest/floors/<int:dungeon_id>/', dav.FloorList.as_view()),
-    path('rest/floor/<int:dungeon_id>/<int:floor_number>/', dav.FloorObject.as_view()),
+    path('rest/floor/<int:dungeon_id>/<int:floor_number>/',
+         dav.FloorObject.as_view()),
 
     # ES based endpoints
     path('search/<str:index>/<str:query>/', search_api.search),
