@@ -82,6 +82,12 @@ ATTRIBUTE_ALIASES = {
     'has_devomat_raw': 'un_evolution_materials_raw',
 }
 
+LEADER_SKILL_VALUES = {'leader_skill.hp_mult_full', 'leader_skill.rcv_mult_full', 'leader_skill.rcv_mult', 'leader_skill.shield_full',
+                       'leader_skill.atk_mult', 'leader_skill.atk_mult_full', 'leader_skill.shield', 'leader_skill.hp_mult'}
+
+ACTIVE_SKILL_VALUES = {'active_skill.atk_mult', 'active_skill.shield',
+                       'active_skill.rcv_mult', 'active_skill.hp_mult'}
+
 
 def update_awakening_map():
     AWAKENINGS.update(AWAKENING_ALIASES)
@@ -164,7 +170,8 @@ def query_by_awakenings(es_search: Search, attribute: str, value: str):
         if awakening in AWAKENINGS:
             # raw_awakenings.append(AWAKENINGS[awakening])
             raw_awakening = AWAKENINGS[awakening]
-            print('Found raw awakening: {} for {}'.format(raw_awakening, awakening))
+            print('Found raw awakening: {} for {}'.format(
+                raw_awakening, awakening))
             if len(awk_parts) > 1:
                 count = int(awk_parts[1].strip())
                 atr_label = attribute + '_raw'
@@ -186,7 +193,8 @@ def query_by_awakenings(es_search: Search, attribute: str, value: str):
                 es_search = query_by_script(es_search, body)
 
             else:
-                es_search = query_by_terms_list(es_search, attribute + '_raw', [raw_awakening])
+                es_search = query_by_terms_list(
+                    es_search, attribute + '_raw', [raw_awakening])
         else:
             print('Invalid awakening found: {}'.format(awakening))
 
@@ -212,7 +220,8 @@ def query_evolves_from(es_search: Search, value: str):
         monsters = match_monster_from_name(val.strip())
         for monster in monsters:
             if 'evolution_list' in monster.to_dict():
-                evolutions.extend([evo.card_id for evo in monster.evolution_list])
+                evolutions.extend(
+                    [evo.card_id for evo in monster.evolution_list])
     print('Matched {} to {}'.format(value, evolutions))
     if len(evolutions) > 0:
         return query_by_terms_list(es_search, 'card_id', evolutions)
@@ -227,7 +236,8 @@ def query_evolution_lists(es_search: Search, attribute: str, value: str):
         materials.extend([monster.card_id for monster in monsters])
     print('Found materials : {} '.format(materials))
     if len(materials) > 0:
-        es_search = query_by_terms_list(es_search, attribute + '_raw', materials)
+        es_search = query_by_terms_list(
+            es_search, attribute + '_raw', materials)
     return es_search
 
 
@@ -308,34 +318,16 @@ def get_operator(query_part: str):
     return None
 
 
-def analyze_query_part(es_search: Search, query_part: str):
+def analyze_query_part(es_search: Search, operator: str, attribute: str, value: str):
     # if len(query_part) > 1:
-    operator = get_operator(query_part)
-    if operator is not None:
-        tokens = query_part.split(operator)
-        if len(tokens) > 1:
-            attribute = tokens[0].strip().replace(' ', '_')
-            value = tokens[1].strip()
+    print('Attribute: {}, Value: {}'.format(attribute, value))
 
-            # if attribute not in ['evolves_into', 'awakenings', 'card_id', 'name']:
-            #     COLUMNS.append(attribute.upper())
-            #     VALUES.append(attribute)
-
-            if attribute in ATTRIBUTE_ALIASES:
-                attribute = ATTRIBUTE_ALIASES[attribute]
-
-            print('Attribute: {}, Value: {}'.format(attribute, value))
-
-            if '>' in operator:
-                return query_greater_than(es_search, operator, attribute, value)
-            elif '<' in operator:
-                return query_less_than(es_search, operator, attribute, value)
-            elif operator == '=':
-                return query_equals(es_search, attribute, value)
-    else:
-        # assume that the user is looking for the name of the item
-        print('Assuming NAME query: {}'.format(query_part))
-        return query_name(es_search, query_part)
+    if '>' in operator:
+        return query_greater_than(es_search, operator, attribute, value)
+    elif '<' in operator:
+        return query_less_than(es_search, operator, attribute, value)
+    elif operator == '=':
+        return query_equals(es_search, attribute, value)
 
 
 def query(index: str, raw_query: str):
@@ -351,7 +343,42 @@ def query(index: str, raw_query: str):
     print()
     for query_part in raw_query_parts:
         print('Processing query part: {}'.format(query_part))
-        es_search = analyze_query_part(es_search, query_part)
+
+
+        operator = get_operator(query_part)
+        if operator is not None:
+            tokens = query_part.split(operator)
+            if len(tokens) > 1:
+                attribute = tokens[0].strip().replace(' ', '_')
+                value = tokens[1].strip()
+
+                if attribute in ATTRIBUTE_ALIASES:
+                    attribute = ATTRIBUTE_ALIASES[attribute]
+
+                # handle the case that the user searches for a leader skill alias based filter
+                if attribute in LEADER_SKILL_VALUES:
+                    print('Found a leader skill query')
+                    # make a new search object using the skills index
+                    skill_search = Search(using=client, index="skills")
+                    # and get the results for that individual item which i use to filter down the current monster index query values
+
+                    # this is a hack to get the actual attribute that we are querying from the skills index object
+                    # example : leader_skill.hp_mult_full -> hp_mult_full
+                    attribute = attribute.split('.')[-1]
+                    skill_search = analyze_query_part(skill_search, operator, attribute, value)
+                    skill_search = skill_search[0:skill_search.count()]
+                    skill_search_results = skill_search.execute()
+                    skills = [ hit.skill_id for hit in skill_search_results.hits ]
+                    es_search = query_by_terms_list(es_search, 'leader_skill_id', skills)
+
+                else:
+                    es_search = analyze_query_part(es_search, operator, attribute, value)
+
+        else:
+            # assume that the user is looking for the name of the item
+            print('Assuming NAME query: {}'.format(query_part))
+            es_search = query_name(es_search, query_part)
+            
         print()
 
     print('Executing search...')
@@ -386,7 +413,8 @@ def query_es(query_str: str):
         raw_query = raw_query.split(' || ')
         query_results = []
         for rq in raw_query:
-            query_results.extend(q for q in query(index, rq) if q not in query_results)
+            query_results.extend(q for q in query(
+                index, rq) if q not in query_results)
 
         print('FOUND {} ITEMS'.format(len(query_results)))
         print()
@@ -415,7 +443,8 @@ def test_raw_query():
         raw_query = raw_query.split(' || ')
         query_results = []
         for rq in raw_query:
-            query_results.extend(q for q in query(index, rq) if q not in query_results)
+            query_results.extend(q for q in query(
+                index, rq) if q not in query_results)
 
         print('FOUND {} ITEMS'.format(len(query_results)))
         print()
