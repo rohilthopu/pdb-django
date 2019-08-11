@@ -319,6 +319,17 @@ def get_operator(query_part: str):
 
 
 def query_by_operator(es_search: Search, operator: str, attribute: str, value: str):
+    """a function that chains a query based on a logical operator
+    
+    Arguments:
+        es_search {Search} -- ES Search object
+        operator {str} -- a logical operator
+        attribute {str} -- object property being queried
+        value {str} -- the raw value used to filter
+    
+    Returns:
+        Search object -- passes back a modified Search object with new filters
+    """
     # if len(query_part) > 1:
     print('Attribute: {}, Value: {}'.format(attribute, value))
 
@@ -392,6 +403,15 @@ def analyze_query_part(es_search: Search, query_part: str):
 
 
 def query(index: str, raw_query: str):
+    """ElasticSearch query base method
+    
+    Arguments:
+        index {str} -- an available elasticsearch index
+        raw_query {str} -- the full-length raw query from the request
+    
+    Returns:
+        [hits] -- a list of hits that match the users query in any way
+    """
     print('Removing whitespace..')
     raw_query_parts = raw_query.strip().split(' and ')
     print('Raw query parts: {}'.format(raw_query_parts))
@@ -422,6 +442,14 @@ def query(index: str, raw_query: str):
 
 
 def query_es(query_str: str):
+    """a function that queries an ES index
+    
+    Arguments:
+        query_str {str} -- a full-length query from an http request to django
+    
+    Returns:
+        [hits] -- a set of hits from the es query
+    """
     update_awakening_map()
 
     # default center searches around monsters
