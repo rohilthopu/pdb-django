@@ -212,7 +212,7 @@ def query_evolves_from(es_search: Search, value: str):
         monsters = match_monster_from_name(val.strip())
         for monster in monsters:
             if 'evolution_list' in monster.to_dict():
-                evolutions.extend(monster.evolution_list)
+                evolutions.extend([evo.card_id for evo in monster.evolution_list])
     print('Matched {} to {}'.format(value, evolutions))
     if len(evolutions) > 0:
         return query_by_terms_list(es_search, 'card_id', evolutions)
@@ -401,9 +401,9 @@ def query_es(query_str: str):
 def test_raw_query():
     update_awakening_map()
     # index = input('Enter an index: ')
-    # raw_query = input('Enter a query to filter data: ')
+    raw_query = input('Enter a query to filter data: ')
     index = 'monsters'
-    raw_query = 'has evomat = machine athena gem'
+    # raw_query = 'has evomat = machine athena gem'
 
     if index in indices:
         print()
