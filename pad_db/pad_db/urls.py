@@ -28,7 +28,7 @@ urlpatterns = [
 
     # ES based endpoints
     path('search/<str:index>/<str:query>/', search_api.search),
-    path('monster/<int:card_id>/', search_api.get_monster_by_id),
+    path('monsters/<int:card_id>/', search_api.get_monster_by_id),
     path('skills/<int:skill_id>/', search_api.get_skill_by_id),
 
 
