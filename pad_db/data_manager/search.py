@@ -295,7 +295,7 @@ def analyze_query_part(es_search: Search, query_part: str):
             # this modifies an attribute as follows:
             # sub attribute id -> sub_attribute_id 
             # to query by the exact attribute stored in the index
-            attribute = tokens[0].strip().replace(' ', '_')
+            attribute = tokens[0].strip().replace(' ', '_').lower()
 
             # this gets the raw str value for whatever is being searched and removes trailing whitespace
             # i.e. ' 900 ' -> '900'
