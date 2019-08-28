@@ -90,8 +90,8 @@ class Command(BaseCommand):
                 new_monster = Monster()
                 new_monster.card_id = monster['card_id']
                 new_monster.name = monster['name']
-                new_monster.attribute_id = monster['attr_id']
-                new_monster.sub_attribute_id = monster['sub_attr_id']
+                new_monster.attribute_id = monster['attribute_id']
+                new_monster.sub_attribute_id = monster['sub_attribute_id']
                 new_monster.is_ult = monster['is_ult']
                 new_monster.type_1 = monster['type_1_id']
                 new_monster.type_2 = monster['type_2_id']
