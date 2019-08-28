@@ -129,7 +129,7 @@ class Command(BaseCommand):
                 new_monster.inheritable = monster['is_inheritable']
                 new_monster.is_collab = monster['is_collab']
                 new_monster.limit_mult = monster['limit_mult']
-                new_monster.evolutions = json.dumps(monster['evo_list'])
+                new_monster.evolutions = json.dumps(monster['evolution_list'])
                 new_monster.server = monster['server']
                 monsters.append(new_monster)
             print('Deleting existing Monsters')
@@ -148,7 +148,7 @@ class Command(BaseCommand):
                 new_dungeon.name = dungeon['clean_name']
                 new_dungeon.dungeon_id = dungeon['dungeon_id']
                 new_dungeon.floor_count = len(dungeon['floors'])
-                new_dungeon.dungeon_type = dungeon['alt_dungeon_type']
+                new_dungeon.dungeon_type = dungeon['dungeon_type']
                 new_dungeon.image_id = dungeon['image_id']
                 new_dungeon.server = dungeon['server']
                 dungeons.append(new_dungeon)
