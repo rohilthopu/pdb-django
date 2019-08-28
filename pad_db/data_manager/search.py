@@ -5,9 +5,11 @@ import os
 
 # this just allows me to run the script outside of the djano env for testing
 try:
-    from .constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
+    from .constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, \
+        OPERATORS, COLUMNS, INDICES
 except:
-    from constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, OPERATORS, COLUMNS, INDICES
+    from constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, \
+        OPERATORS, COLUMNS, INDICES
 
 client = Elasticsearch(os.environ.get('ELASTIC_CLIENT'))
 
@@ -271,7 +273,7 @@ def query_by_operator(es_search: Search, operator: str, attribute: str, value: s
 
 
 def query_by_skill_attribute(skill_search: Search, operator: str, attribute: str, value: str):
-     # and get the results for that individual item which i use to filter down the current monster index query values
+    # and get the results for that individual item which i use to filter down the current monster index query values
     # this is a hack to get the actual attribute that we are querying from the skills index object
     # example : leader_skill.hp_mult_full -> hp_mult_full
     attribute = attribute.split('.')[-1]
@@ -284,10 +286,10 @@ def query_by_skill_attribute(skill_search: Search, operator: str, attribute: str
 def analyze_query_part(es_search: Search, query_part: str):
     operator = get_operator(query_part)
     if operator is not None:
-        
+
         # atkmf >= 900 -> [atkmf, 900]
         tokens = query_part.split(operator)
-        
+
         # this is to avoid cases where someone enters a broken query
         # example : atkmf >=
         # since this would lead to querying an empty value against atkmf
@@ -314,7 +316,7 @@ def analyze_query_part(es_search: Search, query_part: str):
                 skill_search = Search(using=client, index="skills").filter('term', **{'skill_type': 'leader'})
                 skills = query_by_skill_attribute(skill_search, operator, attribute, value)
                 return query_by_terms_list(es_search, 'leader_skill_id', skills)
-            
+
             # handle the case where a user alias or literal was an active skill element
             elif attribute in ACTIVE_SKILL_VALUES:
                 print('Found an active skill query')
@@ -322,7 +324,6 @@ def analyze_query_part(es_search: Search, query_part: str):
                 skills = query_by_skill_attribute(skill_search, operator, attribute, value)
                 return query_by_terms_list(es_search, 'active_skill_id', skills)
 
-                
             # run a normal query filter in the monster index
             return query_by_operator(es_search, operator, attribute, value)
 
@@ -383,30 +384,26 @@ def query_es(index: str, query_str: str):
     raw_query = query_str
 
     # make sure the index exists (if i ever allow non monster centered queries)
-    if index in INDICES:
-        print()
-        print('Searching {} index'.format(index.upper()))
-        print('Desired index: {}'.format(index))
-        print('Input query: {}'.format(raw_query))
-        print()
+    print()
+    print('Searching {} index'.format(index.upper()))
+    print('Desired index: {}'.format(index))
+    print('Input query: {}'.format(raw_query))
+    print()
 
-        # break by logical OR
-        # combines two query sets together and spits back the results. 
-        # not sure why anyone would use this tbh
-        raw_query = raw_query.split(' || ')
-        query_results = []
-        for rq in raw_query:
-            query_results.extend(q for q in query(
-                index, rq) if q not in query_results)
+    # break by logical OR
+    # combines two query sets together and spits back the results.
+    # not sure why anyone would use this tbh
+    raw_query = raw_query.split(' || ')
+    query_results = []
+    for rq in raw_query:
+        query_results.extend(q for q in query(
+            index, rq) if q not in query_results)
 
-        print('FOUND {} ITEMS'.format(len(query_results)))
-        print()            
-        show_results(index, query_results)
-        print()
-        return query_results
-
-    print('Invalid Index requested: {}'.format(index.upper()))
-    return []
+    print('FOUND {} ITEMS'.format(len(query_results)))
+    print()
+    show_results(index, query_results)
+    print()
+    return query_results
 
 
 def test_raw_query():
@@ -430,7 +427,7 @@ def test_raw_query():
 
         print('FOUND {} ITEMS'.format(len(query_results)))
         print()
-        show_results(query_results)
+        show_results(index, query_results)
         print()
     else:
         print('Invalid Index requested: {}'.format(index.upper()))
