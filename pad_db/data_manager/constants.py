@@ -1,4 +1,3 @@
-
 OPERATORS = ['>=', '<=', '=', '>', '<']
 INDICES = ['skills', 'monsters']
 COLUMNS = ['CARD_ID', 'NAME']
@@ -22,15 +21,25 @@ ATTRIBUTE_ALIASES = {
     'has_devomat_raw': 'un_evolution_materials_raw',
 }
 
-LEADER_SKILL_VALUES = {'leader_skill.hp_mult_full', 'leader_skill.rcv_mult_full', 'leader_skill.rcv_mult', 'leader_skill.shield_full',
-                       'leader_skill.atk_mult', 'leader_skill.atk_mult_full', 'leader_skill.shield', 'leader_skill.hp_mult'}
+LEADER_SKILL_VALUES = {'leader_skill.hp_mult_full',
+                       'leader_skill.rcv_mult_full',
+                       'leader_skill.rcv_mult',
+                       'leader_skill.shield_full',
+                       'leader_skill.atk_mult',
+                       'leader_skill.atk_mult_full',
+                       'leader_skill.shield',
+                       'leader_skill.hp_mult'}
 
-ACTIVE_SKILL_VALUES = {'active_skill.atk_mult', 'active_skill.shield',
-                       'active_skill.rcv_mult', 'active_skill.hp_mult'}
+ACTIVE_SKILL_VALUES = {'active_skill.atk_mult',
+                       'active_skill.shield',
+                       'active_skill.rcv_mult',
+                       'active_skill.hp_mult'}
 
 BOOLEAN_QUERIES = {
     'is collab': 'is_collab=true',
-    'not collab': 'is_collab=false'
+    'not collab': 'is_collab=false',
+    'is inheritable': 'is_inheritable=true',
+    'not inheritable': 'is_inheritable=false'
 }
 
 AWAKENINGS = {

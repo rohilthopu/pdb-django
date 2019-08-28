@@ -330,7 +330,9 @@ def analyze_query_part(es_search: Search, query_part: str):
     # try the case of a boolean query
     if query_part in BOOLEAN_QUERIES:
         # convert it to a normal one
+        print('Encountered a boolean query: {}'.format(query_part))
         query_part = BOOLEAN_QUERIES[query_part]
+        print('New query: {}'.format(query_part))
         return analyze_query_part(es_search, query_part)
 
     # assume that the user is looking for the name of the item
@@ -394,26 +396,29 @@ def query_es(index: str, query_str: str):
     raw_query = query_str
 
     # make sure the index exists (if i ever allow non monster centered queries)
-    print()
-    print('Searching {} index'.format(index.upper()))
-    print('Desired index: {}'.format(index))
-    print('Input query: {}'.format(raw_query))
-    print()
+    if index in INDICES:
+        print()
+        print('Searching {} index'.format(index.upper()))
+        print('Desired index: {}'.format(index))
+        print('Input query: {}'.format(raw_query))
+        print()
 
-    # break by logical OR
-    # combines two query sets together and spits back the results.
-    # not sure why anyone would use this tbh
-    raw_query = raw_query.split(' || ')
-    query_results = []
-    for rq in raw_query:
-        query_results.extend(q for q in query(
-            index, rq) if q not in query_results)
+        # break by logical OR
+        # combines two query sets together and spits back the results.
+        # not sure why anyone would use this tbh
+        raw_query = raw_query.split(' || ')
+        query_results = []
+        for rq in raw_query:
+            query_results.extend(q for q in query(
+                index, rq) if q not in query_results)
 
-    print('FOUND {} ITEMS'.format(len(query_results)))
-    print()
-    show_results(index, query_results)
-    print()
-    return query_results
+        print('FOUND {} ITEMS'.format(len(query_results)))
+        print()
+        show_results(index, query_results)
+        print()
+        return query_results
+
+    return []
 
 
 def test_raw_query():
