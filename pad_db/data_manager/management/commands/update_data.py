@@ -121,9 +121,6 @@ class Command(BaseCommand):
                 new_monster.un_evo_mat_3 = monster['un_evo_mat_3']
                 new_monster.un_evo_mat_4 = monster['un_evo_mat_4']
                 new_monster.un_evo_mat_5 = monster['un_evo_mat_5']
-                new_monster.enemy_turns_alt = monster['enemy_turns_alt']
-                new_monster.enemy_skill_effect = monster['enemy_skill_effect']
-                new_monster.enemy_skill_refs = monster['enemy_skill_refs']
                 new_monster.awakenings = monster['awakenings']
                 new_monster.super_awakenings = monster['super_awakenings']
                 new_monster.type_3 = monster['type_3_id']
@@ -134,7 +131,6 @@ class Command(BaseCommand):
                 new_monster.limit_mult = monster['limit_mult']
                 new_monster.evolutions = json.dumps(monster['evo_list'])
                 new_monster.server = monster['server']
-                new_monster.related_dungeons = monster['related_dungeons']
                 monsters.append(new_monster)
             print('Deleting existing Monsters')
             Monster.objects.all().delete()
