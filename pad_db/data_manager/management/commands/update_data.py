@@ -126,7 +126,7 @@ class Command(BaseCommand):
                 new_monster.type_3 = monster['type_3_id']
                 new_monster.sell_mp = monster['sell_mp']
                 new_monster.collab_id = monster['collab_id']
-                new_monster.inheritable = monster['inheritable']
+                new_monster.inheritable = monster['is_inheritable']
                 new_monster.is_collab = monster['is_collab']
                 new_monster.limit_mult = monster['limit_mult']
                 new_monster.evolutions = json.dumps(monster['evo_list'])
