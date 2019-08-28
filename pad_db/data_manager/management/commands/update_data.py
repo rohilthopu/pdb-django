@@ -148,7 +148,8 @@ class Command(BaseCommand):
                 new_dungeon.name = dungeon['clean_name']
                 new_dungeon.dungeon_id = dungeon['dungeon_id']
                 new_dungeon.floor_count = len(dungeon['floors'])
-                new_dungeon.dungeon_type = dungeon['dungeon_type']
+                # new_dungeon.dungeon_type = dungeon['dungeon_type']
+                new_dungeon.dungeon_type = ""
                 new_dungeon.image_id = dungeon['image_id']
                 new_dungeon.server = dungeon['server']
                 dungeons.append(new_dungeon)
