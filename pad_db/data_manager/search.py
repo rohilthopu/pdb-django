@@ -374,6 +374,10 @@ def query_es(index: str, query_str: str):
     Returns:
         [hits] -- a set of hits from the es query
     """
+
+    if index not in INDICES:
+        return []
+
     update_awakening_map()
 
     # default center searches around monsters
