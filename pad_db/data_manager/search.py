@@ -6,10 +6,10 @@ import os
 # this just allows me to run the script outside of the djano env for testing
 try:
     from .constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, \
-        OPERATORS, COLUMNS, INDICES
+        OPERATORS, COLUMNS, INDICES, BOOLEAN_QUERIES
 except:
     from constants import AWAKENINGS, AWAKENING_ALIASES, ATTRIBUTE_ALIASES, LEADER_SKILL_VALUES, ACTIVE_SKILL_VALUES, \
-        OPERATORS, COLUMNS, INDICES
+        OPERATORS, COLUMNS, INDICES, BOOLEAN_QUERIES
 
 client = Elasticsearch(os.environ.get('ELASTIC_CLIENT'))
 
@@ -311,7 +311,7 @@ def analyze_query_part(es_search: Search, query_part: str):
 
             # handle the case that the user searches for a leader skill alias based filter
             # this creates a new search object specifically to search the Skills index
-            if attribute in LEADER_SKILL_VALUES:
+            elif attribute in LEADER_SKILL_VALUES:
                 print('Found a leader skill query')
                 skill_search = Search(using=client, index="skills").filter('term', **{'skill_type': 'leader'})
                 skills = query_by_skill_attribute(skill_search, operator, attribute, value)
@@ -326,6 +326,12 @@ def analyze_query_part(es_search: Search, query_part: str):
 
             # run a normal query filter in the monster index
             return query_by_operator(es_search, operator, attribute, value)
+
+    # try the case of a boolean query
+    if query_part in BOOLEAN_QUERIES:
+        # convert it to a normal one
+        query_part = BOOLEAN_QUERIES[query_part]
+        return analyze_query_part(es_search, query_part)
 
     # assume that the user is looking for the name of the item
     print('Assuming NAME query: {}'.format(query_part))

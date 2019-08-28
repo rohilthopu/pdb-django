@@ -28,6 +28,11 @@ LEADER_SKILL_VALUES = {'leader_skill.hp_mult_full', 'leader_skill.rcv_mult_full'
 ACTIVE_SKILL_VALUES = {'active_skill.atk_mult', 'active_skill.shield',
                        'active_skill.rcv_mult', 'active_skill.hp_mult'}
 
+BOOLEAN_QUERIES = {
+    'is collab': 'is_collab=true',
+    'not collab': 'is_collab=false'
+}
+
 AWAKENINGS = {
     '': 0,
     'Enhanced HP': 1,
