@@ -37,9 +37,11 @@ ACTIVE_SKILL_VALUES = {'active_skill.atk_mult',
 
 BOOLEAN_QUERIES = {
     'is collab': 'is_collab=true',
-    'not collab': 'is_collab=false',
+    'is not collab': 'is_collab=false',
     'is inheritable': 'is_inheritable=true',
-    'not inheritable': 'is_inheritable=false'
+    'is not inheritable': 'is_inheritable=false',
+    'is ult': 'is_ult=true',
+    'is not ult': 'is_ult=false',
 }
 
 AWAKENINGS = {
