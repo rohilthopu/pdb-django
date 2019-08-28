@@ -36,7 +36,7 @@ Django == 2.0.7
 # guerrilla/apiviews.py: 1,2
 # monsters/apiviews.py: 1,2
 # skills/apiviews.py: 1,2
-djangorestframework == 3.9.0
+djangorestframework == 3.9.1
 
 # data_manager/search.py: 1
 elasticsearch == 7.0.4
