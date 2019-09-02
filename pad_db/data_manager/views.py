@@ -15,6 +15,8 @@ def search(request, index, query):
         return JsonResponse(query_results[0].to_dict(), json_dumps_params={'indent': 4})
 
     search_results = [result.to_dict() for result in query_results]
+    for result in search_results:
+        fill_missing_values(result)
 
     return JsonResponse(search_results, safe=False, json_dumps_params={'indent': 4})
 
@@ -22,7 +24,7 @@ def search(request, index, query):
 def fill_missing_values(query_result: dict):
     for param in list_params:
         if param not in query_result:
-            setattr(query_result, param, [])
+            query_result[param] = []
 
 
 def get_monster_by_id(request, card_id):
