@@ -11,12 +11,14 @@ def search(request, index, query):
 
     if len(query_results) == 1:
         final_results = query_results[0].to_dict()
-        fill_missing_values(final_results)
+        if index == 'monsters':
+            fill_missing_values(final_results)
         return JsonResponse(query_results[0].to_dict(), json_dumps_params={'indent': 4})
 
     search_results = [result.to_dict() for result in query_results]
-    for result in search_results:
-        fill_missing_values(result)
+    if index == 'monsters':
+        for result in search_results:
+            fill_missing_values(result)
 
     return JsonResponse(search_results, safe=False, json_dumps_params={'indent': 4})
 
