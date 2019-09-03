@@ -7,7 +7,8 @@ from .models import Monster
 class MonsterList(APIView):
     def get(self, request):
         data = Monster.objects.exclude(name__contains='?').exclude(name__contains='*').exclude(
-            name__contains='Alt.').values('card_id', 'name', 'active_skill_id', 'leader_skill_id', 'server', 'collab')
+            name__contains='Alt.').values('card_id', 'name', 'active_skill_id', 'leader_skill_id', 'server',
+                                          'collab_id')
         return Response(data)
 
 

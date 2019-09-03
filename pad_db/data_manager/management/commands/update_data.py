@@ -88,49 +88,14 @@ class Command(BaseCommand):
             print('Processing monsters...')
             for monster in tqdm(monster_data):
                 new_monster = Monster()
-                new_monster.card_id = monster['card_id']
-                new_monster.name = monster['name']
-                new_monster.attribute_id = monster['attribute_id']
-                new_monster.sub_attribute_id = monster['sub_attribute_id']
-                new_monster.is_ult = monster['is_ult']
-                new_monster.type_1 = monster['type_1_id']
-                new_monster.type_2 = monster['type_2_id']
-                new_monster.rarity = monster['rarity']
-                new_monster.cost = monster['cost']
-                new_monster.max_level = monster['max_level']
-                new_monster.feed_xp_at_lvl_4 = monster['feed_xp_at_lvl_4']
-                new_monster.released_status = monster['released_status']
-                new_monster.sell_price_at_lvl_10 = monster['sell_price_at_lvl_10']
-                new_monster.min_hp = monster['min_hp']
-                new_monster.max_hp = monster['max_hp']
-                new_monster.min_atk = monster['min_atk']
-                new_monster.max_atk = monster['max_atk']
-                new_monster.min_rcv = monster['min_rcv']
-                new_monster.max_rcv = monster['max_rcv']
-                new_monster.xp_max = monster['xp_max']
-                new_monster.active_skill_id = monster['active_skill_id']
-                new_monster.leader_skill_id = monster['leader_skill_id']
-                new_monster.ancestor_id = monster['ancestor_id']
-                new_monster.evo_mat_id_1 = monster['evo_mat_1']
-                new_monster.evo_mat_id_2 = monster['evo_mat_2']
-                new_monster.evo_mat_id_3 = monster['evo_mat_3']
-                new_monster.evo_mat_id_4 = monster['evo_mat_4']
-                new_monster.evo_mat_id_5 = monster['evo_mat_5']
-                new_monster.un_evo_mat_1 = monster['un_evo_mat_1']
-                new_monster.un_evo_mat_2 = monster['un_evo_mat_2']
-                new_monster.un_evo_mat_3 = monster['un_evo_mat_3']
-                new_monster.un_evo_mat_4 = monster['un_evo_mat_4']
-                new_monster.un_evo_mat_5 = monster['un_evo_mat_5']
-                new_monster.awakenings = monster['awakenings_raw']
-                new_monster.super_awakenings = monster['super_awakenings_raw']
-                new_monster.type_3 = monster['type_3_id']
-                new_monster.sell_mp = monster['sell_mp']
-                new_monster.collab_id = monster['collab_id']
-                new_monster.inheritable = monster['is_inheritable']
-                new_monster.is_collab = monster['is_collab']
-                new_monster.limit_mult = monster['limit_mult']
-                new_monster.evolutions = json.dumps(monster['evolution_list'])
-                new_monster.server = monster['server']
+
+                for key, val in monster.items():
+
+                    if type(val) == list:
+                        setattr(new_monster, key, json.dumps(val))
+                    else:
+                        setattr(new_monster, key, val)
+
                 monsters.append(new_monster)
             print('Deleting existing Monsters')
             Monster.objects.all().delete()
