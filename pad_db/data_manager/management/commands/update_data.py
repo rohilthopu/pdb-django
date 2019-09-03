@@ -55,26 +55,8 @@ class Command(BaseCommand):
             print('Processing skills...')
             for skill in tqdm(skill_data):
                 new_skill = Skill()
-                new_skill.skill_id = skill['skill_id']
-                new_skill.name = skill['name']
-                new_skill.description = skill['description']
-                new_skill.skill_part_1_id = skill['skill_part_1_id']
-                new_skill.skill_part_2_id = skill['skill_part_2_id']
-                new_skill.skill_part_3_id = skill['skill_part_3_id']
-                new_skill.max_turns = skill['max_turns']
-                new_skill.min_turns = skill['min_turns']
-                new_skill.hp_mult = skill['hp_mult']
-                new_skill.atk_mult = skill['atk_mult']
-                new_skill.rcv_mult = skill['rcv_mult']
-
-                new_skill.hp_mult_full = skill['hp_mult_full']
-                new_skill.atk_mult_full = skill['atk_mult_full']
-                new_skill.rcv_mult_full = skill['rcv_mult_full']
-                new_skill.shield_full = skill['shield_full']
-
-                new_skill.levels = skill['levels']
-                new_skill.shield = skill['shield']
-                new_skill.server = skill['server']
+                for key, val in skill.items():
+                    setattr(new_skill, key, val)
                 skills.append(new_skill)
             print('Deleting existing Skills')
             Skill.objects.all().delete()
