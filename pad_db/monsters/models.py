@@ -53,6 +53,7 @@ class Monster(models.Model):
     sell_coin = models.IntegerField(default=0)
     enemy_skills = models.TextField(default="")
     server = models.CharField(default='', max_length=2)
+    collab = models.CharField(default='', max_length=50)
 
     related_dungeons = models.TextField(default='')
 
