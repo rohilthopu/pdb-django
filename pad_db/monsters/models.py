@@ -58,6 +58,9 @@ class Monster(models.Model):
     collab = models.CharField(default='', max_length=50)
     collab_id = models.IntegerField(default=0)
 
+    series = models.CharField(default='', max_length=50)
+    series_id = models.IntegerField(default=0)
+
     related_dungeons = models.TextField(default='')
 
     def __str__(self):
