@@ -30,7 +30,7 @@
 # skills/migrations/0003_auto_20190623_1703.py: 3
 # skills/migrations/0004_auto_20190623_1727.py: 3
 # skills/models.py: 1
-Django == 2.0.7
+Django == 2.2.13
 
 # dungeons/apiviews.py: 1,2
 # guerrilla/apiviews.py: 1,2
